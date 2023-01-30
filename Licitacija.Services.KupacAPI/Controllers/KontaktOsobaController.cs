@@ -10,6 +10,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 {
     [ApiController]
     [Route("api/kontaktOsoba")]
+    [Produces("application/json", "application/xml")]
     public class KontaktOsobaController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -23,6 +24,16 @@ namespace Licitacija.Services.KupacAPI.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Vraća sve kontaks osobe.
+        /// </summary>
+        /// <returns>Lista kontakt osoba.</returns>
+        /// <response code="200">Vraća listu kontakt osoba</response>
+        /// <response code="204">Nema podataka u bazi</response>
+        /// <response code="500">Serverska greška</response>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet]
         public async Task<IActionResult> GetKontaktOsobe()
         {
@@ -45,6 +56,17 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vraća jednu kontakt osobu na osnovu ID-ja kontakt osobe.
+        /// </summary>
+        /// <param name="id">ID kontakt osobe</param>
+        /// <returns>Jedna kontakt osoba.</returns>
+        /// <response code="200">Vraća traženu kontakt osobu</response>
+        /// <response code="404">Nije pronađena nijedna kontakt osoba sa datim ID kontakt osobe</response>
+        /// <response code="500">Serverska greška</response>
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet("{id:guid}", Name = "GetKontaktOsoba")]
         public async Task<IActionResult> GetKontaktOsoba(Guid id)
         {
@@ -67,6 +89,26 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Kreira novu kontakt osobu.
+        /// </summary>
+        /// <param name="kOsobaDTO">Model kontakt osobe</param>
+        /// <returns>Potvrda o kreiranoj kontakt osobi.</returns>
+        /// <remarks>
+        /// Primer zahteva za kreiranje nove kontakt osobe \
+        /// POST /api/kontaktOsoba \
+        /// {     \
+        ///     "kontaktOsobaIme": "ImePrimer", \
+        ///     "kontaktOsobaPrezime": "PrezimePrimer", \
+        ///     "funkcija": "FunkcijaPrimer", \
+        ///     "telefon": "111234565"
+        /// }
+        /// </remarks>
+        /// <response code="201">Vraća kreiranu kontakt osobu</response>
+        /// <response code="500">Serverska greška</response>
+        [Consumes("application/json")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
         public async Task<IActionResult> CreateKontaktOsoba([FromBody] KontaktOsobaCreateDTO kOsobaDTO)
         {
@@ -94,6 +136,18 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Ažurira jednu kontakt osobu.
+        /// </summary>
+        /// <param name="kOsobaDTO">Model kontakt osobe koja se ažurira</param>
+        /// <returns>Potvrdu o modifikovanoj kontakt osobi.</returns>
+        /// <response code="200">Kontakt osoba uspesno azurirana</response>
+        /// <response code="404">Kontakt osoba koja se ažurira nije pronađena</response>
+        /// <response code="500">Serverska greška</response>
+        [Consumes("application/json")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
         public async Task<IActionResult> UpdateKontaktOsoba([FromBody] KontaktOsobaUpdateDTO kOsobaDTO)
         {
@@ -123,6 +177,17 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vrši brisanje jedne kontakt osobe na osnovu ID-ja kontakt osobe.
+        /// </summary>
+        /// <param name="id">ID kontakt osobe</param>
+        /// <returns>Status 204 (NoContent)</returns>
+        /// <response code="204">Kontakt osoba uspešno obrisana</response>
+        /// <response code="404">Nije pronađena kontakt osoba za brisanje</response>
+        /// <response code="500">Serverska greška</response>
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteKontaktOsoba(Guid id)
         {
