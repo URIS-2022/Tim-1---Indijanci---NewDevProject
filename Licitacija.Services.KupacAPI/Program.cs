@@ -23,11 +23,11 @@ builder.Services.AddAutoMapper(typeof(MapperInitializer));
 //UnitOfWork
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-//Prioritet
-builder.Services.AddTransient<IPrioritetRepository, PrioritetRepository>();
+//PravnoLice
+builder.Services.AddTransient<IPravnoLiceRepository, PravnoLiceRepository>();
 
-//KontaktOsoba
-builder.Services.AddTransient<IKontaktOsobaRepository, KontaktOsobaRepository>();
+//Kupac
+builder.Services.AddTransient<IKupacRepository, KupacRepository>();
 
 //Controllers i ValidationContext
 builder.Services.AddControllers().AddNewtonsoftJson(options =>

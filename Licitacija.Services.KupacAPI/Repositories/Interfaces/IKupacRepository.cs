@@ -2,10 +2,10 @@
 
 namespace Licitacija.Services.KupacAPI.Repositories.Interfaces
 {
-    public interface IPrioritetRepository
+    public interface IKupacRepository
     {
-        Task<IEnumerable<Prioritet>> GetAll();
+        Task<IEnumerable<Kupac>> GetAll();
 
-        Task<Prioritet> Get(Guid id);
+        Task<Kupac> Get(Guid id);
     }
 }

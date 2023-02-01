@@ -4,6 +4,7 @@ using Licitacija.Services.KupacAPI.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Licitacija.Services.KupacAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230201102955_AddingNewTables")]
+    partial class AddingNewTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,18 +110,14 @@ namespace Licitacija.Services.KupacAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ImaZabranu")
+                    b.Property<bool?>("ImaZabranu")
                         .HasColumnType("bit");
 
                     b.Property<int>("OstvarenPovrsina")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("PrioritetId")
+                    b.Property<Guid>("PrioritetId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("TipKupca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("KupacId");
 
@@ -190,7 +189,9 @@ namespace Licitacija.Services.KupacAPI.Migrations
                 {
                     b.HasOne("Licitacija.Services.KupacAPI.Entities.Prioritet", "Prioritet")
                         .WithMany()
-                        .HasForeignKey("PrioritetId");
+                        .HasForeignKey("PrioritetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Prioritet");
                 });

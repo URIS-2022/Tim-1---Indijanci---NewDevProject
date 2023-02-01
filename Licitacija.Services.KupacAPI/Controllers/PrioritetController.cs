@@ -12,13 +12,11 @@ namespace Licitacija.Services.KupacAPI.Controllers
     public class PrioritetController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IPrioritetRepository _prioritetRepository;
         private readonly IMapper _mapper;
 
-        public PrioritetController(IUnitOfWork unitOfWork, IPrioritetRepository prioritetRepository, IMapper mapper)
+        public PrioritetController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
-            _prioritetRepository = prioritetRepository;
             _mapper = mapper;
         }
 
@@ -37,7 +35,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         {
             try
             {
-                var prioriteti = await _prioritetRepository.GetAll();
+                var prioriteti = await _unitOfWork.Prioritet.GetAll();
 
                 if (prioriteti == null) return NoContent();
 
@@ -70,7 +68,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         {
             try
             {
-                var prioritet = await _prioritetRepository.Get(id);
+                var prioritet = await _unitOfWork.Prioritet.Get(i => i.PrioritetId == id);
 
                 if (prioritet == null) return NotFound();
 
@@ -151,7 +149,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
             try
             {
-                var prioritet = await _prioritetRepository.Get(prioritetDTO.PrioritetId);
+                var prioritet = await _unitOfWork.Prioritet.Get(i => i.PrioritetId == prioritetDTO.PrioritetId); ;
 
                 if (prioritet == null) return NotFound();
 
@@ -188,7 +186,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         {
             try
             {
-                var prioritet = await _prioritetRepository.Get(id);
+                var prioritet = await _unitOfWork.Prioritet.Get(i => i.PrioritetId == id); 
 
                 if (prioritet == null) return NotFound();
 

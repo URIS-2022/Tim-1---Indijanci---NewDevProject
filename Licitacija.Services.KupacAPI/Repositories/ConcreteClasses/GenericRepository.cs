@@ -1,6 +1,8 @@
 ﻿using Licitacija.Services.KupacAPI.DbContexts;
+using Licitacija.Services.KupacAPI.Entities;
 using Licitacija.Services.KupacAPI.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Licitacija.Services.KupacAPI.Repositories.ConcreteClasses
 {
@@ -13,6 +15,16 @@ namespace Licitacija.Services.KupacAPI.Repositories.ConcreteClasses
         {
             _context = context;
             _db = _context.Set<T>();
+        }
+
+        public async Task<T> Get(Expression<Func<T, bool>> expression)
+        {
+            return await _db.AsNoTracking().FirstOrDefaultAsync(expression);
+        }
+
+        public async Task<IEnumerable<T>> GetAll()
+        {
+            return await _db.AsNoTracking().ToListAsync();
         }
 
         public async Task Delete(Guid guid)

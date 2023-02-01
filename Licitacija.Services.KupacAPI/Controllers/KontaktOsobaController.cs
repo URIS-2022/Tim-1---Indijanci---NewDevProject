@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Licitacija.Services.KupacAPI.DTOs.KontaktOsobaDTOs;
-using Licitacija.Services.KupacAPI.DTOs.PrioritetDTOs;
 using Licitacija.Services.KupacAPI.Entities;
-using Licitacija.Services.KupacAPI.Repositories.ConcreteClasses;
 using Licitacija.Services.KupacAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,13 +12,11 @@ namespace Licitacija.Services.KupacAPI.Controllers
     public class KontaktOsobaController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IKontaktOsobaRepository _kontaktOsobaRepository;
         private readonly IMapper _mapper;
 
-        public KontaktOsobaController(IUnitOfWork unitOfWork, IKontaktOsobaRepository kontaktOsobaRepository, IMapper mapper)
+        public KontaktOsobaController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
-            _kontaktOsobaRepository = kontaktOsobaRepository;
             _mapper = mapper;
         }
 
@@ -39,7 +35,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         {
             try
             {
-                var kOsobe = await _kontaktOsobaRepository.GetAll();
+                var kOsobe = await _unitOfWork.KontaktOsoba.GetAll();
 
                 if (kOsobe == null) return NoContent();
 
@@ -72,7 +68,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         {
             try
             {
-                var kOsoba = await _kontaktOsobaRepository.Get(id);
+                var kOsoba = await _unitOfWork.KontaktOsoba.Get(i => i.KontaktOsobaId == id);
 
                 if (kOsoba == null) return NotFound();
 
@@ -156,7 +152,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
             try
             {
-                var kOsoba = await _kontaktOsobaRepository.Get(kOsobaDTO.KontaktOsobaId);
+                var kOsoba = await _unitOfWork.KontaktOsoba.Get(i => i.KontaktOsobaId == kOsobaDTO.KontaktOsobaId);
 
                 if (kOsoba == null) return NotFound();
 
@@ -193,7 +189,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         {
             try
             {
-                var kOsoba = await _kontaktOsobaRepository.Get(id);
+                var kOsoba = await _unitOfWork.KontaktOsoba.Get(i => i.KontaktOsobaId == id);
 
                 if (kOsoba == null) return NotFound();
 
