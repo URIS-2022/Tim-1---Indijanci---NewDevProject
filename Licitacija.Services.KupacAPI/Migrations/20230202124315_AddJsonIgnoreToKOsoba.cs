@@ -6,41 +6,42 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Licitacija.Services.KupacAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class ChangeForeignKeyToNullable : Migration
+    public partial class AddJsonIgnoreToKOsoba : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Kupac_Prioritet_PrioritetId",
-                table: "Kupac");
+                name: "FK_PravnoLice_KontaktOsoba_KontaktOsobaId",
+                table: "PravnoLice");
 
             migrationBuilder.AlterColumn<Guid>(
-                name: "PrioritetId",
-                table: "Kupac",
+                name: "KontaktOsobaId",
+                table: "PravnoLice",
                 type: "uniqueidentifier",
                 nullable: true,
                 oldClrType: typeof(Guid),
                 oldType: "uniqueidentifier");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Kupac_Prioritet_PrioritetId",
-                table: "Kupac",
-                column: "PrioritetId",
-                principalTable: "Prioritet",
-                principalColumn: "PrioritetId");
+                name: "FK_PravnoLice_KontaktOsoba_KontaktOsobaId",
+                table: "PravnoLice",
+                column: "KontaktOsobaId",
+                principalTable: "KontaktOsoba",
+                principalColumn: "KontaktOsobaId",
+                onDelete: ReferentialAction.SetNull);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Kupac_Prioritet_PrioritetId",
-                table: "Kupac");
+                name: "FK_PravnoLice_KontaktOsoba_KontaktOsobaId",
+                table: "PravnoLice");
 
             migrationBuilder.AlterColumn<Guid>(
-                name: "PrioritetId",
-                table: "Kupac",
+                name: "KontaktOsobaId",
+                table: "PravnoLice",
                 type: "uniqueidentifier",
                 nullable: false,
                 defaultValue: new Guid("00000000-0000-0000-0000-000000000000"),
@@ -49,11 +50,11 @@ namespace Licitacija.Services.KupacAPI.Migrations
                 oldNullable: true);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Kupac_Prioritet_PrioritetId",
-                table: "Kupac",
-                column: "PrioritetId",
-                principalTable: "Prioritet",
-                principalColumn: "PrioritetId",
+                name: "FK_PravnoLice_KontaktOsoba_KontaktOsobaId",
+                table: "PravnoLice",
+                column: "KontaktOsobaId",
+                principalTable: "KontaktOsoba",
+                principalColumn: "KontaktOsobaId",
                 onDelete: ReferentialAction.Cascade);
         }
     }

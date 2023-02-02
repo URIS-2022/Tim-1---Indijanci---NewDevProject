@@ -3,36 +3,72 @@ using System.Text.RegularExpressions;
 
 namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
 {
+    /// <summary>
+    /// Model za izmenu kupca.
+    /// </summary>
     public class KupacUpdateDTO : IValidatableObject
     {
+        /// <summary>
+        /// ID kupca.
+        /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti ID kupca.")]
         public Guid KupacId { get; set; }
 
+        /// <summary>
+        /// Glavni broj telefona.
+        /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti broj telefona.")]
         [StringLength(15, ErrorMessage = "Maximum 15 karaktera prekoračeno")]
         public string BrojTel1 { get; set; }
 
+        /// <summary>
+        /// Dodatni broj telefona.
+        /// </summary>
         [StringLength(15, ErrorMessage = "Maximum 15 karaktera prekoračeno")]
         public string? BrojTel2 { get; set; }
 
+        /// <summary>
+        /// Email adresa kupca.
+        /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti email.")]
         public string Email { get; set; }
 
+        /// <summary>
+        /// broj racuna.
+        /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti broj racuna.")]
         public string BrojRacuna { get; set; }
 
+        /// <summary>
+        /// Ostvarena povrsina.
+        /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti ostvarenu povrsinu.")]
         public int OstvarenPovrsina { get; set; }
 
+        /// <summary>
+        /// Indikator da li kupac ima zabranu.
+        /// </summary>
         [Required(ErrorMessage = "Podatak o zabrani je obavezan.")]
         public bool ImaZabranu { get; set; }
 
+        /// <summary>
+        /// Ukoliko ima zabranu, datum njenog pocetja.
+        /// </summary>
         public DateTime? DatumPocetkaZabrane { get; set; }
 
+        /// <summary>
+        /// Trajanje zabrane u godinama.
+        /// </summary>
         public int? DuzinaTrajanjaZabrane { get; set; }
 
+        /// <summary>
+        /// Datum prestanka zabrane.
+        /// </summary>
         public DateTime? DatumPrestankaZabrane { get; set; }
 
+        /// <summary>
+        /// Prioritet ID (strani kljuc).
+        /// </summary>
         public Guid? PrioritetId { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

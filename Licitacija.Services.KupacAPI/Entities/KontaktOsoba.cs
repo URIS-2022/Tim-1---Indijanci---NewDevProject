@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace Licitacija.Services.KupacAPI.Entities
 {
@@ -29,6 +30,12 @@ namespace Licitacija.Services.KupacAPI.Entities
         /// Broj telefona kontakt osobe.
         /// </summary>
         public string Telefon { get; set; } = String.Empty;
+
+        /// <summary>
+        /// Lista pravnih lica date KO.
+        /// </summary>
+        [JsonIgnore]
+        public IList<PravnoLice> PravnoLice { get; set; }   
 
     }
 }

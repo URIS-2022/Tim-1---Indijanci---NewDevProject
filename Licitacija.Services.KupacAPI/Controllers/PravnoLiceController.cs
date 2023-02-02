@@ -23,6 +23,13 @@ namespace Licitacija.Services.KupacAPI.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Vraća sva pravna lica.
+        /// </summary>
+        /// <returns>Lista pravnih lica.</returns>
+        /// <response code="200">Vraća listu pravnih lica</response>
+        /// <response code="204">Nema podataka u bazi</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -48,6 +55,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vraća jedno pravno lice na osnovu ID-ja pravnog lica.
+        /// </summary>
+        /// <param name="id">ID pravnog lica</param>
+        /// <returns>Jedno pravno lice.</returns>
+        /// <response code="200">Vraća traženo pravno lice</response>
+        /// <response code="404">Nije pronađeno nijedno pravno lice sa datim ID pravnog lica</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -73,6 +88,24 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Kreira novo pravno lice.
+        /// </summary>
+        /// <param name="pLiceDTO">Model pravnog lica</param>
+        /// <returns>Potvrda o kreiranom pravnom licu.</returns>
+        /// <remarks>
+        /// Primer zahteva za kreiranje novog pravnog lica \
+        /// POST /api/kontaktOsoba \
+        /// {     \
+        ///     "kupacId":"8302A0FD-A699-4ED0-97EA-37AB4F618801" \
+        ///     "pravnoLiceNaziv": "ImePrimer", \
+        ///     "maticniBroj": "PrezimePrimer", \
+        ///     "faks": "111-222-3333", \
+        ///     "kontaktOsobaId: "9302A0FD-A699-4FD0-97EA-37AB4F618801"
+        /// }
+        /// </remarks>
+        /// <response code="201">Vraća kreirano pravno lice</response>
+        /// <response code="500">Serverska greška</response>
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -103,6 +136,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Ažurira jedno pravno lice.
+        /// </summary>
+        /// <param name="pLiceDTO">Model pravnog lica koje se ažurira</param>
+        /// <returns>Potvrdu o modifikovanom pravnom licu.</returns>
+        /// <response code="200">Pravno lice uspesno azurirano</response>
+        /// <response code="404">Pravno lice koje se ažurira nije pronađeno</response>
+        /// <response code="500">Serverska greška</response>
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -136,6 +177,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vrši brisanje jednog pravnog lica na osnovu ID-ja pravnog lica.
+        /// </summary>
+        /// <param name="id">ID pravnog lica</param>
+        /// <returns>Status 204 (NoContent)</returns>
+        /// <response code="204">Pravno lice uspešno obrisano</response>
+        /// <response code="404">Nije pronađeno pravno lice za brisanje</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

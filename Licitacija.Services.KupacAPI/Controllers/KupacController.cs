@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Licitacija.Services.KupacAPI.DTOs.KupacDTO;
-using Licitacija.Services.KupacAPI.DTOs.PravnoLiceDTOs;
 using Licitacija.Services.KupacAPI.Entities;
-using Licitacija.Services.KupacAPI.Repositories.ConcreteClasses;
 using Licitacija.Services.KupacAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +22,13 @@ namespace Licitacija.Services.KupacAPI.Controllers
             _mapper = mapper;   
         }
 
+        /// <summary>
+        /// Vraća sve kupce.
+        /// </summary>
+        /// <returns>Lista kupaca.</returns>
+        /// <response code="200">Vraća listu kupaca</response>
+        /// <response code="204">Nema podataka u bazi</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -49,6 +54,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vraća jednog kupca na osnovu ID-ja kupca.
+        /// </summary>
+        /// <param name="id">ID kupca</param>
+        /// <returns>Jedan kupac.</returns>
+        /// <response code="200">Vraća traženog kupca</response>
+        /// <response code="404">Nije pronađen nijedan kupac sa datim ID kupca</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -74,6 +87,30 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Kreira novog kupca.
+        /// </summary>
+        /// <param name="kupacDTO">Model kupca</param>
+        /// <returns>Potvrda o kreiranom kupcu.</returns>
+        /// <remarks>
+        /// Primer zahteva za kreiranje novog kupca \
+        /// POST /api/kontaktOsoba \
+        /// {     \
+        ///     "brojTel1": "063427381", \
+        ///     "brojTel2": null, \
+        ///     "email": "mailexpl@gmail.com", \
+        ///     "brojRacuna":"180-453345-67", \
+        ///     "ostvarenaPovrsina": 100, \
+        ///     "imaZabranu": false,
+        ///     "datumPocetkaZabrane": null, \
+        ///     "duzinaTrajanjaZabrane": null, \
+        ///     "datumPrestankaZabrane": null, \
+        ///     "priroitetId":"8302A0FD-A699-4ED0-97EA-37AB4F618801" \
+        ///     
+        /// }
+        /// </remarks>
+        /// <response code="201">Vraća kreiranog kupca</response>
+        /// <response code="500">Serverska greška</response>
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -104,6 +141,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Ažurira jednog kupca.
+        /// </summary>
+        /// <param name="kupacDTO">Model kupca koji se ažurira</param>
+        /// <returns>Potvrdu o modifikovanom kupcu.</returns>
+        /// <response code="200">Kupac uspesno azuriran</response>
+        /// <response code="404">Kupac koji se ažurira nije pronađen</response>
+        /// <response code="500">Serverska greška</response>
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -137,6 +182,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vrši brisanje jednog kupca na osnovu ID-ja kupca.
+        /// </summary>
+        /// <param name="id">ID kupca</param>
+        /// <returns>Status 204 (NoContent)</returns>
+        /// <response code="204">Kupac uspešno obrisano</response>
+        /// <response code="404">Nije pronađen kupac za brisanje</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

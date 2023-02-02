@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Licitacija.Services.KupacAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230201142256_AddingRequiredField")]
-    partial class AddingRequiredField
+    [Migration("20230202105530_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,9 +43,12 @@ namespace Licitacija.Services.KupacAPI.Migrations
 
                     b.Property<string>("JMBG")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("FizickoLiceId", "KupacId");
+
+                    b.HasIndex("JMBG")
+                        .IsUnique();
 
                     b.HasIndex("KupacId")
                         .IsUnique();
@@ -119,10 +122,6 @@ namespace Licitacija.Services.KupacAPI.Migrations
                     b.Property<Guid?>("PrioritetId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("TipKupca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("KupacId");
 
                     b.HasIndex("PrioritetId");
@@ -146,7 +145,7 @@ namespace Licitacija.Services.KupacAPI.Migrations
 
                     b.Property<string>("MaticniBroj")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PravnoLiceNazv")
                         .IsRequired()
@@ -157,6 +156,9 @@ namespace Licitacija.Services.KupacAPI.Migrations
                     b.HasIndex("KontaktOsobaId");
 
                     b.HasIndex("KupacId")
+                        .IsUnique();
+
+                    b.HasIndex("MaticniBroj")
                         .IsUnique();
 
                     b.ToTable("PravnoLice");

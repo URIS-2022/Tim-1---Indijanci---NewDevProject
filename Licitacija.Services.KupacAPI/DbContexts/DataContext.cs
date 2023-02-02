@@ -18,10 +18,16 @@ namespace Licitacija.Services.KupacAPI.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FizickoLice>().HasKey(x => new { x.FizickoLiceId, x.KupacId });
 
-            modelBuilder.Entity<PravnoLice>().HasKey(x => new { x.PravnoLiceId, x.KupacId });
+            modelBuilder.Entity<Kupac>().HasOne(a => a.FizickoLice).WithOne(b => b.Kupac).OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Kupac>().HasOne(a => a.PravnoLice).WithOne(b => b.Kupac).OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Kupac>().HasOne(a => a.Prioritet).WithMany(b => b.Kupac).OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<PravnoLice>().HasOne(a => a.KontaktOsoba).WithMany(b => b.PravnoLice).OnDelete(DeleteBehavior.SetNull);
+
         }
-        
+
     }
 }

@@ -6,11 +6,38 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Licitacija.Services.KupacAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class AddingNewTables : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "KontaktOsoba",
+                columns: table => new
+                {
+                    KontaktOsobaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KontaktOsobaIme = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KontaktOsobaPrezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Funkcija = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefon = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KontaktOsoba", x => x.KontaktOsobaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Prioritet",
+                columns: table => new
+                {
+                    PrioritetId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PrioritetNaziv = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Prioritet", x => x.PrioritetId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Kupac",
                 columns: table => new
@@ -21,11 +48,11 @@ namespace Licitacija.Services.KupacAPI.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BrojRacuna = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OstvarenPovrsina = table.Column<int>(type: "int", nullable: false),
-                    ImaZabranu = table.Column<bool>(type: "bit", nullable: true),
+                    ImaZabranu = table.Column<bool>(type: "bit", nullable: false),
                     DatumPocetkaZabrane = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DuzinaTrajanjaZabrane = table.Column<int>(type: "int", nullable: true),
                     DatumPrestankaZabrane = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    PrioritetId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    PrioritetId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -34,19 +61,18 @@ namespace Licitacija.Services.KupacAPI.Migrations
                         name: "FK_Kupac_Prioritet_PrioritetId",
                         column: x => x.PrioritetId,
                         principalTable: "Prioritet",
-                        principalColumn: "PrioritetId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PrioritetId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "FizickoLice",
                 columns: table => new
                 {
-                    KupacId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FizickoLiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KupacId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FizickoLiceIme = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FizickoLicePrezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    JMBG = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    JMBG = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,10 +89,10 @@ namespace Licitacija.Services.KupacAPI.Migrations
                 name: "PravnoLice",
                 columns: table => new
                 {
-                    KupacId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PravnoLiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KupacId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PravnoLiceNazv = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MaticniBroj = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaticniBroj = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Faks = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     KontaktOsobaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -86,6 +112,12 @@ namespace Licitacija.Services.KupacAPI.Migrations
                         principalColumn: "KupacId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FizickoLice_JMBG",
+                table: "FizickoLice",
+                column: "JMBG",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_FizickoLice_KupacId",
@@ -108,6 +140,18 @@ namespace Licitacija.Services.KupacAPI.Migrations
                 table: "PravnoLice",
                 column: "KupacId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PravnoLice_MaticniBroj",
+                table: "PravnoLice",
+                column: "MaticniBroj",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Prioritet_PrioritetNaziv",
+                table: "Prioritet",
+                column: "PrioritetNaziv",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -120,7 +164,13 @@ namespace Licitacija.Services.KupacAPI.Migrations
                 name: "PravnoLice");
 
             migrationBuilder.DropTable(
+                name: "KontaktOsoba");
+
+            migrationBuilder.DropTable(
                 name: "Kupac");
+
+            migrationBuilder.DropTable(
+                name: "Prioritet");
         }
     }
 }

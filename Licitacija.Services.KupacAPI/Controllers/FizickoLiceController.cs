@@ -21,6 +21,13 @@ namespace Licitacija.Services.KupacAPI.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Vraća sva fizicka lica.
+        /// </summary>
+        /// <returns>Lista fizickih lica.</returns>
+        /// <response code="200">Vraća listu fizickih lica</response>
+        /// <response code="204">Nema podataka u bazi</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -46,6 +53,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vraća jedno fizicko lice na osnovu ID-ja fizickog lica.
+        /// </summary>
+        /// <param name="id">ID fizickog lica</param>
+        /// <returns>Jedno fizicko lice.</returns>
+        /// <response code="200">Vraća traženo fizicko lice</response>
+        /// <response code="404">Nije pronađeno nijedno fizicko lice sa datim ID fizickog lica</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -71,6 +86,23 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Kreira novo fizicko lice.
+        /// </summary>
+        /// <param name="fLiceDTO">Model fizickog lica</param>
+        /// <returns>Potvrda o kreiranom fizickom licu.</returns>
+        /// <remarks>
+        /// Primer zahteva za kreiranje novog fizickog lica \
+        /// POST /api/kontaktOsoba \
+        /// {     \
+        ///     "kupacId":"8302A0FD-A699-4ED0-97EA-37AB4F618801" \
+        ///     "fizickoLiceIme": "ImePrimer", \
+        ///     "fizickoLicePrezime": "PrezimePrimer", \
+        ///     "JMBG": "1234567890123" \
+        /// }
+        /// </remarks>
+        /// <response code="201">Vraća kreirano fizicko lice</response>
+        /// <response code="500">Serverska greška</response>
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -101,6 +133,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Ažurira jedno fizicko lice.
+        /// </summary>
+        /// <param name="fLiceDTO">Model fizickog lica koje se ažurira</param>
+        /// <returns>Potvrdu o modifikovanom fizickom licu.</returns>
+        /// <response code="200">Fizicko lice uspesno azurirano</response>
+        /// <response code="404">Fizicko lice koje se ažurira nije pronađeno</response>
+        /// <response code="500">Serverska greška</response>
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -134,6 +174,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vrši brisanje jednog fizickog lica na osnovu ID-ja fizickog lica.
+        /// </summary>
+        /// <param name="id">ID fizickog lica</param>
+        /// <returns>Status 204 (NoContent)</returns>
+        /// <response code="204">Fizicko lice uspešno obrisano</response>
+        /// <response code="404">Nije pronađeno fizicko lice za brisanje</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

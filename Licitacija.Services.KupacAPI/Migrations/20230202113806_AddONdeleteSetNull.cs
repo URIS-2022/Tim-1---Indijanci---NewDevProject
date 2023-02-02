@@ -5,7 +5,7 @@
 namespace Licitacija.Services.KupacAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class RemovingKupacType2 : Migration
+    public partial class AddONdeleteSetNull : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

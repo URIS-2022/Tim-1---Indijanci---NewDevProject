@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Licitacija.Services.KupacAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230201105126_ChangeForeignKeyToNullable")]
-    partial class ChangeForeignKeyToNullable
+    [Migration("20230202145925_ChangesToGeneralizationKupac2")]
+    partial class ChangesToGeneralizationKupac2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,9 +28,7 @@ namespace Licitacija.Services.KupacAPI.Migrations
             modelBuilder.Entity("Licitacija.Services.KupacAPI.Entities.FizickoLice", b =>
                 {
                     b.Property<Guid>("FizickoLiceId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("KupacId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("FizickoLiceIme")
@@ -43,9 +41,15 @@ namespace Licitacija.Services.KupacAPI.Migrations
 
                     b.Property<string>("JMBG")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("FizickoLiceId", "KupacId");
+                    b.Property<Guid>("KupacId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("FizickoLiceId");
+
+                    b.HasIndex("JMBG")
+                        .IsUnique();
 
                     b.HasIndex("KupacId")
                         .IsUnique();
@@ -110,7 +114,7 @@ namespace Licitacija.Services.KupacAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("ImaZabranu")
+                    b.Property<bool>("ImaZabranu")
                         .HasColumnType("bit");
 
                     b.Property<int>("OstvarenPovrsina")
@@ -129,30 +133,34 @@ namespace Licitacija.Services.KupacAPI.Migrations
             modelBuilder.Entity("Licitacija.Services.KupacAPI.Entities.PravnoLice", b =>
                 {
                     b.Property<Guid>("PravnoLiceId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("KupacId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Faks")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("KontaktOsobaId")
+                    b.Property<Guid?>("KontaktOsobaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("KupacId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MaticniBroj")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PravnoLiceNazv")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PravnoLiceId", "KupacId");
+                    b.HasKey("PravnoLiceId");
 
                     b.HasIndex("KontaktOsobaId");
 
                     b.HasIndex("KupacId")
+                        .IsUnique();
+
+                    b.HasIndex("MaticniBroj")
                         .IsUnique();
 
                     b.ToTable("PravnoLice");
@@ -178,18 +186,21 @@ namespace Licitacija.Services.KupacAPI.Migrations
 
             modelBuilder.Entity("Licitacija.Services.KupacAPI.Entities.FizickoLice", b =>
                 {
-                    b.HasOne("Licitacija.Services.KupacAPI.Entities.Kupac", null)
+                    b.HasOne("Licitacija.Services.KupacAPI.Entities.Kupac", "Kupac")
                         .WithOne("FizickoLice")
                         .HasForeignKey("Licitacija.Services.KupacAPI.Entities.FizickoLice", "KupacId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Kupac");
                 });
 
             modelBuilder.Entity("Licitacija.Services.KupacAPI.Entities.Kupac", b =>
                 {
                     b.HasOne("Licitacija.Services.KupacAPI.Entities.Prioritet", "Prioritet")
-                        .WithMany()
-                        .HasForeignKey("PrioritetId");
+                        .WithMany("Kupac")
+                        .HasForeignKey("PrioritetId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Prioritet");
                 });
@@ -197,18 +208,24 @@ namespace Licitacija.Services.KupacAPI.Migrations
             modelBuilder.Entity("Licitacija.Services.KupacAPI.Entities.PravnoLice", b =>
                 {
                     b.HasOne("Licitacija.Services.KupacAPI.Entities.KontaktOsoba", "KontaktOsoba")
-                        .WithMany()
+                        .WithMany("PravnoLice")
                         .HasForeignKey("KontaktOsobaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("Licitacija.Services.KupacAPI.Entities.Kupac", null)
+                    b.HasOne("Licitacija.Services.KupacAPI.Entities.Kupac", "Kupac")
                         .WithOne("PravnoLice")
                         .HasForeignKey("Licitacija.Services.KupacAPI.Entities.PravnoLice", "KupacId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("KontaktOsoba");
+
+                    b.Navigation("Kupac");
+                });
+
+            modelBuilder.Entity("Licitacija.Services.KupacAPI.Entities.KontaktOsoba", b =>
+                {
+                    b.Navigation("PravnoLice");
                 });
 
             modelBuilder.Entity("Licitacija.Services.KupacAPI.Entities.Kupac", b =>
@@ -216,6 +233,11 @@ namespace Licitacija.Services.KupacAPI.Migrations
                     b.Navigation("FizickoLice");
 
                     b.Navigation("PravnoLice");
+                });
+
+            modelBuilder.Entity("Licitacija.Services.KupacAPI.Entities.Prioritet", b =>
+                {
+                    b.Navigation("Kupac");
                 });
 #pragma warning restore 612, 618
         }

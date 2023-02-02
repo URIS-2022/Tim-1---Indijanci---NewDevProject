@@ -16,13 +16,14 @@ namespace Licitacija.Services.KupacAPI.Repositories.ConcreteClasses
         }
         public async Task<Kupac> Get(Guid id)
         {
-                return await _context.Kupac
-                .Include(i => i.FizickoLice)
-                .Include(i => i.PravnoLice)
-                .Include(i => i.Prioritet)
-                .Where(i => i.KupacId == id)
-                .AsNoTracking()
-                .FirstOrDefaultAsync();
+            return await _context.Kupac
+            .Include(i => i.FizickoLice)
+            .Include(i => i.PravnoLice)
+            .Include(i=> i.PravnoLice.KontaktOsoba)
+            .Include(i => i.Prioritet)
+            .Where(i => i.KupacId == id)
+            .AsNoTracking()
+            .FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Kupac>> GetAll()
@@ -30,6 +31,7 @@ namespace Licitacija.Services.KupacAPI.Repositories.ConcreteClasses
             return await _context.Kupac
                .Include(i => i.FizickoLice)
                .Include(i => i.PravnoLice)
+               .Include(i => i.PravnoLice.KontaktOsoba)
                .Include(i => i.Prioritet)
                .AsNoTracking()
                .ToListAsync();

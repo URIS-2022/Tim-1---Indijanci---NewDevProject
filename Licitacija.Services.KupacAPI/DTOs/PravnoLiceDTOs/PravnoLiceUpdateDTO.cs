@@ -3,26 +3,45 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Licitacija.Services.KupacAPI.DTOs.PravnoLiceDTOs
 {
+    /// <summary>
+    /// Model za izmenu pravnog lica.
+    /// </summary>
     public class PravnoLiceUpdateDTO
     {
+        /// <summary>
+        /// ID kupca (strani kljuc).
+        /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti ID kupca.")]
-
         public Guid KupacId { get; set; }
 
+        /// <summary>
+        /// ID pravnog lica.
+        /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti ID PL.")]
         public Guid PravnoLiceId { get; set; }
 
+        /// <summary>
+        /// Naziv pravnog lica.
+        /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti naziv PL.")]
         [StringLength(35, ErrorMessage = "Maximum 35 karaktera prekoračeno")]
         public string PravnoLiceNazv { get; set; }
 
+        /// <summary>
+        /// Maticni broj pravnog lica.
+        /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti maticni broj.")]
         public string MaticniBroj { get; set; }
 
+        /// <summary>
+        /// Broj faksa.
+        /// </summary>
         public string? Faks { get; set; }
 
-        [Required(ErrorMessage = "Obavezno je uneti ID kontakt osobe.")]
-        public Guid KontaktOsobaId { get; set; }
+        /// <summary>
+        /// Kontakt osoba ID (strani kljuc).
+        /// </summary>
+        public Guid? KontaktOsobaId { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
