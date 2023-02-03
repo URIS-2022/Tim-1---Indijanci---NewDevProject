@@ -25,19 +25,19 @@ namespace Licitacija.Services.KupacAPI.Entities
         /// FL ime.
         /// </summary>
         [Required]
-        public string FizickoLiceIme { get; set; }
+        public string FizickoLiceIme { get; set; } = String.Empty;
 
         /// <summary>
         /// Fl prezime.
         /// </summary>
         [Required]
-        public string FizickoLicePrezime { get; set; }
+        public string FizickoLicePrezime { get; set; } = String.Empty;
 
         /// <summary>
         /// Jedinstveni maticni broj gradjana.
         /// </summary>
         [Required]
-        public string JMBG { get; set; }
+        public string JMBG { get; set; } = String.Empty;
 
         /// <summary>
         /// Podaci o kipcu.

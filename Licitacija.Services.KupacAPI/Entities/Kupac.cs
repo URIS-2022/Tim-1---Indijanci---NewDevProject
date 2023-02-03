@@ -16,24 +16,24 @@ namespace Licitacija.Services.KupacAPI.Entities
         /// Glavni broj telefona.
         /// </summary>
         [Required]
-        public string BrojTel1 { get; set; }
+        public string BrojTel1 { get; set; } = String.Empty;
 
         /// <summary>
         /// Dodatni broj telefona.
         /// </summary>
-        public string? BrojTel2 { get; set; }
+        public string? BrojTel2 { get; set; } = String.Empty;
 
         /// <summary>
         /// Email adresa kupca.
         /// </summary>
         [Required]
-        public string Email { get; set; }
+        public string Email { get; set; } = String.Empty;
 
         /// <summary>
         /// broj racuna.
         /// </summary>
         [Required]
-        public string BrojRacuna { get; set; }
+        public string BrojRacuna { get; set; } = String.Empty;
 
         /// <summary>
         /// Ostvarena povrsina.

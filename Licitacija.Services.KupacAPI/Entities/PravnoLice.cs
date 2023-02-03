@@ -27,18 +27,18 @@ namespace Licitacija.Services.KupacAPI.Entities
         /// Naziv pravnog lica.
         /// </summary>
         [Required]
-        public string PravnoLiceNazv { get; set; }
+        public string PravnoLiceNazv { get; set; } = String.Empty;
 
         /// <summary>
         /// Maticni broj pravnog lica.
         /// </summary>
         [Required]
-        public string MaticniBroj { get; set; }
+        public string MaticniBroj { get; set; } = String.Empty;
 
         /// <summary>
         /// Broj faksa.
         /// </summary>
-        public string? Faks { get; set; }
+        public string? Faks { get; set; } = String.Empty;
 
         /// <summary>
         /// Podaci o kontakt osobi koja je strani kljuc.
