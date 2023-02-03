@@ -8,6 +8,7 @@ namespace Licitacija.Services.KupacAPI.DbContexts
         public DataContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Prioritet> Prioritet { get; set; } = null!;
+
         public DbSet<KontaktOsoba> KontaktOsoba { get; set; } = null!;
 
         public DbSet<Kupac> Kupac { get; set; } = null!;
