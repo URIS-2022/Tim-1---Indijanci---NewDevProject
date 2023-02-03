@@ -1,5 +1,5 @@
-﻿global using Microsoft.EntityFrameworkCore;
-global using Licitacija.Services.AdresaAPI.Entities;
+﻿global using Licitacija.Services.AdresaAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Licitacija.Services.AdresaAPI.DbContexts
 {

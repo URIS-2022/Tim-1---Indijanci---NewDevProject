@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Licitacija.Services.AdresaAPI.Entities
 {
@@ -16,5 +16,6 @@ namespace Licitacija.Services.AdresaAPI.Entities
         /// Naziv države.
         /// </summary>
         public string DrzavaNaziv { get; set; } = string.Empty;
+ 
     }
 }

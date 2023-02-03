@@ -36,7 +36,8 @@ namespace Licitacija.Services.AdresaAPI.Entities
         /// </summary>
         [Required]
         [ForeignKey(nameof(Drzava))]
-        public Guid DrzavaId { get; set; }
+        public Guid? DrzavaId { get; set; }
+
         public Drzava Drzava { get; set; }
 
     }
