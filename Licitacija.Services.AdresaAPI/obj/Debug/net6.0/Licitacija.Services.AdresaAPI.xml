@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Licitacija.Services.AdresaAPI</name>
+    </assembly>
+    <members>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.AdresaController.GetAdrese">
+            <summary>
+            Vraća sve adrese.
+            </summary>
+            <returns>Lista adresa.</returns>
+            <response code="200">Vraća listu adresa</response>
+            <response code="204">Nema podataka u bazi</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.AdresaController.GetAdresa(System.Guid)">
+            <summary>
+            Vraća jednu adresu na osnovu ID-ja adrese.
+            </summary>
+            <param name="id">ID adrese</param>
+            <returns>Jedna adresa.</returns>
+            <response code="200">Vraća traženu adresu</response>
+            <response code="404">Nije pronađena nijedna adresa sa datim ID adrese</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.AdresaController.CreateAdresa(Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaCreateDTO)">
+            <summary>
+            Kreira novu adresu.
+            </summary>
+            <param name="adresaDTO">Model adrese</param>
+            <returns>Potvrda o kreiranoj adresi.</returns>
+            <remarks>
+            Primer zahteva za kreiranje nove adrese \
+            POST /api/adresa \
+            {     \
+                "ulica": "test ulica", \
+                "broj": "444", \
+                "mesto": "test mesto", \
+                "postanskiBroj": "21000", \
+                "drzavaId": "4563cf92-b8d0-4574-9b40-a725f884da36" , \
+            }
+            </remarks>
+            <response code="201">Vraća kreiranu adresu</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.AdresaController.UpdateAdresa(Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaUpdateDTO)">
+            <summary>
+            Ažurira jednu adresu.
+            </summary>
+            <param name="adresaDTO">Model adrese koja se ažurira</param>
+            <returns>Potvrdu o modifikovanoj adresi.</returns>
+            <response code="200">Vraća ažuriranu adresu</response>
+            <response code="404">Adresa koja se ažurira nije pronađena</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.AdresaController.DeleteAdresa(System.Guid)">
+            <summary>
+            Vrši brisanje jedne adrese na osnovu ID-ja adrese.
+            </summary>
+            <param name="id">ID adrese</param>
+            <returns>Status 204 (NoContent)</returns>
+            <response code="204">Adresa uspešno obrisana</response>
+            <response code="404">Nije pronađena adresa za brisanje</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.DrzavaController.GetDrzave">
+            <summary>
+            Vraća sve države.
+            </summary>
+            <returns>Lista država.</returns>
+            <response code="200">Vraća listu država</response>
+            <response code="204">Nema podataka u bazi</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.DrzavaController.GetDrzava(System.Guid)">
+            <summary>
+            Vraća jednu državu na osnovu ID-ja države.
+            </summary>
+            <param name="id">ID države</param>
+            <returns>Jedna država.</returns>
+            <response code="200">Vraća traženu državu</response>
+            <response code="404">Nije pronađena nijedna država sa datim ID države</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.DrzavaController.CreateDrzava(Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaCreateDTO)">
+            <summary>
+            Kreira novu državu.
+            </summary>
+            <param name="drzavaDTO">Model države</param>
+            <returns>Potvrda o kreiranoj državi.</returns>
+            <remarks>
+            Primer zahteva za kreiranje nove države \
+            POST /api/drzava \
+            {     \
+                "drzavaNaziv": "Nemačka" \
+            }
+            </remarks>
+            <response code="201">Vraća kreiranu državu</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.DrzavaController.UpdateDrzava(Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaUpdateDTO)">
+            <summary>
+            Ažurira jednu državu.
+            </summary>
+            <param name="drzavaDTO">Model države koja se ažurira</param>
+            <returns>Potvrdu o modifikovanoj državi.</returns>
+            <response code="200">Vraća ažuriranu državu</response>
+            <response code="404">Država koja se ažurira nije pronađena</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Controllers.DrzavaController.DeleteDrzava(System.Guid)">
+            <summary>
+            Vrši brisanje jedne države na osnovu ID-ja države.
+            </summary>
+            <param name="id">ID države</param>
+            <returns>Status 204 (NoContent)</returns>
+            <response code="204">Država uspešno obrisana</response>
+            <response code="404">Nije pronađena država za brisanje</response>
+            <response code="500">Serverska greška</response>
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaCreateDTO">
+            <summary>
+            Model za kreiranje adrese.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaCreateDTO.Ulica">
+            <summary>
+            Naziv ulice.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaCreateDTO.Broj">
+            <summary>
+            Broj kuće/stana.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaCreateDTO.Mesto">
+            <summary>
+            Naziv mesta.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaCreateDTO.PostanskiBroj">
+            <summary>
+            Poštanski broj mesta.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaCreateDTO.DrzavaId">
+            <summary>
+            ID države (strani ključ)
+            </summary>
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaDTO">
+            <summary>
+            DTO za adresu.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaDTO.AdresaId">
+            <summary>
+            ID adrese.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaDTO.Ulica">
+            <summary>
+            Naziv ulice.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaDTO.Broj">
+            <summary>
+            Broj kuće/stana.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaDTO.Mesto">
+            <summary>
+            Naziv mesta.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaDTO.PostanskiBroj">
+            <summary>
+            Poštanski broj mesta.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaDTO.Drzava">
+            <summary>
+            DTO objekat države.
+            </summary>
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaUpdateDTO">
+            <summary>
+            Model za izmenu adrese.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaUpdateDTO.AdresaId">
+            <summary>
+            ID adrese.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaUpdateDTO.Ulica">
+            <summary>
+            Naziv ulice.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaUpdateDTO.Broj">
+            <summary>
+            Broj kuće/stana.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaUpdateDTO.Mesto">
+            <summary>
+            Naziv mesta.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaUpdateDTO.PostanskiBroj">
+            <summary>
+            Poštanski broj mesta.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Adresa.AdresaUpdateDTO.DrzavaId">
+            <summary>
+            ID države (strani ključ)
+            </summary>
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaCreateDTO">
+            <summary>
+            Model za kreiranje države.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaCreateDTO.DrzavaNaziv">
+            <summary>
+            Naziv države.
+            </summary>
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaDTO">
+            <summary>
+            DTO za državu.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaDTO.DrzavaId">
+            <summary>
+            ID države.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaDTO.DrzavaNaziv">
+             <summary>
+            Naziv države.
+             </summary>
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaUpdateDTO">
+            <summary>
+            Model za izmenu države.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaUpdateDTO.DrzavaId">
+            <summary>
+            ID države.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.DTOs.Drzava.DrzavaUpdateDTO.DrzavaNaziv">
+            <summary>
+            Naziv države.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.Entities.Adresa.AdresaId">
+            <summary>
+            ID drzave.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.Entities.Adresa.Ulica">
+            <summary>
+            Naziv ulice.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.Entities.Adresa.Broj">
+            <summary>
+            Broj kuće/stana.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.Entities.Adresa.Mesto">
+            <summary>
+            Naziv mesta.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.Entities.Adresa.PostanskiBroj">
+            <summary>
+            Poštanski broj mesta.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.Entities.Adresa.DrzavaId">
+            <summary>
+            Podaci o državi koja je strani ključ u entitetu adresa.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.Entities.Drzava.DrzavaId">
+            <summary>
+            ID države.
+            </summary>
+        </member>
+        <member name="P:Licitacija.Services.AdresaAPI.Entities.Drzava.DrzavaNaziv">
+            <summary>
+            Naziv države.
+            </summary>
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.createInitial">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.createInitial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.createInitial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.createInitial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.AddDrzavaObject">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.AddDrzavaObject.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.AddDrzavaObject.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.AddDrzavaObject.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.RemovingSomeAnnotations">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.RemovingSomeAnnotations.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.RemovingSomeAnnotations.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.RemovingSomeAnnotations.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.AddingUniqueConstraintToCountryName">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.AddingUniqueConstraintToCountryName.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.AddingUniqueConstraintToCountryName.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.AddingUniqueConstraintToCountryName.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.AddVirtualDrzava">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.AddVirtualDrzava.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.AddVirtualDrzava.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.AddVirtualDrzava.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.RemoveVirtualDrzava">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.RemoveVirtualDrzava.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.RemoveVirtualDrzava.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.RemoveVirtualDrzava.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.ForeignKeyChange">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.ForeignKeyChange.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.ForeignKeyChange.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.ForeignKeyChange.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.VirtualTry2">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.VirtualTry2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.VirtualTry2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.VirtualTry2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.ListAdresaInDrzava">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.ListAdresaInDrzava.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.ListAdresaInDrzava.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.ListAdresaInDrzava.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Licitacija.Services.AdresaAPI.Migrations.RemovingListOfAddresses">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.RemovingListOfAddresses.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.RemovingListOfAddresses.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Licitacija.Services.AdresaAPI.Migrations.RemovingListOfAddresses.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
