@@ -94,7 +94,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         /// <returns>Potvrda o kreiranom kupcu.</returns>
         /// <remarks>
         /// Primer zahteva za kreiranje novog kupca \
-        /// POST /api/kontaktOsoba \
+        /// POST /api/kupac \
         /// {     \
         ///     "brojTel1": "063427381", \
         ///     "brojTel2": null, \

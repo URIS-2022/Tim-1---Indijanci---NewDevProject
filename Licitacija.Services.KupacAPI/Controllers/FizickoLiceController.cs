@@ -93,7 +93,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         /// <returns>Potvrda o kreiranom fizickom licu.</returns>
         /// <remarks>
         /// Primer zahteva za kreiranje novog fizickog lica \
-        /// POST /api/kontaktOsoba \
+        /// POST /api/fizickoLice \
         /// {     \
         ///     "kupacId":"8302A0FD-A699-4ED0-97EA-37AB4F618801" \
         ///     "fizickoLiceIme": "ImePrimer", \
