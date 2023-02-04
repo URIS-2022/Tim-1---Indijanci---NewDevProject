@@ -20,6 +20,13 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Vraća sve predradnje nadmetanja.
+        /// </summary>
+        /// <returns>Lista predradnji nadmetanja.</returns>
+        /// <response code="200">Vraća listu predradnji nadmetanja</response>
+        /// <response code="204">Nema podataka u bazi</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -45,6 +52,14 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vraća jednu predradnju nadmetanja na osnovu ID-ja predradnje nadmetanja.
+        /// </summary>
+        /// <param name="id">ID predradnje nadmetanja</param>
+        /// <returns>Jedna predradnja nadmetanja.</returns>
+        /// <response code="200">Vraća traženu predradnju nadmetanja</response>
+        /// <response code="404">Nije pronađena nijedna predradnja nadmetanja sa datim ID predradnje nadmetanja</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -70,6 +85,20 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Kreira novu predradnju nadmetanja.
+        /// </summary>
+        /// <param name="predradnjeDTO">Model predradnje nadmetanja</param>
+        /// <returns>Potvrda o kreiranoj predradnji nadmetanja.</returns>
+        /// <remarks>
+        /// Primer zahteva za kreiranje nove predradnje nadmetanja \
+        /// POST /api/predradnjeNadmetanja \
+        /// {     \
+        ///     "predradnjeNadmetanjaNaziv": "Naziv primer" \
+        /// }
+        /// </remarks>
+        /// <response code="201">Vraća kreiranu predradnju nadmetanja</response>
+        /// <response code="500">Serverska greška</response>
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -100,6 +129,14 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Ažurira jednu predradnju nadmetanja.
+        /// </summary>
+        /// <param name="predradnjeDTO">Model predradnje nadmetanja koja se ažurira</param>
+        /// <returns>Potvrdu o modifikovanoj predradnji namdetanja.</returns>
+        /// <response code="200">Vraća ažuriranu predradnju nadmetanja</response>
+        /// <response code="404">Predradnja nadmetanja koja se ažurira nije pronađena</response>
+        /// <response code="500">Serverska greška</response>
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -133,6 +170,14 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Vrši brisanje jedne predradnje nadmetanja na osnovu ID-ja predradnje nadmetanja.
+        /// </summary>
+        /// <param name="id">ID predradnje nadmetanja</param>
+        /// <returns>Status 204 (NoContent)</returns>
+        /// <response code="204">Predradnja nadmetanja uspešno obrisana</response>
+        /// <response code="404">Nije pronađena predradnja nadmetanja za brisanje</response>
+        /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
