@@ -87,6 +87,9 @@ namespace Licitacija.Services.KupacAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("AdresaId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("BrojRacuna")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

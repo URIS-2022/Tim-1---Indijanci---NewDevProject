@@ -79,5 +79,10 @@ namespace Licitacija.Services.KupacAPI.Entities
         /// Podaci o PL.
         /// </summary>
         public PravnoLice? PravnoLice { get; set; }
+
+        /// <summary>
+        /// Strani kljuc adrese (mikroservis adresa).
+        /// </summary>
+        public Guid? AdresaId { get; set; }
     }
 }

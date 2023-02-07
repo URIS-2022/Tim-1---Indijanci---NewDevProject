@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Licitacija.Services.KupacAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230202145925_ChangesToGeneralizationKupac2")]
-    partial class ChangesToGeneralizationKupac2
+    [Migration("20230207114517_RemovingRequired")]
+    partial class RemovingRequired
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -88,6 +88,9 @@ namespace Licitacija.Services.KupacAPI.Migrations
                 {
                     b.Property<Guid>("KupacId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AdresaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("BrojRacuna")

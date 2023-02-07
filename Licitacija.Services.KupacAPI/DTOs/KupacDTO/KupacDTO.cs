@@ -1,6 +1,11 @@
 ﻿using Licitacija.Services.KupacAPI.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+using Licitacija.Services.KupacAPI.DTOs.ExchangeDTOs;
+using Licitacija.Services.KupacAPI.DTOs.PrioritetDTOs;
+using Licitacija.Services.KupacAPI.DTOs.FizickoLiceDTOs;
+using Licitacija.Services.KupacAPI.DTOs.PravnoLiceDTOs;
 
 namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
 {
@@ -62,16 +67,27 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
         /// <summary>
         /// Podaci o prioritetu.
         /// </summary>
-        public Prioritet? Prioritet { get; set; }
+        public PrioritetDTO? Prioritet { get; set; }
 
         /// <summary>
         /// Podaci o fizickom licu.
         /// </summary>
-        public FizickoLice? FizickoLice { get; set; }
+        public FizickoLiceDTO? FizickoLice { get; set; }
 
         /// <summary>
         /// Podaci o pravnom licu.
         /// </summary>
-        public PravnoLice? PravnoLice { get; set; }
+        public PravnoLiceDTO? PravnoLice { get; set; }
+
+        /// <summary>
+        /// Adresa ID.
+        /// </summary>
+        [JsonIgnore]
+        public Guid? AdresaId { get; set; }
+
+        /// <summary>
+        /// Podaci o adresi iz ms Adresa.
+        /// </summary>
+        public AdresaDTO? Adresa { get; set; }
     }
 }

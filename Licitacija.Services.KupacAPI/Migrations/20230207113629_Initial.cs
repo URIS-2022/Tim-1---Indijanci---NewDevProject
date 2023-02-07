@@ -61,7 +61,8 @@ namespace Licitacija.Services.KupacAPI.Migrations
                         name: "FK_Kupac_Prioritet_PrioritetId",
                         column: x => x.PrioritetId,
                         principalTable: "Prioritet",
-                        principalColumn: "PrioritetId");
+                        principalColumn: "PrioritetId",
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -76,7 +77,7 @@ namespace Licitacija.Services.KupacAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FizickoLice", x => new { x.FizickoLiceId, x.KupacId });
+                    table.PrimaryKey("PK_FizickoLice", x => x.FizickoLiceId);
                     table.ForeignKey(
                         name: "FK_FizickoLice_Kupac_KupacId",
                         column: x => x.KupacId,
@@ -94,17 +95,17 @@ namespace Licitacija.Services.KupacAPI.Migrations
                     PravnoLiceNazv = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MaticniBroj = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Faks = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    KontaktOsobaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    KontaktOsobaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PravnoLice", x => new { x.PravnoLiceId, x.KupacId });
+                    table.PrimaryKey("PK_PravnoLice", x => x.PravnoLiceId);
                     table.ForeignKey(
                         name: "FK_PravnoLice_KontaktOsoba_KontaktOsobaId",
                         column: x => x.KontaktOsobaId,
                         principalTable: "KontaktOsoba",
                         principalColumn: "KontaktOsobaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_PravnoLice_Kupac_KupacId",
                         column: x => x.KupacId,

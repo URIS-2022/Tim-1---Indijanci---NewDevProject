@@ -1,4 +1,5 @@
-﻿using Licitacija.Services.KupacAPI.Entities;
+﻿using Licitacija.Services.KupacAPI.DTOs.KontaktOsobaDTOs;
+using Licitacija.Services.KupacAPI.Entities;
 
 
 namespace Licitacija.Services.KupacAPI.DTOs.PravnoLiceDTOs
@@ -36,6 +37,6 @@ namespace Licitacija.Services.KupacAPI.DTOs.PravnoLiceDTOs
         /// <summary>
         /// Podaci o kontakt osobi.
         /// </summary>
-        public KontaktOsoba? KontaktOsoba { get; set; }
+        public KontaktOsobaDTO? KontaktOsoba { get; set; }
     }
 }

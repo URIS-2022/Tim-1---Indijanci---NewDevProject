@@ -67,6 +67,11 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
         /// </summary>
         public Guid? PrioritetId { get; set; }
 
+        /// <summary>
+        /// ID adrese (iz ms Adresa).
+        /// </summary>
+        public Guid? AdresaId { get; set; }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if(!Regex.IsMatch(Email, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +

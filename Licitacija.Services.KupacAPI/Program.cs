@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Licitacija.Services.KupacAPI.ServiceCalls;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,10 +25,13 @@ builder.Services.AddAutoMapper(typeof(MapperInitializer));
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 //PravnoLice
-builder.Services.AddTransient<IPravnoLiceRepository, PravnoLiceRepository>();
+builder.Services.AddScoped<IPravnoLiceRepository, PravnoLiceRepository>();
 
 //Kupac
-builder.Services.AddTransient<IKupacRepository, KupacRepository>();
+builder.Services.AddScoped<IKupacRepository, KupacRepository>();
+
+//AdresaService
+builder.Services.AddScoped<IAdresaService, AdresaService>();
 
 //Controllers i ValidationContext
 builder.Services.AddControllers().AddNewtonsoftJson(options =>

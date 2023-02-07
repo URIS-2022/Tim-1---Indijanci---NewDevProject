@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Licitacija.Services.KupacAPI.DTOs.ExchangeDTOs;
 using Licitacija.Services.KupacAPI.DTOs.KupacDTO;
 using Licitacija.Services.KupacAPI.Entities;
 using Licitacija.Services.KupacAPI.Repositories.Interfaces;
+using Licitacija.Services.KupacAPI.ServiceCalls;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Licitacija.Services.KupacAPI.Controllers
@@ -13,12 +15,14 @@ namespace Licitacija.Services.KupacAPI.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IKupacRepository _kupacRepository;
+        private readonly IAdresaService _adresaService;
         private readonly IMapper _mapper;
 
-        public KupacController(IUnitOfWork unitOfWork, IKupacRepository kupacRepository, IMapper mapper)
+        public KupacController(IUnitOfWork unitOfWork, IKupacRepository kupacRepository, IMapper mapper, IAdresaService adresaService)
         {
             _unitOfWork = unitOfWork;
             _kupacRepository = kupacRepository;
+            _adresaService = adresaService; 
             _mapper = mapper;   
         }
 
@@ -42,6 +46,12 @@ namespace Licitacija.Services.KupacAPI.Controllers
                 if (kupci == null) return NoContent();
 
                 var results = _mapper.Map<List<KupacDTO>>(kupci);
+
+                foreach (var result in results)
+                {
+                    AdresaDTO adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
+                    result.Adresa = adresa;
+                }
 
                 return Ok(results);
             }
@@ -75,6 +85,10 @@ namespace Licitacija.Services.KupacAPI.Controllers
                 if (kupac == null) return NotFound();
 
                 var result = _mapper.Map<KupacDTO>(kupac);
+
+                AdresaDTO adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
+
+                result.Adresa = adresa;
 
                 return Ok(result);
             }
