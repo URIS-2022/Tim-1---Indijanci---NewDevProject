@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Licitacija.Services.AdresaAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230128145127_RemovingListOfAddresses")]
-    partial class RemovingListOfAddresses
+    [Migration("20230207102304_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace Licitacija.Services.AdresaAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("DrzavaId")
+                    b.Property<Guid?>("DrzavaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Mesto")
@@ -78,12 +78,16 @@ namespace Licitacija.Services.AdresaAPI.Migrations
             modelBuilder.Entity("Licitacija.Services.AdresaAPI.Entities.Adresa", b =>
                 {
                     b.HasOne("Licitacija.Services.AdresaAPI.Entities.Drzava", "Drzava")
-                        .WithMany()
+                        .WithMany("Adresa")
                         .HasForeignKey("DrzavaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Drzava");
+                });
+
+            modelBuilder.Entity("Licitacija.Services.AdresaAPI.Entities.Drzava", b =>
+                {
+                    b.Navigation("Adresa");
                 });
 #pragma warning restore 612, 618
         }
