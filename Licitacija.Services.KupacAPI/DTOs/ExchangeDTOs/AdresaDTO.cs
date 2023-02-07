@@ -1,14 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace Licitacija.Services.AdresaAPI.Entities
+﻿namespace Licitacija.Services.KupacAPI.DTOs.ExchangeDTOs
 {
-    public class Adresa
+    /// <summary>
+    /// DTO za adresu.
+    /// </summary>
+    public class AdresaDTO
     {
         /// <summary>
-        /// ID drzave.
+        /// ID adrese.
         /// </summary>
-        [Key]
         public Guid AdresaId { get; set; }
 
         /// <summary>
@@ -30,14 +29,5 @@ namespace Licitacija.Services.AdresaAPI.Entities
         /// Poštanski broj mesta.
         /// </summary>
         public string PostanskiBroj { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Podaci o državi koja je strani ključ u entitetu adresa.
-        /// </summary>
-        [ForeignKey(nameof(Drzava))]
-        public Guid? DrzavaId { get; set; }
-
-        public Drzava? Drzava { get; set; }
-
     }
 }

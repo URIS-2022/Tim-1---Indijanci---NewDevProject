@@ -46,8 +46,7 @@ namespace Licitacija.Services.AdresaAPI.DTOs.Adresa
         /// <summary>
         /// ID države (strani ključ)
         /// </summary>
-        [Required]
-        public Guid DrzavaId { get; set; }
+        public Guid? DrzavaId { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

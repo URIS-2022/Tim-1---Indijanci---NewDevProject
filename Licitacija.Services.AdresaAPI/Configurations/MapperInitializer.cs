@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Licitacija.Services.AdresaAPI.DTOs.Adresa;
 using Licitacija.Services.AdresaAPI.DTOs.Drzava;
+using Licitacija.Services.AdresaAPI.DTOs.ExchangeDTOs;
 
 namespace Licitacija.Services.AdresaAPI.Configurations
 {
@@ -15,6 +16,8 @@ namespace Licitacija.Services.AdresaAPI.Configurations
             CreateMap<Adresa, AdresaDTO>().ReverseMap();
             CreateMap<Adresa, AdresaCreateDTO>().ReverseMap();
             CreateMap<Adresa, AdresaUpdateDTO>().ReverseMap();
+
+            CreateMap<Adresa, AdresaExchangeDTO>().ReverseMap();
         }
     }
 }

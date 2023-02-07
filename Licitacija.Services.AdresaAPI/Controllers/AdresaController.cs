@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Licitacija.Services.AdresaAPI.DTOs.Adresa;
+using Licitacija.Services.AdresaAPI.DTOs.ExchangeDTOs;
 using Licitacija.Services.AdresaAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -207,6 +208,39 @@ namespace Licitacija.Services.AdresaAPI.Controllers
                 Console.WriteLine(ex.Message);
 
                 return StatusCode(500, "Delete error.");
+            }
+        }
+
+        /// <summary>
+        /// Vraća jednu adresu bez podataka o drzavi na osnovu ID-ja adrese.
+        /// </summary>
+        /// <param name="adresaId">ID adrese</param>
+        /// <returns>Jedna adresa.</returns>
+        /// <response code="200">Vraća traženu adresu</response>
+        /// <response code="404">Nije pronađena nijedna adresa sa datim ID adrese</response>
+        /// <response code="500">Serverska greška</response>
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("adresaBezDrzave/{adresaId:guid}")]
+        public async Task<IActionResult> GetAdresaWithoutDrzava(Guid adresaId)
+        {
+            try
+            {
+                var adresa = await _adresaRepository.GetAdresaWithoutDrzava(adresaId);
+
+                if (adresa == null) return NotFound();
+
+                var result = _mapper.Map<AdresaExchangeDTO>(adresa);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+
+                return StatusCode(500, "Internal server error.");
             }
         }
     }

@@ -23,6 +23,11 @@ namespace Licitacija.Services.AdresaAPI.Repositories.ConcreteClasses
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<Adresa> GetAdresaWithoutDrzava(Guid adresaId)
+        {
+            return await _context.Adresa.Where(i => i.AdresaId == adresaId).AsNoTracking().FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<Adresa>> GetAll()
         {
             return await _context.Adresa.Include(i => i.Drzava).AsNoTracking().ToListAsync();
