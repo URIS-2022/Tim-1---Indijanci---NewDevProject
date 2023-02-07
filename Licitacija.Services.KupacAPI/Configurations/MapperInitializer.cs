@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Licitacija.Services.KupacAPI.DTOs.ExchangeDTOs;
 using Licitacija.Services.KupacAPI.DTOs.FizickoLiceDTOs;
 using Licitacija.Services.KupacAPI.DTOs.KontaktOsobaDTOs;
 using Licitacija.Services.KupacAPI.DTOs.KupacDTO;
@@ -26,6 +27,8 @@ namespace Licitacija.Services.KupacAPI.Configurations
             CreateMap<Kupac, KupacDTO>().ReverseMap();
             CreateMap<Kupac, KupacCreateDTO>().ReverseMap();
             CreateMap<Kupac, KupacUpdateDTO>().ReverseMap();
+
+            CreateMap<Kupac, KupacBasicInfoDTO>().ReverseMap();
 
             //Mapiranje za PL
             CreateMap<PravnoLice, PravnoLiceDTO>().ReverseMap();

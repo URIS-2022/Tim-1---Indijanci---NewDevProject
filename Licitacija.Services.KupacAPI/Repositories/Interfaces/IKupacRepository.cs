@@ -7,5 +7,7 @@ namespace Licitacija.Services.KupacAPI.Repositories.Interfaces
         Task<IEnumerable<Kupac>> GetAll();
 
         Task<Kupac> Get(Guid id);
+
+        Task<Kupac> GetKupacBasicInfo(Guid kupacId);
     }
 }

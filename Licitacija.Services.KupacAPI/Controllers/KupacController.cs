@@ -230,5 +230,38 @@ namespace Licitacija.Services.KupacAPI.Controllers
                 return StatusCode(500, "Delete error.");
             }
         }
+
+        /// <summary>
+        /// Vraća jednog kupca na osnovu ID-ja kupca (samo osnovne informacije o kupcu).
+        /// </summary>
+        /// <param name="kupacId">ID kupca</param>
+        /// <returns>Jedan kupac.</returns>
+        /// <response code="200">Vraća traženog kupca</response>
+        /// <response code="404">Nije pronađen nijedan kupac sa datim ID kupca</response>
+        /// <response code="500">Serverska greška</response>
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("kupacBasicInfo/{kupacId:guid}")]
+        public async Task<IActionResult> GetKupacBasicInfo(Guid kupacId)
+        {
+            try
+            {
+                var kupac = await _kupacRepository.GetKupacBasicInfo(kupacId);
+
+                if (kupac == null) return NotFound();
+
+                var result = _mapper.Map<KupacBasicInfoDTO>(kupac);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+
+                return StatusCode(500, "Internal server error.");
+            }
+        }
     }
 }

@@ -36,5 +36,10 @@ namespace Licitacija.Services.KupacAPI.Repositories.ConcreteClasses
                .AsNoTracking()
                .ToListAsync();
         }
+
+        public async Task<Kupac> GetKupacBasicInfo(Guid kupacId)
+        {
+            return await _context.Kupac.Where(i => i.KupacId == kupacId).AsNoTracking().FirstOrDefaultAsync();
+        }
     }
 }
