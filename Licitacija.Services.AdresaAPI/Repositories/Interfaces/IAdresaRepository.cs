@@ -8,5 +8,7 @@ namespace Licitacija.Services.AdresaAPI.Repositories.Interfaces
         Task<IEnumerable<Adresa>> GetAll();
 
         Task<Adresa> Get(Guid id);
+
+        Task<Adresa> GetAdresaWithoutDrzava(Guid adresaId);
     }
 }
