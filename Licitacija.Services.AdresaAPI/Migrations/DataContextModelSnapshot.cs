@@ -32,7 +32,7 @@ namespace Licitacija.Services.AdresaAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("DrzavaId")
+                    b.Property<Guid?>("DrzavaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Mesto")
@@ -75,12 +75,16 @@ namespace Licitacija.Services.AdresaAPI.Migrations
             modelBuilder.Entity("Licitacija.Services.AdresaAPI.Entities.Adresa", b =>
                 {
                     b.HasOne("Licitacija.Services.AdresaAPI.Entities.Drzava", "Drzava")
-                        .WithMany()
+                        .WithMany("Adresa")
                         .HasForeignKey("DrzavaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Drzava");
+                });
+
+            modelBuilder.Entity("Licitacija.Services.AdresaAPI.Entities.Drzava", b =>
+                {
+                    b.Navigation("Adresa");
                 });
 #pragma warning restore 612, 618
         }
