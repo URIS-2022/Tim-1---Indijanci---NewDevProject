@@ -34,10 +34,10 @@ namespace Licitacija.Services.AdresaAPI.Entities
         /// <summary>
         /// Podaci o državi koja je strani ključ u entitetu adresa.
         /// </summary>
-        [Required]
         [ForeignKey(nameof(Drzava))]
-        public Guid DrzavaId { get; set; }
-        public Drzava Drzava { get; set; }
+        public Guid? DrzavaId { get; set; }
+
+        public Drzava? Drzava { get; set; }
 
     }
 }

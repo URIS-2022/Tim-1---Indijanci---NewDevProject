@@ -1,7 +1,6 @@
 ﻿using Licitacija.Services.AdresaAPI.DbContexts;
 using Licitacija.Services.AdresaAPI.Repositories.Interfaces;
-using Microsoft.EntityFrameworkCore.Query;
-using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Licitacija.Services.AdresaAPI.Repositories.ConcreteClasses
 {

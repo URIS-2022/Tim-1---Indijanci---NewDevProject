@@ -1,5 +1,6 @@
 ﻿using Licitacija.Services.AdresaAPI.DbContexts;
 using Licitacija.Services.AdresaAPI.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Licitacija.Services.AdresaAPI.Repositories.ConcreteClasses
 {
@@ -20,6 +21,11 @@ namespace Licitacija.Services.AdresaAPI.Repositories.ConcreteClasses
                 .Where(i => i.AdresaId == id)
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
+        }
+
+        public async Task<Adresa> GetAdresaWithoutDrzava(Guid adresaId)
+        {
+            return await _context.Adresa.Where(i => i.AdresaId == adresaId).AsNoTracking().FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Adresa>> GetAll()
