@@ -16,6 +16,11 @@
         public string BrojTel1 { get; set; }
 
         /// <summary>
+        /// Dodatni broj telefona.
+        /// </summary>
+        public string? BrojTel2 { get; set; }
+
+        /// <summary>
         /// Email adresa kupca.
         /// </summary>
         public string Email { get; set; }
@@ -29,5 +34,25 @@
         /// Ostvarena povrsina.
         /// </summary>
         public int OstvarenPovrsina { get; set; }
+
+        /// <summary>
+        /// Indikator da li kupac ima zabranu.
+        /// </summary>
+        public bool? ImaZabranu { get; set; }
+
+        /// <summary>
+        /// Ukoliko ima zabranu, datum njenog pocetja.
+        /// </summary>
+        public DateTime? DatumPocetkaZabrane { get; set; }
+
+        /// <summary>
+        /// Trajanje zabrane u godinama.
+        /// </summary>
+        public int? DuzinaTrajanjaZabrane { get; set; }
+
+        /// <summary>
+        /// Datum prestanka zabrane.
+        /// </summary>
+        public DateTime? DatumPrestankaZabrane { get; set; }
     }
 }
