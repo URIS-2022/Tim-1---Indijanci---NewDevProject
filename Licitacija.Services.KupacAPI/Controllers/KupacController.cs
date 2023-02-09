@@ -255,7 +255,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 Console.WriteLine(ex.Message);
 
-                return StatusCode(500, "Internal server error.");
+                return StatusCode(500, ex.Message);
             }
         }
 
