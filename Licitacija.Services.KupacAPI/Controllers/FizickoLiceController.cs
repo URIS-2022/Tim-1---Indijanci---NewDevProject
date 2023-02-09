@@ -109,9 +109,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateFizickoLice([FromBody] FizickoLiceCreateDTO fLiceDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var fLice = _mapper.Map<FizickoLice>(fLiceDTO);
@@ -148,8 +145,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateFizickoLice([FromBody] FizickoLiceUpdateDTO fLiceDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             try
             {
