@@ -29,6 +29,7 @@ namespace Licitacija.Services.KupacAPI.Configurations
             CreateMap<Kupac, KupacUpdateDTO>().ReverseMap();
 
             CreateMap<Kupac, KupacBasicInfoDTO>().ReverseMap();
+            CreateMap<Kupac, KupacWithTipDTO>().ReverseMap();
 
             //Mapiranje za PL
             CreateMap<PravnoLice, PravnoLiceDTO>().ReverseMap();
