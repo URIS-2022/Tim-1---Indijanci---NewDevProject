@@ -108,9 +108,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateKontaktOsoba([FromBody] KontaktOsobaCreateDTO kOsobaDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var kOsoba = _mapper.Map<KontaktOsoba>(kOsobaDTO);
@@ -147,8 +144,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateKontaktOsoba([FromBody] KontaktOsobaUpdateDTO kOsobaDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             try
             {

@@ -112,9 +112,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePravnoLice([FromBody] PravnoLiceCreateDTO pLiceDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var pLice = _mapper.Map<PravnoLice>(pLiceDTO);
@@ -151,9 +148,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdatePravnoLice([FromBody] PravnoLiceUpdateDTO pLiceDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var pLice = await _unitOfWork.PravnoLice.Get(i => i.PravnoLiceId == pLiceDTO.PravnoLiceId);
