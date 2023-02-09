@@ -63,6 +63,11 @@ namespace Licitacija.Services.KupacAPI.Entities
         public DateTime? DatumPrestankaZabrane { get; set; }
 
         /// <summary>
+        /// Tip kupca (pravno ili fizicko lice).
+        /// </summary>
+        public string? TipKupca { get; set; }
+
+        /// <summary>
         /// Podaci o prioritetu koji je strani kljuc u kupcu.
         /// </summary>
         [ForeignKey(nameof(Prioritet))]

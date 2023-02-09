@@ -132,8 +132,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         public async Task<IActionResult> CreateKupac([FromBody] KupacCreateDTO kupacDTO)
         {
 
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var kupac = _mapper.Map<Kupac>(kupacDTO);
@@ -170,9 +168,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateKupac([FromBody] KupacUpdateDTO kupacDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var kupac = await _unitOfWork.Kupac.Get(i => i.KupacId == kupacDTO.KupacId);
@@ -242,7 +237,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpGet("kupacBasicInfo/{kupacId:guid}")]
+        [HttpGet("kupacOsnovneInfo/{kupacId:guid}")]
         public async Task<IActionResult> GetKupacBasicInfo(Guid kupacId)
         {
             try
@@ -261,6 +256,39 @@ namespace Licitacija.Services.KupacAPI.Controllers
                 Console.WriteLine(ex.Message);
 
                 return StatusCode(500, ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Vraća jednog kupca na osnovu ID-ja kupca (sa tipom kupca).
+        /// </summary>
+        /// <param name="kupacId">ID kupca</param>
+        /// <returns>Jedan kupac.</returns>
+        /// <response code="200">Vraća traženog kupca</response>
+        /// <response code="404">Nije pronađen nijedan kupac sa datim ID kupca</response>
+        /// <response code="500">Serverska greška</response>
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("kupacSaTipom/{kupacId:guid}")]
+        public async Task<IActionResult> GetKupacWithTip(Guid kupacId)
+        {
+            try
+            {
+                var kupac = await _kupacRepository.GetKupacWithTip(kupacId);
+
+                if (kupac == null) return NotFound();
+
+                var result = _mapper.Map<KupacWithTipDTO>(kupac);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+
+                return StatusCode(500, "Internal server error.");
             }
         }
     }
