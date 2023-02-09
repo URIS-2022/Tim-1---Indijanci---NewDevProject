@@ -105,9 +105,6 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePredradnjaNadmetanja([FromBody] PredradnjeNadmetanjaCreateDTO predradnjeDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var predradnja = _mapper.Map<PredradnjeNadmetanja>(predradnjeDTO);
@@ -144,9 +141,6 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdatePredradnjaNadmetanja([FromBody] PredradnjeNadmetanjaUpdateDTO predradnjeDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var predradnja = await _predradnjeNadmetanja.Get(i => i.PredradnjeNadmetanjaId == predradnjeDTO.PredradnjeNadmetanjaId);
@@ -202,6 +196,39 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
                 Console.WriteLine(ex.Message);
 
                 return StatusCode(500, "Delete error.");
+            }
+        }
+
+        /// <summary>
+        /// Vraća jednu predradnju nadmetanja sa osnovnim info na osnovu ID-ja predradnje nadmetanja.
+        /// </summary>
+        /// <param name="id">ID predradnje nadmetanja</param>
+        /// <returns>Jedna predradnja nadmetanja sa osnovnim info.</returns>
+        /// <response code="200">Vraća traženu predradnju nadmetanja sa osnovnim info</response>
+        /// <response code="404">Nije pronađena nijedna predradnja nadmetanja sa datim ID predradnje nadmetanja</response>
+        /// <response code="500">Serverska greška</response>
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("predradnjaBasicInfo/{id:guid}")]
+        public async Task<IActionResult> GetPredradnjaBasicInfo(Guid id)
+        {
+            try
+            {
+                var predradnja = await _predradnjeNadmetanja.GetPredradnjeBasicInfo(id);
+
+                if (predradnja == null) return NotFound();
+
+                var result = _mapper.Map<PredradnjeBasicInfoDTO>(predradnja);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+
+                return StatusCode(500, "Internal server error.");
             }
         }
 

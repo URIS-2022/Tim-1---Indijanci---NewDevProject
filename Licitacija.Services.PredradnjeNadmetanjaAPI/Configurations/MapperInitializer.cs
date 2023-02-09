@@ -11,6 +11,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Configurations
             CreateMap<PredradnjeNadmetanja, PredradnjeNadmetanjaDTO>().ReverseMap();
             CreateMap<PredradnjeNadmetanja, PredradnjeNadmetanjaCreateDTO>().ReverseMap();
             CreateMap<PredradnjeNadmetanja, PredradnjeNadmetanjaUpdateDTO>().ReverseMap();
+            CreateMap<PredradnjeNadmetanja, PredradnjeBasicInfoDTO>().ReverseMap();
         }
     }
 }

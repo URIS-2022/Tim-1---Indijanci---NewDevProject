@@ -31,6 +31,11 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.ConcreteClass
             return await _context.PredradnjeNadmetanja.AsNoTracking().ToListAsync();
         }
 
+        public async Task<PredradnjeNadmetanja> GetPredradnjeBasicInfo(Guid id)
+        {
+            return await _context.PredradnjeNadmetanja.Where(i => i.PredradnjeNadmetanjaId == id).AsNoTracking().FirstOrDefaultAsync();
+        }
+
         public async Task Insert(PredradnjeNadmetanja entity)
         {
             await _context.PredradnjeNadmetanja.AddAsync(entity);

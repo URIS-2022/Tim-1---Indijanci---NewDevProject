@@ -9,6 +9,8 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.Interfaces
 
         Task<PredradnjeNadmetanja> Get(Expression<Func<PredradnjeNadmetanja, bool>> expression);
 
+        Task<PredradnjeNadmetanja> GetPredradnjeBasicInfo(Guid id);
+
         Task Insert(PredradnjeNadmetanja entity);
 
         Task Delete(Guid guid);
