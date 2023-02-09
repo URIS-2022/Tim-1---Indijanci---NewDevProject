@@ -112,8 +112,6 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         public async Task<IActionResult> CreateAdresa([FromBody] AdresaCreateDTO adresaDTO)
         {
 
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var adresa = _mapper.Map<Adresa>(adresaDTO);
@@ -150,8 +148,6 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateAdresa([FromBody] AdresaUpdateDTO adresaDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             try
             {
