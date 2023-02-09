@@ -210,7 +210,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpGet("predradnjaBasicInfo/{id:guid}")]
+        [HttpGet("predradnjaOsnovneInfo/{id:guid}")]
         public async Task<IActionResult> GetPredradnjaBasicInfo(Guid id)
         {
             try
