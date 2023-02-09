@@ -59,6 +59,9 @@ namespace Licitacija.Services.UplataAPI.Migrations
                     b.Property<decimal>("Iznos")
                         .HasColumnType("decimal(18,4)");
 
+                    b.Property<Guid>("KupacId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("KursId")
                         .HasColumnType("uniqueidentifier");
 

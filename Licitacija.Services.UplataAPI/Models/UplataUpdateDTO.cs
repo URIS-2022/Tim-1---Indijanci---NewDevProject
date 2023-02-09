@@ -47,6 +47,12 @@ namespace Licitacija.Services.UplataAPI.Models
         public DateTime DatumUplate { get; set; }
 
         /// <summary>
+        /// ID kupca.
+        /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti id kupca.")]
+        public Guid KupacId { get; set; }
+
+        /// <summary>
         /// ID kursa.
         /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti id kursa.")]

@@ -1,4 +1,5 @@
 ﻿using Licitacija.Services.UplataAPI.Entities;
+using Newtonsoft.Json;
 
 namespace Licitacija.Services.UplataAPI.Models
 {
@@ -35,8 +36,20 @@ namespace Licitacija.Services.UplataAPI.Models
         public DateTime DatumUplate { get; set; }
 
         /// <summary>
+        /// ID kupca.
+        /// </summary>
+        [JsonIgnore]
+        public Guid KupacId { get; set; }
+
+        /// <summary>
+        /// Objekat kupca.
+        /// </summary>
+        public KupacDTO Kupac { get; set; }
+
+        /// <summary>
         /// Kurs.
         /// </summary>
-        public KursDTO Kurs{ get; set; }
+        public KursDTO? Kurs{ get; set; }
+
     }
 }

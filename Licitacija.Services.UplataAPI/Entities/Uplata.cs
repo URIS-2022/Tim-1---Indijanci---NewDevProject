@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Licitacija.Services.UplataAPI.Models;
 
 namespace Licitacija.Services.UplataAPI.Entities
 {
@@ -36,7 +37,20 @@ namespace Licitacija.Services.UplataAPI.Entities
         /// Datum uplate.
         /// </summary>
         public DateTime DatumUplate { get; set; }
+
+        /// <summary>
+        /// ID kursa.
+        /// </summary>
         public Guid KursId { get; set; }
-        public Kurs Kurs { get; set; }
+
+        /// <summary>
+        /// Objekat kursa.
+        /// </summary>
+        public Kurs? Kurs { get; set; }
+
+        /// <summary>
+        /// Strani ključ kupca.
+        /// </summary>
+        public Guid KupacId { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json", "application/xml")]
     public class KursController : ControllerBase
     {
         private readonly IKursRepository _kursRepository;
@@ -106,7 +107,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
                 Kurs kurs = _mapper.Map<Kurs>(kursDTO);
                 _kursRepository.InsertKurs(kurs);
                 _kursRepository.Save();
-                return Created("NewKurs", _mapper.Map<KursDTO>(kurs));
+                return Created("GetKurs", _mapper.Map<KursDTO>(kurs));
             }
             catch (Exception e)
             {

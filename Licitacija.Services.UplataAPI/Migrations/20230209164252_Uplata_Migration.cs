@@ -35,7 +35,8 @@ namespace Licitacija.Services.UplataAPI.Migrations
                     Iznos = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
                     SvrhaUplate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DatumUplate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    KursId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValue: Guid.Empty)
+                    KursId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValue: Guid.Empty),
+                    KupacId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {

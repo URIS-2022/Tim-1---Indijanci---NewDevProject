@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Licitacija.Services.UplataAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230206204938_UplataMigration")]
+    [Migration("20230209164252_Uplata_Migration")]
     partial class UplataMigration
     {
         /// <inheritdoc />
@@ -61,6 +61,9 @@ namespace Licitacija.Services.UplataAPI.Migrations
 
                     b.Property<decimal>("Iznos")
                         .HasColumnType("decimal(18,4)");
+
+                    b.Property<Guid>("KupacId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("KursId")
                         .HasColumnType("uniqueidentifier");

@@ -2,6 +2,7 @@
 using Licitacija.Services.UplataAPI.Entities;
 using Licitacija.Services.UplataAPI.Models;
 using Licitacija.Services.UplataAPI.Repositories;
+using Licitacija.Services.UplataAPI.ServiceCalls;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Licitacija.Services.UplataAPI.Controllers
@@ -11,17 +12,20 @@ namespace Licitacija.Services.UplataAPI.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json", "application/xml")]
     public class UplataController : ControllerBase
     {
         private readonly IUplataRepository _uplataRepository;
+        private readonly IKupacService _kupacService;
         private readonly IMapper _mapper;
 
         /// <summary>
         /// Uplata controller.
         /// </summary>
-        public UplataController(IUplataRepository uplataRepository, IMapper mapper)
+        public UplataController(IUplataRepository uplataRepository, IKupacService kupacService, IMapper mapper)
         {
             _uplataRepository = uplataRepository;
+            _kupacService = kupacService;
             _mapper = mapper;
         }
 
@@ -47,7 +51,15 @@ namespace Licitacija.Services.UplataAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<UplataDTO>>(uplate));
+                var result = _mapper.Map<List<UplataDTO>>(uplate);
+
+                foreach (var uplata in result)
+                {
+                    KupacDTO kupac = _kupacService.GetKupacById((Guid)uplata.KupacId).Result;
+                    uplata.Kupac = kupac;
+                }
+
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -79,7 +91,11 @@ namespace Licitacija.Services.UplataAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<UplataDTO>(uplata));
+                var result = _mapper.Map<UplataDTO>(uplata);
+                KupacDTO kupac = _kupacService.GetKupacById((Guid)result.KupacId).Result;
+                result.Kupac = kupac;
+
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -106,7 +122,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
                 Uplata uplata = _mapper.Map<Uplata>(uplataDTO);
                 _uplataRepository.InsertUplata(uplata);
                 _uplataRepository.Save();
-                return Created("NewUplata", _mapper.Map<UplataDTO>(uplata));
+                return Created("GetUplata", _mapper.Map<UplataDTO>(uplata));
             } 
             catch (Exception e)
             {
