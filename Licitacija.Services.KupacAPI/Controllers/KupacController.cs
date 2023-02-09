@@ -132,8 +132,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         public async Task<IActionResult> CreateKupac([FromBody] KupacCreateDTO kupacDTO)
         {
 
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var kupac = _mapper.Map<Kupac>(kupacDTO);
@@ -170,9 +168,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateKupac([FromBody] KupacUpdateDTO kupacDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var kupac = await _unitOfWork.Kupac.Get(i => i.KupacId == kupacDTO.KupacId);

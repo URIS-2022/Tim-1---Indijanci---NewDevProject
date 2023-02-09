@@ -105,9 +105,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePrioritet([FromBody] PrioritetCreateDTO prioritetDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var prioritet = _mapper.Map<Prioritet>(prioritetDTO);
@@ -144,9 +141,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdatePrioritet([FromBody] PrioritetUpdateDTO prioritetDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var prioritet = await _unitOfWork.Prioritet.Get(i => i.PrioritetId == prioritetDTO.PrioritetId); ;

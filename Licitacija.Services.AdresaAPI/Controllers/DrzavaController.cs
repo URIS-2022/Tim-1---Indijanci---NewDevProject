@@ -107,8 +107,6 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         public async Task<IActionResult> CreateDrzava([FromBody] DrzavaCreateDTO drzavaDTO)
         {
             
-            if(!ModelState.IsValid) return BadRequest(ModelState);    
-
             try { 
                 var drzava = _mapper.Map<Drzava>(drzavaDTO);
 
@@ -144,9 +142,6 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateDrzava([FromBody] DrzavaUpdateDTO drzavaDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var drzava = await _drzavaRepository.Get(drzavaDTO.DrzavaId);
