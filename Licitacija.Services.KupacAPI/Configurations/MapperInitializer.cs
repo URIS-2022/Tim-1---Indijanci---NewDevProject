@@ -14,32 +14,32 @@ namespace Licitacija.Services.KupacAPI.Configurations
         public MapperInitializer()
         {
             //Mapiranja za prioritet
-            CreateMap<Prioritet, PrioritetDTO>().ReverseMap();
-            CreateMap<Prioritet, PrioritetCreateDTO>().ReverseMap();
-            CreateMap<Prioritet, PrioritetUpdateDTO>().ReverseMap();
+            CreateMap<Prioritet, PrioritetDto>().ReverseMap();
+            CreateMap<Prioritet, PrioritetCreateDto>().ReverseMap();
+            CreateMap<Prioritet, PrioritetUpdateDto>().ReverseMap();
 
             //Mapiranja za kontakt osobu
-            CreateMap<KontaktOsoba, KontaktOsobaDTO>().ReverseMap();
-            CreateMap<KontaktOsoba, KontaktOsobaCreateDTO>().ReverseMap();
-            CreateMap<KontaktOsoba, KontaktOsobaUpdateDTO>().ReverseMap();
+            CreateMap<KontaktOsoba, KontaktOsobaDto>().ReverseMap();
+            CreateMap<KontaktOsoba, KontaktOsobaCreateDto>().ReverseMap();
+            CreateMap<KontaktOsoba, KontaktOsobaUpdateDto>().ReverseMap();
 
             //Mapiranja za kupca
             CreateMap<Kupac, KupacDTO>().ReverseMap();
-            CreateMap<Kupac, KupacCreateDTO>().ReverseMap();
-            CreateMap<Kupac, KupacUpdateDTO>().ReverseMap();
+            CreateMap<Kupac, KupacCreateDto>().ReverseMap();
+            CreateMap<Kupac, KupacUpdateDto>().ReverseMap();
 
-            CreateMap<Kupac, KupacBasicInfoDTO>().ReverseMap();
-            CreateMap<Kupac, KupacWithTipDTO>().ReverseMap();
+            CreateMap<Kupac, KupacBasicInfoDto>().ReverseMap();
+            CreateMap<Kupac, KupacWithTipDto>().ReverseMap();
 
             //Mapiranje za PL
             CreateMap<PravnoLice, PravnoLiceDTO>().ReverseMap();
-            CreateMap<PravnoLice, PravnoLiceCreateDTO>().ReverseMap();
-            CreateMap<PravnoLice, PravnoLiceUpdateDTO>().ReverseMap();
+            CreateMap<PravnoLice, PravnoLiceCreateDto>().ReverseMap();
+            CreateMap<PravnoLice, PravnoLiceUpdateDto>().ReverseMap();
 
             //Mapiranje za FL
-            CreateMap<FizickoLice, FizickoLiceDTO>().ReverseMap();
-            CreateMap<FizickoLice, FizickoLiceCreateDTO>().ReverseMap();
-            CreateMap<FizickoLice, FizickoLiceUpdateDTO>().ReverseMap();
+            CreateMap<FizickoLice, FizickoLiceDto>().ReverseMap();
+            CreateMap<FizickoLice, FizickoLiceCreateDto>().ReverseMap();
+            CreateMap<FizickoLice, FizickoLiceUpdateDto>().ReverseMap();
 
 
         }

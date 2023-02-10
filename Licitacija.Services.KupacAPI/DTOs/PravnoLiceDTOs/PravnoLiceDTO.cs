@@ -37,6 +37,6 @@ namespace Licitacija.Services.KupacAPI.DTOs.PravnoLiceDTOs
         /// <summary>
         /// Podaci o kontakt osobi.
         /// </summary>
-        public KontaktOsobaDTO? KontaktOsoba { get; set; }
+        public KontaktOsobaDto? KontaktOsoba { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (fLica == null) return NoContent();
 
-                var results = _mapper.Map<List<FizickoLiceDTO>>(fLica);
+                var results = _mapper.Map<List<FizickoLiceDto>>(fLica);
 
                 return Ok(results);
             }
@@ -73,7 +73,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (fLice == null) return NotFound();
 
-                var result = _mapper.Map<FizickoLiceDTO>(fLice);
+                var result = _mapper.Map<FizickoLiceDto>(fLice);
 
                 return Ok(result);
             }
@@ -107,7 +107,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public async Task<IActionResult> CreateFizickoLice([FromBody] FizickoLiceCreateDTO fLiceDTO)
+        public async Task<IActionResult> CreateFizickoLice([FromBody] FizickoLiceCreateDto fLiceDTO)
         {
             try
             {
@@ -143,7 +143,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
-        public async Task<IActionResult> UpdateFizickoLice([FromBody] FizickoLiceUpdateDTO fLiceDTO)
+        public async Task<IActionResult> UpdateFizickoLice([FromBody] FizickoLiceUpdateDto fLiceDTO)
         {
 
             try
