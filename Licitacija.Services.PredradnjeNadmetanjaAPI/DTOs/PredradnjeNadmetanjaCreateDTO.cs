@@ -5,7 +5,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.DTOs
     /// <summary>
     /// Model kreiranja predradnje nadmetanja.
     /// </summary>
-    public class PredradnjeNadmetanjaCreateDTO
+    public class PredradnjeNadmetanjaCreateDto
     {
         /// <summary>
         /// Naziv predradnje nadmetanja.

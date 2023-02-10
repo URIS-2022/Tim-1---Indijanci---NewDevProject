@@ -39,7 +39,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
 
                 if (predradnje == null) return NoContent();
 
-                var results = _mapper.Map<List<PredradnjeNadmetanjaDTO>>(predradnje);//mapiranje (iz) <u>
+                var results = _mapper.Map<List<PredradnjeNadmetanjaDto>>(predradnje);//mapiranje (iz) <u>
 
                 return Ok(results);
             }
@@ -72,7 +72,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
 
                 if (predradnja == null) return NotFound();
 
-                var result = _mapper.Map<PredradnjeNadmetanjaDTO>(predradnja);
+                var result = _mapper.Map<PredradnjeNadmetanjaDto>(predradnja);
 
                 return Ok(result);
             }
@@ -103,7 +103,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public async Task<IActionResult> CreatePredradnjaNadmetanja([FromBody] PredradnjeNadmetanjaCreateDTO predradnjeDTO)
+        public async Task<IActionResult> CreatePredradnjaNadmetanja([FromBody] PredradnjeNadmetanjaCreateDto predradnjeDTO)
         {
             try
             {
@@ -139,7 +139,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
-        public async Task<IActionResult> UpdatePredradnjaNadmetanja([FromBody] PredradnjeNadmetanjaUpdateDTO predradnjeDTO)
+        public async Task<IActionResult> UpdatePredradnjaNadmetanja([FromBody] PredradnjeNadmetanjaUpdateDto predradnjeDTO)
         {
             try
             {
@@ -219,7 +219,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
 
                 if (predradnja == null) return NotFound();
 
-                var result = _mapper.Map<PredradnjeBasicInfoDTO>(predradnja);
+                var result = _mapper.Map<PredradnjeBasicInfoDto>(predradnja);
 
                 return Ok(result);
             }

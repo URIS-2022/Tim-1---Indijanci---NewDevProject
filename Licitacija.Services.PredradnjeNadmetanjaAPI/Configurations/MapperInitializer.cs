@@ -8,10 +8,10 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Configurations
     {
         public MapperInitializer()
         {
-            CreateMap<PredradnjeNadmetanja, PredradnjeNadmetanjaDTO>().ReverseMap();
-            CreateMap<PredradnjeNadmetanja, PredradnjeNadmetanjaCreateDTO>().ReverseMap();
-            CreateMap<PredradnjeNadmetanja, PredradnjeNadmetanjaUpdateDTO>().ReverseMap();
-            CreateMap<PredradnjeNadmetanja, PredradnjeBasicInfoDTO>().ReverseMap();
+            CreateMap<PredradnjeNadmetanja, PredradnjeNadmetanjaDto>().ReverseMap();
+            CreateMap<PredradnjeNadmetanja, PredradnjeNadmetanjaCreateDto>().ReverseMap();
+            CreateMap<PredradnjeNadmetanja, PredradnjeNadmetanjaUpdateDto>().ReverseMap();
+            CreateMap<PredradnjeNadmetanja, PredradnjeBasicInfoDto>().ReverseMap();
         }
     }
 }

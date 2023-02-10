@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO predradnje nadmetanja sa osnovnim informacijama.
     /// </summary>
-    public class PredradnjeBasicInfoDTO
+    public class PredradnjeBasicInfoDto
     {
         /// <summary>
         /// ID predradnje nadmetanja.

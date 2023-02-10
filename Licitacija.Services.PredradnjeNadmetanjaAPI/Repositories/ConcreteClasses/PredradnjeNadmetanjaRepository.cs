@@ -54,8 +54,13 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.ConcreteClass
 
         public void Dispose()
         {
-            _context.Dispose();
+            Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
     }
 }
