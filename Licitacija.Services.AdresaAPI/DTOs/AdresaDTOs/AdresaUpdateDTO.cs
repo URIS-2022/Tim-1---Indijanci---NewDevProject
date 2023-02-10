@@ -8,7 +8,7 @@ namespace Licitacija.Services.AdresaAPI.DTOs.Adresa
     /// <summary>
     /// Model za izmenu adrese.
     /// </summary>
-    public class AdresaUpdateDTO : IValidatableObject
+    public class AdresaUpdateDto : IValidatableObject
     {
         /// <summary>
         /// ID adrese.
