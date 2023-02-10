@@ -12,7 +12,7 @@ namespace Licitacija.Services.KupacAPI.ServiceCalls
             _configuration = configuration;
         }
 
-        public async Task<AdresaDTO> GetAdresaById(Guid adresaId)
+        public async Task<AdresaDto> GetAdresaById(Guid adresaId)
         {
             using (HttpClient client = new())
             {
@@ -29,7 +29,7 @@ namespace Licitacija.Services.KupacAPI.ServiceCalls
                         return default;
                     }
 
-                    var adresa = JsonConvert.DeserializeObject<AdresaDTO>(responseString);
+                    var adresa = JsonConvert.DeserializeObject<AdresaDto>(responseString);
                     return adresa;
                 }
                 return default;

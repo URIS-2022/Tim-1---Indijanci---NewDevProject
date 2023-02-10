@@ -39,7 +39,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (prioriteti == null) return NoContent();
 
-                var results = _mapper.Map<List<PrioritetDTO>>(prioriteti);
+                var results = _mapper.Map<List<PrioritetDto>>(prioriteti);
 
                 return Ok(results);
             }
@@ -72,7 +72,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (prioritet == null) return NotFound();
 
-                var result = _mapper.Map<PrioritetDTO>(prioritet);
+                var result = _mapper.Map<PrioritetDto>(prioritet);
 
                 return Ok(result);
             }
@@ -103,7 +103,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public async Task<IActionResult> CreatePrioritet([FromBody] PrioritetCreateDTO prioritetDTO)
+        public async Task<IActionResult> CreatePrioritet([FromBody] PrioritetCreateDto prioritetDTO)
         {
             try
             {
@@ -139,11 +139,11 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
-        public async Task<IActionResult> UpdatePrioritet([FromBody] PrioritetUpdateDTO prioritetDTO)
+        public async Task<IActionResult> UpdatePrioritet([FromBody] PrioritetUpdateDto prioritetDTO)
         {
             try
             {
-                var prioritet = await _unitOfWork.Prioritet.Get(i => i.PrioritetId == prioritetDTO.PrioritetId); ;
+                var prioritet = await _unitOfWork.Prioritet.Get(i => i.PrioritetId == prioritetDTO.PrioritetId); 
 
                 if (prioritet == null) return NotFound();
 

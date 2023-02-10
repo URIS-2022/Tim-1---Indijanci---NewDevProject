@@ -39,7 +39,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kOsobe == null) return NoContent();
 
-                var results = _mapper.Map<List<KontaktOsobaDTO>>(kOsobe);
+                var results = _mapper.Map<List<KontaktOsobaDto>>(kOsobe);
 
                 return Ok(results);
             }
@@ -72,7 +72,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kOsoba == null) return NotFound();
 
-                var result = _mapper.Map<KontaktOsobaDTO>(kOsoba);
+                var result = _mapper.Map<KontaktOsobaDto>(kOsoba);
 
                 return Ok(result);
             }
@@ -106,7 +106,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public async Task<IActionResult> CreateKontaktOsoba([FromBody] KontaktOsobaCreateDTO kOsobaDTO)
+        public async Task<IActionResult> CreateKontaktOsoba([FromBody] KontaktOsobaCreateDto kOsobaDTO)
         {
             try
             {
@@ -142,7 +142,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
-        public async Task<IActionResult> UpdateKontaktOsoba([FromBody] KontaktOsobaUpdateDTO kOsobaDTO)
+        public async Task<IActionResult> UpdateKontaktOsoba([FromBody] KontaktOsobaUpdateDto kOsobaDTO)
         {
 
             try

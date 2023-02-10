@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO kupca sa osnnovnim informacijama i tipom.
     /// </summary>
-    public class KupacWithTipDTO
+    public class KupacWithTipDto
     {
         /// <summary>
         /// ID kupca.
