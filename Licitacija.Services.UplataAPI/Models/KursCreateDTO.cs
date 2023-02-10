@@ -6,7 +6,7 @@ namespace Licitacija.Services.UplataAPI.Models
     /// <summary>
     /// Model za kreiranje kursa.
     /// </summary>
-    public class KursCreateDTO : IValidatableObject
+    public class KursCreateDto : IValidatableObject
     {
         /// <summary>
         /// Datum kursa.

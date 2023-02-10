@@ -9,9 +9,9 @@ namespace Licitacija.Services.UplataAPI.Profiles
         public KursProfile()
         {
             CreateMap<Kurs, Kurs>();
-            CreateMap<Kurs, KursDTO>().ReverseMap();
-            CreateMap<Kurs, KursCreateDTO>().ReverseMap();
-            CreateMap<Kurs, KursUpdateDTO>().ReverseMap();
+            CreateMap<Kurs, KursDto>().ReverseMap();
+            CreateMap<Kurs, KursCreateDto>().ReverseMap();
+            CreateMap<Kurs, KursUpdateDto>().ReverseMap();
         }
     }
 }

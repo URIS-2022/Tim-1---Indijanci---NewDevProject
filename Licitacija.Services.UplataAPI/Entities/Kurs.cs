@@ -27,6 +27,6 @@ namespace Licitacija.Services.UplataAPI.Entities
         [Column(TypeName = "decimal(18,4)")]
         public decimal Vrednost { get; set; }
 
-        public ICollection<Uplata> Uplate { get; set; }
+        public ICollection<Uplata>? Uplate { get; set; }
     }
 }

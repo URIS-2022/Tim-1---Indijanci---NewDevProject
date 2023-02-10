@@ -6,7 +6,7 @@ namespace Licitacija.Services.UplataAPI.Models
     /// <summary>
     /// Model za izmenu uplate.
     /// </summary>
-    public class UplataUpdateDTO : IValidatableObject
+    public class UplataUpdateDto : IValidatableObject
     {
         /// <summary>
         /// ID uplate.

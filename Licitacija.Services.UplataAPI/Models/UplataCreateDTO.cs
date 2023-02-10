@@ -6,7 +6,7 @@ namespace Licitacija.Services.UplataAPI.Models
     /// <summary>
      /// Model za kreiranje uplate.
      /// </summary>
-    public class UplataCreateDTO : IValidatableObject
+    public class UplataCreateDto : IValidatableObject
     {
         /// <summary>
         /// Broj računa uplate.

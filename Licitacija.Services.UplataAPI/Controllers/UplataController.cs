@@ -40,7 +40,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<UplataDTO>> GetAllUplate()
+        public ActionResult<List<UplataDto>> GetAllUplate()
         {
             try
             {
@@ -51,11 +51,11 @@ namespace Licitacija.Services.UplataAPI.Controllers
                     return NoContent();
                 }
 
-                var result = _mapper.Map<List<UplataDTO>>(uplate);
+                var result = _mapper.Map<List<UplataDto>>(uplate);
 
                 foreach (var uplata in result)
                 {
-                    KupacDTO kupac = _kupacService.GetKupacById((Guid)uplata.KupacId).Result;
+                    KupacDto kupac = _kupacService.GetKupacById(uplata.KupacId).Result;
                     uplata.Kupac = kupac;
                 }
 
@@ -80,7 +80,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<UplataDTO> GetUplata(Guid id)
+        public ActionResult<UplataDto> GetUplata(Guid id)
         {
             try
             {
@@ -91,8 +91,8 @@ namespace Licitacija.Services.UplataAPI.Controllers
                     return NotFound();
                 }
 
-                var result = _mapper.Map<UplataDTO>(uplata);
-                KupacDTO kupac = _kupacService.GetKupacById((Guid)result.KupacId).Result;
+                var result = _mapper.Map<UplataDto>(uplata);
+                KupacDto kupac = _kupacService.GetKupacById(result.KupacId).Result;
                 result.Kupac = kupac;
 
                 return Ok(result);
@@ -115,14 +115,14 @@ namespace Licitacija.Services.UplataAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<UplataDTO> CreateUplata([FromBody] UplataCreateDTO uplataDTO)
+        public ActionResult<UplataDto> CreateUplata([FromBody] UplataCreateDto uplataDTO)
         {
             try
             {
                 Uplata uplata = _mapper.Map<Uplata>(uplataDTO);
                 _uplataRepository.InsertUplata(uplata);
                 _uplataRepository.Save();
-                return Created("GetUplata", _mapper.Map<UplataDTO>(uplata));
+                return Created("GetUplata", _mapper.Map<UplataDto>(uplata));
             } 
             catch (Exception e)
             {
@@ -143,7 +143,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<UplataDTO> UpdateUplata([FromBody] UplataUpdateDTO uplataDTO)
+        public ActionResult<UplataDto> UpdateUplata([FromBody] UplataUpdateDto uplataDTO)
         {
             try
             {
@@ -157,7 +157,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
 
                 _mapper.Map(uplataDTO, uplataToUpdate);
                 _uplataRepository.Save();
-                return Ok(_mapper.Map<UplataDTO>(uplataToUpdate));
+                return Ok(_mapper.Map<UplataDto>(uplataToUpdate));
 
             }
             catch (Exception e)

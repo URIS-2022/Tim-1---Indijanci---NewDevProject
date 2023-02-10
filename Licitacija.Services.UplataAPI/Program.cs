@@ -45,7 +45,7 @@ builder.Services.AddControllers(setup =>
                         {
                             ContentTypes = { "application/problem+json" }
                         };
-                    };
+                    }
 
                     problemDetails.Status = StatusCodes.Status400BadRequest;
                     problemDetails.Title = "Došlo je do greške prilikom parsiranja poslatog sadržaja.";
