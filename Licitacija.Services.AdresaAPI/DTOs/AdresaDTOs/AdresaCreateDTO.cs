@@ -47,6 +47,8 @@ namespace Licitacija.Services.AdresaAPI.DTOs.Adresa
 
             if (!regexItem.IsMatch(Broj) || !regexItem.IsMatch(PostanskiBroj))
             {
+                AppDomain.CurrentDomain.SetData("REGEX_DEFAULT_MATCH_TIMEOUT", TimeSpan.FromMilliseconds(100));
+
                 yield return new ValidationResult(
                   "Nije moguće kreirati adresu zato sto neki unosi sadrže specijalne karaktere.",
                   new[] { "AdresaCreateDTO" });
