@@ -5,7 +5,7 @@ namespace Licitacija.Services.AdresaAPI.DTOs.Adresa
     /// <summary>
     /// DTO za adresu.
     /// </summary>
-    public class AdresaDTO
+    public class AdresaDto
     {
         /// <summary>
         /// ID adrese.
@@ -35,6 +35,6 @@ namespace Licitacija.Services.AdresaAPI.DTOs.Adresa
         /// <summary>
         /// DTO objekat države.
         /// </summary>
-        public DrzavaDTO Drzava { get; set; }
+        public DrzavaDto Drzava { get; set; }
     }
 }

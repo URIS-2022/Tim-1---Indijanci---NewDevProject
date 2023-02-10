@@ -19,8 +19,13 @@ namespace Licitacija.Services.AdresaAPI.Repositories.ConcreteClasses
 
         public void Dispose()
         {
-            _context.Dispose();//oslobodjanje resursa
+            Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            _context.Dispose();//oslobodjanje resursa
         }
 
         public async Task Save()

@@ -45,11 +45,11 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kupci == null) return NoContent();
 
-                var results = _mapper.Map<List<KupacDTO>>(kupci);
+                var results = _mapper.Map<List<KupacDto>>(kupci);
 
                 foreach (var result in results)
                 {
-                    AdresaDTO adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
+                    AdresaDto adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
                     result.Adresa = adresa;
                 }
 
@@ -84,9 +84,9 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kupac == null) return NotFound();
 
-                var result = _mapper.Map<KupacDTO>(kupac);
+                var result = _mapper.Map<KupacDto>(kupac);
 
-                AdresaDTO adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
+                AdresaDto adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
 
                 result.Adresa = adresa;
 
@@ -129,7 +129,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public async Task<IActionResult> CreateKupac([FromBody] KupacCreateDTO kupacDTO)
+        public async Task<IActionResult> CreateKupac([FromBody] KupacCreateDto kupacDTO)
         {
 
             try
@@ -166,7 +166,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
-        public async Task<IActionResult> UpdateKupac([FromBody] KupacUpdateDTO kupacDTO)
+        public async Task<IActionResult> UpdateKupac([FromBody] KupacUpdateDto kupacDTO)
         {
             try
             {
@@ -246,7 +246,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kupac == null) return NotFound();
 
-                var result = _mapper.Map<KupacBasicInfoDTO>(kupac);
+                var result = _mapper.Map<KupacBasicInfoDto>(kupac);
 
                 return Ok(result);
             }
@@ -255,7 +255,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 Console.WriteLine(ex.Message);
 
-                return StatusCode(500, ex.Message);
+                return StatusCode(500, "Internal server error");
             }
         }
 
@@ -279,7 +279,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kupac == null) return NotFound();
 
-                var result = _mapper.Map<KupacWithTipDTO>(kupac);
+                var result = _mapper.Map<KupacWithTipDto>(kupac);
 
                 return Ok(result);
             }

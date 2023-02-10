@@ -60,7 +60,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
                 {
                     ContentTypes = { "application/problem+json" }
                 };
-            };
+            }
 
             problemDetails.Status = StatusCodes.Status400BadRequest;
             problemDetails.Title = "Došlo je do greške prilikom parsiranja poslatog sadržaja.";
@@ -91,7 +91,7 @@ builder.Services.AddSwaggerGen(setupAction =>
                 License = new Microsoft.OpenApi.Models.OpenApiLicense
                 {
                     Name = "FTN licence",
-                    Url = new Uri("http://www.ftn.uns.ac.rs/")
+                    Url = new Uri("https://www.ftn.uns.ac.rs/")
                 },
             });
         setupAction.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
