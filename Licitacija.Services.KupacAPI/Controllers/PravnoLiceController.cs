@@ -42,7 +42,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (pLica == null) return NoContent();
 
-                var results = _mapper.Map<List<PravnoLiceDTO>>(pLica);
+                var results = _mapper.Map<List<PravnoLiceDto>>(pLica);
 
                 return Ok(results);
             }
@@ -75,7 +75,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (pLice == null) return NotFound();
 
-                var result = _mapper.Map<PravnoLiceDTO>(pLice);
+                var result = _mapper.Map<PravnoLiceDto>(pLice);
 
                 return Ok(result);
             }

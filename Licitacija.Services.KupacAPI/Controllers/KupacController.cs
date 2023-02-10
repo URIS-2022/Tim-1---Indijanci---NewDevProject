@@ -45,7 +45,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kupci == null) return NoContent();
 
-                var results = _mapper.Map<List<KupacDTO>>(kupci);
+                var results = _mapper.Map<List<KupacDto>>(kupci);
 
                 foreach (var result in results)
                 {
@@ -84,7 +84,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kupac == null) return NotFound();
 
-                var result = _mapper.Map<KupacDTO>(kupac);
+                var result = _mapper.Map<KupacDto>(kupac);
 
                 AdresaDto adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
 
