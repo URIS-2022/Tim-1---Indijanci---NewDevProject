@@ -12,7 +12,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
     /// <summary>
     /// Model za izmenu kupca.
     /// </summary>
-    public class KupacDTO
+    public class KupacDto
     {
         /// <summary>
         /// ID kupca.
@@ -77,7 +77,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
         /// <summary>
         /// Podaci o pravnom licu.
         /// </summary>
-        public PravnoLiceDTO? PravnoLice { get; set; }
+        public PravnoLiceDto? PravnoLice { get; set; }
 
         /// <summary>
         /// Adresa ID.

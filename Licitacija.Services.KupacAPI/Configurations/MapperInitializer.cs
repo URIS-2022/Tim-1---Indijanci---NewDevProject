@@ -24,7 +24,7 @@ namespace Licitacija.Services.KupacAPI.Configurations
             CreateMap<KontaktOsoba, KontaktOsobaUpdateDto>().ReverseMap();
 
             //Mapiranja za kupca
-            CreateMap<Kupac, KupacDTO>().ReverseMap();
+            CreateMap<Kupac, KupacDto>().ReverseMap();
             CreateMap<Kupac, KupacCreateDto>().ReverseMap();
             CreateMap<Kupac, KupacUpdateDto>().ReverseMap();
 
@@ -32,7 +32,7 @@ namespace Licitacija.Services.KupacAPI.Configurations
             CreateMap<Kupac, KupacWithTipDto>().ReverseMap();
 
             //Mapiranje za PL
-            CreateMap<PravnoLice, PravnoLiceDTO>().ReverseMap();
+            CreateMap<PravnoLice, PravnoLiceDto>().ReverseMap();
             CreateMap<PravnoLice, PravnoLiceCreateDto>().ReverseMap();
             CreateMap<PravnoLice, PravnoLiceUpdateDto>().ReverseMap();
 
