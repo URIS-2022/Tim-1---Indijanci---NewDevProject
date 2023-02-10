@@ -4,6 +4,6 @@ namespace Licitacija.Services.KupacAPI.ServiceCalls
 {
     public interface IAdresaService
     {
-        public Task<AdresaDTO> GetAdresaById(Guid adresaId);
+        public Task<AdresaDto> GetAdresaById(Guid adresaId);
     }
 }

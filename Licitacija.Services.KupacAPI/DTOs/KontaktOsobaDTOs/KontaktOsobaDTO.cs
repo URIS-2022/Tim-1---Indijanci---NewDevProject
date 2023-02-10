@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO za kontakt osobu.
     /// </summary>
-    public class KontaktOsobaDTO
+    public class KontaktOsobaDto
     {
         /// <summary>
         /// ID kontakt osobe.

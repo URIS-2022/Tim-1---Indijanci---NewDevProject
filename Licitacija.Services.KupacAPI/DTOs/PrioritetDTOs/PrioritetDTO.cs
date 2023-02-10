@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO za prioritet.
     /// </summary>
-    public class PrioritetDTO
+    public class PrioritetDto
     {
         /// <summary>
         /// ID prioriteta.

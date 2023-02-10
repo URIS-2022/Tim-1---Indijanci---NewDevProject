@@ -7,7 +7,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.FizickoLiceDTOs
     /// <summary>
     /// Model fizickog lica.
     /// </summary>
-    public class FizickoLiceDTO
+    public class FizickoLiceDto
     {
         /// <summary>
         /// ID kupca (strani kljuc).

@@ -8,7 +8,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
     /// <summary>
     /// Model za kreiranje kupca.
     /// </summary>
-    public class KupacCreateDTO : IValidatableObject
+    public class KupacCreateDto : IValidatableObject
     {
         /// <summary>
         /// Glavni broj telefona.
