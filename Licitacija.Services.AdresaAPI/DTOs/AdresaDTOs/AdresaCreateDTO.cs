@@ -6,7 +6,7 @@ namespace Licitacija.Services.AdresaAPI.DTOs.Adresa
     /// <summary>
     /// Model za kreiranje adrese.
     /// </summary>
-    public class AdresaCreateDTO : IValidatableObject
+    public class AdresaCreateDto : IValidatableObject
     {
         /// <summary>
         /// Naziv ulice.
