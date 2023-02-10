@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO za kurs.
     /// </summary>
-    public class KursDTO
+    public class KursDto
     {
         /// <summary>
         /// ID kursa.
