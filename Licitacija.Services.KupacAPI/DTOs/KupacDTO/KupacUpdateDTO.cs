@@ -6,7 +6,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
     /// <summary>
     /// Model za izmenu kupca.
     /// </summary>
-    public class KupacUpdateDTO : IValidatableObject
+    public class KupacUpdateDto : IValidatableObject
     {
         /// <summary>
         /// ID kupca.
