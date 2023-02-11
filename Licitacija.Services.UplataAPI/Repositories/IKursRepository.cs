@@ -8,7 +8,7 @@ namespace Licitacija.Services.UplataAPI.Repositories
         Kurs GetKurs(Guid id);
         void InsertKurs(Kurs kurs);
         void DeleteKurs(Guid id);
-        //void UpdateKurs(Kurs kurs);
+        void UpdateKurs(Kurs kurs);
         bool Save();
     }
 }

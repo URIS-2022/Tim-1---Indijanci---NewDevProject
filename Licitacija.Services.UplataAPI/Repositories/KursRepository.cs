@@ -1,17 +1,14 @@
-﻿using AutoMapper;
-using Licitacija.Services.UplataAPI.Entities;
+﻿using Licitacija.Services.UplataAPI.Entities;
 
 namespace Licitacija.Services.UplataAPI.Repositories
 {
     public class KursRepository : IKursRepository
     {
         private readonly DatabaseContext _databaseContext;
-        private readonly IMapper _mapper;
 
-        public KursRepository(DatabaseContext databaseContext, IMapper mapper)
+        public KursRepository(DatabaseContext databaseContext)
         {
             _databaseContext = databaseContext;
-            _mapper = mapper;
         }
 
         public List<Kurs> GetAll()
@@ -34,10 +31,10 @@ namespace Licitacija.Services.UplataAPI.Repositories
             _databaseContext.Remove(GetKurs(id));
         }
 
-        /*public void UpdateKurs(Kurs kurs)
+        public void UpdateKurs(Kurs kurs)
         {
-            
-        }*/
+            //EF prati izmene i automatski pri primeni Save() metode vrsi update, zbog toga nije neophodno implementirati Update
+        }
 
         public bool Save()
         {

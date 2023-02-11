@@ -37,7 +37,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<KursDTO>> GetAllKursevi()
+        public ActionResult<List<KursDto>> GetAllKursevi()
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<KursDTO>>(kursevi));
+                return Ok(_mapper.Map<List<KursDto>>(kursevi));
             }
             catch (Exception e)
             {
@@ -69,7 +69,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KursDTO> GetKurs(Guid id)
+        public ActionResult<KursDto> GetKurs(Guid id)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<KursDTO>(kurs));
+                return Ok(_mapper.Map<KursDto>(kurs));
             }
             catch (Exception e)
             {
@@ -92,7 +92,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
         /// <summary>
         /// Kreira novi kurs.
         /// </summary>
-        /// <param name="kursDTO">Model kursa</param>
+        /// <param name="KursDto">Model kursa</param>
         /// <returns>Potvrda o kreiranom kursu.</returns>
         /// <response code="201">Vraća kreirani kurs</response>
         /// <response code="500">Serverska greška</response>
@@ -100,14 +100,14 @@ namespace Licitacija.Services.UplataAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KursDTO> CreateKurs([FromBody] KursCreateDTO kursDTO)
+        public ActionResult<KursDto> CreateKurs([FromBody] KursCreateDto KursDto)
         {
             try
             {
-                Kurs kurs = _mapper.Map<Kurs>(kursDTO);
+                Kurs kurs = _mapper.Map<Kurs>(KursDto);
                 _kursRepository.InsertKurs(kurs);
                 _kursRepository.Save();
-                return Created("GetKurs", _mapper.Map<KursDTO>(kurs));
+                return Created("GetKurs", _mapper.Map<KursDto>(kurs));
             }
             catch (Exception e)
             {
@@ -118,7 +118,7 @@ namespace Licitacija.Services.UplataAPI.Controllers
         /// <summary>
         /// Ažurira jedan kurs.
         /// </summary>
-        /// <param name="kursDTO">Model kursa koji se ažurira</param>
+        /// <param name="KursDto">Model kursa koji se ažurira</param>
         /// <returns>Potvrdu o modifikovanom kursu.</returns>
         /// <response code="200">Vraća ažuriran kurs</response>
         /// <response code="404">Kurs koji se ažurira nije pronađen</response>
@@ -128,20 +128,20 @@ namespace Licitacija.Services.UplataAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KursDTO> UpdateKurs([FromBody] KursUpdateDTO kursDTO)
+        public ActionResult<KursDto> UpdateKurs([FromBody] KursUpdateDto KursDto)
         {
             try
             {
-                var kursToUpdate = _kursRepository.GetKurs(kursDTO.KursId);
+                var kursToUpdate = _kursRepository.GetKurs(KursDto.KursId);
 
                 if (kursToUpdate == null)
                 {
                     return NotFound();
                 }
 
-                _mapper.Map(kursDTO, kursToUpdate);
+                _mapper.Map(KursDto, kursToUpdate);
                 _kursRepository.Save();
-                return Ok(_mapper.Map<KursDTO>(kursToUpdate));
+                return Ok(_mapper.Map<KursDto>(kursToUpdate));
 
             }
             catch (Exception e)

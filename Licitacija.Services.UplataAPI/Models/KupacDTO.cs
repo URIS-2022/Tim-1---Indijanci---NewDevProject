@@ -1,6 +1,6 @@
 ﻿namespace Licitacija.Services.UplataAPI.Models
 {
-    public class KupacDTO
+    public class KupacDto
     {
         /// <summary>
         /// ID kupca.
@@ -10,17 +10,17 @@
         /// <summary>
         /// Glavni broj telefona.
         /// </summary>
-        public string BrojTel1 { get; set; }
+        public string? BrojTel1 { get; set; }
 
         /// <summary>
         /// Email adresa kupca.
         /// </summary>
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         /// <summary>
         /// broj racuna.
         /// </summary>
-        public string BrojRacuna { get; set; }
+        public string? BrojRacuna { get; set; }
 
         /// <summary>
         /// Ostvarena povrsina.

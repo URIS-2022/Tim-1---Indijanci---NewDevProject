@@ -1,20 +1,15 @@
-﻿using AutoMapper;
-using Licitacija.Services.UplataAPI.Entities;
-using Licitacija.Services.UplataAPI.Models;
+﻿using Licitacija.Services.UplataAPI.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace Licitacija.Services.UplataAPI.Repositories
 {
     public class UplataRepository : IUplataRepository
     {
         private readonly DatabaseContext _databaseContext;
-        private readonly IMapper _mapper;
 
-        public UplataRepository(DatabaseContext databaseContext, IMapper mapper)
+        public UplataRepository(DatabaseContext databaseContext)
         {
             _databaseContext = databaseContext;
-            _mapper = mapper;
         }
 
         public List<Uplata> GetAll()
@@ -39,7 +34,7 @@ namespace Licitacija.Services.UplataAPI.Repositories
 
         public void UpdateUplata(Uplata uplata)
         {
-            
+            //EF prati izmene i automatski pri primeni Save() metode vrsi update, zbog toga nije neophodno implementirati Update
         }
 
         public bool Save()

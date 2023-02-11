@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Licitacija.Services.UplataAPI.Models
 {
-    public class UplataDTO
+    public class UplataDto
     {
         /// <summary>
         /// ID uplate.
@@ -44,12 +44,12 @@ namespace Licitacija.Services.UplataAPI.Models
         /// <summary>
         /// Objekat kupca.
         /// </summary>
-        public KupacDTO Kupac { get; set; }
+        public KupacDto? Kupac { get; set; }
 
         /// <summary>
         /// Kurs.
         /// </summary>
-        public KursDTO? Kurs{ get; set; }
+        public KursDto? Kurs{ get; set; }
 
     }
 }
