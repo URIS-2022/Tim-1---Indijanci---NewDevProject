@@ -4,16 +4,16 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Mock
 {
     public class MockRepository : IMockRepository
     {
-        public static List<FazaDto> faze { get; set; } = new List<FazaDto>();
+        public static List<FazaDto> Faze { get; set; } = new List<FazaDto>();
 
         public MockRepository()
         {
             FillData();
         }
 
-        private void FillData()
+        private static void FillData()
         {
-            faze.AddRange(new List<FazaDto>
+            Faze.AddRange(new List<FazaDto>
             {
                 new FazaDto
                 {
@@ -35,7 +35,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Mock
 
         public FazaDto GetFazaById(Guid fazaId)
         {
-            return faze.FirstOrDefault(i => i.FazaId == fazaId);
+            return Faze.FirstOrDefault(i => i.FazaId == fazaId);
         }
     }
 }

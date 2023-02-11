@@ -10,13 +10,13 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
+            //automatski generisano prazno
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-
+            //automatski generisano prazno
         }
     }
 }
