@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace Licitacija.Services.PredradnjeNadmetanjaAPI.DTOs
 {
@@ -16,5 +17,16 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.DTOs
         /// Naziv predradnje nadmetanja.
         /// </summary>
         public string PredradnjeNadmetanjaNaziv { get; set; } = String.Empty;
+
+        /// <summary>
+        /// Id faze (strani kljuc).
+        /// </summary>
+        [JsonIgnore]
+        public Guid? FazaId { get; set; }
+
+        /// <summary>
+        /// DTO faze za prikaz podataka o fazi.
+        /// </summary>
+        public FazaDto? Faza { get; set; }
     }
 }

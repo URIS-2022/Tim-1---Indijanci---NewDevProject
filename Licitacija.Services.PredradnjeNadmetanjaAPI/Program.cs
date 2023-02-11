@@ -7,6 +7,7 @@ using System.Reflection;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Configurations;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.ConcreteClasses;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.Interfaces;
+using Licitacija.Services.PredradnjeNadmetanjaAPI.Mock;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +22,10 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddAutoMapper(typeof(MapperInitializer));
 
 //PredradnjeNadmetanjaRepo
-builder.Services.AddTransient<IPredradnjeNadmetanjaRepository, PredradnjeNadmetanjaRepository>();
+builder.Services.AddScoped<IPredradnjeNadmetanjaRepository, PredradnjeNadmetanjaRepository>();
+
+//Mock repo za ms Faza
+builder.Services.AddScoped<IMockRepository, MockRepository>();
 
 //Controllers i ValidationContext
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
@@ -84,7 +88,7 @@ builder.Services.AddSwaggerGen(setupAction =>
             License = new Microsoft.OpenApi.Models.OpenApiLicense
             {
                 Name = "FTN licence",
-                Url = new Uri("http://www.ftn.uns.ac.rs/")
+                Url = new Uri("https://www.ftn.uns.ac.rs/")
             },
         });
     setupAction.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());

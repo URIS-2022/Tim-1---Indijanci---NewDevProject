@@ -18,5 +18,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Entities
         /// </summary>
         [Required]
         public string PredradnjeNadmetanjaNaziv { get; set; }  = String.Empty;
+
+        public Guid? FazaId { get; set; }
     }
 }
