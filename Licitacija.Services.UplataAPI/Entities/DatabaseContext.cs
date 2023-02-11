@@ -4,13 +4,8 @@ namespace Licitacija.Services.UplataAPI.Entities
 {
     public class DatabaseContext : DbContext
     {
-        private readonly IConfiguration _configuration;
-
-        public DatabaseContext(DbContextOptions options, IConfiguration configuration) : base(options)
-        {
-            _configuration = configuration;
-        }
-        public DbSet<Kurs> Kurs { get; set; }
+        public DatabaseContext(DbContextOptions options) : base(options) { }
+        public DbSet<Kurs> Kurs { get; set; } 
         public DbSet<Uplata> Uplata { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
