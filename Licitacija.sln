@@ -4,7 +4,11 @@ VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEnd", "BackEnd", "{BE788866-3F3E-465A-8C10-5C7C37446C3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Licitacija.Services.AdresaAPI", "Licitacija.Services.AdresaAPI\Licitacija.Services.AdresaAPI.csproj", "{5906F8E4-5850-422F-B398-65B0774D89C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.AdresaAPI", "Licitacija.Services.AdresaAPI\Licitacija.Services.AdresaAPI.csproj", "{5906F8E4-5850-422F-B398-65B0774D89C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.KupacAPI", "Licitacija.Services.KupacAPI\Licitacija.Services.KupacAPI.csproj", "{3AEEF38F-FB58-495D-A63B-EC9990A0640E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Licitacija.Services.ParcelaAPI", "Licitacija.Services.ParcelaAPI\Licitacija.Services.ParcelaAPI.csproj", "{AD5A868E-167E-448F-947C-E4084B349514}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,12 +20,22 @@ Global
 		{5906F8E4-5850-422F-B398-65B0774D89C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5906F8E4-5850-422F-B398-65B0774D89C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5906F8E4-5850-422F-B398-65B0774D89C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AEEF38F-FB58-495D-A63B-EC9990A0640E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AEEF38F-FB58-495D-A63B-EC9990A0640E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AEEF38F-FB58-495D-A63B-EC9990A0640E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AEEF38F-FB58-495D-A63B-EC9990A0640E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD5A868E-167E-448F-947C-E4084B349514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD5A868E-167E-448F-947C-E4084B349514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD5A868E-167E-448F-947C-E4084B349514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD5A868E-167E-448F-947C-E4084B349514}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5906F8E4-5850-422F-B398-65B0774D89C0} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
+		{3AEEF38F-FB58-495D-A63B-EC9990A0640E} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
+		{AD5A868E-167E-448F-947C-E4084B349514} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30849ce5-3a9f-47fa-8dcc-78d98971f0fc}
