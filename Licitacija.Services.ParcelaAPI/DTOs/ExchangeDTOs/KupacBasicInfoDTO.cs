@@ -6,17 +6,17 @@
     public class KupacBasicInfoDTO
     {
         /// <summary>
-        /// ID kupca
+        /// ID kupca.
         /// </summary>
         public Guid KupacId { get; set; }
 
         /// <summary>
-        /// Glavni broj telefona
+        /// Glavni broj telefona.
         /// </summary>
         public string BrojTel1 { get; set; }
 
         /// <summary>
-        /// Email adresa kupca
+        /// Email adresa kupca.
         /// </summary>
         public string Email { get; set; }
 
@@ -26,8 +26,13 @@
         public string BrojRacuna { get; set; }
 
         /// <summary>
-        /// Ostvarena povrsina
+        /// Ostvarena povrsina.
         /// </summary>
         public int OstvarenPovrsina { get; set; }
+
+        /// <summary>
+        /// Indikator da li kupac ima zabranu.
+        /// </summary>
+        public bool? ImaZabranu { get; set; }
     }
 }
