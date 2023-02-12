@@ -27,5 +27,10 @@
         /// Ostvarena povrsina.
         /// </summary>
         public int OstvarenPovrsina { get; set; }
+
+        /// <summary>
+        /// Indikator da li kupac ima zabranu.
+        /// </summary>
+        public bool? ImaZabranu { get; set; }
     }
 }
