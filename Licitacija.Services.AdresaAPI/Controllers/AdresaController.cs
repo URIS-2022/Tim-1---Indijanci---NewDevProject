@@ -41,7 +41,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
 
                 if (adrese == null) return NoContent();
 
-                var results = _mapper.Map<List<AdresaDTO>>(adrese);
+                var results = _mapper.Map<List<AdresaDto>>(adrese);
 
                 return Ok(results);
             }
@@ -74,7 +74,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
 
                 if (adresa == null) return NotFound();
 
-                var result = _mapper.Map<AdresaDTO>(adresa);
+                var result = _mapper.Map<AdresaDto>(adresa);
 
                 return Ok(result);
             }
@@ -109,10 +109,8 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public async Task<IActionResult> CreateAdresa([FromBody] AdresaCreateDTO adresaDTO)
+        public async Task<IActionResult> CreateAdresa([FromBody] AdresaCreateDto adresaDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             try
             {
@@ -148,10 +146,8 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
-        public async Task<IActionResult> UpdateAdresa([FromBody] AdresaUpdateDTO adresaDTO)
+        public async Task<IActionResult> UpdateAdresa([FromBody] AdresaUpdateDto adresaDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             try
             {
@@ -231,7 +227,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
 
                 if (adresa == null) return NotFound();
 
-                var result = _mapper.Map<AdresaExchangeDTO>(adresa);
+                var result = _mapper.Map<AdresaExchangeDto>(adresa);
 
                 return Ok(result);
             }

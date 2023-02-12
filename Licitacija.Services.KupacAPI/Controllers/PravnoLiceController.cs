@@ -42,7 +42,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (pLica == null) return NoContent();
 
-                var results = _mapper.Map<List<PravnoLiceDTO>>(pLica);
+                var results = _mapper.Map<List<PravnoLiceDto>>(pLica);
 
                 return Ok(results);
             }
@@ -75,7 +75,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (pLice == null) return NotFound();
 
-                var result = _mapper.Map<PravnoLiceDTO>(pLice);
+                var result = _mapper.Map<PravnoLiceDto>(pLice);
 
                 return Ok(result);
             }
@@ -110,11 +110,8 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public async Task<IActionResult> CreatePravnoLice([FromBody] PravnoLiceCreateDTO pLiceDTO)
+        public async Task<IActionResult> CreatePravnoLice([FromBody] PravnoLiceCreateDto pLiceDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var pLice = _mapper.Map<PravnoLice>(pLiceDTO);
@@ -149,11 +146,8 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
-        public async Task<IActionResult> UpdatePravnoLice([FromBody] PravnoLiceUpdateDTO pLiceDTO)
+        public async Task<IActionResult> UpdatePravnoLice([FromBody] PravnoLiceUpdateDto pLiceDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var pLice = await _unitOfWork.PravnoLice.Get(i => i.PravnoLiceId == pLiceDTO.PravnoLiceId);

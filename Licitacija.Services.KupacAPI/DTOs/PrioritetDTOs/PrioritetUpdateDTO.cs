@@ -5,7 +5,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.PrioritetDTOs
     /// <summary>
     /// Model za izmenu prioriteta.
     /// </summary>
-    public class PrioritetUpdateDTO
+    public class PrioritetUpdateDto
     {
         /// <summary>
         /// ID prioriteta.
