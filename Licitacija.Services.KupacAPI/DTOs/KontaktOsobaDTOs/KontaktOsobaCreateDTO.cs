@@ -5,7 +5,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.KontaktOsobaDTOs
     /// <summary>
     /// Model za kreiranje kontakt osobe.
     /// </summary>
-    public class KontaktOsobaCreateDTO : IValidatableObject
+    public class KontaktOsobaCreateDto : IValidatableObject
     {
         /// <summary>
         /// Ime kontakt osobe.

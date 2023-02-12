@@ -6,7 +6,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.PravnoLiceDTOs
     /// <summary>
     /// Model za kreiranje pravnog lica.
     /// </summary>
-    public class PravnoLiceCreateDTO : IValidatableObject
+    public class PravnoLiceCreateDto : IValidatableObject
     {
         /// <summary>
         /// ID kupca (strani kljuc).

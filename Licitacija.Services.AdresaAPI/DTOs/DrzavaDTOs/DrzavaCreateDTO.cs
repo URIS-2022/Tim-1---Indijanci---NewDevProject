@@ -6,7 +6,7 @@ namespace Licitacija.Services.AdresaAPI.DTOs.Drzava
     /// <summary>
     /// Model za kreiranje države.
     /// </summary>
-    public class DrzavaCreateDTO
+    public class DrzavaCreateDto
     {
         /// <summary>
         /// Naziv države.

@@ -40,7 +40,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
 
                 if (drzave == null) return NoContent();
 
-                var results = _mapper.Map<List<DrzavaDTO>>(drzave);//mapiranje (iz) <u>
+                var results = _mapper.Map<List<DrzavaDto>>(drzave);//mapiranje (iz) <u>
 
                 return Ok(results);
             }
@@ -73,7 +73,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
 
                 if(drzava == null) return NotFound();
 
-                var result = _mapper.Map<DrzavaDTO>(drzava);
+                var result = _mapper.Map<DrzavaDto>(drzava);
 
                 return Ok(result);
             }
@@ -104,11 +104,9 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public async Task<IActionResult> CreateDrzava([FromBody] DrzavaCreateDTO drzavaDTO)
+        public async Task<IActionResult> CreateDrzava([FromBody] DrzavaCreateDto drzavaDTO)
         {
             
-            if(!ModelState.IsValid) return BadRequest(ModelState);    
-
             try { 
                 var drzava = _mapper.Map<Drzava>(drzavaDTO);
 
@@ -142,11 +140,8 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
-        public async Task<IActionResult> UpdateDrzava([FromBody] DrzavaUpdateDTO drzavaDTO)
+        public async Task<IActionResult> UpdateDrzava([FromBody] DrzavaUpdateDto drzavaDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var drzava = await _drzavaRepository.Get(drzavaDTO.DrzavaId);

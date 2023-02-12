@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO za adresu.
     /// </summary>
-    public class AdresaDTO
+    public class AdresaDto
     {
         /// <summary>
         /// ID adrese.
