@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Licitacija.Services.LicitacijaAPI.Repositories.Interface;
 using Licitacija.Services.LicitacijaAPI.DTOs.FazaLicitacijeDTOs;
 using Licitacija.Services.LicitacijaAPI.DTOs.LicitacijaDTOs;
+using Licitacija.Services.LicitacijaAPI.DTOs.ExchangeDTOs;
 
 namespace Licitacija.Services.LicitacijaAPI.Controllers
 {
@@ -186,5 +187,33 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
+
+        [HttpGet("FazaLicitacijeBasic/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<FazaLicitacijeBasicInfoDTO> GetFazaLicitacijeBasic(Guid id)
+        {
+            try
+            {
+                var fazaLicitacijeBasic = _fazaLicitacije.GetFazaLicitacijeBasic(id);
+
+                if (fazaLicitacijeBasic == null)
+                {
+                    return NotFound();
+                }
+
+                var result = _mapper.Map<FazaLicitacijeBasicInfoDTO>(fazaLicitacijeBasic);
+                
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+
+        }
+
+
     }
 }

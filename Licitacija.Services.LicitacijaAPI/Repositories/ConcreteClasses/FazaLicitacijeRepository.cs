@@ -42,5 +42,10 @@ namespace Licitacija.Services.LicitacijaAPI.Repositories.ConcreteClasses
         {
             throw new NotImplementedException();
         }
+
+        public FazaLicitacije GetFazaLicitacijeBasic(Guid id)
+        {
+            return _databaseContext.FazaLicitacije.FirstOrDefault(e => e.FazaId == id);
+        }
     }
 }
