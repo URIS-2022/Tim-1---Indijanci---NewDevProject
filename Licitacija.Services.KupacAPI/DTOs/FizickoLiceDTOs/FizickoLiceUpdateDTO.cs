@@ -5,7 +5,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.FizickoLiceDTOs
     /// <summary>
     /// Model za izmenu fizickog lica.
     /// </summary>
-    public class FizickoLiceUpdateDTO : IValidatableObject
+    public class FizickoLiceUpdateDto : IValidatableObject
     {
         /// <summary>
         /// ID kupca (strani kljuc).

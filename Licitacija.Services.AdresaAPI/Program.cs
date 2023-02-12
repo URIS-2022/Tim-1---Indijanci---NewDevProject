@@ -22,13 +22,13 @@ builder.Services.AddAutoMapper(typeof(MapperInitializer));
 
 //Transient - svaki put kada se koristi zahtev iz kontrolera, kreirace se nova instanca iuof
 //UnitOfWork
-builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 //AdresaRepository
-builder.Services.AddTransient<IAdresaRepository, AdresaRepository>();
+builder.Services.AddScoped<IAdresaRepository, AdresaRepository>();
 
 //DrzavaReposiory
-builder.Services.AddTransient<IDrzavaRepository, DrzavaRepository>();
+builder.Services.AddScoped<IDrzavaRepository, DrzavaRepository>();
 
 //Controllers i ValidationContext
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
@@ -60,7 +60,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
                 {
                     ContentTypes = { "application/problem+json" }
                 };
-            };
+            }
 
             problemDetails.Status = StatusCodes.Status400BadRequest;
             problemDetails.Title = "Došlo je do greške prilikom parsiranja poslatog sadržaja.";
@@ -91,7 +91,7 @@ builder.Services.AddSwaggerGen(setupAction =>
                 License = new Microsoft.OpenApi.Models.OpenApiLicense
                 {
                     Name = "FTN licence",
-                    Url = new Uri("http://www.ftn.uns.ac.rs/")
+                    Url = new Uri("https://www.ftn.uns.ac.rs/")
                 },
             });
         setupAction.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());

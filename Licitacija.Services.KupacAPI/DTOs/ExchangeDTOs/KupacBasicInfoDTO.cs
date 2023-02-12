@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO kupca sa osnnovnim informacijama.
     /// </summary>
-    public class KupacBasicInfoDTO
+    public class KupacBasicInfoDto
     {
         /// <summary>
         /// ID kupca.
@@ -29,5 +29,11 @@
         /// Ostvarena povrsina.
         /// </summary>
         public int OstvarenPovrsina { get; set; }
+
+        /// <summary>
+        /// Indikator da li kupac ima zabranu.
+        /// </summary>
+        public bool? ImaZabranu { get; set; }
+
     }
 }

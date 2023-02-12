@@ -6,7 +6,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.PravnoLiceDTOs
     /// <summary>
     /// Model za izmenu pravnog lica.
     /// </summary>
-    public class PravnoLiceUpdateDTO
+    public class PravnoLiceUpdateDto
     {
         /// <summary>
         /// ID kupca (strani kljuc).

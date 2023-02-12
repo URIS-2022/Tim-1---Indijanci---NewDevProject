@@ -45,11 +45,11 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kupci == null) return NoContent();
 
-                var results = _mapper.Map<List<KupacDTO>>(kupci);
+                var results = _mapper.Map<List<KupacDto>>(kupci);
 
                 foreach (var result in results)
                 {
-                    AdresaDTO adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
+                    AdresaDto adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
                     result.Adresa = adresa;
                 }
 
@@ -84,9 +84,9 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kupac == null) return NotFound();
 
-                var result = _mapper.Map<KupacDTO>(kupac);
+                var result = _mapper.Map<KupacDto>(kupac);
 
-                AdresaDTO adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
+                AdresaDto adresa = _adresaService.GetAdresaById((Guid)result.AdresaId).Result;
 
                 result.Adresa = adresa;
 
@@ -129,10 +129,8 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public async Task<IActionResult> CreateKupac([FromBody] KupacCreateDTO kupacDTO)
+        public async Task<IActionResult> CreateKupac([FromBody] KupacCreateDto kupacDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             try
             {
@@ -168,11 +166,8 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut]
-        public async Task<IActionResult> UpdateKupac([FromBody] KupacUpdateDTO kupacDTO)
+        public async Task<IActionResult> UpdateKupac([FromBody] KupacUpdateDto kupacDTO)
         {
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             try
             {
                 var kupac = await _unitOfWork.Kupac.Get(i => i.KupacId == kupacDTO.KupacId);
@@ -242,7 +237,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpGet("kupacBasicInfo/{kupacId:guid}")]
+        [HttpGet("kupacOsnovneInfo/{kupacId:guid}")]
         public async Task<IActionResult> GetKupacBasicInfo(Guid kupacId)
         {
             try
@@ -251,7 +246,40 @@ namespace Licitacija.Services.KupacAPI.Controllers
 
                 if (kupac == null) return NotFound();
 
-                var result = _mapper.Map<KupacBasicInfoDTO>(kupac);
+                var result = _mapper.Map<KupacBasicInfoDto>(kupac);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        /// <summary>
+        /// Vraća jednog kupca na osnovu ID-ja kupca (sa tipom kupca).
+        /// </summary>
+        /// <param name="kupacId">ID kupca</param>
+        /// <returns>Jedan kupac.</returns>
+        /// <response code="200">Vraća traženog kupca</response>
+        /// <response code="404">Nije pronađen nijedan kupac sa datim ID kupca</response>
+        /// <response code="500">Serverska greška</response>
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("kupacSaTipom/{kupacId:guid}")]
+        public async Task<IActionResult> GetKupacWithTip(Guid kupacId)
+        {
+            try
+            {
+                var kupac = await _kupacRepository.GetKupacWithTip(kupacId);
+
+                if (kupac == null) return NotFound();
+
+                var result = _mapper.Map<KupacWithTipDto>(kupac);
 
                 return Ok(result);
             }

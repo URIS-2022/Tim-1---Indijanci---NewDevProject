@@ -123,6 +123,9 @@ namespace Licitacija.Services.KupacAPI.Migrations
                     b.Property<Guid?>("PrioritetId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("TipKupca")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("KupacId");
 
                     b.HasIndex("PrioritetId");

@@ -5,7 +5,7 @@ namespace Licitacija.Services.AdresaAPI.Repositories.Interfaces
 {
     //genericki repozitorijum koji ce se deliti izmedju entiteta za operacije dodavanja, izmene i brisanja, dok ce 
         //se za pribavljanje podataka (getall i get) kreirati poseban repository za svaki entitet.
-    public interface IGenericRepository<T> where T : class
+    public interface IGenericRepository<in T> where T : class
     {
         Task Insert(T entity);
 

@@ -8,7 +8,7 @@ namespace Licitacija.Services.AdresaAPI.DTOs.Adresa
     /// <summary>
     /// Model za izmenu adrese.
     /// </summary>
-    public class AdresaUpdateDTO : IValidatableObject
+    public class AdresaUpdateDto : IValidatableObject
     {
         /// <summary>
         /// ID adrese.
@@ -50,14 +50,17 @@ namespace Licitacija.Services.AdresaAPI.DTOs.Adresa
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+            var regexItem = new Regex("^[a-zA-Z0-9 ]*$", RegexOptions.None, TimeSpan.FromMilliseconds(100));
 
             if (!regexItem.IsMatch(Broj) || !regexItem.IsMatch(PostanskiBroj)) {
+
                 yield return new ValidationResult(
                   "Nije moguće izmeniti adresu zato sto neki unosi sadrže specijalne karaktere.",
                   new[] { "AdresaUpdateDTO" });
 
             }
+
+            AppDomain.CurrentDomain.SetData("REGEX_DEFAULT_MATCH_TIMEOUT", TimeSpan.FromMilliseconds(100));
 
         }
     }

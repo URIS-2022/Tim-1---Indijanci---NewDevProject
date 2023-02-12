@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO za adresu bez drzave.
     /// </summary>
-    public class AdresaExchangeDTO
+    public class AdresaExchangeDto
     {
         /// <summary>
         /// ID adrese.

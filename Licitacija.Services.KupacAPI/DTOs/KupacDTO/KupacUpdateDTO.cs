@@ -6,7 +6,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
     /// <summary>
     /// Model za izmenu kupca.
     /// </summary>
-    public class KupacUpdateDTO : IValidatableObject
+    public class KupacUpdateDto : IValidatableObject
     {
         /// <summary>
         /// ID kupca.
@@ -67,6 +67,12 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
         public DateTime? DatumPrestankaZabrane { get; set; }
 
         /// <summary>
+        /// Tip kupca (pravno ili fizicko lice).
+        /// </summary>
+        [Required(ErrorMessage = "Podatak o tipu kupca je obavezan.")]
+        public string TipKupca { get; set; }
+
+        /// <summary>
         /// Prioritet ID (strani kljuc).
         /// </summary>
         public Guid? PrioritetId { get; set; }
@@ -84,6 +90,13 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
             {
                 yield return new ValidationResult(
                   "Pogresan format email adrese (primer: email@gmail.com).",
+                  new[] { "KupacUpdateDTO" });
+            }
+
+            if (TipKupca.ToLower() != "pravno" || TipKupca.ToLower() != "fizicko")
+            {
+                yield return new ValidationResult(
+                  "Tip kupca uzima vrednost pravno ili fizicko.",
                   new[] { "KupacUpdateDTO" });
             }
         }
