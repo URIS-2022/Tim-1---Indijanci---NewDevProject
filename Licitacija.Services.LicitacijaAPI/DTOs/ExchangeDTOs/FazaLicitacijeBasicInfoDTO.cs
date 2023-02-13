@@ -1,12 +1,14 @@
-﻿namespace Licitacija.Services.ZalbaAPI.DTOs.ExchangeDTOs
+﻿using Licitacija.Services.LicitacijaAPI.DTOs.LicitacijaDTOs;
+
+namespace Licitacija.Services.LicitacijaAPI.DTOs.ExchangeDTOs
 {
     /// <summary>
     /// DTO faze licitacije sa osnnovnim informacijama.
     /// </summary>
-    public class FazaLicitacijeDTO
+    public class FazaLicitacijeBasicInfoDTO
     {
         /// <summary>
-        /// ID faze licitacije
+        /// ID faze licitacije.
         /// </summary>
         public Guid FazaId { get; set; }
 
@@ -14,5 +16,6 @@
         /// Naziv faze Licitacije
         /// </summary>
         public String FazaNaziv { get; set; }
+
     }
 }

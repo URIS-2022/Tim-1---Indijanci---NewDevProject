@@ -58,12 +58,14 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                 var result = _mapper.Map<List<ZalbaDTO>>(zalbe);
 
                 foreach (var zalba in result)
-                {
+                {   
+
                     KupacDTO kupac = _kupacService.GetKupacById(zalba.KupacId).Result;
                     zalba.Kupac = kupac;
 
                     FazaLicitacijeDTO fazaLicitacije = _fazaLicitacijeService.GetFazaLicitacijeById(zalba.FazaId).Result;
                     zalba.FazaLicitacije = fazaLicitacije;
+
                 }
 
                 return Ok(result);

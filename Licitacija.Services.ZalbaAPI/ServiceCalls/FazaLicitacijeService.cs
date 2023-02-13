@@ -16,7 +16,7 @@ namespace Licitacija.Services.ZalbaAPI.ServiceCalls
         {
             using (HttpClient client = new())
             {
-                Uri url = new Uri($"{_configuration["Services:KupacService"]}api/fazalicitacije" + fazaId);
+                Uri url = new Uri($"{_configuration["Services:FazaLicitacijeService"]}api/FazaLicitacije/FazaLicitacijeBasic/" + fazaId);
 
                 var response = await client.GetAsync(url);
 

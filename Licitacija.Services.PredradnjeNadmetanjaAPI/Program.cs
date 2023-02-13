@@ -7,7 +7,7 @@ using System.Reflection;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Configurations;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.ConcreteClasses;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.Interfaces;
-using Licitacija.Services.PredradnjeNadmetanjaAPI.Mock;
+using Licitacija.Services.PredradnjeNadmetanjaAPI.ServiceCalls;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +25,7 @@ builder.Services.AddAutoMapper(typeof(MapperInitializer));
 builder.Services.AddScoped<IPredradnjeNadmetanjaRepository, PredradnjeNadmetanjaRepository>();
 
 //Mock repo za ms Faza
-builder.Services.AddScoped<IMockRepository, MockRepository>();
+builder.Services.AddScoped<ILicitacijaService, LicitacijaService>();
 
 //Controllers i ValidationContext
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
