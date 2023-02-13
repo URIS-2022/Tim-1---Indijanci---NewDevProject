@@ -1,9 +1,11 @@
-﻿namespace Licitacija.Services.PredradnjeNadmetanjaAPI.DTOs
+﻿using Licitacija.Services.LicitacijaAPI.DTOs.LicitacijaDTOs;
+
+namespace Licitacija.Services.LicitacijaAPI.DTOs.ExchangeDTOs
 {
     /// <summary>
-    /// DTO faze licitacije.
+    /// DTO faze licitacije sa osnnovnim informacijama.
     /// </summary>
-    public class FazaDto
+    public class FazaLicitacijeBasicInfoDTO
     {
         /// <summary>
         /// ID faze licitacije.
