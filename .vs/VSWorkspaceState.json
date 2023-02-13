@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Licitacija.Services.AdresaAPI",
-    "\\Licitacija.Services.UplataAPI"
+    "\\Licitacija.Services.LicitacijaAPI"
   ],
-  "SelectedNode": "\\Licitacija.sln",
+  "SelectedNode": "\\Licitacija.Services.LicitacijaAPI",
   "PreviewInSolutionExplorer": false
 }

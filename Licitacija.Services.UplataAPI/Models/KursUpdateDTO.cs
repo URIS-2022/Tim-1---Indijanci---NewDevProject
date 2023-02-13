@@ -6,7 +6,7 @@ namespace Licitacija.Services.UplataAPI.Models
     /// <summary>
     /// Model za izmenu kursa.
     /// </summary>
-    public class KursUpdateDTO : IValidatableObject
+    public class KursUpdateDto : IValidatableObject
     {
         /// <summary>
         /// ID kursa.

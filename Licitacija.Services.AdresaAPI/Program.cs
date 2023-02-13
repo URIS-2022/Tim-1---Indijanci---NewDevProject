@@ -22,13 +22,13 @@ builder.Services.AddAutoMapper(typeof(MapperInitializer));
 
 //Transient - svaki put kada se koristi zahtev iz kontrolera, kreirace se nova instanca iuof
 //UnitOfWork
-builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 //AdresaRepository
-builder.Services.AddTransient<IAdresaRepository, AdresaRepository>();
+builder.Services.AddScoped<IAdresaRepository, AdresaRepository>();
 
 //DrzavaReposiory
-builder.Services.AddTransient<IDrzavaRepository, DrzavaRepository>();
+builder.Services.AddScoped<IDrzavaRepository, DrzavaRepository>();
 
 //Controllers i ValidationContext
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
