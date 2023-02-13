@@ -34,7 +34,7 @@ namespace Licitacija.Services.Identity
             new Client
             {
                 ClientId = "licitacija",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.Code,
                 ClientSecrets = {new Secret("2124cf1f-bffd-444f-92bb-a6b78d0e3894".Sha256().Sha256())},
                 AllowedScopes = new List<string>
                 {
