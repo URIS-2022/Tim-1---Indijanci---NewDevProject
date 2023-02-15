@@ -10,6 +10,7 @@ namespace Licitacija.Services.LicitacijaAPI.Repositories.Interface
         void InsertLicitacija(LicitacijaEntity licitacija);
         void DeleteLicitacija(Guid id);
         void UpdateLicitacija(LicitacijaEntity licitacija);
+        LicitacijaEntity GetLicitacijaBasic(Guid id);
         bool Save();
     }
 }

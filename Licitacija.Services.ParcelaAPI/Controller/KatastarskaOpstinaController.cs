@@ -6,6 +6,7 @@ using Licitacija.Services.ParcelaAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Licitacija.Services.ParcelaAPI.DTOs.ExchangeDTOs;
 
+
 namespace Licitacija.Services.ParcelaAPI.Controllers
 {
     /// <summary>
@@ -87,6 +88,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
             }
 
         }
+
 
         [HttpGet("KatastarskaOpstinaBasicInfo/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
