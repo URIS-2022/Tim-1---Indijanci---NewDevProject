@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.DTOs;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Entities;
-using Licitacija.Services.PredradnjeNadmetanjaAPI.Mock;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.Interfaces;
+using Licitacija.Services.PredradnjeNadmetanjaAPI.ServiceCalls;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
@@ -13,13 +13,13 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
     public class PredradnjeNadmetanjaController : Controller
     {
         private readonly IPredradnjeNadmetanjaRepository _predradnjeNadmetanja;
-        private readonly IMockRepository _mockRepository;
+        private readonly ILicitacijaService _licitacijaService;
         private readonly IMapper _mapper;
 
-        public PredradnjeNadmetanjaController(IPredradnjeNadmetanjaRepository predradnjeNadmetanja, IMapper mapper, IMockRepository mockRepository)  
+        public PredradnjeNadmetanjaController(IPredradnjeNadmetanjaRepository predradnjeNadmetanja, IMapper mapper, ILicitacijaService licitacijaService)  
         {
             _predradnjeNadmetanja = predradnjeNadmetanja;
-            _mockRepository = mockRepository;
+            _licitacijaService = licitacijaService;
             _mapper = mapper;
         }
 
@@ -46,7 +46,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
 
                 foreach (var result in results)
                 {
-                    FazaDto faza = _mockRepository.GetFazaById((Guid)result.FazaId);
+                    FazaDto faza = _licitacijaService.GetFazaById((Guid)result.FazaId).Result;
                     result.Faza = faza;
                 }
 
@@ -83,7 +83,7 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
 
                 var result = _mapper.Map<PredradnjeNadmetanjaDto>(predradnja);
 
-                FazaDto faza = _mockRepository.GetFazaById((Guid)result.FazaId);
+                FazaDto faza = _licitacijaService.GetFazaById((Guid)result.FazaId).Result;
 
                 result.Faza = faza;
 

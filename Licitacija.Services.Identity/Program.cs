@@ -7,6 +7,8 @@ using Licitacija.Services.Identity.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +52,25 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
+builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
+{
+    options.Authority = "https://localhost:7004/";
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateAudience = true
+    };
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ApiScope", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "licitacija");
+    });
+});
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -69,6 +90,7 @@ builder.Services.AddIdentityServer(options =>
 }).AddInMemoryIdentityResources(SD.IdentityResources)
     .AddInMemoryClients(SD.Clients)
     .AddInMemoryApiScopes(SD.ApiScopes)
+    .AddAspNetIdentity<ApplicationUser>()
     .AddDeveloperSigningCredential();
 
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();

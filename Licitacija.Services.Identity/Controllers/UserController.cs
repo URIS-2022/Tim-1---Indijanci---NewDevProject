@@ -11,22 +11,18 @@ using System.Security.Claims;
 
 namespace Licitacija.Services.Identity.Controllers
 {
-    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
 
         public UserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _roleManager = roleManager;
         }
-
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginDTO userLogin)
@@ -36,7 +32,7 @@ namespace Licitacija.Services.Identity.Controllers
             if (result.Succeeded)
             {
                 var user = await _userManager.FindByNameAsync(userLogin.Username);
-                return Ok(userLogin);
+                return Ok(user);
             }
 
             return BadRequest("Invalid credentials");
@@ -83,7 +79,7 @@ namespace Licitacija.Services.Identity.Controllers
 
                 await _signInManager.PasswordSignInAsync(userRegister.Username, userRegister.Password, false, lockoutOnFailure: true);
 
-                return StatusCode(201,"Registred and loged in.");
+                return StatusCode(201,"Registred and logged in.");
             }
 
             return BadRequest("Something went wrong!");
