@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
-namespace Licitacija.Services.Dokument.API.Entities
+namespace Licitacija.Services.DokumentAPI.Entities
 {
     public class StatusDokumenta
     {
@@ -14,6 +15,12 @@ namespace Licitacija.Services.Dokument.API.Entities
         /// Naziv statusa dokumenta.
         /// </summary>
         [Required]
-        public string StatusDokumentaNaziv { get; set; } = String.Empty;
+        public string StatusDokumentaNaziv { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Svi dokumenti datog tipa.
+        /// </summary>
+        [JsonIgnore]
+        public List<Dokument>? Dokumenti { get; set; }
     }
 }

@@ -20,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.Identit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.Gateway", "Licitacija.Services.Gateway\Licitacija.Services.Gateway.csproj", "{00D6D0BF-B960-469D-BBA8-9D0B02601DA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Licitacija.Services.Dokument.API", "Licitacija.Services.DokumentAPI\Licitacija.Services.Dokument.API.csproj", "{9180EC5A-8A1D-456F-A9E6-713333901490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.DokumentAPI", "Licitacija.Services.DokumentAPI\Licitacija.Services.DokumentAPI.csproj", "{9180EC5A-8A1D-456F-A9E6-713333901490}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

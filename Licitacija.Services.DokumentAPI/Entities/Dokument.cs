@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
-namespace Licitacija.Services.Dokument.API.Entities
+namespace Licitacija.Services.DokumentAPI.Entities
 {
     public class Dokument
     {
@@ -15,7 +15,7 @@ namespace Licitacija.Services.Dokument.API.Entities
         /// Zavodni broj dokumenta.
         /// </summary>
         [Required]
-        public string ZavodniBroj { get; set; } = String.Empty;
+        public string ZavodniBroj { get; set; } = string.Empty;
 
         /// <summary>
         /// Datum potpisivanja dokumenta.
@@ -33,7 +33,7 @@ namespace Licitacija.Services.Dokument.API.Entities
         /// Rokovi dospeća ugovora o zakupu.
         /// </summary>
         [Required]
-        public string Sablon { get; set; } = String.Empty;
+        public string Sablon { get; set; } = string.Empty;
 
         /// <summary>
         /// Status dokumenta.

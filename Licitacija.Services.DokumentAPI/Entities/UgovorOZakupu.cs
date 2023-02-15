@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Licitacija.Services.Dokument.API.Entities
+namespace Licitacija.Services.DokumentAPI.Entities
 {
     public class UgovorOZakupu
     {

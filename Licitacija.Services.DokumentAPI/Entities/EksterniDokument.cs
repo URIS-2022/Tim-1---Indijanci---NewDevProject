@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
-namespace Licitacija.Services.Dokument.API.Entities
+namespace Licitacija.Services.DokumentAPI.Entities
 {
     public class EksterniDokument
     {
@@ -15,7 +15,7 @@ namespace Licitacija.Services.Dokument.API.Entities
         /// Ustanova kojoj pripada eksterni dokument.
         /// </summary>
         [Required]
-        public string Ustanova { get; set; } = String.Empty;
+        public string Ustanova { get; set; } = string.Empty;
 
         /// <summary>
         /// Dokument koji predstavlja eksterni dokument.

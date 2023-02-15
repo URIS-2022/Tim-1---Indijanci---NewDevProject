@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Licitacija.Services.Dokument.API.Entities
+namespace Licitacija.Services.DokumentAPI.Entities
 {
     public class TipGarancije
     {
@@ -14,6 +14,12 @@ namespace Licitacija.Services.Dokument.API.Entities
         /// Naziv tipa garancije.
         /// </summary>
         [Required]
-        public string TipGarancijeNaziv { get; set; } = String.Empty;
+        public string TipGarancijeNaziv { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Svi ugovori u zakupu koji imaju dati tip garancije.
+        /// </summary>
+        public List<UgovorOZakupu>? UgovoriOZakupu { get; set; }
+
     }
 }
