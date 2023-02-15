@@ -212,8 +212,10 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
 
-        }
 
+        }      
+
+        }
 
     }
 }
