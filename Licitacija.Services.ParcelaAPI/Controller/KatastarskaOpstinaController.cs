@@ -4,6 +4,7 @@ using Licitacija.Services.ParcelaAPI.Entities;
 using Microsoft.AspNetCore.Http;
 using Licitacija.Services.ParcelaAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Licitacija.Services.ParcelaAPI.DTOs.ExchangeDTOs;
 
 namespace Licitacija.Services.ParcelaAPI.Controllers
 {
@@ -79,6 +80,32 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                 }
 
                 return Ok(_mapper.Map<KatastarskaOpstinaDTO>(katastarskaOpstina));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+
+        }
+
+        [HttpGet("KatastarskaOpstinaBasicInfo/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<KatastarskaOpstinaBasicInfoDTO> GetKatastarskaOpstinaBasicInfo(Guid id)
+        {
+            try
+            {
+                var katastarskaOpstinaBasicInfo = _katastarskaOpstinaRepository.GetKatastarskaOpstinaBasicInfo(id);
+
+                if (katastarskaOpstinaBasicInfo == null)
+                {
+                    return NotFound();
+                }
+
+                var result = _mapper.Map<KatastarskaOpstinaBasicInfoDTO>(katastarskaOpstinaBasicInfo);
+
+                return Ok(result);
             }
             catch (Exception e)
             {
