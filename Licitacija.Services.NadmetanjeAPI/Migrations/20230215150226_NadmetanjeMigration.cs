@@ -28,6 +28,11 @@ namespace Licitacija.Services.NadmetanjeAPI.Migrations
                 columns: table => new
                 {
                     NadmetanjeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LicitacijaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KadOpstinaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StatusNadmetanjaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AdresaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FazaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VremePocetka = table.Column<DateTime>(type: "datetime2", nullable: false),
                     VremeKraja = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CenaPoHektaru = table.Column<int>(type: "int", nullable: false),
@@ -36,9 +41,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Migrations
                     PeriodZakupa = table.Column<int>(type: "int", nullable: false),
                     BrojUcesnika = table.Column<int>(type: "int", nullable: false),
                     VisinaDopuneDepozita = table.Column<int>(type: "int", nullable: false),
-                    Krug = table.Column<int>(type: "int", nullable: false),
-                    StatusNadmetanjaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AdresaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Krug = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -18,11 +18,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.Predrad
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.Identity", "Licitacija.Services.Identity\Licitacija.Services.Identity.csproj", "{236B2CC2-B8B1-49F2-A667-17A2FBBE5DF9}"
 EndProject
-<<<<<<< HEAD
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Licitacija.Services.NadmetanjeAPI", "Licitacija.Services.NadmetanjeAPI\Licitacija.Services.NadmetanjeAPI.csproj", "{C7559EFB-F415-4E61-857C-8FE8393AF98C}"
-=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.NadmetanjeAPI", "Licitacija.Services.NadmetanjeAPI\Licitacija.Services.NadmetanjeAPI.csproj", "{C7559EFB-F415-4E61-857C-8FE8393AF98C}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.Gateway", "Licitacija.Services.Gateway\Licitacija.Services.Gateway.csproj", "{00D6D0BF-B960-469D-BBA8-9D0B02601DA2}"
->>>>>>> develop
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.ParcelaAPI", "Licitacija.Services.ParcelaAPI\Licitacija.Services.ParcelaAPI.csproj", "{E6ED2A87-59B8-4FDC-AC32-0BCA116AC1BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,17 +58,18 @@ Global
 		{236B2CC2-B8B1-49F2-A667-17A2FBBE5DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{236B2CC2-B8B1-49F2-A667-17A2FBBE5DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{236B2CC2-B8B1-49F2-A667-17A2FBBE5DF9}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{C7559EFB-F415-4E61-857C-8FE8393AF98C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7559EFB-F415-4E61-857C-8FE8393AF98C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7559EFB-F415-4E61-857C-8FE8393AF98C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7559EFB-F415-4E61-857C-8FE8393AF98C}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
 		{00D6D0BF-B960-469D-BBA8-9D0B02601DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{00D6D0BF-B960-469D-BBA8-9D0B02601DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00D6D0BF-B960-469D-BBA8-9D0B02601DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00D6D0BF-B960-469D-BBA8-9D0B02601DA2}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> develop
+		{E6ED2A87-59B8-4FDC-AC32-0BCA116AC1BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6ED2A87-59B8-4FDC-AC32-0BCA116AC1BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6ED2A87-59B8-4FDC-AC32-0BCA116AC1BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6ED2A87-59B8-4FDC-AC32-0BCA116AC1BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,11 +82,9 @@ Global
 		{3A42EC62-06F3-4666-A4C1-7793FFC0FF1A} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
 		{40BE37BD-3791-4556-AE05-81ED7D52FF58} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
 		{236B2CC2-B8B1-49F2-A667-17A2FBBE5DF9} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
-<<<<<<< HEAD
 		{C7559EFB-F415-4E61-857C-8FE8393AF98C} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
-=======
 		{00D6D0BF-B960-469D-BBA8-9D0B02601DA2} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
->>>>>>> develop
+		{E6ED2A87-59B8-4FDC-AC32-0BCA116AC1BE} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30849ce5-3a9f-47fa-8dcc-78d98971f0fc}
