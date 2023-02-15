@@ -7,6 +7,7 @@ using Licitacija.Services.LicitacijaAPI.Repositories.Interface;
 using Licitacija.Services.LicitacijaAPI.DTOs.LicitacijaDTOs;
 using Licitacija.Services.LicitacijaAPI.DTOs.ExchangeDTOs;
 
+
 namespace Licitacija.Services.LicitacijaAPI.Controllers
 {
     /// <summary>
@@ -213,5 +214,6 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
             }
 
         }
+
     }
 }

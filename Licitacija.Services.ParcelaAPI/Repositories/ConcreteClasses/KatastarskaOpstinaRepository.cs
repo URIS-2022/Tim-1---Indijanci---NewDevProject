@@ -28,6 +28,11 @@ namespace Licitacija.Services.ParcelaAPI.Repositories.ConcreteClasses
             return _dataContext.KatastarskeOpstine.FirstOrDefault(e => e.KatOpstinaId == id);
         }
 
+        public KatastarskaOpstina GetKatastarskaOpstinaBasicInfo(Guid id)
+        {
+            return _dataContext.KatastarskeOpstine.FirstOrDefault(e => e.KatOpstinaId == id);
+        }
+
         public void InsertKatastarskaOpstina(KatastarskaOpstina katastarskaOpstina)
         {
             _dataContext.Add(katastarskaOpstina);
