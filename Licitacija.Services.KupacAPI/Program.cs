@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Licitacija.Services.KupacAPI.ServiceCalls;
+//using Microsoft.IdentityModel.Tokens;
+//using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,6 +77,26 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     });
 
 builder.Services.AddEndpointsApiExplorer();
+
+//Autentifikacija i autorizacija
+/*builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
+{
+    options.Authority = "https://localhost:7004/";
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateAudience = true
+    };
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ApiScope", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "licitacija");
+    });
+});*/
+
 //Swagger
 builder.Services.AddSwaggerGen(setupAction =>
 {
@@ -96,6 +118,33 @@ builder.Services.AddSwaggerGen(setupAction =>
                 Url = new Uri("https://www.ftn.uns.ac.rs/")
             },
         });
+
+    /*setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = @"Eneter 'Bearer' [space] and your token",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                },
+                Scheme = "oauth2",
+                Name = "Bearer",
+                In = ParameterLocation.Header
+            },
+            new List<string>()
+        }
+    });*/
+
     setupAction.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
 
@@ -106,13 +155,13 @@ builder.Services.AddSwaggerGen(setupAction =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+/*using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
     var context = services.GetRequiredService<DataContext>();
     context.Database.Migrate();
-}
+}*/
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -126,6 +175,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//app.UseAuthentication();
 
 app.UseAuthorization();
 
