@@ -42,5 +42,10 @@ namespace Licitacija.Services.NadmetanjeAPI.Repositories
         {
             return _databaseContext.SaveChanges() > 0;
         }
+
+        public Nadmetanje GetNadmetanjeBasic(Guid id)
+        {
+            return _databaseContext.Nadmetanje.FirstOrDefault(n => n.NadmetanjeId == id);
+        }
     }
 }

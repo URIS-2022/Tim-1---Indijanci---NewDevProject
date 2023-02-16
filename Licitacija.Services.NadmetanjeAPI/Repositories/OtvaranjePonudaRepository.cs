@@ -42,5 +42,10 @@ namespace Licitacija.Services.NadmetanjeAPI.Repositories
         {
             return _databaseContext.SaveChanges() > 0;
         }
+
+        public OtvaranjePonuda GetOtvaranjePonudaBasic(Guid id)
+        {
+            return _databaseContext.OtvaranjePonuda.FirstOrDefault(op => op.OtvaranjePonudaId == id);
+        }
     }
 }
