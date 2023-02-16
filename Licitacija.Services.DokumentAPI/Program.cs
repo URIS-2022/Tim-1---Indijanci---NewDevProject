@@ -58,8 +58,23 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(
         builder.Configuration
             .GetConnectionString("DokumentDB")));
+builder.Services.AddTransient<DataSeeder>();
 
 var app = builder.Build();
+
+if (args.Length == 1 && args[0].ToLower() == "seeddata")
+    SeedData(app);
+
+static void SeedData(IHost app)
+{
+    IServiceScopeFactory? scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+    using(var scope = scopedFactory?.CreateScope())
+    {
+        var service = scope?.ServiceProvider.GetService<DataSeeder>();
+        service?.Seed();
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

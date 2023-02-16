@@ -1,35 +1,24 @@
-﻿using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
+﻿using Licitacija.Services.DokumentAPI.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace Licitacija.Services.DokumentAPI.Entities
+namespace Licitacija.Services.DokumentAPI.Models.EksterniDokumentDtos
 {
-    public class EksterniDokument
+    public class UpdateEksterniDokumentDto
     {
         /// <summary>
         /// ID Eksternog dokumenta.
         /// </summary>
-        [Key]
         public Guid EksterniDokumentId { get; set; }
 
         /// <summary>
         /// ID Dokumenta (strani kljuc).
         /// </summary>
-        [Required]
-        [ForeignKey(nameof(Dokument))]
         public Guid DokumentId { get; set; }
 
         /// <summary>
         /// Ustanova kojoj pripada eksterni dokument.
         /// </summary>
-        [Required]
         public string Ustanova { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Dokument koji predstavlja eksterni dokument.
-        /// </summary>
-        public Dokument? Dokument { get; set; }
-
-
     }
 }

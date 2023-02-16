@@ -1,22 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Licitacija.Services.DokumentAPI.Entities
+﻿namespace Licitacija.Services.DokumentAPI.Models.UgovorOZakupuDtos
 {
-    public class UgovorOZakupu
+    public class AddUgovorOZakupuDto
     {
-        /// <summary>
-        /// ID ugovora o zakupu.
-        /// </summary>
-        [Key]
-        public Guid UgovorOZakupuId { get; set; }
-
-        /// <summary>
-        /// ID dokumenta (strani kljuc).
-        /// </summary>
-        [Required]
-        [ForeignKey(nameof(Dokument))]
         public Guid DokumentId { get; set; }
 
         /// <summary>
@@ -27,7 +12,6 @@ namespace Licitacija.Services.DokumentAPI.Entities
         /// <summary>
         /// Rok za vracanje zemljista.
         /// </summary>
-        [Required]
         public DateTime RokVracanjaZemljista { get; set; }
 
         /// <summary>
@@ -38,14 +22,7 @@ namespace Licitacija.Services.DokumentAPI.Entities
         /// <summary>
         /// Tip garancije Id (strani kljuc).
         /// </summary>
-        [Required]
-        [ForeignKey(nameof(TipGarancije))]
         public Guid TipGarancijeId { get; set; }
-
-        /// <summary>
-        /// Tip garancije vezan za ugovor o zakupu.
-        /// </summary>
-        public TipGarancije TipGarancije { get; set; } = new TipGarancije();
 
         /// <summary>
         /// Strani kljuc prema entitetu Licnost iz Komisije.
@@ -60,7 +37,5 @@ namespace Licitacija.Services.DokumentAPI.Entities
         /// <summary>
         /// Dokument koji predstavljau govor o zakupu.
         /// </summary>
-        public Dokument? Dokument { get; set; }
-
     }
 }

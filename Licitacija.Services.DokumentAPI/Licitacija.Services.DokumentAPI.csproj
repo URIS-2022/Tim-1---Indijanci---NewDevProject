@@ -25,9 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="DTOs\DokumentDTOs\" />
-    <Folder Include="DTOs\UgovorOZakupuDTOs\" />
+    <Folder Include="Models\UgovorOZakupuDtos\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 

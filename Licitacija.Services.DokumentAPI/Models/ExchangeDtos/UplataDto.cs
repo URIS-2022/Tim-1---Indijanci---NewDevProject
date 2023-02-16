@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Licitacija.Services.DokumentAPI.DTOs.ExchangeDTOs
+namespace Licitacija.Services.DokumentAPI.Models.ExchangeDtos
 {
-    public class UplataDTO
+    public class UplataDto
     {
         /// <summary>
         /// ID uplate.

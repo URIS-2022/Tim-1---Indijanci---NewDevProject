@@ -20,7 +20,6 @@ namespace Licitacija.Services.DokumentAPI.Entities
         /// <summary>
         /// Svi dokumenti datog tipa.
         /// </summary>
-        [JsonIgnore]
         public List<Dokument>? Dokumenti { get; set; }
     }
 }

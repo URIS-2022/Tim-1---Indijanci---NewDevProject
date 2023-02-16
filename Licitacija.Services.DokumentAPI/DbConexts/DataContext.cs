@@ -20,9 +20,9 @@ namespace Licitacija.Services.DokumentAPI.DbConexts
 
             modelBuilder.Entity<Dokument>().HasOne(d => d.UgovorOZakupu).WithOne(uz => uz.Dokument).OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Dokument>().HasOne(d => d.Status).WithMany(s => s.Dokumenti).OnDelete(DeleteBehavior.SetNull);
+            modelBuilder.Entity<Dokument>().HasOne(d => d.StatusDokumenta).WithMany(s => s.Dokumenti).OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<UgovorOZakupu>().HasOne(uz => uz.TipGarancije).WithMany(tg => tg.UgovoriOZakupu).OnDelete(DeleteBehavior.SetNull);
+            modelBuilder.Entity<UgovorOZakupu>().HasOne(uz => uz.TipGarancije).WithMany(tg => tg.UgovoriOZakupu).OnDelete(DeleteBehavior.Restrict);
 
         }
     }
