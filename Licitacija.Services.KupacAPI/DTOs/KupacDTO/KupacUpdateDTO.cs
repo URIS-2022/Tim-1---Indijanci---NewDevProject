@@ -97,7 +97,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
             {
                 yield return new ValidationResult(
                   "Tip kupca uzima vrednost pravno ili fizicko.",
-                  new[] { "KupacCreateDTO" });
+                  new[] { "KupacUpdateDTO" });
             }
         }
     }
