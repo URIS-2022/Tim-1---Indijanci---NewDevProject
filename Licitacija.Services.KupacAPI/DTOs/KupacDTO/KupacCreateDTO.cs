@@ -88,6 +88,13 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
                   "Pogresan format email adrese (primer: email@gmail.com).",
                   new[] { "KupacCreateDTO" });
             }
+
+            if (!TipKupca.ToLower().Equals("pravno") && !TipKupca.ToLower().Equals("fizicko"))
+            {
+                yield return new ValidationResult(
+                  "Tip kupca uzima vrednost pravno ili fizicko.",
+                  new[] { "KupacCreateDTO" });
+            }
         }
     }
 }
