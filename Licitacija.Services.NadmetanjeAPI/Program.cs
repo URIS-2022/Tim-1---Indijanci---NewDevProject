@@ -1,25 +1,19 @@
-﻿using Licitacija.Services.ParcelaAPI.Entities;
-using Licitacija.Services.ParcelaAPI.Repositories;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using Microsoft.EntityFrameworkCore.Storage;
-using Licitacija.Services.ParcelaAPI.DbContexts;
-using Licitacija.Services.ParcelaAPI.Repositories.Interfaces;
-using Licitacija.Services.ParcelaAPI.Repositories.ConcreteClasses;
-using Licitacija.Services.ParcelaAPI.ServiceCalls;
+using Microsoft.EntityFrameworkCore;
+using Licitacija.Services.UplataAPI.Entities;
+using Licitacija.Services.NadmetanjeAPI.Repositories;
+using Licitacija.Services.NadmetanjeAPI.ServiceCalls;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers(setup =>
-{
-    setup.ReturnHttpNotAcceptable = true;
-}
-).AddXmlDataContractSerializerFormatters()
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+.AddXmlDataContractSerializerFormatters()
             .ConfigureApiBehaviorOptions(setupAction =>
             {
                 setupAction.InvalidModelStateResponseFactory = context =>
@@ -59,40 +53,37 @@ builder.Services.AddControllers(setup =>
                     };
                 };
             });
-builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IDeoParceleRepository, DeoParceleRepository>();
-builder.Services.AddScoped<IKatastarskaOpstinaRepository, KatastarskaOpstinaRepository>();
-builder.Services.AddScoped<IKlasaRepository, KlasaRepository>();
-builder.Services.AddScoped<IKulturaRepository, KulturaRepository>();
-builder.Services.AddScoped<IOblikSvojineRepository, OblikSvojineRepository>();
-builder.Services.AddScoped<IObradivostRepository, ObradivostRepository>();
-builder.Services.AddScoped<IOdvodnjavanjeRepository, OdvodnjavanjeRepository>();
-builder.Services.AddScoped<IParcelaRepository, ParcelaRepository>();
-///builder.Services.AddScoped<IPovrsinaRepository, PovrsinaRepository>();
-builder.Services.AddScoped<IZasticenaZonaRepository, ZasticenaZonaRepository>();
-builder.Services.AddScoped<IKupacService, KupacService>();
+builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("URIS_DB")));
+builder.Services.AddScoped<INadmetanjeRepository, NadmetanjeRepository>();
+builder.Services.AddScoped<IStatusNadmetanjaRepository, StatusNadmetanjaRepository>();
+builder.Services.AddScoped<IJavnoRepository, JavnoRepository>();
+builder.Services.AddScoped<IOtvaranjePonudaRepository, OtvaranjePonudaRepository>();
+builder.Services.AddScoped<IAdresaService, AdresaService>();
 builder.Services.AddScoped<IEtapaService, EtapaService>();
-builder.Services.AddScoped<IOtvaranjePonudaService, OtvaranjePonudaService>();
+builder.Services.AddScoped<IFazaLicitacijeService, FazaLicitacijeService>();
+builder.Services.AddScoped<IKatastarskaOpstinaService, KatastarskaOpstinaService>();
+builder.Services.AddScoped<ILicitacijaService, LicitacijaService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(setupAction =>
 {
-    setupAction.SwaggerDoc("LicitacijaMicroserviceOpenApiSpecification",
+    setupAction.SwaggerDoc("NadmetanjeMicroserviceOpenApiSpecification",
     new Microsoft.OpenApi.Models.OpenApiInfo()
     {
-        Title = "Licitacija.Services.ParcelaAPI",
+        Title = "Licitacija.Services.NadmetanjeAPI",
         Version = "1",
-        Description = "Pomoću ovog API-ja može se vršiti dodavanje parcele, katastarske opstine i drugih delova parcele, modifikacija, brisanje, kao i pregled kreiranih parcela i drugih njenih elemenata.",
+        Description = "Pomoću ovog API-ja može se vršiti dodavanje, modifikacija, kao i pregled nadmetnaja.",
         Contact = new Microsoft.OpenApi.Models.OpenApiContact
         {
-            Name = "Selena Delcev",
-            Email = "selenadelcev411@gmail.com"
+            Name = "Filip Piptorošević",
+            Email = "piptorosevicfilip@gmail.com"
         },
         License = new Microsoft.OpenApi.Models.OpenApiLicense
         {
             Name = "FTN licence",
-            Url = new Uri("http://www.ftn.uns.ac.rs/")
+            Url = new Uri("https://www.ftn.uns.ac.rs/")
         },
     });
     setupAction.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
@@ -109,7 +100,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    var context = services.GetRequiredService<DataContext>();
+    var context = services.GetRequiredService<DatabaseContext>();
     context.Database.Migrate();
 }
 
@@ -119,7 +110,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/LicitacijaMicroserviceOpenApiSpecification/swagger.json", "Licitacija.Services.ParcelaAPI");
+        c.SwaggerEndpoint("/swagger/NadmetanjeMicroserviceOpenApiSpecification/swagger.json", "Licitacija.Services.NadmetanjeAPI");
         c.RoutePrefix = String.Empty;
     });
 }
@@ -131,3 +122,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
