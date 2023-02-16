@@ -9,6 +9,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json", "application/xml")]
     public class OtvaranjePonudaController : ControllerBase
     {
         private readonly IOtvaranjePonudaRepository _otvaranjePonudaRepository;
@@ -54,7 +55,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Controllers
         /// Vraća jedno otvaranje ponuda na osnovu ID-ja otvaranja ponuda.
         /// </summary>
         /// <param name="id">ID otvaranja ponuda</param>
-        /// <returns>Jedan status.</returns>
+        /// <returns>Jedno otvaranje ponuda.</returns>
         /// <response code="200">Vraća traženo otvaranje ponuda</response>
         /// <response code="404">Nije pronađeno nijedno otvaranje ponuda sa datim ID otvaranja ponuda</response>
         /// <response code="500">Serverska greška</response>
@@ -168,6 +169,37 @@ namespace Licitacija.Services.NadmetanjeAPI.Controllers
                 _otvaranjePonudaRepository.DeleteOtvaranjePonuda(id);
                 _otvaranjePonudaRepository.Save();
                 return NoContent();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Vraća jedno otvaranje ponuda na osnovu ID-ja otvaranja ponuda.
+        /// </summary>
+        /// <param name="id">ID otvaranja ponuda</param>
+        /// <returns>Jedno otvaranje ponuda.</returns>
+        /// <response code="200">Vraća traženo otvaranje ponuda</response>
+        /// <response code="404">Nije pronađeno nijedno otvaranje ponuda sa datim ID otvaranja ponuda</response>
+        /// <response code="500">Serverska greška</response>
+        [HttpGet("OtvaranjePonudaBasic/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<OtvaranjePonudaBasic> GetOtvaranjePonudaBasic(Guid id)
+        {
+            try
+            {
+                var otvaranjePonuda = _otvaranjePonudaRepository.GetOtvaranjePonudaBasic(id);
+
+                if (otvaranjePonuda == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(_mapper.Map<OtvaranjePonudaBasic>(otvaranjePonuda));
             }
             catch (Exception e)
             {

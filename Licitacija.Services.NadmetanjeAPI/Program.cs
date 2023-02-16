@@ -5,16 +5,15 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Licitacija.Services.UplataAPI.Entities;
 using Licitacija.Services.NadmetanjeAPI.Repositories;
+using Licitacija.Services.NadmetanjeAPI.ServiceCalls;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers(setup =>
-{
-    setup.ReturnHttpNotAcceptable = true;
-}
-).AddXmlDataContractSerializerFormatters()
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+.AddXmlDataContractSerializerFormatters()
             .ConfigureApiBehaviorOptions(setupAction =>
             {
                 setupAction.InvalidModelStateResponseFactory = context =>
@@ -59,9 +58,15 @@ builder.Services.AddScoped<INadmetanjeRepository, NadmetanjeRepository>();
 builder.Services.AddScoped<IStatusNadmetanjaRepository, StatusNadmetanjaRepository>();
 builder.Services.AddScoped<IJavnoRepository, JavnoRepository>();
 builder.Services.AddScoped<IOtvaranjePonudaRepository, OtvaranjePonudaRepository>();
+builder.Services.AddScoped<IAdresaService, AdresaService>();
+builder.Services.AddScoped<IEtapaService, EtapaService>();
+builder.Services.AddScoped<IFazaLicitacijeService, FazaLicitacijeService>();
+builder.Services.AddScoped<IKatastarskaOpstinaService, KatastarskaOpstinaService>();
+builder.Services.AddScoped<ILicitacijaService, LicitacijaService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(setupAction =>
 {
     setupAction.SwaggerDoc("NadmetanjeMicroserviceOpenApiSpecification",
@@ -90,6 +95,14 @@ builder.Services.AddSwaggerGen(setupAction =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<DatabaseContext>();
+    context.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

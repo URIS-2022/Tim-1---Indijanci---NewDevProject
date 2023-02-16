@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Licitacija.Services.NadmetanjeAPI.Models;
+using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace Licitacija.Services.NadmetanjeAPI.Entities
 {
@@ -18,7 +20,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Entities
         /// <summary>
         /// ID katastarske opstine.
         /// </summary>
-        public Guid KadOpstinaId { get; set; }
+        public Guid KatOpstinaId { get; set; }
 
         /// <summary>
         /// ID statusa nadmetanja.

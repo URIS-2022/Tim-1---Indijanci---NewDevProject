@@ -8,6 +8,11 @@
         public Guid NadmetanjeId { get; set; }
 
         /// <summary>
+        /// ID statusa nadmetanja.
+        /// </summary>
+        public Guid StatusNadmetanjaId { get; set; }
+
+        /// <summary>
         /// ID licitacija.
         /// </summary>
         public Guid LicitacijaId { get; set; }
@@ -15,7 +20,7 @@
         /// <summary>
         /// ID katastarske opstine.
         /// </summary>
-        public Guid KadOpstinaId { get; set; }
+        public Guid KatOpstinaId { get; set; }
 
         /// <summary>
         /// ID adrese.

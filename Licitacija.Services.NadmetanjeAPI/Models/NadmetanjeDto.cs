@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Licitacija.Services.NadmetanjeAPI.Models
 {
@@ -19,7 +19,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Models
         /// ID katastarske opštine.
         /// </summary>
         [JsonIgnore]
-        public Guid KadOpstinaId { get; set; }
+        public Guid KatOpstinaId { get; set; }
 
         /// <summary>
         /// ID adrese.

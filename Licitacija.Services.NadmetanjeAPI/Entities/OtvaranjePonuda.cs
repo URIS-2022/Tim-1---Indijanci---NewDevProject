@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Licitacija.Services.NadmetanjeAPI.Entities
 {
@@ -16,5 +17,11 @@ namespace Licitacija.Services.NadmetanjeAPI.Entities
         /// </summary>
         [ForeignKey("NadmetanjeId")]
         public Guid NadmetanjeId { get; set; }
+
+        /// <summary>
+        /// Objekat nadmetanja.
+        /// </summary>
+        [JsonIgnore]
+        public Nadmetanje Nadmetanje { get; set; }
     }
 }

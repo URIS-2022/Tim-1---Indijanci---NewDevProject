@@ -12,6 +12,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Profiles
             CreateMap<OtvaranjePonuda, OtvaranjePonudaDto>().ReverseMap();
             CreateMap<OtvaranjePonuda, OtvaranjePonudaCreateDto>().ReverseMap();
             CreateMap<OtvaranjePonuda, OtvaranjePonudaUpdateDto>().ReverseMap();
+            CreateMap<OtvaranjePonuda, OtvaranjePonudaBasic>().ReverseMap();
         }
     }
 }

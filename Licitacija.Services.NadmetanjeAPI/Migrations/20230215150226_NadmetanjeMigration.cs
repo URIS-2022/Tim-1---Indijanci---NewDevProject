@@ -29,7 +29,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Migrations
                 {
                     NadmetanjeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LicitacijaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    KadOpstinaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KatOpstinaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StatusNadmetanjaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AdresaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FazaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),

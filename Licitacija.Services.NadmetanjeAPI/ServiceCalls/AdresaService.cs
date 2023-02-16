@@ -16,7 +16,7 @@ namespace Licitacija.Services.NadmetanjeAPI.ServiceCalls
         {
             using (HttpClient client = new())
             {
-                Uri url = new Uri($"{_configuration["Services:KupacService"]}api/kupac/kupacBasicInfo/" + id);
+                Uri url = new Uri($"{_configuration["Services:AdresaService"]}api/adresa/adresaBezDrzave/" + id);
 
                 var response = await client.GetAsync(url);
 

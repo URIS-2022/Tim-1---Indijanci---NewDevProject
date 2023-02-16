@@ -1,5 +1,6 @@
 ﻿using Licitacija.Services.NadmetanjeAPI.Entities;
 using Licitacija.Services.UplataAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Licitacija.Services.NadmetanjeAPI.Repositories
 {
@@ -14,12 +15,12 @@ namespace Licitacija.Services.NadmetanjeAPI.Repositories
 
         public List<Javno> GetAll()
         {
-            return _databaseContext.Javno.ToList();
+            return _databaseContext.Javno.Include(n => n.Nadmetanje).ToList();
         }
 
         public Javno GetJavno(Guid id)
         {
-            return _databaseContext.Javno.FirstOrDefault(j => j.JavnoNadmetanjeId == id);
+            return _databaseContext.Javno.Include(n => n.Nadmetanje).FirstOrDefault(j => j.JavnoNadmetanjeId == id);
         }
 
         public void InsertJavno(Javno javno)

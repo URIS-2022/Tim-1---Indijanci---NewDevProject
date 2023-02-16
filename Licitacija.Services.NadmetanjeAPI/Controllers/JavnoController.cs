@@ -2,20 +2,24 @@
 using Licitacija.Services.NadmetanjeAPI.Entities;
 using Licitacija.Services.NadmetanjeAPI.Models;
 using Licitacija.Services.NadmetanjeAPI.Repositories;
+using Licitacija.Services.NadmetanjeAPI.ServiceCalls;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Licitacija.Services.NadmetanjeAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json", "application/xml")]
     public class JavnoController : ControllerBase
     {
         private readonly IJavnoRepository _javnoRepository;
+        private readonly IEtapaService _etapaService;
         private readonly IMapper _mapper;
 
-        public JavnoController(IJavnoRepository javnoRepository, IMapper mapper)
+        public JavnoController(IJavnoRepository javnoRepository, IEtapaService etapaService, IMapper mapper)
         {
             _javnoRepository = javnoRepository;
+            _etapaService = etapaService;
             _mapper = mapper;
         }
 
@@ -41,7 +45,15 @@ namespace Licitacija.Services.NadmetanjeAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<JavnoDto>>(javno));
+                var result = _mapper.Map<List<JavnoDto>>(javno);
+
+                foreach(var javnoNadmetanje in result)
+                {
+                    EtapaDto etapa = _etapaService.GetEtapaById(javnoNadmetanje.EtapaId).Result;
+                    javnoNadmetanje.Etapa = etapa;
+                }
+
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -72,7 +84,12 @@ namespace Licitacija.Services.NadmetanjeAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<JavnoDto>(javno));
+                var result = _mapper.Map<JavnoDto>(javno);
+
+                EtapaDto etapa = _etapaService.GetEtapaById(result.EtapaId).Result;
+                result.Etapa = etapa;
+
+                return Ok(result);
             }
             catch (Exception e)
             {

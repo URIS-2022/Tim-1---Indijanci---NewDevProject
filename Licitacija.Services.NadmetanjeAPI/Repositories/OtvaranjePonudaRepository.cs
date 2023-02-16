@@ -1,5 +1,6 @@
 ﻿using Licitacija.Services.NadmetanjeAPI.Entities;
 using Licitacija.Services.UplataAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Licitacija.Services.NadmetanjeAPI.Repositories
 {
@@ -14,12 +15,12 @@ namespace Licitacija.Services.NadmetanjeAPI.Repositories
 
         public List<OtvaranjePonuda> GetAll()
         {
-            return _databaseContext.OtvaranjePonuda.ToList();
+            return _databaseContext.OtvaranjePonuda.Include(n => n.Nadmetanje).ToList();
         }
 
         public OtvaranjePonuda GetOtvaranjePonuda(Guid id)
         {
-            return _databaseContext.OtvaranjePonuda.FirstOrDefault(op => op.OtvaranjePonudaId == id);
+            return _databaseContext.OtvaranjePonuda.Include(n => n.Nadmetanje).FirstOrDefault(op => op.OtvaranjePonudaId == id);
         }
 
         public void InsertOtvaranjePonuda(OtvaranjePonuda otvaranjePonuda)

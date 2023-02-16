@@ -2,21 +2,32 @@
 using Licitacija.Services.NadmetanjeAPI.Entities;
 using Licitacija.Services.NadmetanjeAPI.Models;
 using Licitacija.Services.NadmetanjeAPI.Repositories;
-using Microsoft.AspNetCore.Http;
+using Licitacija.Services.NadmetanjeAPI.ServiceCalls;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Licitacija.Services.NadmetanjeAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json", "application/xml")]
     public class NadmetanjeController : ControllerBase
     {
         private readonly INadmetanjeRepository _nadmetanjeRepository;
+        private readonly IFazaLicitacijeService _fazaLicitacijeService;
+        private readonly ILicitacijaService _licitacijaService;
+        private readonly IKatastarskaOpstinaService _katastarskaOpstinaService;
+        private readonly IAdresaService _adresaService;
         private readonly IMapper _mapper;
 
-        public NadmetanjeController(INadmetanjeRepository nadmetanjeRepository, IMapper mapper)
+        public NadmetanjeController(INadmetanjeRepository nadmetanjeRepository, ILicitacijaService licitacijaService,
+            IAdresaService adresaService, IKatastarskaOpstinaService katastarskaOpstinaService,
+            IFazaLicitacijeService fazaLicitacijeService, IMapper mapper)
         {
             _nadmetanjeRepository = nadmetanjeRepository;
+            _fazaLicitacijeService = fazaLicitacijeService;
+            _katastarskaOpstinaService = katastarskaOpstinaService;
+            _licitacijaService = licitacijaService;
+            _adresaService = adresaService;
             _mapper = mapper;
         }
 
@@ -42,7 +53,24 @@ namespace Licitacija.Services.NadmetanjeAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<NadmetanjeDto>>(nadmetanje));
+                var result = _mapper.Map<List<NadmetanjeDto>>(nadmetanje);
+
+                foreach(var nadmetanjeSubject in result)
+                {
+                    LicitacijaDto licitacija = _licitacijaService.GetLicitacijaById(nadmetanjeSubject.LicitacijaId).Result;
+                    nadmetanjeSubject.Licitacija = licitacija;
+
+                    FazaDto faza = _fazaLicitacijeService.GetFazaLicitacijeById(nadmetanjeSubject.FazaId).Result;
+                    nadmetanjeSubject.Faza = faza;
+
+                    AdresaDto adresa = _adresaService.GetAdresaById(nadmetanjeSubject.AdresaId).Result;
+                    nadmetanjeSubject.Adresa = adresa;
+
+                    KatastarskaOpstinaDto katastarskaOpstina = _katastarskaOpstinaService.GetKatastarskaOpstinaById(nadmetanjeSubject.KatOpstinaId).Result;
+                    nadmetanjeSubject.KatastarskaOpstina = katastarskaOpstina;
+                }
+
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -73,7 +101,22 @@ namespace Licitacija.Services.NadmetanjeAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<NadmetanjeDto>(nadmetanje));
+                var result = _mapper.Map<NadmetanjeDto>(nadmetanje);
+
+                LicitacijaDto licitacija = _licitacijaService.GetLicitacijaById(result.LicitacijaId).Result;
+                result.Licitacija = licitacija;
+
+                FazaDto faza = _fazaLicitacijeService.GetFazaLicitacijeById(result.FazaId).Result;
+                result.Faza = faza;
+
+                AdresaDto adresa = _adresaService.GetAdresaById(result.AdresaId).Result;
+                result.Adresa = adresa;
+
+                KatastarskaOpstinaDto katastarskaOpstina = _katastarskaOpstinaService.GetKatastarskaOpstinaById(result.KatOpstinaId).Result;
+                result.KatastarskaOpstina = katastarskaOpstina;
+
+
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -168,6 +211,39 @@ namespace Licitacija.Services.NadmetanjeAPI.Controllers
                 _nadmetanjeRepository.DeleteNadmetanje(id);
                 _nadmetanjeRepository.Save();
                 return NoContent();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Vraća jedno nadmetanje na osnovu ID-ja nadmetanja.
+        /// </summary>
+        /// <param name="id">ID nadmetanja</param>
+        /// <returns>Jedno nadmetanje.</returns>
+        /// <response code="200">Vraća traženo nadmetanje</response>
+        /// <response code="404">Nije pronađeno nijedno nadmetanje sa datim ID nadmetanja</response>
+        /// <response code="500">Serverska greška</response>
+        [HttpGet("NadmetanjeBasic/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<NadmetanjeBasic> GetNadmetanjeBasic(Guid id)
+        {
+            try
+            {
+                var nadmetanje = _nadmetanjeRepository.GetNadmetanjeBasic(id);
+
+                if (nadmetanje == null)
+                {
+                    return NotFound();
+                }
+
+                var result = _mapper.Map<NadmetanjeBasic>(nadmetanje);
+
+                return Ok(result);
             }
             catch (Exception e)
             {

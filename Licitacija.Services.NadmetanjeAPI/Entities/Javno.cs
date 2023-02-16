@@ -1,7 +1,6 @@
-﻿using Licitacija.Services.NadmetanjeAPI.Models;
-using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Licitacija.Services.NadmetanjeAPI.Entities
 {
