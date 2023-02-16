@@ -73,7 +73,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 builder.Services.AddEndpointsApiExplorer();
 
 //Autentifikacija i autorizacija
-builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
+/*builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
 {
     options.Authority = "https://localhost:7004/";
     options.TokenValidationParameters = new TokenValidationParameters
@@ -89,7 +89,7 @@ builder.Services.AddAuthorization(options =>
         policy.RequireAuthenticatedUser();
         policy.RequireClaim("scope", "licitacija");
     });
-});
+});*/
 
 //Swagger
 builder.Services.AddSwaggerGen(setupAction =>
@@ -113,7 +113,7 @@ builder.Services.AddSwaggerGen(setupAction =>
             },
         });
 
-    setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    /*setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = @"Eneter 'Bearer' [space] and your token",
         Name = "Authorization",
@@ -137,7 +137,7 @@ builder.Services.AddSwaggerGen(setupAction =>
             },
             new List<string>()
         }
-    });
+    });*/
 
     setupAction.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
@@ -172,7 +172,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
+//app.UseAuthentication();
 
 app.UseAuthorization();
 
