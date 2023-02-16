@@ -8,11 +8,13 @@ namespace Licitacija.Services.KomisijaAPI.Entities
         /// <summary>
         /// Id ličnosti.
         /// </summary>
+        [ForeignKey(nameof(Licnost))]
         public Guid LicnostId { get; set; }
 
         /// <summary>
         /// Id komisije.
         /// </summary>
+        [ForeignKey(nameof(Komisija))]
         public Guid KomisijaId { get; set; }
 
         /// <summary>

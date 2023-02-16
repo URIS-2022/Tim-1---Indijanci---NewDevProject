@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Licitacija.Services.KomisijaAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateMigration : Migration
+    public partial class CreateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,16 +43,11 @@ namespace Licitacija.Services.KomisijaAPI.Migrations
                 {
                     KomisijaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TipKomisijeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LicnostId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    ProgramId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Komisija", x => x.KomisijaId);
-                    table.ForeignKey(
-                        name: "FK_Komisija_Licnost_LicnostId",
-                        column: x => x.LicnostId,
-                        principalTable: "Licnost",
-                        principalColumn: "LicnostId");
                     table.ForeignKey(
                         name: "FK_Komisija_TipKomisije_TipKomisijeId",
                         column: x => x.TipKomisijeId,
@@ -84,11 +79,6 @@ namespace Licitacija.Services.KomisijaAPI.Migrations
                         principalColumn: "LicnostId",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Komisija_LicnostId",
-                table: "Komisija",
-                column: "LicnostId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Komisija_TipKomisijeId",

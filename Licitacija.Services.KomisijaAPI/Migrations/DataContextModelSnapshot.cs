@@ -28,9 +28,6 @@ namespace Licitacija.Services.KomisijaAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("LicnostId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("ProgramId")
                         .HasColumnType("uniqueidentifier");
 
@@ -38,8 +35,6 @@ namespace Licitacija.Services.KomisijaAPI.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("KomisijaId");
-
-                    b.HasIndex("LicnostId");
 
                     b.HasIndex("TipKomisijeId");
 
@@ -101,10 +96,6 @@ namespace Licitacija.Services.KomisijaAPI.Migrations
 
             modelBuilder.Entity("Licitacija.Services.KomisijaAPI.Entities.Komisija", b =>
                 {
-                    b.HasOne("Licitacija.Services.KomisijaAPI.Entities.Licnost", null)
-                        .WithMany("Komisije")
-                        .HasForeignKey("LicnostId");
-
                     b.HasOne("Licitacija.Services.KomisijaAPI.Entities.TipKomisije", "TipKomisije")
                         .WithMany("Komisije")
                         .HasForeignKey("TipKomisijeId")
@@ -131,11 +122,6 @@ namespace Licitacija.Services.KomisijaAPI.Migrations
                     b.Navigation("Komisija");
 
                     b.Navigation("Licnost");
-                });
-
-            modelBuilder.Entity("Licitacija.Services.KomisijaAPI.Entities.Licnost", b =>
-                {
-                    b.Navigation("Komisije");
                 });
 
             modelBuilder.Entity("Licitacija.Services.KomisijaAPI.Entities.TipKomisije", b =>

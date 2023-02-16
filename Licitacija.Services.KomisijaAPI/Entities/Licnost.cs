@@ -27,7 +27,5 @@ namespace Licitacija.Services.KomisijaAPI.Entities
         /// </summary>
         [Required]
         public string? Funkcija { get; set; }
-
-        public List<Komisija>? Komisije { get; set; }
     }
 }
