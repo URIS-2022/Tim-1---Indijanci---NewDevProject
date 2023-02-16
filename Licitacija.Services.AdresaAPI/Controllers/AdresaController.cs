@@ -32,6 +32,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet]
         public async Task<IActionResult> GetAdrese()
         {
@@ -65,6 +66,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet("{id:guid}", Name = "GetAdresa")]
         public async Task<IActionResult> GetAdresa(Guid id)
         {
@@ -108,6 +110,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar, Operater")]
         [HttpPost]
         public async Task<IActionResult> CreateAdresa([FromBody] AdresaCreateDto adresaDTO)
         {
@@ -145,6 +148,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar, Operater")]
         [HttpPut]
         public async Task<IActionResult> UpdateAdresa([FromBody] AdresaUpdateDto adresaDTO)
         {
@@ -183,6 +187,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar, Operater")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteAdresa(Guid id)
         {
@@ -218,6 +223,7 @@ namespace Licitacija.Services.AdresaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet("adresaBezDrzave/{adresaId:guid}")]
         public async Task<IActionResult> GetAdresaWithoutDrzava(Guid adresaId)
         {
