@@ -30,6 +30,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet]
         public async Task<IActionResult> GetKontaktOsobe()
         {
@@ -63,6 +64,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet("{id:guid}", Name = "GetKontaktOsoba")]
         public async Task<IActionResult> GetKontaktOsoba(Guid id)
         {
@@ -105,6 +107,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPost]
         public async Task<IActionResult> CreateKontaktOsoba([FromBody] KontaktOsobaCreateDto kOsobaDTO)
         {
@@ -141,6 +144,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPut]
         public async Task<IActionResult> UpdateKontaktOsoba([FromBody] KontaktOsobaUpdateDto kOsobaDTO)
         {
@@ -179,6 +183,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteKontaktOsoba(Guid id)
         {
