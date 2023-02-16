@@ -34,6 +34,9 @@ namespace Licitacija.Services.DokumentAPI.Migrations
                     b.Property<DateTime>("DatumPotpisivanja")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("KupacId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Sablon")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

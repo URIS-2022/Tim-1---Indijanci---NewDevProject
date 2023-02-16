@@ -1,5 +1,4 @@
-﻿using Licitacija.Services.UplataAPI.Entities;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Licitacija.Services.UplataAPI.Models
 {
