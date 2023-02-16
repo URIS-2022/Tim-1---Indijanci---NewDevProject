@@ -8,8 +8,8 @@ using Licitacija.Services.PredradnjeNadmetanjaAPI.Configurations;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.ConcreteClasses;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.Interfaces;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.ServiceCalls;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
+//using Microsoft.IdentityModel.Tokens;
+//using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -151,13 +151,13 @@ builder.Services.AddSwaggerGen(setupAction =>
 var app = builder.Build();
 
 //Automatsko pokretanje migracija na startap aplikacije
-using (var scope = app.Services.CreateScope())
+/*using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
     var context = services.GetRequiredService<DataContext>();
     context.Database.Migrate();
-}
+}*/
 
 //HTTP request pipeline.
 if (app.Environment.IsDevelopment())
