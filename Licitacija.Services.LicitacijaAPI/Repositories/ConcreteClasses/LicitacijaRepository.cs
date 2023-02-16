@@ -40,5 +40,12 @@ namespace Licitacija.Services.LicitacijaAPI.Repositories.ConcreteClasses
         {
             throw new NotImplementedException();
         }
+
+
+        public LicitacijaEntity GetLicitacijaBasic(Guid id)
+        {
+            return _databaseContext.Licitacija.FirstOrDefault(e => e.LicitacijaId == id);
+        }
+
     }
 }

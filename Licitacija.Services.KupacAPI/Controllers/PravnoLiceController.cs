@@ -33,6 +33,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet]
         public async Task<IActionResult> GetPravnaLica()
         {
@@ -66,6 +67,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet("{id:guid}", Name = "GetPravnoLice")]
         public async Task<IActionResult> GetPravnoLice(Guid id)
         {
@@ -109,6 +111,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPost]
         public async Task<IActionResult> CreatePravnoLice([FromBody] PravnoLiceCreateDto pLiceDTO)
         {
@@ -145,6 +148,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPut]
         public async Task<IActionResult> UpdatePravnoLice([FromBody] PravnoLiceUpdateDto pLiceDTO)
         {
@@ -182,6 +186,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeletePravnoLice(Guid id)
         {
