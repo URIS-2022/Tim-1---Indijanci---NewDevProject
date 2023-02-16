@@ -215,7 +215,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
 
         }      
 
-        }
+        
 
     }
 }
