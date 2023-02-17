@@ -5,6 +5,7 @@ using Licitacija.Services.LicitacijaAPI.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Licitacija.Services.LicitacijaAPI.Repositories.Interface;
 using Licitacija.Services.LicitacijaAPI.DTOs.LicitacijaDTOs;
+using Licitacija.Services.LicitacijaAPI.DTOs.ExchangeDTOs;
 
 namespace Licitacija.Services.LicitacijaAPI.Controllers
 {
@@ -41,7 +42,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<LicitacijaDTO>> GetAllLicitacije()
+        public ActionResult<List<LicitacijaDto>> GetAllLicitacije()
         {
             try
             {
@@ -52,7 +53,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<LicitacijaDTO>>(licitacije));
+                return Ok(_mapper.Map<List<LicitacijaDto>>(licitacije));
             }
             catch (Exception e)
             {
@@ -73,7 +74,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<LicitacijaDTO> GetLicitacija(Guid id)
+        public ActionResult<LicitacijaDto> GetLicitacija(Guid id)
         {
             try
             {
@@ -84,7 +85,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<LicitacijaDTO>(licitacija));
+                return Ok(_mapper.Map<LicitacijaDto>(licitacija));
             }
             catch (Exception e)
             {
@@ -104,14 +105,14 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<LicitacijaDTO> Createlicitacija([FromBody] LicitacijaCreateDTO licitacijaDTO)
+        public ActionResult<LicitacijaDto> Createlicitacija([FromBody] LicitacijaCreateDto licitacijaDTO)
         {
             try
             {
                 LicitacijaEntity licitacija = _mapper.Map<LicitacijaEntity>(licitacijaDTO);
                 _licitacija.InsertLicitacija(licitacija);
                 _licitacija.Save();
-                return Created("GetLicitacija", _mapper.Map<LicitacijaDTO>(licitacija));
+                return Created("GetLicitacija", _mapper.Map<LicitacijaDto>(licitacija));
             }
             catch (Exception e)
             {
@@ -132,7 +133,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<LicitacijaDTO> UpdateLicitacija([FromBody] LicitacijaUpdateDTO licitacijaDTO)
+        public ActionResult<LicitacijaDto> UpdateLicitacija([FromBody] LicitacijaUpdateDto licitacijaDTO)
         {
             try
             {
@@ -145,7 +146,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
 
                 _mapper.Map(licitacijaDTO, licitacijaToUpdate);
                 _licitacija.Save();
-                return Ok(_mapper.Map<LicitacijaDTO>(licitacijaToUpdate));
+                return Ok(_mapper.Map<LicitacijaDto>(licitacijaToUpdate));
 
             }
             catch (Exception e)
@@ -185,6 +186,32 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
+        }
+
+        [HttpGet("LicitacijaBasic/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<LicitacijaBasicInfoDto> GetLicitacijaBasic(Guid id)
+        {
+            try
+            {
+                var licitacijaBasic = _licitacija.GetLicitacijaBasic(id);
+
+                if (licitacijaBasic == null)
+                {
+                    return NotFound();
+                }
+
+                var result = _mapper.Map<LicitacijaBasicInfoDto>(licitacijaBasic);
+
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+
         }
 
     }
