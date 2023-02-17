@@ -3,11 +3,16 @@
     /// <summary>
     /// DTO nadmetanje sa osnovnim informacijama
     /// </summary>
-    public class OtvaranjePonudaBasicInfoDTO
+    public class OtvaranjePonudaBasicInfoDto
     {
         /// <summary>
-        /// ID otvaranja ponude
+        /// ID otvaranja ponuda.
         /// </summary>
         public Guid OtvaranjePonudaId { get; set; }
+
+        /// <summary>
+        /// ID nadmetanja.
+        /// </summary>
+        public Guid NadmetanjeId { get; set; }
     }
 }

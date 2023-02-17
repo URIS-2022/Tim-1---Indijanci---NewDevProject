@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ObradivostDTOs
     /// <summary>
     /// Model za kreiranje obradivosti
     /// </summary>
-    public class ObradivostCreateDTO
+    public class ObradivostCreateDto
     {
         /// <summary>
         /// Naziv obradivosti

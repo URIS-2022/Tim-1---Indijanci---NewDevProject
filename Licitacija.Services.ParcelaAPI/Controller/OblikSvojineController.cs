@@ -35,7 +35,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<OblikSvojineDTO>> GetAllOblikaSvojine()
+        public ActionResult<List<OblikSvojineDto>> GetAllOblikaSvojine()
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<OblikSvojineDTO>>(obliciSvojine));
+                return Ok(_mapper.Map<List<OblikSvojineDto>>(obliciSvojine));
             }
             catch (Exception e)
             {
@@ -67,7 +67,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<OblikSvojineDTO> GetOblikSvojine(Guid id)
+        public ActionResult<OblikSvojineDto> GetOblikSvojine(Guid id)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<OblikSvojineDTO>(oblikSvojine));
+                return Ok(_mapper.Map<OblikSvojineDto>(oblikSvojine));
             }
             catch (Exception e)
             {
@@ -98,14 +98,14 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<OblikSvojineDTO> CreateOblikSvojine([FromBody] OblikSvojineCreateDTO oblikSvojineDTO)
+        public ActionResult<OblikSvojineDto> CreateOblikSvojine([FromBody] OblikSvojineCreateDto oblikSvojineDTO)
         {
             try
             {
                 OblikSvojine oblikSvojine = _mapper.Map<OblikSvojine>(oblikSvojineDTO);
                 _oblikSvojineRepository.InsertOblikSvojine(oblikSvojine);
                 _oblikSvojineRepository.Save();
-                return Created("GetOblikSvojine", _mapper.Map<OblikSvojineDTO>(oblikSvojine));
+                return Created("GetOblikSvojine", _mapper.Map<OblikSvojineDto>(oblikSvojine));
             }
             catch (Exception e)
             {
@@ -126,7 +126,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<OblikSvojineDTO> UpdateOblikSvojine([FromBody] OblikSvojineUpdateDTO oblikSvojineDTO)
+        public ActionResult<OblikSvojineDto> UpdateOblikSvojine([FromBody] OblikSvojineUpdateDto oblikSvojineDTO)
         {
             try
             {
@@ -139,7 +139,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
 
                 _mapper.Map(oblikSvojineDTO, oblikSvojineToUpdate);
                 _oblikSvojineRepository.Save();
-                return Ok(_mapper.Map<OblikSvojineDTO>(oblikSvojineToUpdate));
+                return Ok(_mapper.Map<OblikSvojineDto>(oblikSvojineToUpdate));
 
             }
             catch (Exception e)

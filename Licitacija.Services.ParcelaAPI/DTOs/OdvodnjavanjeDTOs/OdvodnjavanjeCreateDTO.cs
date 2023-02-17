@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.OdvodnjavanjeDTOs
     /// <summary>
     /// Model za kreiranje odvodnjavanja
     /// </summary>
-    public class OdvodnjavanjeCreateDTO
+    public class OdvodnjavanjeCreateDto
     {
         /// <summary>
         /// Naziv odvodnjavanja

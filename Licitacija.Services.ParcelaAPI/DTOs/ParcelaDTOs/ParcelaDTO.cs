@@ -12,7 +12,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ParcelaDTOs
     /// <summary>
     /// Model za prikaz parcele
     /// </summary>
-    public class ParcelaDTO
+    public class ParcelaDto
     {
         /// <summary>
         /// ID parcele
@@ -62,32 +62,32 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ParcelaDTOs
         /// <summary>
         /// Podaci o klasi
         /// </summary>
-        public KlasaDTO? Klasa { get; set; }
+        public KlasaDto? Klasa { get; set; }
 
         /// <summary>
         /// Podaci o kulturi
         /// </summary>
-        public KulturaDTO? Kultura { get; set; }
+        public KulturaDto? Kultura { get; set; }
 
         /// <summary>
         /// Podaci o obliku svojine
         /// </summary>
-        public OblikSvojineDTO? OblikSvojine { get; set; }
+        public OblikSvojineDto? OblikSvojine { get; set; }
 
         /// <summary>
         /// Podaci o obradivosti
         /// </summary>
-        public ObradivostDTO? Obradivost { get; set; }
+        public ObradivostDto? Obradivost { get; set; }
 
         /// <summary>
         /// Podaci o odvodnjavanju
         /// </summary>
-        public OdvodnjavanjeDTO? Odvodnjavanje { get; set; }
+        public OdvodnjavanjeDto? Odvodnjavanje { get; set; }
 
         /// <summary>
         /// Podaci o katastarskoj opstini
         /// </summary>
-        public KatastarskaOpstinaDTO? KatastarskaOpstina { get; set; }
+        public KatastarskaOpstinaDto? KatastarskaOpstina { get; set; }
 
         /// <summary>
         /// Adresa ID
@@ -98,6 +98,6 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ParcelaDTOs
         /// <summary>
         /// Podaci o kupcu iz ms Kupac
         /// </summary>
-        public KupacBasicInfoDTO? Kupac { get; set; }
+        public KupacBasicInfoDto? Kupac { get; set; }
     }
 }

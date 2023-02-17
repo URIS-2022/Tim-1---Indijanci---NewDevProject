@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.KlasaDTOs
     /// <summary>
     /// Model za azuriranje klase
     /// </summary>
-    public class KlasaUpdateDTO
+    public class KlasaUpdateDto
     {
         /// <summary>
         /// ID klase

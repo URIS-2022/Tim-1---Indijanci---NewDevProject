@@ -3,7 +3,8 @@
     /// <summary>
     /// Model za prikaz obradivosti
     /// </summary>
-    public class ObradivostDTO
+    public class ObradivostDto
+
     {
         /// <summary>
         /// ID obradivosti

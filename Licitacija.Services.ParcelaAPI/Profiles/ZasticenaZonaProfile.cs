@@ -10,9 +10,9 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
         public ZasticenaZonaProfile()
         {
             CreateMap<ZasticenaZona, ZasticenaZona>();
-            CreateMap<ZasticenaZona, ZasticenaZonaDTO>().ReverseMap();
-            CreateMap<ZasticenaZona, ZasticenaZonaCreateDTO>().ReverseMap();
-            CreateMap<ZasticenaZona, ZasticenaZonaUpdateDTO>().ReverseMap();
+            CreateMap<ZasticenaZona, ZasticenaZonaDto>().ReverseMap();
+            CreateMap<ZasticenaZona, ZasticenaZonaCreateDto>().ReverseMap();
+            CreateMap<ZasticenaZona, ZasticenaZonaUpdateDto>().ReverseMap();
         }
     }
 }

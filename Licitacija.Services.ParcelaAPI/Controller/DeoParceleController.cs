@@ -43,7 +43,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<DeoParceleDTO>> GetAllDeloveParcele()
+        public ActionResult<List<DeoParceleDto>> GetAllDeloviParcele()
         {
             try
             {
@@ -54,13 +54,13 @@ namespace Licitacija.Services.ParcelaAPI.Controller
                     return NoContent();
                 }
 
-                var result = _mapper.Map<List<DeoParceleDTO>>(deloviParcele);
+                var result = _mapper.Map<List<DeoParceleDto>>(deloviParcele);
 
                 foreach (var deoParcele in result)
                 {
-                    EtapaBasicInfoDTO etapa = _etapaService.GetEtapaById(deoParcele.EtapaId).Result;
+                    EtapaBasicInfoDto etapa = _etapaService.GetEtapaById(deoParcele.EtapaId).Result;
                     deoParcele.Etapa = etapa;
-                    OtvaranjePonudaBasicInfoDTO otvaranjePonuda = _otvaranjePonudaService.GetOtvaranjePonudaById(deoParcele.OtvaranjePonudaId).Result;
+                    OtvaranjePonudaBasicInfoDto otvaranjePonuda = _otvaranjePonudaService.GetOtvaranjePonudaById(deoParcele.OtvaranjePonudaId).Result;
                     deoParcele.OtvaranjePonuda = otvaranjePonuda;
                 }
 
@@ -85,7 +85,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<DeoParceleDTO> GetDeoParcele(Guid id)
+        public ActionResult<DeoParceleDto> GetDeoParcele(Guid id)
         {
             try
             {
@@ -96,10 +96,10 @@ namespace Licitacija.Services.ParcelaAPI.Controller
                     return NotFound();
                 }
 
-                var result = _mapper.Map<DeoParceleDTO>(deoParcele);
-                EtapaBasicInfoDTO etapa = _etapaService.GetEtapaById(result.EtapaId).Result;
+                var result = _mapper.Map<DeoParceleDto>(deoParcele);
+                EtapaBasicInfoDto etapa = _etapaService.GetEtapaById(result.EtapaId).Result;
                 result.Etapa = etapa;
-                OtvaranjePonudaBasicInfoDTO otvaranjePonuda = _otvaranjePonudaService.GetOtvaranjePonudaById(result.OtvaranjePonudaId).Result;
+                OtvaranjePonudaBasicInfoDto otvaranjePonuda = _otvaranjePonudaService.GetOtvaranjePonudaById(result.OtvaranjePonudaId).Result;
                 result.OtvaranjePonuda = otvaranjePonuda;
 
                 return Ok(result);
@@ -122,14 +122,14 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<DeoParceleDTO> CreateDeoParcele([FromBody] DeoParceleCreateDTO deoParceleDTO)
+        public ActionResult<DeoParceleDto> CreateDeoParcele([FromBody] DeoParceleCreateDto deoParceleDTO)
         {
             try
             {
                 DeoParcele deoParcele = _mapper.Map<DeoParcele>(deoParceleDTO);
                 _deoParceleRepository.InsertDeoParcele(deoParcele);
                 _deoParceleRepository.Save();
-                return Created("GetDeoParcele", _mapper.Map<DeoParceleDTO>(deoParcele));
+                return Created("GetDeoParcele", _mapper.Map<DeoParceleDto>(deoParcele));
             }
             catch (Exception e)
             {
@@ -150,7 +150,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<DeoParceleDTO> UpdateDeoParcele([FromBody] DeoParceleUpdateDTO deoParceleDTO)
+        public ActionResult<DeoParceleDto> UpdateDeoParcele([FromBody] DeoParceleUpdateDto deoParceleDTO)
         {
             try
             {
@@ -164,7 +164,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
 
                 _mapper.Map(deoParceleDTO, deoParceleToUpdate);
                 _deoParceleRepository.Save();
-                return Ok(_mapper.Map<DeoParceleDTO>(deoParceleToUpdate));
+                return Ok(_mapper.Map<DeoParceleDto>(deoParceleToUpdate));
 
             }
             catch (Exception e)

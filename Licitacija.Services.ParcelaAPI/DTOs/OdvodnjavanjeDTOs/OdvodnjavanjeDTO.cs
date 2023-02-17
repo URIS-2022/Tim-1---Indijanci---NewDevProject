@@ -3,7 +3,7 @@
     /// <summary>
     /// Model za prikaz odvodnjavanja
     /// </summary>
-    public class OdvodnjavanjeDTO
+    public class OdvodnjavanjeDto
     {
         /// <summary>
         /// ID odvodnjavanja

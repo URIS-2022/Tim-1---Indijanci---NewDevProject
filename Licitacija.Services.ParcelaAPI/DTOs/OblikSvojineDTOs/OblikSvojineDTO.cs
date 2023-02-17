@@ -3,7 +3,7 @@
     /// <summary>
     /// Model za prikaz oblika svojine
     /// </summary>
-    public class OblikSvojineDTO
+    public class OblikSvojineDto
     {
         /// <summary>
         /// ID oblika svojine

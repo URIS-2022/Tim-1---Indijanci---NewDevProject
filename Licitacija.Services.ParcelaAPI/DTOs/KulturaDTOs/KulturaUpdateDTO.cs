@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.KulturaDTOs
     /// <summary>
     /// Model za azuriranje kulture
     /// </summary>
-    public class KulturaUpdateDTO
+    public class KulturaUpdateDto
     {
         /// <summary>
         /// ID kulture

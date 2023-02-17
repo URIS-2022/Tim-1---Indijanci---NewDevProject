@@ -21,12 +21,16 @@ namespace Licitacija.Services.ParcelaAPI.Repositories.ConcreteClasses
 
         public List<Povrsina> GetAll()
         {
-            return _dataContext.Povrsine.Include(i => i.Parcela).Include(i => i.ZasticenaZona).ToList();
+            return _dataContext.Povrsine.Include(i => i.Parcela).Include(i => i.Parcela.Klasa).Include(i => i.Parcela.Kultura)
+                .Include(i => i.Parcela.OblikSvojine).Include(i => i.Parcela.Odvodnjavanje).Include(i => i.Parcela.Obradivost)
+                .Include(i => i.Parcela.KatastarskaOpstina).Include(i => i.ZasticenaZona).ToList();
         }
 
         public Povrsina GetPovrsina(Guid id)
         {
-            return _dataContext.Povrsine.Include(i => i.Parcela).Include(i => i.ZasticenaZona).FirstOrDefault(e => e.PovrsinaId == id);
+            return _dataContext.Povrsine.Include(i => i.Parcela).Include(i => i.Parcela.Klasa).Include(i => i.Parcela.Kultura)
+                .Include(i => i.Parcela.OblikSvojine).Include(i => i.Parcela.Odvodnjavanje).Include(i => i.Parcela.Obradivost)
+                .Include(i => i.Parcela.KatastarskaOpstina).Include(i => i.ZasticenaZona).FirstOrDefault(e => e.PovrsinaId == id);
         }
 
         public void InsertPovrsina(Povrsina povrsina)

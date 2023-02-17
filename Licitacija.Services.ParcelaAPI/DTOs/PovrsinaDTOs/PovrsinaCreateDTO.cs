@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.PovrsinaDTOs
     /// <summary>
     /// Model za kreiranje povrsine
     /// </summary>
-    public class PovrsinaCreateDTO
+    public class PovrsinaCreateDto
     {
         /// <summary>
         /// Povrsina zasticene zone

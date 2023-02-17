@@ -35,7 +35,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<KlasaDTO>> GetAllKlase()
+        public ActionResult<List<KlasaDto>> GetAllKlase()
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<KlasaDTO>>(klase));
+                return Ok(_mapper.Map<List<KlasaDto>>(klase));
             }
             catch (Exception e)
             {
@@ -67,7 +67,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KlasaDTO> GetKlasa(Guid id)
+        public ActionResult<KlasaDto> GetKlasa(Guid id)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<KlasaDTO>(klasa));
+                return Ok(_mapper.Map<KlasaDto>(klasa));
             }
             catch (Exception e)
             {
@@ -98,14 +98,14 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KlasaDTO> CreateKlasa([FromBody] KlasaCreateDTO klasaDTO)
+        public ActionResult<KlasaDto> CreateKlasa([FromBody] KlasaCreateDto klasaDTO)
         {
             try
             {
                 Klasa klasa = _mapper.Map<Klasa>(klasaDTO);
                 _klasaRepository.InsertKlasa(klasa);
                 _klasaRepository.Save();
-                return Created("GetKlasa", _mapper.Map<KlasaDTO>(klasa));
+                return Created("GetKlasa", _mapper.Map<KlasaDto>(klasa));
             }
             catch (Exception e)
             {
@@ -126,7 +126,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KlasaDTO> UpdateKlasa([FromBody] KlasaUpdateDTO klasaDTO)
+        public ActionResult<KlasaDto> UpdateKlasa([FromBody] KlasaUpdateDto klasaDTO)
         {
             try
             {
@@ -139,7 +139,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
 
                 _mapper.Map(klasaDTO, klasaToUpdate);
                 _klasaRepository.Save();
-                return Ok(_mapper.Map<KlasaDTO>(klasaToUpdate));
+                return Ok(_mapper.Map<KlasaDto>(klasaToUpdate));
 
             }
             catch (Exception e)
