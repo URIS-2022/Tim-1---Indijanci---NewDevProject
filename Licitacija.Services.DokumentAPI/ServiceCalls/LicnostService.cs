@@ -15,7 +15,7 @@ namespace Licitacija.Services.DokumentAPI.ServiceCalls
         public async Task<LicnostDto?> GetLicnostZaUgovor(Guid? licnostId)
         {
             using HttpClient client = new();
-            Uri url = new($"{_configuration["Services:LicnostService"]}api/licnost/licnostZaUgovor/{licnostId}");
+            Uri url = new($"{_configuration["Services:LicnostService"]}api/licnost/{licnostId}");
 
             var response = await client.GetAsync(url);
 

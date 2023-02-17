@@ -7,6 +7,8 @@ using Licitacija.Services.KomisijaAPI.DbConexts;
 using System.Reflection;
 using Licitacija.Services.KomisijaAPI.Repositories.Interfaces;
 using Licitacija.Services.KomisijaAPI.Repositories.Repos;
+using Licitacija.Services.TipKomisijeAPI.Repositories.Interfaces;
+using Licitacija.Services.LicnostAPI.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

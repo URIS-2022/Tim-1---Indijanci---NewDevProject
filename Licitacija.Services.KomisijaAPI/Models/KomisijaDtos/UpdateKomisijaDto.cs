@@ -1,20 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Licitacija.Services.KomisijaAPI.Entities;
+using Licitacija.Services.KomisijaAPI.Models.ExchangeDtos;
 
-namespace Licitacija.Services.KomisijaAPI.Entities
+namespace Licitacija.Services.KomisijaAPI.Models.KomisijaDtos
 {
-    public class Komisija
+    public class UpdateKomisijaDto
     {
         /// <summary>
         /// Id  komisije.
         /// </summary>
-        [Key]
         public Guid KomisijaId { get; set; }
 
         /// <summary>
         /// Id  tipa komisije (strani kljuc).
         /// </summary>
-        [Required, ForeignKey(nameof(TipKomisije))]
         public Guid TipKomisijeId { get; set; }
 
         /// <summary>
@@ -27,12 +25,5 @@ namespace Licitacija.Services.KomisijaAPI.Entities
         /// </summary>
         public Guid? PredradnjaNadmetanjaId { get; set; }
 
-
-        /// <summary>
-        /// Tip komisije.
-        /// </summary>
-        public TipKomisije? TipKomisije { get; set; }
-
-        
     }
 }
