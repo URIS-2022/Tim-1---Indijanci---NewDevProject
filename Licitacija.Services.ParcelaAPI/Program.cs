@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using Microsoft.EntityFrameworkCore.Storage;
 using Licitacija.Services.ParcelaAPI.DbContexts;
 using Licitacija.Services.ParcelaAPI.Repositories.Interfaces;
 using Licitacija.Services.ParcelaAPI.Repositories.ConcreteClasses;
@@ -60,7 +59,6 @@ builder.Services.AddControllers(setup =>
                 };
             });
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IDeoParceleRepository, DeoParceleRepository>();
 builder.Services.AddScoped<IKatastarskaOpstinaRepository, KatastarskaOpstinaRepository>();
 builder.Services.AddScoped<IKlasaRepository, KlasaRepository>();
 builder.Services.AddScoped<IKulturaRepository, KulturaRepository>();
@@ -68,8 +66,9 @@ builder.Services.AddScoped<IOblikSvojineRepository, OblikSvojineRepository>();
 builder.Services.AddScoped<IObradivostRepository, ObradivostRepository>();
 builder.Services.AddScoped<IOdvodnjavanjeRepository, OdvodnjavanjeRepository>();
 builder.Services.AddScoped<IParcelaRepository, ParcelaRepository>();
-///builder.Services.AddScoped<IPovrsinaRepository, PovrsinaRepository>();
 builder.Services.AddScoped<IZasticenaZonaRepository, ZasticenaZonaRepository>();
+builder.Services.AddScoped<IPovrsinaRepository, PovrsinaRepository>();
+builder.Services.AddScoped<IDeoParceleRepository, DeoParceleRepository>();
 builder.Services.AddScoped<IKupacService, KupacService>();
 builder.Services.AddScoped<IEtapaService, EtapaService>();
 builder.Services.AddScoped<IOtvaranjePonudaService, OtvaranjePonudaService>();
@@ -78,7 +77,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(setupAction =>
 {
-    setupAction.SwaggerDoc("LicitacijaMicroserviceOpenApiSpecification",
+    setupAction.SwaggerDoc("ParcelaMicroserviceOpenApiSpecification",
     new Microsoft.OpenApi.Models.OpenApiInfo()
     {
         Title = "Licitacija.Services.ParcelaAPI",
@@ -105,13 +104,21 @@ builder.Services.AddSwaggerGen(setupAction =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<DataContext>();
+    context.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/LicitacijaMicroserviceOpenApiSpecification/swagger.json", "Licitacija.Services.ParcelaAPI");
+        c.SwaggerEndpoint("/swagger/ParcelaMicroserviceOpenApiSpecification/swagger.json", "Licitacija.Services.ParcelaAPI");
         c.RoutePrefix = String.Empty;
     });
 }

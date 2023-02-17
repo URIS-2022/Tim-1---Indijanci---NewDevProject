@@ -18,6 +18,7 @@ namespace Licitacija.Services.NadmetanjeKupacAPI.ServiceCalls
             {
                 Uri url = new Uri($"{_configuration["Services:NadmetanjeService"]}api/Nadmetanje/NadmetanjeBasic/" + nadmetanjeId);
 
+
                 var response = await client.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)

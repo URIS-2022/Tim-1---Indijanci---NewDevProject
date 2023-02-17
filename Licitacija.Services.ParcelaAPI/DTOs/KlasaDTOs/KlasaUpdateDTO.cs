@@ -10,6 +10,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.KlasaDTOs
         /// <summary>
         /// ID klase
         /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID klase.")]
         public Guid KlasaId { get; set; }
 
         /// <summary>

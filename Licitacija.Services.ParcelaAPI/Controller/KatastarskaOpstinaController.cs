@@ -4,6 +4,8 @@ using Licitacija.Services.ParcelaAPI.Entities;
 using Microsoft.AspNetCore.Http;
 using Licitacija.Services.ParcelaAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Licitacija.Services.ParcelaAPI.DTOs.ExchangeDTOs;
+
 
 namespace Licitacija.Services.ParcelaAPI.Controllers
 {
@@ -79,6 +81,40 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                 }
 
                 return Ok(_mapper.Map<KatastarskaOpstinaDTO>(katastarskaOpstina));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// Vraća jednu katastarsku opstinu na osnovu ID-ja katastarske opstine
+        /// </summary>
+        /// <param name="id">ID katastarske opstine</param>
+        /// <returns>Jedna katastarska opstina</returns>
+        /// <response code="200">Vraća traženu katastarsku opstinu</response>
+        /// <response code="404">Nije pronađena nijedna katastarska opstina sa datim ID zkatastarske opstine</response>
+        /// <response code="500">Serverska greška</response>
+        [HttpGet("KatastarskaOpstinaBasicInfo/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<KatastarskaOpstinaBasicInfoDTO> GetKatastarskaOpstinaBasicInfo(Guid id)
+        {
+            try
+            {
+                var katastarskaOpstinaBasicInfo = _katastarskaOpstinaRepository.GetKatastarskaOpstinaBasicInfo(id);
+
+                if (katastarskaOpstinaBasicInfo == null)
+                {
+                    return NotFound();
+                }
+
+                var result = _mapper.Map<KatastarskaOpstinaBasicInfoDTO>(katastarskaOpstinaBasicInfo);
+
+                return Ok(result);
             }
             catch (Exception e)
             {

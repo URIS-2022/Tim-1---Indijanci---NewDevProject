@@ -9,15 +9,18 @@ using Licitacija.Services.NadmetanjeKupacAPI.Repositories.ConcreteClasses;
 using Licitacija.Services.NadmetanjeKupacAPI.ServiceCalls;
 using Microsoft.Extensions.Options;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 //setup.ReturnHttpNotAcceptable = true;
 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
     .AddXmlDataContractSerializerFormatters()
+  
             .ConfigureApiBehaviorOptions(setupAction =>
             {
                 setupAction.InvalidModelStateResponseFactory = context =>

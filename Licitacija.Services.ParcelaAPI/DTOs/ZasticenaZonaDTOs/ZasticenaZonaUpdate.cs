@@ -10,6 +10,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ZasticenaZonaDTOs
         /// <summary>
         /// ID zasticene zone
         /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID zasticene zone.")]
         public Guid ZZonaId { get; set; }
 
         /// <summary>

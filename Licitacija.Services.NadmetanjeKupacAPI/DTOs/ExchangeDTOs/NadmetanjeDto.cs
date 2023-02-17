@@ -3,11 +3,6 @@
     public class NadmetanjeDto
     {
         /// <summary>
-        /// ID nadmetanja.
-        /// </summary>
-        public Guid NadmetanjeId { get; set; }
-
-        /// <summary>
         /// ID statusa nadmetanja.
         /// </summary>
         public Guid StatusNadmetanjaId { get; set; }
@@ -76,6 +71,5 @@
         /// Krug.
         /// </summary>
         public int Krug { get; set; }
-
     }
 }

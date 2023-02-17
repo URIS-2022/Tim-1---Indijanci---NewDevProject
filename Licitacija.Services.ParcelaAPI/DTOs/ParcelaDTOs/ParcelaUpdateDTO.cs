@@ -10,6 +10,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ParcelaDTOs
         // <summary>
         /// ID parcele
         /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID parcele.")]
         public Guid ParcelaId { get; set; }
 
         /// <summary>
