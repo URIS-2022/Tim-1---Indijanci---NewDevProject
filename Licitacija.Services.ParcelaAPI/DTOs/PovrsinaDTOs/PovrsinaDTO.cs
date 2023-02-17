@@ -9,6 +9,11 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.PovrsinaDTOs
     public class PovrsinaDTO
     {
         /// <summary>
+        /// ID povrsine
+        /// </summary>
+        public Guid PovrsinaId { get; set; }
+
+        /// <summary>
         /// Povrsina zasticene zone
         /// </summary>
         public int PovrsinaZZone { get; set; }

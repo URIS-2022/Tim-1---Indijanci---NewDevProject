@@ -214,14 +214,20 @@ namespace Licitacija.Services.ParcelaAPI.Migrations
 
             modelBuilder.Entity("Licitacija.Services.ParcelaAPI.Entities.Povrsina", b =>
                 {
-                    b.Property<Guid?>("ParcelaId")
+                    b.Property<Guid>("PovrsinaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ParcelaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("PovrsinaZZone")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("ZZonaId")
+                    b.Property<Guid>("ZZonaId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("PovrsinaId");
 
                     b.HasIndex("ParcelaId");
 
@@ -297,11 +303,13 @@ namespace Licitacija.Services.ParcelaAPI.Migrations
                 {
                     b.HasOne("Licitacija.Services.ParcelaAPI.Entities.Parcela", "Parcela")
                         .WithMany()
-                        .HasForeignKey("ParcelaId");
+                        .HasForeignKey("ParcelaId")
+                        .IsRequired();
 
                     b.HasOne("Licitacija.Services.ParcelaAPI.Entities.ZasticenaZona", "ZasticenaZona")
                         .WithMany()
-                        .HasForeignKey("ZZonaId");
+                        .HasForeignKey("ZZonaId")
+                        .IsRequired();
 
                     b.Navigation("Parcela");
 
@@ -342,6 +350,16 @@ namespace Licitacija.Services.ParcelaAPI.Migrations
                 {
                     b.Navigation("DeloviParcele");
                 });
+
+            modelBuilder.Entity("Licitacija.Services.ParcelaAPI.Entities.Parcela", b =>
+            {
+                b.Navigation("Povrsine");
+            });
+
+            modelBuilder.Entity("Licitacija.Services.ParcelaAPI.Entities.ZasticenaZona", b =>
+            {
+                b.Navigation("Povrsine");
+            });
 #pragma warning restore 612, 618
         }
     }

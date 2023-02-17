@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Licitacija.Services.EtapaAPI.DTOs.EtapaDTOs;
-using Licitacija.Services.EtapaAPI.DTOs.ExchangeDTOs;
 using Licitacija.Services.EtapaAPI.Entities;
 using Licitacija.Services.EtapaAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -80,40 +79,6 @@ namespace Licitacija.Services.EtapaAPI.Controllers
                 }
 
                 return Ok(_mapper.Map<EtapaDto>(etapa));
-            }
-            catch (Exception e)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
-            }
-
-        }
-
-        /// <summary>
-        /// Vraća jednu etapu na osnovu ID-ja etape.
-        /// </summary>
-        /// <param name="id">ID etape</param>
-        /// <returns>Jedna etapa.</returns>
-        /// <response code="200">Vraća traženu etapu</response>
-        /// <response code="404">Nije pronađena nijedna etapa sa datim ID etape</response>
-        /// <response code="500">Serverska greška</response>
-        [HttpGet("EtapaBasicInfo/{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<EtapaBasicInfoDto> GetEtapaBasicInfo(Guid id)
-        {
-            try
-            {
-                var etapaBasicInfo = _etapaRepository.GetEtapaBasicInfo(id);
-
-                if (etapaBasicInfo == null)
-                {
-                    return NotFound();
-                }
-
-                var result = _mapper.Map<EtapaBasicInfoDto>(etapaBasicInfo);
-
-                return Ok(result);
             }
             catch (Exception e)
             {

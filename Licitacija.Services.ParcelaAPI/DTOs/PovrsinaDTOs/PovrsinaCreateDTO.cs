@@ -16,11 +16,13 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.PovrsinaDTOs
         /// <summary>
         /// ID parcele (strani kljuc).
         /// </summary>
-        public Guid? ParcelaId { get; set; }
+        [Required(ErrorMessage = "Obavezno je uneti ID parcele.")]
+        public Guid ParcelaId { get; set; }
 
         /// <summary>
         /// ID zasticene zone (strani kljuc).
         /// </summary>
-        public Guid? ZZonaId { get; set; }
+        [Required(ErrorMessage = "Obavezno je uneti ID zasticene zone.")]
+        public Guid ZZonaId { get; set; }
     }
 }

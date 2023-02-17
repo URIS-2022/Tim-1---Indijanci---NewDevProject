@@ -5,8 +5,7 @@ namespace Licitacija.Services.EtapaAPI.Repositories.Interfaces
     public interface IEtapaRepository
     {
         List<Etapa> GetAll();
-        Etapa GetEtapa(Guid id);
-        Etapa GetEtapaBasicInfo(Guid id);
+        Etapa GetEtapa (Guid id);
         void InsertEtapa(Etapa etapa);
         void DeleteEtapa(Guid id);
         void UpdateEtapa(Etapa etapa);

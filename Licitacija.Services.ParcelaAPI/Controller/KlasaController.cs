@@ -117,7 +117,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         /// Ažurira jednu klasu
         /// </summary>
         /// <param name="klasaDTO">Model klase koja se ažurira</param>
-        /// <returns>Potvrdu o modifikovanom klasi</returns>
+        /// <returns>Potvrdu o modifikovanoj klasi</returns>
         /// <response code="200">Vraća ažuriranu klasu</response>
         /// <response code="404">Klasa koja se ažurira nije pronađena</response>
         /// <response code="500">Serverska greška</response>

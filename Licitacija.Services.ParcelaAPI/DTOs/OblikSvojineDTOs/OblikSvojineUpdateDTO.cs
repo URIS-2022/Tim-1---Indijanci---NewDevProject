@@ -10,6 +10,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.OblikSvojineDTOs
         /// <summary>
         /// ID oblika svojine
         /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID oblika svojine.")]
         public Guid OblikSvojineId { get; set; }
 
         /// <summary>
