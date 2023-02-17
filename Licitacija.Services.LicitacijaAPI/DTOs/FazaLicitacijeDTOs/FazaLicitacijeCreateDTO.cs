@@ -7,7 +7,7 @@ namespace Licitacija.Services.LicitacijaAPI.DTOs.FazaLicitacijeDTOs
     /// <summary>
     /// Model za kreiranje faze licitacije.
     /// </summary>
-    public class FazaLicitacijeCreateDTO
+    public class FazaLicitacijeCreateDto
     {
         /// <summary>
         /// Naziv faze Licitacije
