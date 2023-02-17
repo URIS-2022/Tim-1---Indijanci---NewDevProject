@@ -10,6 +10,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.OdvodnjavanjeDTOs
         /// <summary>
         /// ID odvodnjavanja
         /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID odvodnjavanja.")]
         public Guid OdvodnjavanjeId { get; set; }
 
         /// <summary>

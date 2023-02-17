@@ -15,6 +15,7 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
             CreateMap<KatastarskaOpstina, KatastarskaOpstinaCreateDTO>().ReverseMap();
             CreateMap<KatastarskaOpstina, KatastarskaOpstinaUpdateDTO>().ReverseMap();
             CreateMap<KatastarskaOpstina, KatastarskaOpstinaBasicInfoDTO>();
+
         }
     }
 }

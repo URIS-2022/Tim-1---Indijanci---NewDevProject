@@ -1,52 +1,56 @@
 ﻿using AutoMapper;
-using Licitacija.Services.ParcelaAPI.DTOs.KlasaDTOs;
+using Licitacija.Services.ParcelaAPI.DTOs.DeoParceleDTOs;
+using Licitacija.Services.ParcelaAPI.DTOs.PovrsinaDTOs;
 using Licitacija.Services.ParcelaAPI.Entities;
+using Licitacija.Services.ParcelaAPI.Repositories.ConcreteClasses;
 using Licitacija.Services.ParcelaAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Licitacija.Services.ParcelaAPI.Controllers
+namespace Licitacija.Services.ParcelaAPI.Controller
 {
     /// <summary>
-    /// Klasa kontroler
+    /// Povrsina kontroler
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json", "application/xml")]
-    public class KlasaController : ControllerBase
+    public class PovrsinaController : ControllerBase
     {
-        private readonly IKlasaRepository _klasaRepository;
+        private readonly IPovrsinaRepository _povrsinaRepository;
         private readonly IMapper _mapper;
 
-        public KlasaController(IKlasaRepository klasaRepository, IMapper mapper)
+        public PovrsinaController(IPovrsinaRepository povrsinaRepository, IMapper mapper)
         {
-            _klasaRepository = klasaRepository;
+            _povrsinaRepository = povrsinaRepository;
             _mapper = mapper;
         }
 
         /// <summary>
-        /// Vraća sve klase.
+        /// Vraća sve povrsine.
         /// </summary>
-        /// <returns>Lista klasa.</returns>
-        /// <response code="200">Vraća listu klasa</response>
+        /// <returns>Lista povrsina.</returns>
+        /// <response code="200">Vraća listu povrsina.</response>
         /// <response code="204">Nema podataka u bazi</response>
         /// <response code="500">Serverska greška</response>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<KlasaDTO>> GetAllKlase()
+        public ActionResult<List<PovrsinaDTO>> GetAllPovrsine()
         {
             try
             {
-                var klase = _klasaRepository.GetAll();
+                var povrsine = _povrsinaRepository.GetAll();
 
-                if (klase == null || klase.Count == 0)
+                if (povrsine == null || povrsine.Count == 0)
                 {
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<KlasaDTO>>(klase));
+                var result = _mapper.Map<List<PovrsinaDTO>>(povrsine);
+
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -56,29 +60,31 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         }
 
         /// <summary>
-        /// Vraća jednu klasu na osnovu ID-ja klase.
+        /// Vrši pretragu jedne povrsine na osnovu ID-ja povrsine.
         /// </summary>
-        /// <param name="id">ID klase</param>
-        /// <returns>Jedna klasa.</returns>
-        /// <response code="200">Vraća traženu klasu</response>
-        /// <response code="404">Nije pronađena nijedna klasa sa datim ID klase</response>
+        /// <param name="id">ID povrsine</param>
+        /// <returns>Jedna povrsina</returns>
+        /// <response code="200">Vraća traženu povrsinu</response>
+        /// <response code="404">Nije pronađena nijedna povrsina sa datim ID povrsine</response>
         /// <response code="500">Serverska greška</response>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KlasaDTO> GetKlasa(Guid id)
+        public ActionResult<PovrsinaDTO> GetPovrsina(Guid id)
         {
             try
             {
-                var klasa = _klasaRepository.GetKlasa(id);
+                var povrsina = _povrsinaRepository.GetPovrsina(id);
 
-                if (klasa == null)
+                if (povrsina == null)
                 {
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<KlasaDTO>(klasa));
+                var result = _mapper.Map<PovrsinaDTO>(povrsina);
+
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -88,24 +94,24 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         }
 
         /// <summary>
-        /// Kreira nova klasa
+        /// Kreira novu povrsinu.
         /// </summary>
-        /// <param name="klasaDTO">Model klase</param>
-        /// <returns>Potvrda o kreiranoj klasi.</returns>
-        /// <response code="201">Vraća kreiranu klasu</response>
+        /// <param name="povrsinaDTO">Model povrsine</param>
+        /// <returns>Potvrda o kreiranoj povrsini.</returns>
+        /// <response code="201">Vraća kreiranu povrsinu</response>
         /// <response code="500">Serverska greška</response>
         [HttpPost]
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KlasaDTO> CreateKlasa([FromBody] KlasaCreateDTO klasaDTO)
+        public ActionResult<PovrsinaDTO> CreatePovrsina([FromBody] PovrsinaCreateDTO povrsinaDTO)
         {
             try
             {
-                Klasa klasa = _mapper.Map<Klasa>(klasaDTO);
-                _klasaRepository.InsertKlasa(klasa);
-                _klasaRepository.Save();
-                return Created("GetKlasa", _mapper.Map<KlasaDTO>(klasa));
+                Povrsina povrsina = _mapper.Map<Povrsina>(povrsinaDTO);
+                _povrsinaRepository.InsertPovrsina(povrsina);
+                _povrsinaRepository.Save();
+                return Created("GetPovrsina", _mapper.Map<PovrsinaDTO>(povrsina));
             }
             catch (Exception e)
             {
@@ -114,32 +120,33 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         }
 
         /// <summary>
-        /// Ažurira jednu klasu
+        /// Ažurira jednu povrsinu.
         /// </summary>
-        /// <param name="klasaDTO">Model klase koja se ažurira</param>
-        /// <returns>Potvrdu o modifikovanoj klasi</returns>
-        /// <response code="200">Vraća ažuriranu klasu</response>
-        /// <response code="404">Klasa koja se ažurira nije pronađena</response>
+        /// <param name="povrsinaDTO">Model povrsine koja se ažurira</param>
+        /// <returns>Potvrdu o modifikovanoj povrsini</returns>
+        /// <response code="200">Vraća ažuriranu povrsinu</response>
+        /// <response code="404">Povrsina koja se ažurira nije pronađena</response>
         /// <response code="500">Serverska greška</response>
         [HttpPut]
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KlasaDTO> UpdateKlasa([FromBody] KlasaUpdateDTO klasaDTO)
+        public ActionResult<PovrsinaDTO> UpdatePovrsina([FromBody] PovrsinaUpdateDTO povrsinaDTO)
         {
             try
             {
-                var klasaToUpdate = _klasaRepository.GetKlasa(klasaDTO.KlasaId);
+                var povrsinaToUpdate = _povrsinaRepository.GetPovrsina(povrsinaDTO.PovrsinaId);
 
-                if (klasaToUpdate == null)
+                if (povrsinaToUpdate == null)
                 {
                     return NotFound();
                 }
 
-                _mapper.Map(klasaDTO, klasaToUpdate);
-                _klasaRepository.Save();
-                return Ok(_mapper.Map<KlasaDTO>(klasaToUpdate));
+
+                _mapper.Map(povrsinaDTO, povrsinaToUpdate);
+                _povrsinaRepository.Save();
+                return Ok(_mapper.Map<PovrsinaDTO>(povrsinaToUpdate));
 
             }
             catch (Exception e)
@@ -149,30 +156,30 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         }
 
         /// <summary>
-        /// Vrši brisanje jedne klase na osnovu ID-ja klase
+        /// Vrši brisanje jedne povrsine na osnovu ID-ja povrsine.
         /// </summary>
-        /// <param name="id">ID klase</param>
+        /// <param name = "id" > ID povrsine</param>
         /// <returns>Status 204 (NoContent)</returns>
-        /// <response code="204">Klasa uspešno obrisana</response>
-        /// <response code="404">Nije pronađena klasa za brisanje</response>
+        /// <response code="204">Povrsina uspešno obrisana</response>
+        /// <response code="404">Nije pronađena povrsina za brisanje</response>
         /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpDelete("{id}")]
-        public ActionResult DeleteKlasa(Guid id)
+        public ActionResult DeletePovrsina(Guid id)
         {
             try
             {
-                var klasa = _klasaRepository.GetKlasa(id);
+                var povrsina = _povrsinaRepository.GetPovrsina(id);
 
-                if (klasa == null)
+                if (povrsina == null)
                 {
                     return NotFound();
                 }
 
-                _klasaRepository.DeleteKlasa(id);
-                _klasaRepository.Save();
+                _povrsinaRepository.DeletePovrsina(id);
+                _povrsinaRepository.Save();
                 return NoContent();
             }
             catch (Exception e)
@@ -182,4 +189,3 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         }
     }
 }
-

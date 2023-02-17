@@ -10,6 +10,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ObradivostDTOs
         /// <summary>
         /// ID obradivosti
         /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID obradivosti.")]
         public Guid ObradivostId { get; set; }
 
         /// <summary>

@@ -108,13 +108,13 @@ namespace Licitacija.Services.ParcelaAPI.Migrations
                     ObradivostStvStanje = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ZZonaStvStanje = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OdvodnjavanjeStvStanje = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OdvodnjavanjeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    KulturaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    KlasaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ObradivostId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    OblikSvojineId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    KatOpstinaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    KupacId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    OdvodnjavanjeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KulturaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KlasaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ObradivostId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    OblikSvojineId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KatOpstinaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    KupacId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -157,8 +157,8 @@ namespace Licitacija.Services.ParcelaAPI.Migrations
                 {
                     DeoParceleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PovrsinaDelaParcele = table.Column<int>(type: "int", nullable: false),
-                    ParcelaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    EtapaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ParcelaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EtapaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     OtvaranjePonudaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -175,12 +175,14 @@ namespace Licitacija.Services.ParcelaAPI.Migrations
                 name: "Povrsine",
                 columns: table => new
                 {
+                    PovrsinaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PovrsinaZZone = table.Column<int>(type: "int", nullable: false),
-                    ParcelaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ZZonaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    ParcelaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ZZonaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_Povrsine", x => x.PovrsinaId);
                     table.ForeignKey(
                         name: "FK_Povrsine_Parcele_ParcelaId",
                         column: x => x.ParcelaId,
