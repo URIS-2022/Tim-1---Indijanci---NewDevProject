@@ -7,7 +7,7 @@ namespace Licitacija.Services.LicitacijaAPI.DTOs.LicitacijaDTOs
     /// <summary>
     /// Entitet licitacija
     /// </summary>
-    public class LicitacijaDTO
+    public class LicitacijaDto
     {
         /// <summary>
         /// ID Licitacije

@@ -38,7 +38,7 @@ namespace Licitacija.Services.LicitacijaAPI.Repositories.ConcreteClasses
             return _databaseContext.SaveChanges() > 0;
         }
 
-        public void UpdateFazaLicitacije(FazaLicitacije uplata)
+        public void UpdateFazaLicitacije(FazaLicitacije fazaLicitacije)
         {
             throw new NotImplementedException();
         }
