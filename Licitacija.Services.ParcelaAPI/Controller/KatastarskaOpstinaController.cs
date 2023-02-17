@@ -89,7 +89,14 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
 
         }
 
-
+        /// <summary>
+        /// Vraća jednu katastarsku opstinu na osnovu ID-ja katastarske opstine
+        /// </summary>
+        /// <param name="id">ID katastarske opstine</param>
+        /// <returns>Jedna katastarska opstina</returns>
+        /// <response code="200">Vraća traženu katastarsku opstinu</response>
+        /// <response code="404">Nije pronađena nijedna katastarska opstina sa datim ID zkatastarske opstine</response>
+        /// <response code="500">Serverska greška</response>
         [HttpGet("KatastarskaOpstinaBasicInfo/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

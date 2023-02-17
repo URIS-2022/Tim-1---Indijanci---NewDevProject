@@ -10,6 +10,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.KulturaDTOs
         /// <summary>
         /// ID kulture
         /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID kulture.")]
         public Guid KulturaId { get; set; }
 
         /// <summary>

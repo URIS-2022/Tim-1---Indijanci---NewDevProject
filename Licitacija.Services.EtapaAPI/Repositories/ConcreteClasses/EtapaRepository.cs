@@ -28,11 +28,6 @@ namespace Licitacija.Services.EtapaAPI.Repositories.ConcreteClasses
             return _dataContext.Etape.FirstOrDefault(e => e.EtapaId == id);
         }
 
-        public Etapa GetEtapaBasicInfo(Guid id)
-        {
-            return _dataContext.Etape.FirstOrDefault(e => e.EtapaId == id);
-        }
-
         public void InsertEtapa(Etapa etapa)
         {
             _dataContext.Add(etapa);

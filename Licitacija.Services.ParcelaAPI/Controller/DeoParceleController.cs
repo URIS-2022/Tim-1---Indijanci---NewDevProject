@@ -129,7 +129,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
                 DeoParcele deoParcele = _mapper.Map<DeoParcele>(deoParceleDTO);
                 _deoParceleRepository.InsertDeoParcele(deoParcele);
                 _deoParceleRepository.Save();
-                return Created("GetUplata", _mapper.Map<DeoParceleDTO>(deoParcele));
+                return Created("GetDeoParcele", _mapper.Map<DeoParceleDTO>(deoParcele));
             }
             catch (Exception e)
             {
