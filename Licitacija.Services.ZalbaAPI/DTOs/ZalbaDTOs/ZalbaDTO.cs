@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace Licitacija.Services.ZalbaAPI.DTOs.ZalbaDTOs
 {
-    public class ZalbaDTO
+    public class ZalbaDto
     {
         /// <summary>
         /// ID žalbe
@@ -51,26 +51,26 @@ namespace Licitacija.Services.ZalbaAPI.DTOs.ZalbaDTOs
         /// <summary>
         /// Podaci o statusu zalbe.
         /// </summary>
-        public StatusZalbeDTO? StatusZalbe { get; set; }
+        public StatusZalbeDto? StatusZalbe { get; set; }
 
         /// <summary>
         /// Podaci o tipu zalbe.
         /// </summary>
-        public TipZalbeDTO? TipZalbe { get; set; }
+        public TipZalbeDto? TipZalbe { get; set; }
         /// <summary>
         /// Podaci o radnji na osnovu zalbe.
         /// </summary>
-        public RadnjaNaOsnovuZalbeDTO? RadnjaNaOsnovuZalbe { get; set; }
+        public RadnjaNaOsnovuZalbeDto? RadnjaNaOsnovuZalbe { get; set; }
 
         /// <summary>
         /// Id kupca - veza sa mikroservisom Kupac 
         /// </summary>
         [JsonIgnore]
         public Guid KupacId { get; set; }
-        public KupacDTO? Kupac { get; set; }
+        public KupacDto? Kupac { get; set; }
 
         [JsonIgnore]
         public Guid FazaId { get; set; }
-        public FazaLicitacijeDTO? FazaLicitacije { get; set; }
+        public FazaLicitacijeDto? FazaLicitacije { get; set; }
     }
 }

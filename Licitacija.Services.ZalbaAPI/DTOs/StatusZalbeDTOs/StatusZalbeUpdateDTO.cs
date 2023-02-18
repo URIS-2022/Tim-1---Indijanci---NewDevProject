@@ -2,7 +2,7 @@
 
 namespace Licitacija.Services.ZalbaAPI.DTOs.StatusZalbeDTOs
 {
-    public class StatusZalbeUpdateDTO
+    public class StatusZalbeUpdateDto
     {
         /// <summary>
         /// ID statusa zalbe

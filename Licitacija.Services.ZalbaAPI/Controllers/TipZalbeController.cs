@@ -38,7 +38,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<TipZalbeDTO>> GetAllKursevi()
+        public ActionResult<List<TipZalbeDto>> GetAllKursevi()
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<TipZalbeDTO>>(tipoviZalbi));
+                return Ok(_mapper.Map<List<TipZalbeDto>>(tipoviZalbi));
             }
             catch (Exception e)
             {
@@ -70,7 +70,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TipZalbeDTO> GetTipZalbe(Guid id)
+        public ActionResult<TipZalbeDto> GetTipZalbe(Guid id)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<TipZalbeDTO>(tipZalbe));
+                return Ok(_mapper.Map<TipZalbeDto>(tipZalbe));
             }
             catch (Exception e)
             {
@@ -93,7 +93,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         /// <summary>
         /// Kreira novi tip zalbe.
         /// </summary>
-        /// <param name="tipZalbeDTO">Model tipa zalbe</param>
+        /// <param name="tipZalbeDto">Model tipa zalbe</param>
         /// <returns>Potvrda o kreiranom tipu zalbe.</returns>
         /// <response code="201">Vraća kreirani tip zalbe</response>
         /// <response code="500">Serverska greška</response>
@@ -101,14 +101,14 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TipZalbeDTO> CreateTipZalbe([FromBody] TipZalbeCreateDTO tipZalbeDTO)
+        public ActionResult<TipZalbeDto> CreateTipZalbe([FromBody] TipZalbeCreateDto tipZalbeDto)
         {
             try
             {
-                TipZalbe tipZalbe = _mapper.Map<TipZalbe>(tipZalbeDTO);
+                TipZalbe tipZalbe = _mapper.Map<TipZalbe>(tipZalbeDto);
                 _tipZalbeRepository.InsertTipZalbe(tipZalbe);
                 _tipZalbeRepository.Save();
-                return Created("GetTipZalbe", _mapper.Map<TipZalbeDTO>(tipZalbe));
+                return Created("GetTipZalbe", _mapper.Map<TipZalbeDto>(tipZalbe));
             }
             catch (Exception e)
             {
@@ -119,7 +119,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         /// <summary>
         /// Ažurira jedan tipZalbe.
         /// </summary>
-        /// <param name="tipZalbeDTO">Model tipa zalbe koji se ažurira</param>
+        /// <param name="tipZalbeDto">Model tipa zalbe koji se ažurira</param>
         /// <returns>Potvrdu o modifikovanom tipu zalbe.</returns>
         /// <response code="200">Vraća ažuriran tip zalbe</response>
         /// <response code="404">Tip zalbe koji se ažurira nije pronađen</response>
@@ -129,20 +129,20 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<TipZalbeDTO> UpdateTipZalbe([FromBody] TipZalbeUpdateDTO tipZalbeDTO)
+        public ActionResult<TipZalbeDto> UpdateTipZalbe([FromBody] TipZalbeUpdateDto tipZalbeDto)
         {
             try
             {
-                var tipZalbeToUpdate = _tipZalbeRepository.GetTipZalbe(tipZalbeDTO.TipZalbeId);
+                var tipZalbeToUpdate = _tipZalbeRepository.GetTipZalbe(tipZalbeDto.TipZalbeId);
 
                 if (tipZalbeToUpdate == null)
                 {
                     return NotFound();
                 }
 
-                _mapper.Map(tipZalbeDTO, tipZalbeToUpdate);
+                _mapper.Map(tipZalbeDto, tipZalbeToUpdate);
                 _tipZalbeRepository.Save();
-                return Ok(_mapper.Map<TipZalbeDTO>(tipZalbeToUpdate));
+                return Ok(_mapper.Map<TipZalbeDto>(tipZalbeToUpdate));
 
             }
             catch (Exception e)
