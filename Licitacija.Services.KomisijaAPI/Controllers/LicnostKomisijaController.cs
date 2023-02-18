@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Licitacija.Services.KomisijaAPI.Entities;
-using Licitacija.Services.KomisijaAPI.Models.LicnostDtos;
 using Licitacija.Services.KomisijaAPI.Models.LicnostKomisijaDtos;
 using Licitacija.Services.KomisijaAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +15,7 @@ namespace Licitacija.Services.KomisijaAPI.Controllers
     public class LicnostKomisijaController : ControllerBase
     {
         private readonly ILicnostKomisijaRepository _repository;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Licnost kontroler.
@@ -23,6 +23,7 @@ namespace Licitacija.Services.KomisijaAPI.Controllers
         public LicnostKomisijaController(ILicnostKomisijaRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -118,7 +119,7 @@ namespace Licitacija.Services.KomisijaAPI.Controllers
 
                 await _repository.Save();
 
-                return Created("api/licnostKomisija", licnostKomisija);
+                return Created("api/licnostKomisija", _mapper.Map<NovaLicnostKomisijaDto>(licnostKomisija));
             }
             catch (Exception e)
             {
