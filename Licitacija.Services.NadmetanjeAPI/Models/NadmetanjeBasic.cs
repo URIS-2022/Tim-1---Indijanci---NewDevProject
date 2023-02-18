@@ -1,5 +1,8 @@
 ﻿namespace Licitacija.Services.NadmetanjeAPI.Models
 {
+    /// <summary>
+    /// Osnovni model nadmetanja.
+    /// </summary>
     public class NadmetanjeBasic
     {
         /// <summary>

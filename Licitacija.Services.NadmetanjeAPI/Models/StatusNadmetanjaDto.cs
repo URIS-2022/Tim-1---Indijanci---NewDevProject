@@ -1,5 +1,8 @@
 ﻿namespace Licitacija.Services.NadmetanjeAPI.Models
 {
+    /// <summary>
+    /// Model statusa nadmetanja.
+    /// </summary>
     public class StatusNadmetanjaDto
     {
         /// <summary>

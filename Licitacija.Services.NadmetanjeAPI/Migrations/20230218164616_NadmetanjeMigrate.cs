@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Licitacija.Services.NadmetanjeAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class NadmetanjeMigration : Migration
+    public partial class NadmetanjeMigrate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,7 +30,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Migrations
                     NadmetanjeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LicitacijaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     KatOpstinaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    StatusNadmetanjaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StatusNadmetanjaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     AdresaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FazaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VremePocetka = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -51,7 +51,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Migrations
                         column: x => x.StatusNadmetanjaId,
                         principalTable: "StatusNadmetanja",
                         principalColumn: "StatusNadmetanjaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(

@@ -1,5 +1,8 @@
 ﻿namespace Licitacija.Services.NadmetanjeAPI.Models
 {
+    /// <summary>
+    /// Model adrese.
+    /// </summary>
     public class AdresaDto
     {
         /// <summary>
