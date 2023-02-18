@@ -1,7 +1,5 @@
 ﻿
 using Licitacija.Services.DokumentAPI.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 using Licitacija.Services.DokumentAPI.Models.ExchangeDtos;
 using Newtonsoft.Json;
 
@@ -17,6 +15,7 @@ namespace Licitacija.Services.DokumentAPI.Models.UgovorOZakupuDtos
         /// <summary>
         /// ID dokumenta (strani kljuc).
         /// </summary>
+        [JsonIgnore]
         public Guid DokumentId { get; set; }
 
         /// <summary>
@@ -37,6 +36,7 @@ namespace Licitacija.Services.DokumentAPI.Models.UgovorOZakupuDtos
         /// <summary>
         /// Tip garancije Id (strani kljuc).
         /// </summary>
+        [JsonIgnore]
         public Guid TipGarancijeId { get; set; }
 
         /// <summary>

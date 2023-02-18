@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Licitacija.Services.DokumentAPI.Models.DokumentDtos
+﻿namespace Licitacija.Services.DokumentAPI.Models.DokumentDtos
 {
     public class UpdateDokumentDto
     {
@@ -18,7 +16,6 @@ namespace Licitacija.Services.DokumentAPI.Models.DokumentDtos
         /// <summary>
         /// Datum potpisivanja dokumenta.
         /// </summary>
-        [Required]
         public DateTime DatumPotpisivanja { get; set; }
 
         /// <summary>

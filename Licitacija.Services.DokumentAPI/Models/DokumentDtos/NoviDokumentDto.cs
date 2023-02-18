@@ -39,7 +39,6 @@ namespace Licitacija.Services.DokumentAPI.Models.DokumentDtos
         /// <summary>
         /// Status dokumenta.
         /// </summary>
-        [Required]
         public StatusDokumenta StatusDokumenta { get; set; } = new StatusDokumenta();
     }
 }

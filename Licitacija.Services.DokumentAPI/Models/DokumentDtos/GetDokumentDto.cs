@@ -1,6 +1,4 @@
 ﻿using Licitacija.Services.DokumentAPI.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Licitacija.Services.DokumentAPI.Models.ExchangeDtos;
 
@@ -36,6 +34,7 @@ namespace Licitacija.Services.DokumentAPI.Models.DokumentDtos
         /// <summary>
         /// Id statusa dokumenta (strani kljuc).
         /// </summary>
+        [JsonIgnore]
         public Guid StatusDokumentaId { get; set; }
 
         /// <summary>

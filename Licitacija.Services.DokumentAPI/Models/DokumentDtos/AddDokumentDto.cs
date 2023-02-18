@@ -1,8 +1,4 @@
-﻿using Licitacija.Services.DokumentAPI.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace Licitacija.Services.DokumentAPI.Models.DokumentDtos
+﻿namespace Licitacija.Services.DokumentAPI.Models.DokumentDtos
 {
     public class AddDokumentDto
     {
@@ -14,7 +10,6 @@ namespace Licitacija.Services.DokumentAPI.Models.DokumentDtos
         /// <summary>
         /// Datum potpisivanja dokumenta.
         /// </summary>
-        [Required]
         public DateTime DatumPotpisivanja { get; set; }
 
         /// <summary>
