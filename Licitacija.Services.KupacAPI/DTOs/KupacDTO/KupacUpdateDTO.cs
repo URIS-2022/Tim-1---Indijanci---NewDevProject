@@ -93,7 +93,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
                   new[] { "KupacUpdateDTO" });
             }
 
-            if (!TipKupca.ToLower().Equals("pravno") && !TipKupca.ToLower().Equals("fizicko"))
+            if (TipKupca.ToLower() != "pravno" || TipKupca.ToLower() != "fizicko")
             {
                 yield return new ValidationResult(
                   "Tip kupca uzima vrednost pravno ili fizicko.",

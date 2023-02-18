@@ -30,7 +30,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet]
         public async Task<IActionResult> GetPrioriteti()
         {
@@ -64,7 +63,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet("{id:guid}", Name = "GetPrioritet")]
         public async Task<IActionResult> GetPrioritet(Guid id)
         {
@@ -104,7 +102,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPost]
         public async Task<IActionResult> CreatePrioritet([FromBody] PrioritetCreateDto prioritetDTO)
         {
@@ -141,7 +138,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPut]
         public async Task<IActionResult> UpdatePrioritet([FromBody] PrioritetUpdateDto prioritetDTO)
         {
@@ -179,7 +175,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeletePrioritet(Guid id)
         {

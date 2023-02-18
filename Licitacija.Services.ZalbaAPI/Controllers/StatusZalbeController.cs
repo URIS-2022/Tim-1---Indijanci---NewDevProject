@@ -38,7 +38,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<StatusZalbeDTO>> GetAllStatusZalbe()
+        public ActionResult<List<StatusZalbeDto>> GetAllStatusZalbe()
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<StatusZalbeDTO>>(statusZalbe));
+                return Ok(_mapper.Map<List<StatusZalbeDto>>(statusZalbe));
             }
             catch (Exception e)
             {
@@ -70,7 +70,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<StatusZalbeDTO> GetStatusZalbe(Guid id)
+        public ActionResult<StatusZalbeDto> GetStatusZalbe(Guid id)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<StatusZalbeDTO>(statusZalbe));
+                return Ok(_mapper.Map<StatusZalbeDto>(statusZalbe));
             }
             catch (Exception e)
             {
@@ -93,7 +93,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         /// <summary>
         /// Kreira novi status zalbe.
         /// </summary>
-        /// <param name="statusZalbeDTO">Model statusa zalbe</param>
+        /// <param name="statusZalbeDto">Model statusa zalbe</param>
         /// <returns>Potvrda o kreiranom statusu zalbe.</returns>
         /// <response code="201">Vraća kreirani status zalbe</response>
         /// <response code="500">Serverska greška</response>
@@ -101,14 +101,14 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<StatusZalbeDTO> CreateStatusZalbe([FromBody] StatusZalbeCreateDTO statusZalbeDTO)
+        public ActionResult<StatusZalbeDto> CreateStatusZalbe([FromBody] StatusZalbeCreateDto statusZalbeDto)
         {
             try
             {
-                StatusZalbe statusZalbe = _mapper.Map<StatusZalbe>(statusZalbeDTO);
+                StatusZalbe statusZalbe = _mapper.Map<StatusZalbe>(statusZalbeDto);
                 _statusZalbeRepository.InsertStatusZalbe(statusZalbe);
                 _statusZalbeRepository.Save();
-                return Created("GetStatusZalbe", _mapper.Map<StatusZalbeDTO>(statusZalbe));
+                return Created("GetStatusZalbe", _mapper.Map<StatusZalbeDto>(statusZalbe));
             }
             catch (Exception e)
             {
@@ -119,7 +119,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         /// <summary>
         /// Ažurira jedan status zalbe.
         /// </summary>
-        /// <param name="statusZalbeDTO">Model statusa zalbe koji se ažurira</param>
+        /// <param name="statusZalbeDto">Model statusa zalbe koji se ažurira</param>
         /// <returns>Potvrdu o modifikovanom statusu zalbe.</returns>
         /// <response code="200">Vraća ažuriran status zalbe</response>
         /// <response code="404">Status zalbe koji se ažurira nije pronađen</response>
@@ -129,20 +129,20 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<StatusZalbeDTO> UpdateStatusZalbe([FromBody] StatusZalbeUpdateDTO statusZalbeDTO)
+        public ActionResult<StatusZalbeDto> UpdateStatusZalbe([FromBody] StatusZalbeUpdateDto statusZalbeDto)
         {
             try
             {
-                var statusZalbeToUpdate = _statusZalbeRepository.GetStatusZalbe(statusZalbeDTO.StatusZalbeId);
+                var statusZalbeToUpdate = _statusZalbeRepository.GetStatusZalbe(statusZalbeDto.StatusZalbeId);
 
                 if (statusZalbeToUpdate == null)
                 {
                     return NotFound();
                 }
 
-                _mapper.Map(statusZalbeDTO, statusZalbeToUpdate);
+                _mapper.Map(statusZalbeDto, statusZalbeToUpdate);
                 _statusZalbeRepository.Save();
-                return Ok(_mapper.Map<StatusZalbeDTO>(statusZalbeToUpdate));
+                return Ok(_mapper.Map<StatusZalbeDto>(statusZalbeToUpdate));
 
             }
             catch (Exception e)

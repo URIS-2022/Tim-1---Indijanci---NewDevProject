@@ -33,7 +33,6 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="SuperUser, Menadzer, Admin")]
         [HttpGet]
         public async Task<IActionResult> GetPredradnjeNadmetanja()
         {
@@ -73,7 +72,6 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles = "SuperUser, Menadzer, Admin")]
         [HttpGet("{id:guid}", Name = "GetPredradnjaNadmetanja")]
         public async Task<IActionResult> GetPredradnjaNadmetanja(Guid id)
         {
@@ -117,7 +115,6 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles= "PrvaKomisija, Admin")]
         [HttpPost]
         public async Task<IActionResult> CreatePredradnjaNadmetanja([FromBody] PredradnjeNadmetanjaCreateDto predradnjeDTO)
         {
@@ -154,7 +151,6 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles = "PrvaKomisija, Admin")]
         [HttpPut]
         public async Task<IActionResult> UpdatePredradnjaNadmetanja([FromBody] PredradnjeNadmetanjaUpdateDto predradnjeDTO)
         {
@@ -192,7 +188,6 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles = "PrvaKomisija, Admin")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeletePredradnjaNadmetanja(Guid id)
         {
@@ -228,7 +223,6 @@ namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles = "SuperUser, Menadzer, Admin")]
         [HttpGet("predradnjaOsnovneInfo/{id:guid}")]
         public async Task<IActionResult> GetPredradnjaBasicInfo(Guid id)
         {

@@ -5,7 +5,7 @@ namespace Licitacija.Services.LicitacijaAPI.DTOs.LicitacijaDTOs
     /// <summary>
     /// Model za izmenu licitacije.
     /// </summary>
-    public class LicitacijaUpdateDto
+    public class LicitacijaUpdateDTO
     {
         /// <summary>
         /// ID Licitacije

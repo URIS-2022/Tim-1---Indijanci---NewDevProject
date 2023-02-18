@@ -47,7 +47,7 @@ namespace Licitacija.Services.KupacAPI.DTOs.KupacDTO
         /// <summary>
         /// Indikator da li kupac ima zabranu.
         /// </summary>
-        public bool ImaZabranu { get; set; }
+        public bool? ImaZabranu { get; set; }
 
         /// <summary>
         /// Ukoliko ima zabranu, datum njenog pocetja.

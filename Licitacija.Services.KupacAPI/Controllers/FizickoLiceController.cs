@@ -31,7 +31,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet]   
         public async Task<IActionResult> GetFizickaLica()
         {
@@ -65,7 +64,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet("{id:guid}", Name = "GetFizickoLice")]
         public async Task<IActionResult> GetFizickoLice(Guid id)
         {
@@ -108,7 +106,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPost]
         public async Task<IActionResult> CreateFizickoLice([FromBody] FizickoLiceCreateDto fLiceDTO)
         {
@@ -145,7 +142,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPut]
         public async Task<IActionResult> UpdateFizickoLice([FromBody] FizickoLiceUpdateDto fLiceDTO)
         {
@@ -184,7 +180,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteFizickoLice(Guid id)
         {

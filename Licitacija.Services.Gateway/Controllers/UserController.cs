@@ -31,7 +31,8 @@ namespace Licitacija.Services.Gateway.Controllers
 
         [HttpPost("Logout")]
         public async Task<IActionResult> Logout()
-        {           
+        {
+            var token = await HttpContext.GetTokenAsync("access_token");
             var response = await _userService.Logout<string>();
             if (response != null)
             {

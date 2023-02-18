@@ -36,7 +36,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet]
         public async Task<IActionResult> GetKupci()
         {
@@ -76,7 +75,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet("{id:guid}", Name = "GetKupac")]
         public async Task<IActionResult> GetKupac(Guid id)
         {
@@ -121,9 +119,7 @@ namespace Licitacija.Services.KupacAPI.Controllers
         ///     "datumPocetkaZabrane": null, \
         ///     "duzinaTrajanjaZabrane": null, \
         ///     "datumPrestankaZabrane": null, \
-        ///     "tipKupca": "pravno" \
         ///     "priroitetId":"8302A0FD-A699-4ED0-97EA-37AB4F618801" \
-        ///     "adresaId":"930230FD-A699-4ED0-97EA-37AB4F618801"
         ///     
         /// }
         /// </remarks>
@@ -132,7 +128,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPost]
         public async Task<IActionResult> CreateKupac([FromBody] KupacCreateDto kupacDTO)
         {
@@ -170,7 +165,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpPut]
         public async Task<IActionResult> UpdateKupac([FromBody] KupacUpdateDto kupacDTO)
         {
@@ -208,7 +202,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="Admin, OperaterNadmetanja, TehnickiSekretar")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteKupac(Guid id)
         {
@@ -244,7 +237,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet("kupacOsnovneInfo/{kupacId:guid}")]
         public async Task<IActionResult> GetKupacBasicInfo(Guid kupacId)
         {
@@ -278,7 +270,6 @@ namespace Licitacija.Services.KupacAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles="SuperUser, Menadzer, Admin, TehnickiSekretar")]
         [HttpGet("kupacSaTipom/{kupacId:guid}")]
         public async Task<IActionResult> GetKupacWithTip(Guid kupacId)
         {

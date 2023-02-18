@@ -41,7 +41,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<FazaLicitacijeDto>> GetAllFazeLicitacije()
+        public ActionResult<List<FazaLicitacijeDTO>> GetAllFazeLicitacije()
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
                     return NoContent();
                 }
 
-                var result = _mapper.Map<List<FazaLicitacijeDto>>(fazeLicitacije);
+                var result = _mapper.Map<List<FazaLicitacijeDTO>>(fazeLicitacije);
                 return Ok(result);
             }
             catch (Exception e)
@@ -74,7 +74,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<FazaLicitacijeDto> GetFazaLicitacije(Guid id)
+        public ActionResult<FazaLicitacijeDTO> GetFazaLicitacije(Guid id)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<FazaLicitacijeDto>(fazaLicitacije));
+                return Ok(_mapper.Map<FazaLicitacijeDTO>(fazaLicitacije));
             }
             catch (Exception e)
             {
@@ -105,14 +105,14 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<FazaLicitacijeDto> CreateFazaLicitacije([FromBody] FazaLicitacijeCreateDto fazaLicitacijeDTO)
+        public ActionResult<FazaLicitacijeDTO> CreateFazaLicitacije([FromBody] FazaLicitacijeCreateDTO fazaLicitacijeDTO)
         {
             try
             {
                 FazaLicitacije fazalicitacije = _mapper.Map<FazaLicitacije>(fazaLicitacijeDTO);
                 _fazaLicitacije.InsertFazaLicitacije(fazalicitacije);
                 _fazaLicitacije.Save();
-                return Created("GetFazaLicitacije", _mapper.Map<FazaLicitacijeDto>(fazalicitacije));
+                return Created("GetFazaLicitacije", _mapper.Map<FazaLicitacijeDTO>(fazalicitacije));
             }
             catch (Exception e)
             {
@@ -133,7 +133,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<FazaLicitacijeDto> UpdateFazaLicitacije([FromBody] FazaLicitacijeUpdateDto fazaLicitacijeDTO)
+        public ActionResult<FazaLicitacijeDTO> UpdateFazaLicitacije([FromBody] FazaLicitacijeUpdateDTO fazaLicitacijeDTO)
         {
             try
             {
@@ -146,7 +146,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
 
                 _mapper.Map(fazaLicitacijeDTO, fazaLicitacijeToUpdate);
                 _fazaLicitacije.Save();
-                return Ok(_mapper.Map<FazaLicitacijeDto>(fazaLicitacijeToUpdate));
+                return Ok(_mapper.Map<FazaLicitacijeDTO>(fazaLicitacijeToUpdate));
 
             }
             catch (Exception e)
@@ -192,7 +192,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<FazaLicitacijeBasicInfoDto> GetFazaLicitacijeBasic(Guid id)
+        public ActionResult<FazaLicitacijeBasicInfoDTO> GetFazaLicitacijeBasic(Guid id)
         {
             try
             {
@@ -203,7 +203,7 @@ namespace Licitacija.Services.LicitacijaAPI.Controllers
                     return NotFound();
                 }
 
-                var result = _mapper.Map<FazaLicitacijeBasicInfoDto>(fazaLicitacijeBasic);
+                var result = _mapper.Map<FazaLicitacijeBasicInfoDTO>(fazaLicitacijeBasic);
                 
                 return Ok(result);
             }

@@ -6,7 +6,7 @@ namespace Licitacija.Services.LicitacijaAPI.DTOs.LicitacijaDTOs
     /// <summary>
     /// Model za kreiranje licitacije.
     /// </summary>
-    public class LicitacijaCreateDto
+    public class LicitacijaCreateDTO 
     {
         /// <summary>
         /// Broj icitacije
