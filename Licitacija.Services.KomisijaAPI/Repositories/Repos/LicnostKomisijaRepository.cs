@@ -55,12 +55,12 @@ namespace Licitacija.Services.KomisijaAPI.Repositories.Repos
 
         public async Task<List<LicnostKomisija>> GetAllLicnostKomisija()
         {
-            return await _context.LicnostKomisija.ToListAsync();
+            return await _context.LicnostKomisija.Include(lk => lk.Licnost).Include(lk => lk.Komisija).ToListAsync();
         }
 
         public async Task<LicnostKomisija?> GetLicnostKomisijaById(Guid licnostId, Guid komisijaId)
         {
-            return await _context.LicnostKomisija.Where(lk => lk.LicnostId == licnostId && lk.KomisijaId == komisijaId).FirstOrDefaultAsync();
+            return await _context.LicnostKomisija.Include(lk => lk.Licnost).Include(lk => lk.Komisija).Where(lk => lk.LicnostId == licnostId && lk.KomisijaId == komisijaId).FirstOrDefaultAsync();
         }
 
         public async Task<int> Save()
@@ -70,16 +70,17 @@ namespace Licitacija.Services.KomisijaAPI.Repositories.Repos
 
         public async Task<LicnostKomisija?> UpdateLicnostKomisija(LicnostKomisija updateLicnostKomisija, Guid komisijaId)
         {
-            LicnostKomisija? licnostKomisija = await _context.LicnostKomisija.FirstOrDefaultAsync(lk => lk.LicnostId == updateLicnostKomisija.LicnostId && lk.KomisijaId == komisijaId);
+            await DeleteLicnostKomisijaById(updateLicnostKomisija.LicnostId, komisijaId);
 
-            if (licnostKomisija != null)
+            await Save();
+
+            LicnostKomisija licnostKomisija = new LicnostKomisija()
             {
-                licnostKomisija.KomisijaId = updateLicnostKomisija.KomisijaId;
+                LicnostId = updateLicnostKomisija.LicnostId,
+                KomisijaId = updateLicnostKomisija.KomisijaId
+            };
 
-                return licnostKomisija;
-            }
-
-            return null;
+            return licnostKomisija;
         }
     }
 }

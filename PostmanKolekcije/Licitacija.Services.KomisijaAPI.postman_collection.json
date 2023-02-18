@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "b52143de-f1eb-4298-9e88-7a421f24bc17",
+		"name": "Licitacija.Services.KomisijaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Licnost controller",
+			"item": [
+				{
+					"name": "Get sve licnosti",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get licnost po ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj novu licnost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7146/api/licnost",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"licnost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj licnost",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"licnostId\": \"0c99a5c2-576f-41ff-ae41-5eab8548de39\",\r\n  \"ime\": \"dusan\",\r\n  \"prezime\": \"milic\",\r\n  \"funkcija\": \"azurirano nesto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7146/api/licnost",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"licnost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi licnost",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7146/api/licnost/1ff3f5cd-8020-44bf-8c81-1f97c688b916",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"licnost",
+								"1ff3f5cd-8020-44bf-8c81-1f97c688b916"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tip komisije",
+			"item": [
+				{
+					"name": "Get sve tipove komisije",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get tip komisije po ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj novi tip komisije",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipKomisijeNaziv\": \"najnoviji tip\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7146/api/tipKomisije",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"tipKomisije"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj tip komisije",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipKomisijeId\": \"17009f37-4e74-4faa-b4ed-e4f1b45b78c9\",\r\n  \"tipKomisijeNaziv\": \"azuriran tip komisije\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7146/api/tipKomisije",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"tipKomisije"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi tip komisije",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Komisija",
+			"item": [
+				{
+					"name": "Get sve komisije",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get komisiju po ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj novu komisiju",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7146/api/komisija",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"komisija"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj komisiju",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"komisijaId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"tipKomisijeId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"programId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"predradnjaNadmetanjaId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7146/api/komisija",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"komisija"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi komisiju",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7146/api/komisija/7001bc82-f9c8-4482-bb1c-dcb7d6631d16",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"komisija",
+								"7001bc82-f9c8-4482-bb1c-dcb7d6631d16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Komisija-Licnost",
+			"item": [
+				{
+					"name": "Get sve licnosti sa komisijom",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get licnosti sa komisijom po ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj licnost sa komisijom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7146/api/licnostKomisija",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"licnostKomisija"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj licnost sa komisijom",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"licnostId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"komisijaId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7146/api/licnostKomisija/a9e3c527-d438-4b5c-81e2-a68fdd6d9479",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"licnostKomisija",
+								"a9e3c527-d438-4b5c-81e2-a68fdd6d9479"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi licnost sa komisijom",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7146/api/licnostKomisija/0c99a5c2-576f-41ff-ae41-5eab8548de39/a9e3c527-d438-4b5c-81e2-a68fdd6d9479",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7146",
+							"path": [
+								"api",
+								"licnostKomisija",
+								"0c99a5c2-576f-41ff-ae41-5eab8548de39",
+								"a9e3c527-d438-4b5c-81e2-a68fdd6d9479"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
