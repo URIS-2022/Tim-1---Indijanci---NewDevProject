@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "86a8794b-0304-4bd7-aeb6-6cc27b376a6e",
+		"name": "Licitacija.Services.ProgramLicitacijeAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Kreiranje programa licitacije",
+			"item": [
+				{
+					"name": "Get sve programe licitacije",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get program licitacije po ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7270/api/KreiranjeProgramaLicitacije/2a5e510e-8fc1-48e9-a6ab-b0abd189206b",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7270",
+							"path": [
+								"api",
+								"KreiranjeProgramaLicitacije",
+								"2a5e510e-8fc1-48e9-a6ab-b0abd189206b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get program licitacije za komisiju",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj novi program licitacije",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7270/api/KreiranjeProgramaLicitacije",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7270",
+							"path": [
+								"api",
+								"KreiranjeProgramaLicitacije"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj program licitacije",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programId\": \"2a5e510e-8fc1-48e9-a6ab-b0abd189206b\",\r\n  \"programNaziv\": \"azuriran naziv\",\r\n  \"fazaLicitacijeId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7270/api/KreiranjeProgramaLicitacije/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7270",
+							"path": [
+								"api",
+								"KreiranjeProgramaLicitacije",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi program licitacije",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
