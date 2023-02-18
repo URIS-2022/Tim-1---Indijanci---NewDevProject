@@ -10,9 +10,9 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
         public PovrsinaProfile()
         {
             CreateMap<Povrsina, Povrsina>();
-            CreateMap<Povrsina, PovrsinaDTO>().ReverseMap();
-            CreateMap<Povrsina, PovrsinaCreateDTO>().ReverseMap();
-            CreateMap<Povrsina, PovrsinaUpdateDTO>().ReverseMap();
+            CreateMap<Povrsina, PovrsinaDto>().ReverseMap();
+            CreateMap<Povrsina, PovrsinaCreateDto>().ReverseMap();
+            CreateMap<Povrsina, PovrsinaUpdateDto>().ReverseMap();
         }
     }
 }

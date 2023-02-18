@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO faze licitacije sa osnnovnim informacijama.
     /// </summary>
-    public class FazaLicitacijeDTO
+    public class FazaLicitacijeDto
     {
         /// <summary>
         /// ID faze licitacije

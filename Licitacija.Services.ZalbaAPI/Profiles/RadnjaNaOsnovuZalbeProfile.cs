@@ -10,9 +10,9 @@ namespace Licitacija.Services.ZalbaAPI.Profiles
         public RadnjaNaOsnovuZalbeProfile()
         {
             CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbe>();
-            CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbeDTO>().ReverseMap();
-            CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbeCreateDTO>().ReverseMap();
-            CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbeUpdateDTO>().ReverseMap();
+            CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbeDto>().ReverseMap();
+            CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbeCreateDto>().ReverseMap();
+            CreateMap<RadnjaNaOsnovuZalbe, RadnjaNaOsnovuZalbeUpdateDto>().ReverseMap();
         }
 
     }

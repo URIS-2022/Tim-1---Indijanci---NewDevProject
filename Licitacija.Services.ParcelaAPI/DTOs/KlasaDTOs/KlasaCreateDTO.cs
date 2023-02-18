@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.KlasaDTOs
     /// <summary>
     /// Model za kreiranje klase
     /// </summary>
-    public class KlasaCreateDTO
+    public class KlasaCreateDto
     {
         /// <summary>
         /// Naziv klase

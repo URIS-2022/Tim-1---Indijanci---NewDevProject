@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.OblikSvojineDTOs
     /// <summary>
     /// Model za kreiranje oblika svojine
     /// </summary>
-    public class OblikSvojineCreateDTO
+    public class OblikSvojineCreateDto
     {
         /// <summary>
         /// Naziv oblika svojine

@@ -4,6 +4,6 @@ namespace Licitacija.Services.ParcelaAPI.ServiceCalls
 {
     public interface IEtapaService
     {
-        public Task<EtapaBasicInfoDTO> GetEtapaById(Guid etapaId);
+        public Task<EtapaBasicInfoDto> GetEtapaById(Guid etapaId);
     }
 }

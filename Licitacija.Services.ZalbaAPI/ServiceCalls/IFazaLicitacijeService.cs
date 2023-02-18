@@ -4,6 +4,6 @@ namespace Licitacija.Services.ZalbaAPI.ServiceCalls
 {
     public interface IFazaLicitacijeService
     {
-        public Task<FazaLicitacijeDTO> GetFazaLicitacijeById(Guid fazaId);
+        public Task<FazaLicitacijeDto> GetFazaLicitacijeById(Guid fazaId);
     }
 }

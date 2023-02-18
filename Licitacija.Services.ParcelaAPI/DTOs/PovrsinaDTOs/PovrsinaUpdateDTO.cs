@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.PovrsinaDTOs
     /// <summary>
     /// Model za izmenu povrsine
     /// </summary>
-    public class PovrsinaUpdateDTO
+    public class PovrsinaUpdateDto
     {
         /// <summary>
         /// ID povrsine

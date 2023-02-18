@@ -2,7 +2,7 @@
 
 namespace Licitacija.Services.ZalbaAPI.DTOs.StatusZalbeDTOs
 {
-    public class StatusZalbeCreateDTO
+    public class StatusZalbeCreateDto
     {
         /// <summary>
         /// Naziv statusa žalbe 

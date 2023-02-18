@@ -21,12 +21,16 @@ namespace Licitacija.Services.ParcelaAPI.Repositories.ConcreteClasses
 
         public List<DeoParcele> GetAll()
         {
-            return _dataContext.DeloviParcele.Include(i => i.Parcela).ToList();
+            return _dataContext.DeloviParcele.Include(i => i.Parcela).Include(i => i.Parcela.Klasa).Include(i => i.Parcela.Kultura)
+                .Include(i => i.Parcela.OblikSvojine).Include(i => i.Parcela.Odvodnjavanje).Include(i => i.Parcela.Obradivost)
+                .Include(i => i.Parcela.KatastarskaOpstina).ToList();
         }
 
         public DeoParcele GetDeoParcele(Guid id)
         {
-            return _dataContext.DeloviParcele.Include(i => i.Parcela).FirstOrDefault(e => e.DeoParceleId == id);
+            return _dataContext.DeloviParcele.Include(i => i.Parcela).Include(i => i.Parcela.Klasa).Include(i => i.Parcela.Kultura)
+                .Include(i => i.Parcela.OblikSvojine).Include(i => i.Parcela.Odvodnjavanje).Include(i => i.Parcela.Obradivost)
+                .Include(i => i.Parcela.KatastarskaOpstina).FirstOrDefault(e => e.DeoParceleId == id);
         }
 
         public void InsertDeoParcele(DeoParcele deoParcele)

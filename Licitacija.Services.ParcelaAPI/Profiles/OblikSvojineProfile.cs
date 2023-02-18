@@ -10,9 +10,9 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
         public OblikSvojineProfile()
         {
             CreateMap<OblikSvojine, OblikSvojine>();
-            CreateMap<OblikSvojine, OblikSvojineDTO>().ReverseMap();
-            CreateMap<OblikSvojine, OblikSvojineCreateDTO>().ReverseMap();
-            CreateMap<OblikSvojine, OblikSvojineUpdateDTO>().ReverseMap();
+            CreateMap<OblikSvojine, OblikSvojineDto>().ReverseMap();
+            CreateMap<OblikSvojine, OblikSvojineCreateDto>().ReverseMap();
+            CreateMap<OblikSvojine, OblikSvojineUpdateDto>().ReverseMap();
         }
     }
 }

@@ -4,6 +4,6 @@ namespace Licitacija.Services.ParcelaAPI.ServiceCalls
 {
     public interface IOtvaranjePonudaService
     {
-        public Task<OtvaranjePonudaBasicInfoDTO> GetOtvaranjePonudaById(Guid nadmetanjeId);
+        public Task<OtvaranjePonudaBasicInfoDto> GetOtvaranjePonudaById(Guid otvaranjePonudaId);
     }
 }

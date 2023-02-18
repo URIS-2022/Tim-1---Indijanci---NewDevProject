@@ -7,20 +7,17 @@ using System.Reflection;
 using Licitacija.Services.NadmetanjeKupacAPI.Repositories.Interfaces;
 using Licitacija.Services.NadmetanjeKupacAPI.Repositories.ConcreteClasses;
 using Licitacija.Services.NadmetanjeKupacAPI.ServiceCalls;
-using Microsoft.Extensions.Options;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 //setup.ReturnHttpNotAcceptable = true;
 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
     .AddXmlDataContractSerializerFormatters()
-  
+
             .ConfigureApiBehaviorOptions(setupAction =>
             {
                 setupAction.InvalidModelStateResponseFactory = context =>
@@ -86,7 +83,7 @@ builder.Services.AddSwaggerGen(setupAction =>
         License = new Microsoft.OpenApi.Models.OpenApiLicense
         {
             Name = "FTN licence",
-            Url = new Uri("http://www.ftn.uns.ac.rs/")
+            Url = new Uri("https://www.ftn.uns.ac.rs/")
         },
     });
     setupAction.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
@@ -99,13 +96,13 @@ builder.Services.AddSwaggerGen(setupAction =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+/*using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
     var context = services.GetRequiredService<DataContext>();
     context.Database.Migrate();
-}
+}*/
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
