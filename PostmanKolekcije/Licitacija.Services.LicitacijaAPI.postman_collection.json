@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "216755ba-ab8c-45c1-9909-a98333940bbf",
+		"name": "Licitacija.Services.LicitacijaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16576872"
+	},
+	"item": [
+		{
+			"name": "GetLicitacija",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7093/api/Licitacija",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"Licitacija"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostLicitacija",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"broj\": 45,\r\n  \"godina\": 2015,\r\n  \"datum\": \"2022-03-14T14:29:34.036Z\",\r\n  \"ogranicenje\": 18,\r\n  \"korakCene\": 5,\r\n  \"rokZaPrijave\": \"2020-02-18T14:29:34.036Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7093/api/Licitacija",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"Licitacija"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutLicitacija",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"licitacijaId\": \"4C00CDEA-60B2-4FCC-EDDF-08DB11BC6F6D\",\r\n  \"broj\": 20,\r\n  \"godina\": 2016,\r\n  \"datum\": \"2022-03-14\",\r\n  \"ogranicenje\": 15,\r\n  \"korakCene\": 5,\r\n  \"rokZaPrijave\": \"2020-02-18\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7093/api/Licitacija",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"Licitacija"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLicitacijaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7093/api/Licitacija/CAC0E0A2-852A-4265-AC71-49C25FB5559B",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"Licitacija",
+						"CAC0E0A2-852A-4265-AC71-49C25FB5559B"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteLicitacija",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7093/api/Licitacija/2210755D-6755-4AA8-EDDE-08DB11BC6F6D",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"Licitacija",
+						"2210755D-6755-4AA8-EDDE-08DB11BC6F6D"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetlicitacijaBasic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7093/api/Licitacija/LicitacijaBasic/4C00CDEA-60B2-4FCC-EDDF-08DB11BC6F6D",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"Licitacija",
+						"LicitacijaBasic",
+						"4C00CDEA-60B2-4FCC-EDDF-08DB11BC6F6D"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFazeLicitacije",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7093/api/FazaLicitacije",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"FazaLicitacije"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostFazaLicitacije",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fazaNaziv\": \"osma faza\",\r\n  \"licitacijaId\": \"4C00CDEA-60B2-4FCC-EDDF-08DB11BC6F6D\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7093/api/FazaLicitacije",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"FazaLicitacije"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutFazaLicitacije",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fazaId\": \"14393B2B-C129-476B-3B76-08DB11BF24AD\",\r\n  \"fazaNaziv\": \"deseta faza\",\r\n  \"licitacijaId\": \"4C00CDEA-60B2-4FCC-EDDF-08DB11BC6F6D\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7093/api/FazaLicitacije",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"FazaLicitacije"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFazaLicitacijeById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7093/api/FazaLicitacije/CAC0E0A2-852A-4265-AC71-49C25FB5559B",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"FazaLicitacije",
+						"CAC0E0A2-852A-4265-AC71-49C25FB5559B"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteFazaLicitacije",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7093/api/FazaLicitacije/EC4F90F8-140E-4F2D-3B77-08DB11BF24AD",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"FazaLicitacije",
+						"EC4F90F8-140E-4F2D-3B77-08DB11BF24AD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFazaLicitacijeBasic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7093/api/FazaLicitacije/FazaLicitacijeBasic/CAC0E0A2-852A-4265-AC71-49C25FB5559B",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7093",
+					"path": [
+						"api",
+						"FazaLicitacije",
+						"FazaLicitacijeBasic",
+						"CAC0E0A2-852A-4265-AC71-49C25FB5559B"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

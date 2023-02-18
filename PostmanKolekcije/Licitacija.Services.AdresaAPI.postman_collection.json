@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "0305a3da-839a-405a-abe6-46031e444668",
+		"name": "Services.Licitacija.AdresaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16600239"
+	},
+	"item": [
+		{
+			"name": "CreateDrzava",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"drzavaNaziv\": \"DrzavaTest\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7041/api/drzava",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"drzava"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateDrzava",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"drzavaId\": \"00d4272c-ac25-41a6-ae4d-f62e7b044737\",\r\n    \"drzavaNaziv\": \"DrzavaTestIzmenjeno\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7041/api/drzava",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"drzava"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrzave",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7041/api/drzava",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"drzava"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrzavaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7041/api/drzava/00d4272c-ac25-41a6-ae4d-f62e7b044737",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"drzava",
+						"00d4272c-ac25-41a6-ae4d-f62e7b044737"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDrzava",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7041/api/drzava/00d4272c-ac25-41a6-ae4d-f62e7b044737",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"drzava",
+						"00d4272c-ac25-41a6-ae4d-f62e7b044737"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAdresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ulica\": \"UlicaTest\",\r\n  \"broj\": \"123\",\r\n  \"mesto\": \"MestoTest\",\r\n  \"postanskiBroj\": \"11000\",\r\n  \"drzavaId\": \"1E6DB18F-756D-4317-BE8E-21F26B97DDFF\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7041/api/adresa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"adresa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAdresa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"adresaId\": \"0e9d27aa-3d91-4519-9c2e-f748c4fc5ac7\",\r\n    \"ulica\": \"UlicaTestIzmenjeno\",\r\n    \"broj\": \"123333\",\r\n    \"mesto\": \"MestoTestIzmenjeno\",\r\n    \"postanskiBroj\": \"12000\",\r\n    \"drzavaId\": \"1E6DB18F-756D-4317-BE8E-21F26B97DDFF\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7041/api/adresa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"adresa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdrese",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7041/api/adresa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"adresa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdresaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7041/api/adresa/0e9d27aa-3d91-4519-9c2e-f748c4fc5ac7",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"adresa",
+						"0e9d27aa-3d91-4519-9c2e-f748c4fc5ac7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdresaBezDrzave",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7041/api/adresa/adresaBezDrzave/0e9d27aa-3d91-4519-9c2e-f748c4fc5ac7",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"adresa",
+						"adresaBezDrzave",
+						"0e9d27aa-3d91-4519-9c2e-f748c4fc5ac7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAdresa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7041/api/adresa/0e9d27aa-3d91-4519-9c2e-f748c4fc5ac7",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7041",
+					"path": [
+						"api",
+						"adresa",
+						"0e9d27aa-3d91-4519-9c2e-f748c4fc5ac7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

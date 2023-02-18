@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "1f37f9e3-08b8-4349-80bd-1767f89c66bc",
+		"name": "Licitacija.Services.EtapaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23987131"
+	},
+	"item": [
+		{
+			"name": "EtapaAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7009/api/Etapa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7009",
+					"path": [
+						"api",
+						"Etapa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EtapaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7009/api/Etapa/0BB57A3E-5AB2-4AB0-B33B-0E3C53D713D1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7009",
+					"path": [
+						"api",
+						"Etapa",
+						"0BB57A3E-5AB2-4AB0-B33B-0E3C53D713D1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Etapa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"datum\": \"2023-02-21\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7009/api/Etapa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7009",
+					"path": [
+						"api",
+						"Etapa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Etapa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"etapaId\": \"F9906F62-5499-4C3C-8190-FC675E6B65F5\",\r\n  \"datum\": \"2023-02-22\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7009/api/Etapa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7009",
+					"path": [
+						"api",
+						"Etapa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Etapa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7009/api/Etapa/F9906F62-5499-4C3C-8190-FC675E6B65F5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7009",
+					"path": [
+						"api",
+						"Etapa",
+						"F9906F62-5499-4C3C-8190-FC675E6B65F5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

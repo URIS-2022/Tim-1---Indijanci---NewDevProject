@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "675f5b24-3221-45e1-8a14-3a880fc1f916",
+		"name": "Licitacija.Services.NadmetanjeAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetStatuseNadmetanja",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/StatusNadmetanja",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"StatusNadmetanja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostStatusNadmetanja",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"statusNadmetanjaNaziv\": \"testStatusNadmetanja\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7008/api/StatusNadmetanja",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"StatusNadmetanja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutStatusNadmetanja",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"statusNadmetanjaId\": \"cf539b16-ce78-4894-18c0-08db11ef0f3c\",\r\n    \"statusNadmetanjaNaziv\": \"testStatusNadmetanjaIzmena\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7008/api/StatusNadmetanja",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"StatusNadmetanja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStatusNadmetanjaByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/StatusNadmetanja/cf539b16-ce78-4894-18c0-08db11ef0f3c",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"StatusNadmetanja",
+						"cf539b16-ce78-4894-18c0-08db11ef0f3c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteStatusNadmetanja",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/StatusNadmetanja/cf539b16-ce78-4894-18c0-08db11ef0f3c",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"StatusNadmetanja",
+						"cf539b16-ce78-4894-18c0-08db11ef0f3c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNadmetanja",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/Nadmetanje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Nadmetanje"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostNadmetanje",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"licitacijaId\": \"f3396a41-9877-44da-7662-08db1011d24a\",\r\n  \"statusNadmetanjaId\": \"cf539b16-ce78-4894-18c0-08db11ef0f3c\",\r\n  \"katOpstinaId\": \"e03357f7-a06e-4040-ad78-4d74c1aecd49\",\r\n  \"adresaId\": \"c05c5b33-a3a4-42b4-8c55-2b98430c290a\",\r\n  \"fazaId\": \"8f3dbbd6-c6fc-4c67-6a8b-08db1011e5e8\",\r\n  \"vremePocetka\": \"2023-02-18T20:34:52.004Z\",\r\n  \"vremeKraja\": \"2023-02-18T20:34:52.004Z\",\r\n  \"cenaPoHektaru\": 20,\r\n  \"izuzeto\": false,\r\n  \"izlicitiranaCena\": 20,\r\n  \"periodZakupa\": 20,\r\n  \"brojUcesnika\": 30,\r\n  \"visinaDopuneDepozita\": 30,\r\n  \"krug\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7008/api/Nadmetanje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Nadmetanje"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutNadmetanje",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nadmetanjeId\": \"c5bdae85-3db5-428c-06c0-08db11f1018c\",\r\n  \"licitacijaId\": \"f3396a41-9877-44da-7662-08db1011d24a\",\r\n  \"statusNadmetanjaId\": \"cf539b16-ce78-4894-18c0-08db11ef0f3c\",\r\n  \"katOpstinaId\": \"e03357f7-a06e-4040-ad78-4d74c1aecd49\",\r\n  \"adresaId\": \"c05c5b33-a3a4-42b4-8c55-2b98430c290a\",\r\n  \"fazaId\": \"8f3dbbd6-c6fc-4c67-6a8b-08db1011e5e8\",\r\n  \"vremePocetka\": \"2023-02-18T20:34:52.004Z\",\r\n  \"vremeKraja\": \"2023-02-18T20:34:52.004Z\",\r\n  \"cenaPoHektaru\": 20,\r\n  \"izuzeto\": false,\r\n  \"izlicitiranaCena\": 25,\r\n  \"periodZakupa\": 25,\r\n  \"brojUcesnika\": 35,\r\n  \"visinaDopuneDepozita\": 35,\r\n  \"krug\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7008/api/Nadmetanje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Nadmetanje"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNadmetanjeByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/Nadmetanje/c5bdae85-3db5-428c-06c0-08db11f1018c",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Nadmetanje",
+						"c5bdae85-3db5-428c-06c0-08db11f1018c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteNadmetanje",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/Nadmetanje/c5bdae85-3db5-428c-06c0-08db11f1018c",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Nadmetanje",
+						"c5bdae85-3db5-428c-06c0-08db11f1018c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNadmetanjeBasic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/Nadmetanje/NadmetanjeBasic/c5bdae85-3db5-428c-06c0-08db11f1018c",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Nadmetanje",
+						"NadmetanjeBasic",
+						"c5bdae85-3db5-428c-06c0-08db11f1018c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetJavna",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/Javno",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Javno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostJavno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nadmetanjeId\": \"c5bdae85-3db5-428c-06c0-08db11f1018c\",\r\n  \"etapaId\": \"1a925cf6-24d3-42c5-a271-508d7002925e\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7008/api/Javno",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Javno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutJavno",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"javnoNadmetanjeId\": \"359cd606-e659-44e4-9487-08db11f1fcf3\",\r\n  \"nadmetanjeId\": \"c5bdae85-3db5-428c-06c0-08db11f1018c\",\r\n  \"etapaId\": \"39909722-a934-41d1-add1-a898875c7df8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7008/api/Javno",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Javno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetJavnoByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/Javno/359cd606-e659-44e4-9487-08db11f1fcf3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Javno",
+						"359cd606-e659-44e4-9487-08db11f1fcf3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteJavno",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/Javno/359cd606-e659-44e4-9487-08db11f1fcf3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"Javno",
+						"359cd606-e659-44e4-9487-08db11f1fcf3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOtvaranjaPonuda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/OtvaranjePonuda",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"OtvaranjePonuda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostOtvaranjaPonuda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nadmetanjeId\": \"9e0ee56e-25ec-4c71-b2e7-08db11f010f9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7008/api/OtvaranjePonuda",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"OtvaranjePonuda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutOtvaranjePonuda",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"otvaranjePonudaId\": \"a42d3a43-52d3-4a85-1eae-08db11f2cb5f\",\r\n  \"nadmetanjeId\": \"9e0ee56e-25ec-4c71-b2e7-08db11f010f9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7008/api/OtvaranjePonuda",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"OtvaranjePonuda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOtvaranjePonudaByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/OtvaranjePonuda/a42d3a43-52d3-4a85-1eae-08db11f2cb5f",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"OtvaranjePonuda",
+						"a42d3a43-52d3-4a85-1eae-08db11f2cb5f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteOtvaranjePonuda",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/OtvaranjePonuda/a42d3a43-52d3-4a85-1eae-08db11f2cb5f",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"OtvaranjePonuda",
+						"a42d3a43-52d3-4a85-1eae-08db11f2cb5f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOtvaranjePonudaBasic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7008/api/OtvaranjePonuda/OtvaranjePonudaBasic/a42d3a43-52d3-4a85-1eae-08db11f2cb5f",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"api",
+						"OtvaranjePonuda",
+						"OtvaranjePonudaBasic",
+						"a42d3a43-52d3-4a85-1eae-08db11f2cb5f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

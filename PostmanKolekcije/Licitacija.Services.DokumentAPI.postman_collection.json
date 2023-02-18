@@ -1,0 +1,633 @@
+{
+	"info": {
+		"_postman_id": "57b837ef-cf8e-4576-a039-723e3af4c3c4",
+		"name": "Licitacija.Services.DokumentAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "StatusDokumenta controller",
+			"item": [
+				{
+					"name": "Get sve statuse dokumenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/statusDokumenta/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"statusDokumenta",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get status dokumenta po id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/statusDokumenta/79722eb2-6967-4ee2-be89-3002579ae098",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"statusDokumenta",
+								"79722eb2-6967-4ee2-be89-3002579ae098"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj status dokumenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"statusDokumentaNaziv\": \"novi status dokumenta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/statusDokumenta/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"statusDokumenta",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj status dokumenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"statusDokumentaId\": \"9967ca31-1ca2-4a29-8689-eb2808dee647\",\r\n  \"statusDokumentaNaziv\": \"novi status azuriran\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/statusDokumenta/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"statusDokumenta",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi status dokumenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/statusDokumenta/17bdf280-44a9-4ca5-b3b9-4df865c6789a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"statusDokumenta",
+								"17bdf280-44a9-4ca5-b3b9-4df865c6789a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dokument controller",
+			"item": [
+				{
+					"name": "Get sve dokumente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/dokument",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"dokument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get dokument po id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/dokument/d9b3c080-1c4a-4fa3-8c6d-75dc6d265d43",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"dokument",
+								"d9b3c080-1c4a-4fa3-8c6d-75dc6d265d43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj novi dokument",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"zavodniBroj\": \"5523523523\",\r\n  \"datumPotpisivanja\": \"2023-02-18T17:48:26.194Z\",\r\n  \"datumDonosenja\": \"2023-02-18T17:48:26.194Z\",\r\n  \"sablon\": \"sbgasgag\",\r\n  \"statusDokumentaId\": \"79722eb2-6967-4ee2-be89-3002579ae098\",\r\n  \"kupacId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/dokument",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"dokument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj dokument",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dokumentId\": \"d9b3c080-1c4a-4fa3-8c6d-75dc6d265d43\",\r\n  \"zavodniBroj\": \"5325253252\",\r\n  \"datumPotpisivanja\": \"2023-02-18T17:43:35.395Z\",\r\n  \"datumDonosenja\": \"2023-02-18T17:43:35.395Z\",\r\n  \"sablon\": \"sablon\",\r\n  \"statusDokumentaId\": \"79722eb2-6967-4ee2-be89-3002579ae098\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/dokument",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"dokument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi dokument",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/dokument/1716cb4a-34bc-42b6-82e8-a27260a8dcfb",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"dokument",
+								"1716cb4a-34bc-42b6-82e8-a27260a8dcfb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Eksterni dokument",
+			"item": [
+				{
+					"name": "Get sve eksterne dokumente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/EksterniDokument/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"EksterniDokument",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get eksterni dokument po id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/EksterniDokument/d946fcbb-65ec-4ee7-b744-a9888707fc1a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"EksterniDokument",
+								"d946fcbb-65ec-4ee7-b744-a9888707fc1a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj eksterni dokument",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dokumentId\": \"31832202-6cd6-41b4-a7b2-6d98831ae437\",\r\n  \"ustanova\": \"Neka ustanova\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/EksterniDokument/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"EksterniDokument",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj eksterni dokument",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"eksterniDokumentId\": \"d946fcbb-65ec-4ee7-b744-a9888707fc1a\",\r\n  \"dokumentId\": \"d9b3c080-1c4a-4fa3-8c6d-75dc6d265d43\",\r\n  \"ustanova\": \"Neka nova ustanova azurirano\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/EksterniDokument/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"EksterniDokument",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi eksterni dokument",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/EksterniDokument/ea62874e-384c-4c0d-ab2e-8370a8c0e57a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"EksterniDokument",
+								"ea62874e-384c-4c0d-ab2e-8370a8c0e57a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tip garancije",
+			"item": [
+				{
+					"name": "Get sve tipove garancije",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/TipGarancije/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"TipGarancije",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tip garancije po ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/TipGarancije/547eba4b-c710-4b8f-8ef8-0e6c98c06bfb",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"TipGarancije",
+								"547eba4b-c710-4b8f-8ef8-0e6c98c06bfb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj novi tip garancije",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipGarancijeNaziv\": \"novi tip garancije\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/TipGarancije/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"TipGarancije",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj tip garancije",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipGarancijeId\": \"32a7a2bb-41a3-4a03-a9ad-8ce7c9ab28ab\",\r\n  \"tipGarancijeNaziv\": \"azuriran tip garancije\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/TipGarancije/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"TipGarancije",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi tip garancije",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/TipGarancije/a95c5346-aed9-43c8-4c04-08db119e0094",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"TipGarancije",
+								"a95c5346-aed9-43c8-4c04-08db119e0094"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ugovor o zakupu",
+			"item": [
+				{
+					"name": "Get sve ugovore o zakupu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/UgovorOZakupu/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"UgovorOZakupu",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ugovor o zakupu po ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Dodaj novi ugovor o zakupu",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dokumentId\": \"31832202-6cd6-41b4-a7b2-6d98831ae437\",\r\n  \"rokDospeca\": 0,\r\n  \"rokVracanjaZemljista\": \"2023-02-18T18:11:03.055Z\",\r\n  \"mestoPotpisivanja\": \"neko mesto\",\r\n  \"tipGarancijeId\": \"32a7a2bb-41a3-4a03-a9ad-8ce7c9ab28ab\",\r\n  \"licnostId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"uplataId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/UgovorOZakupu/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"UgovorOZakupu",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Azuriraj ugovor o zakupu",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ugovorOZakupuId\": \"ac22195d-94a0-4604-a674-2e15ade9a4dd\",\r\n  \"dokumentId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"rokDospeca\": 0,\r\n  \"rokVracanjaZemljista\": \"2023-02-18T18:12:30.198Z\",\r\n  \"mestoPotpisivanja\": \"string\",\r\n  \"tipGarancijeId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"licnostId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"uplataId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7019/api/UgovorOZakupu/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"UgovorOZakupu",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obrisi ugovor o zakupu",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7019/api/UgovorOZakupu/db800b68-1fd6-4cde-ba0c-3daa3f3e4ff1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7019",
+							"path": [
+								"api",
+								"UgovorOZakupu",
+								"db800b68-1fd6-4cde-ba0c-3daa3f3e4ff1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
