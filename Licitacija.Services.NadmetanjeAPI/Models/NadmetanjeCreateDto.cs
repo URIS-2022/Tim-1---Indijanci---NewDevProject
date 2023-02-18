@@ -23,7 +23,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Models
         /// ID katastarske opstine.
         /// </summary>
         [Required(ErrorMessage = "Obavezno je uneti ID katastarske opstine.")]
-        public Guid KadOpstinaId { get; set; }
+        public Guid KatOpstinaId { get; set; }
 
         /// <summary>
         /// ID adrese.
