@@ -5,7 +5,7 @@ namespace Licitacija.Services.LicitacijaAPI.DTOs.FazaLicitacijeDTOs
     /// <summary>
     /// Model za izmenu faze licitacije.
     /// </summary>
-    public class FazaLicitacijeUpdateDTO
+    public class FazaLicitacijeUpdateDto
     {
         /// <summary>
         /// ID faze licitacije

@@ -36,7 +36,7 @@ namespace Licitacija.Services.ZalbaAPI.Repositories.ConcreteClasses
 
         public void UpdateRadnjaNaOsnovuZalbe(RadnjaNaOsnovuZalbe radnjaNaOsnovuZalbe)
         {
-            //EF prati izmene i automatski pri primeni Save() metode vrsi update, zbog toga nije neophodno implementirati Update
+
         }
 
         public bool Save()

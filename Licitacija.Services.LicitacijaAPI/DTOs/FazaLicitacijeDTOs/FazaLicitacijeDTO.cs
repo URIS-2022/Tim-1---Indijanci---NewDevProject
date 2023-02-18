@@ -7,7 +7,7 @@ namespace Licitacija.Services.LicitacijaAPI.DTOs.FazaLicitacijeDTOs
     /// <summary>
     /// Entitet faze licitacija
     /// </summary>
-    public class FazaLicitacijeDTO
+    public class FazaLicitacijeDto
     {
         /// <summary>
         /// ID faze licitacije
@@ -22,6 +22,6 @@ namespace Licitacija.Services.LicitacijaAPI.DTOs.FazaLicitacijeDTOs
         /// <summary>
         /// DTO objekat Licitacije
         /// </summary>
-        public LicitacijaDTO? Licitacija { get; set; }
+        public LicitacijaDto? Licitacija { get; set; }
     }
 }

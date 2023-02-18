@@ -38,7 +38,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<RadnjaNaOsnovuZalbeDto>> GetAllRadnjaNaOsnovuZalbe()
+        public ActionResult<List<RadnjaNaOsnovuZalbeDTO>> GetAllRadnjaNaOsnovuZalbe()
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<RadnjaNaOsnovuZalbeDto>>(radnjaNaOsnovuZalbe));
+                return Ok(_mapper.Map<List<RadnjaNaOsnovuZalbeDTO>>(radnjaNaOsnovuZalbe));
             }
             catch (Exception e)
             {
@@ -70,7 +70,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<RadnjaNaOsnovuZalbeDto> GetRadnjaNaOsnovuZalbe(Guid id)
+        public ActionResult<RadnjaNaOsnovuZalbeDTO> GetRadnjaNaOsnovuZalbe(Guid id)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<RadnjaNaOsnovuZalbeDto>(radnjaNaOsnovuZalbe));
+                return Ok(_mapper.Map<RadnjaNaOsnovuZalbeDTO>(radnjaNaOsnovuZalbe));
             }
             catch (Exception e)
             {
@@ -93,7 +93,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         /// <summary>
         /// Kreira novu radnju na osnovu zalbe.
         /// </summary>
-        /// <param name="radnjaNaOsnovuZalbeDto">Model radnje na osnovu zalbe</param>
+        /// <param name="radnjaNaOsnovuZalbeDTO">Model radnje na osnovu zalbe</param>
         /// <returns>Potvrda o kreiranoj radnji na osnovu zalbe.</returns>
         /// <response code="201">Vraća kreiranu radnju na osnovu zalbe</response>
         /// <response code="500">Serverska greška</response>
@@ -101,14 +101,14 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<RadnjaNaOsnovuZalbeDto> CreateRadnjaNaOsnovuZalbe([FromBody] RadnjaNaOsnovuZalbeCreateDto radnjaNaOsnovuZalbeDto)
+        public ActionResult<RadnjaNaOsnovuZalbeDTO> CreateRadnjaNaOsnovuZalbe([FromBody] RadnjaNaOsnovuZalbeCreateDTO radnjaNaOsnovuZalbeDTO)
         {
             try
             {
-                RadnjaNaOsnovuZalbe radnjaNaOsnovuZalbe = _mapper.Map<RadnjaNaOsnovuZalbe>(radnjaNaOsnovuZalbeDto);
+                RadnjaNaOsnovuZalbe radnjaNaOsnovuZalbe = _mapper.Map<RadnjaNaOsnovuZalbe>(radnjaNaOsnovuZalbeDTO);
                 _radnjaNaOsnovuZalbeRepository.InsertRadnjaNaOsnovuZalbe(radnjaNaOsnovuZalbe);
                 _radnjaNaOsnovuZalbeRepository.Save();
-                return Created("GetRadnjaNaOsnovuZalbe", _mapper.Map<RadnjaNaOsnovuZalbeDto>(radnjaNaOsnovuZalbe));
+                return Created("GetRadnjaNaOsnovuZalbe", _mapper.Map<RadnjaNaOsnovuZalbeDTO>(radnjaNaOsnovuZalbe));
             }
             catch (Exception e)
             {
@@ -119,7 +119,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         /// <summary>
         /// Ažurira jednu radnju na osnovu zalbe.
         /// </summary>
-        /// <param name="radnjaNaOsnovuZalbeDto">Model radnje na osnovu zalbe koji se ažurira</param>
+        /// <param name="radnjaNaOsnovuZalbeDTO">Model radnje na osnovu zalbe koji se ažurira</param>
         /// <returns>Potvrdu o modifikovanoj radnji na osnovu zalbe.</returns>
         /// <response code="200">Vraća ažuriranu radnju na osnovu zalbe.</response>
         /// <response code="404">Radnja na osnovu zalbe koji se ažurira nije pronađen.</response>
@@ -129,20 +129,20 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<RadnjaNaOsnovuZalbeDto> UpdateRadnjaNaOsnovuZalbe([FromBody] RadnjaNaOsnovuZalbeUpdateDto radnjaNaOsnovuZalbeDto)
+        public ActionResult<RadnjaNaOsnovuZalbeDTO> UpdateRadnjaNaOsnovuZalbe([FromBody] RadnjaNaOsnovuZalbeUpdateDTO radnjaNaOsnovuZalbeDTO)
         {
             try
             {
-                var radnjaNaOsnovuZalbeToUpdate = _radnjaNaOsnovuZalbeRepository.GetRadnjaNaOsnovuZalbe(radnjaNaOsnovuZalbeDto.RadnjaId);
+                var radnjaNaOsnovuZalbeToUpdate = _radnjaNaOsnovuZalbeRepository.GetRadnjaNaOsnovuZalbe(radnjaNaOsnovuZalbeDTO.RadnjaId);
 
                 if (radnjaNaOsnovuZalbeToUpdate == null)
                 {
                     return NotFound();
                 }
 
-                _mapper.Map(radnjaNaOsnovuZalbeDto, radnjaNaOsnovuZalbeToUpdate);
+                _mapper.Map(radnjaNaOsnovuZalbeDTO, radnjaNaOsnovuZalbeToUpdate);
                 _radnjaNaOsnovuZalbeRepository.Save();
-                return Ok(_mapper.Map<RadnjaNaOsnovuZalbeDto>(radnjaNaOsnovuZalbeToUpdate));
+                return Ok(_mapper.Map<RadnjaNaOsnovuZalbeDTO>(radnjaNaOsnovuZalbeToUpdate));
 
             }
             catch (Exception e)

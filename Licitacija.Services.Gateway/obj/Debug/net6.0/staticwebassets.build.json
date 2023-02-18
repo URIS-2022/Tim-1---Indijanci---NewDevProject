@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "dC5k3OgFQYkKOY6+eJdn08zwOHiGXZRZDksICKpVfpI=",
+  "Source": "Licitacija.Services.Gateway",
+  "BasePath": "_content/Licitacija.Services.Gateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

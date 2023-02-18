@@ -12,7 +12,7 @@ namespace Licitacija.Services.ZalbaAPI.ServiceCalls
             _configuration = configuration;
         }
 
-        public async Task<KupacDto> GetKupacById(Guid kupacId)
+        public async Task<KupacDTO> GetKupacById(Guid kupacId)
         {
             using (HttpClient client = new())
             {
@@ -26,7 +26,7 @@ namespace Licitacija.Services.ZalbaAPI.ServiceCalls
 
                     if (!string.IsNullOrEmpty(responseString))
                     {
-                        var kupac = JsonConvert.DeserializeObject<KupacDto>(responseString);
+                        var kupac = JsonConvert.DeserializeObject<KupacDTO>(responseString);
                         return kupac;
                     }
                 }
