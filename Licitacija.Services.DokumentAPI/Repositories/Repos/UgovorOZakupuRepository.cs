@@ -75,7 +75,7 @@ namespace Licitacija.Services.DokumentAPI.Repositories.Repos
                 ugovorOZakupu.TipGarancijeId = updateUgovorOZakupu.TipGarancijeId;
                 ugovorOZakupu.MestoPotpisivanja = updateUgovorOZakupu.MestoPotpisivanja;
                 ugovorOZakupu.DokumentId = updateUgovorOZakupu.DokumentId;
-                ugovorOZakupu.LicnostId = ugovorOZakupu.LicnostId;
+                ugovorOZakupu.LicnostId = updateUgovorOZakupu.LicnostId;
                 ugovorOZakupu.UplataId = updateUgovorOZakupu.UplataId;
 
                 return ugovorOZakupu;
