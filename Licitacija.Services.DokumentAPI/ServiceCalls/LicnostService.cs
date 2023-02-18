@@ -17,21 +17,27 @@ namespace Licitacija.Services.DokumentAPI.ServiceCalls
             using HttpClient client = new();
             Uri url = new($"{_configuration["Services:LicnostService"]}api/licnost/{licnostId}");
 
-            var response = await client.GetAsync(url);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responseString = await response.Content.ReadAsStringAsync();
-
-                if (string.IsNullOrEmpty(responseString))
+                var response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
                 {
-                    return default;
-                }
+                    var responseString = await response.Content.ReadAsStringAsync();
 
-                LicnostDto? kupac = JsonConvert.DeserializeObject<LicnostDto>(responseString);
-                return kupac;
+                    if (string.IsNullOrEmpty(responseString))
+                    {
+                        return default;
+                    }
+
+                    LicnostDto? licnost = JsonConvert.DeserializeObject<LicnostDto>(responseString);
+                    return licnost;
+                }
+                return default;
             }
-            return default;
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

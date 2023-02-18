@@ -16,23 +16,29 @@ namespace Licitacija.Services.KomisijaAPI.ServiceCalls
         public async Task<ProgramDto?> GetProgram(Guid? programId)
         {
             using HttpClient client = new();
-            Uri url = new($"{_configuration["Services:PredradnjaNadmetanjaService"]}api/kreiranjeProgramaLicitacije/programZaKomisiju/{programId}");
+            Uri url = new($"{_configuration["Services:KreiranjeProgramaService"]}api/kreiranjeProgramaLicitacije/programZaKomisiju/{programId}");
 
-            var response = await client.GetAsync(url);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responseString = await response.Content.ReadAsStringAsync();
-
-                if (string.IsNullOrEmpty(responseString))
+                var response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
                 {
-                    return default;
-                }
+                    var responseString = await response.Content.ReadAsStringAsync();
 
-                ProgramDto? program = JsonConvert.DeserializeObject<ProgramDto>(responseString);
-                return program;
+                    if (string.IsNullOrEmpty(responseString))
+                    {
+                        return default;
+                    }
+
+                    ProgramDto? program = JsonConvert.DeserializeObject<ProgramDto>(responseString);
+                    return program;
+                }
+                return default;
             }
-            return default;
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

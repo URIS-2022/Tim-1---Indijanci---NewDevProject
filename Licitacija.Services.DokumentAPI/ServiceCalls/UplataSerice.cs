@@ -18,21 +18,27 @@ namespace Licitacija.Services.DokumentAPI.ServiceCalls
             using HttpClient client = new();
             Uri url = new($"{_configuration["Services:UplataService"]}api/uplata/uplataZaUgovor/{uplataId}");
 
-            var response = await client.GetAsync(url);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responseString = await response.Content.ReadAsStringAsync();
-
-                if (string.IsNullOrEmpty(responseString))
+                var response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
                 {
-                    return default;
-                }
+                    var responseString = await response.Content.ReadAsStringAsync();
 
-                UplataDto? uplata = JsonConvert.DeserializeObject<UplataDto>(responseString);
-                return uplata;
+                    if (string.IsNullOrEmpty(responseString))
+                    {
+                        return default;
+                    }
+
+                    UplataDto? uplata = JsonConvert.DeserializeObject<UplataDto>(responseString);
+                    return uplata;
+                }
+                return default;
             }
-            return default;
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using Licitacija.Services.KomisijaAPI.Entities;
 using Licitacija.Services.KomisijaAPI.Models.KomisijaDtos;
 using Licitacija.Services.KomisijaAPI.Models.LicnostDtos;
+using Licitacija.Services.KomisijaAPI.Models.TipKomisijeDtos;
 
 namespace Licitacija.Services.KomisijaAPI.Configuration
 {
@@ -15,6 +16,10 @@ namespace Licitacija.Services.KomisijaAPI.Configuration
 
             CreateMap<Licnost, NovaLicnostDto>().ReverseMap();
             CreateMap<Licnost, UpdateLicnostDto>().ReverseMap();
+
+            CreateMap<TipKomisije, NoviTipKomisijeDto>().ReverseMap();
+
+
         }
     }
 }

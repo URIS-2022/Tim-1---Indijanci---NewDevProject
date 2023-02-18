@@ -7,55 +7,51 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Licitacija.Services.DokumentAPI.Repositories.Interfaces;
 using Licitacija.Services.DokumentAPI.Repositories.Repos;
+using Licitacija.Services.DokumentAPI.ServiceCalls;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers(setup =>
-{
-    setup.ReturnHttpNotAcceptable = true;
-}
-).AddXmlDataContractSerializerFormatters()
-            .ConfigureApiBehaviorOptions(setupAction =>
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+    .AddXmlDataContractSerializerFormatters()
+    .ConfigureApiBehaviorOptions(setupAction =>
+    {
+        setupAction.InvalidModelStateResponseFactory = context =>
+        {
+            ProblemDetailsFactory problemDetailsFactory = context.HttpContext.RequestServices
+                .GetRequiredService<ProblemDetailsFactory>();
+
+            ValidationProblemDetails problemDetails = problemDetailsFactory.CreateValidationProblemDetails(
+                context.HttpContext,
+                context.ModelState);
+
+            problemDetails.Detail = "Pogledajte polje errors za detalje.";
+            problemDetails.Instance = context.HttpContext.Request.Path;
+
+            var actionExecutiongContext = context as ActionExecutingContext;
+
+            if ((context.ModelState.ErrorCount > 0) &&
+                (actionExecutiongContext?.ActionArguments.Count == context.ActionDescriptor.Parameters.Count))
             {
-                setupAction.InvalidModelStateResponseFactory = context =>
+                problemDetails.Status = StatusCodes.Status422UnprocessableEntity;
+                problemDetails.Title = "Došlo je do greške prilikom validacije.";
+
+                return new UnprocessableEntityObjectResult(problemDetails)
                 {
-                    ProblemDetailsFactory problemDetailsFactory = context.HttpContext.RequestServices
-                        .GetRequiredService<ProblemDetailsFactory>();
-
-
-                    ValidationProblemDetails problemDetails = problemDetailsFactory.CreateValidationProblemDetails(
-                        context.HttpContext,
-                        context.ModelState);
-
-
-                    problemDetails.Detail = "Pogledajte polje errors za detalje.";
-                    problemDetails.Instance = context.HttpContext.Request.Path;
-
-                    var actionExecutiongContext = context as ActionExecutingContext;
-
-                    if ((context.ModelState.ErrorCount > 0) &&
-                        (actionExecutiongContext?.ActionArguments.Count == context.ActionDescriptor.Parameters.Count))
-                    {
-                        problemDetails.Type = "https://google.com";
-                        problemDetails.Status = StatusCodes.Status422UnprocessableEntity;
-                        problemDetails.Title = "Došlo je do greške prilikom validacije.";
-
-                        return new UnprocessableEntityObjectResult(problemDetails)
-                        {
-                            ContentTypes = { "application/problem+json" }
-                        };
-                    }
-
-                    problemDetails.Status = StatusCodes.Status400BadRequest;
-                    problemDetails.Title = "Došlo je do greške prilikom parsiranja poslatog sadržaja.";
-                    return new BadRequestObjectResult(problemDetails)
-                    {
-                        ContentTypes = { "application/problem+json" }
-                    };
+                    ContentTypes = { "application/problem+json" }
                 };
-            });
+            }
+
+            problemDetails.Status = StatusCodes.Status400BadRequest;
+            problemDetails.Title = "Došlo je do greške prilikom parsiranja poslatog sadržaja.";
+            return new BadRequestObjectResult(problemDetails)
+            {
+                ContentTypes = { "application/problem+json" }
+            };
+        };
+    });
 
 builder.Services.AddAutoMapper(typeof(Mapper));
 
@@ -69,6 +65,9 @@ builder.Services.AddScoped<IEksterniDokumentRepository, EksterniDokumentReposito
 builder.Services.AddScoped<IStatusDokumentaRepository, StatusDokumentaRepository>();
 builder.Services.AddScoped<ITipGarancijeRepository, TipGarancijeRepository>();
 builder.Services.AddScoped<IUgovorOZakupuRepository, UgovorOZakupuRepository>();
+builder.Services.AddScoped<IKupacService, KupacService>();
+builder.Services.AddScoped<ILicnostService, LicnostService>();
+builder.Services.AddScoped<IUplataService, UplataSerice>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(setupAction =>

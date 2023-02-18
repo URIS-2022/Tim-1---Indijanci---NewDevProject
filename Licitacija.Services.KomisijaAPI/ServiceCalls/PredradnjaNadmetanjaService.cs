@@ -18,21 +18,27 @@ namespace Licitacija.Services.KomisijaAPI.ServiceCalls
             using HttpClient client = new();
             Uri url = new($"{_configuration["Services:PredradnjaNadmetanjaService"]}api/predradnjaNadmetanja/predradnjaOsnovneInfo/{predradnjaNadmetanjaId}");
 
-            var response = await client.GetAsync(url);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responseString = await response.Content.ReadAsStringAsync();
-
-                if (string.IsNullOrEmpty(responseString))
+                var response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
                 {
-                    return default;
-                }
+                    var responseString = await response.Content.ReadAsStringAsync();
 
-                PredradnjaNadmetanjaDto? predradnjaNadmetanja = JsonConvert.DeserializeObject<PredradnjaNadmetanjaDto>(responseString);
-                return predradnjaNadmetanja;
+                    if (string.IsNullOrEmpty(responseString))
+                    {
+                        return default;
+                    }
+
+                    PredradnjaNadmetanjaDto? predradnjaNadmetanja = JsonConvert.DeserializeObject<PredradnjaNadmetanjaDto>(responseString);
+                    return predradnjaNadmetanja;
+                }
+                return default;
             }
-            return default;
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

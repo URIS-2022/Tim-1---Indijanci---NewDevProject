@@ -31,5 +31,10 @@ namespace Licitacija.Services.DokumentAPI.Models.DokumentDtos
         /// Id statusa dokumenta (strani kljuc).
         /// </summary>
         public Guid StatusDokumentaId { get; set; }
+
+        /// <summary>
+        /// Id kupca (kupac mikroservis).
+        /// </summary>
+        public Guid? KupacId { get; set; }
     }
 }

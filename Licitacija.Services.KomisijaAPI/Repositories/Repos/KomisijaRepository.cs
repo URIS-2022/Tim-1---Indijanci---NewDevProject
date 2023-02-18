@@ -21,6 +21,7 @@ namespace Licitacija.Services.KomisijaAPI.Repositories.Repos
             var komisija = new Komisija()
             {
                 KomisijaId = Guid.NewGuid(),
+                TipKomisijeId = addKomisija.TipKomisijeId,
                 PredradnjaNadmetanjaId = addKomisija.PredradnjaNadmetanjaId,
                 ProgramId = addKomisija.ProgramId
             };
