@@ -1,13 +1,15 @@
-﻿using Licitacija.Services.DokumentAPI.Configuration;
-using Licitacija.Services.DokumentAPI.DbConexts;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Licitacija.Services.KomisijaAPI.DbConexts;
 using System.Reflection;
-using Licitacija.Services.DokumentAPI.Repositories.Interfaces;
-using Licitacija.Services.DokumentAPI.Repositories.Repos;
-using Licitacija.Services.DokumentAPI.ServiceCalls;
+using Licitacija.Services.KomisijaAPI.Repositories.Interfaces;
+using Licitacija.Services.KomisijaAPI.Repositories.Repos;
+using Licitacija.Services.TipKomisijeAPI.Repositories.Interfaces;
+using Licitacija.Services.LicnostAPI.Repositories.Interfaces;
+using Licitacija.Services.KomisijaAPI.Configuration;
+using Licitacija.Services.KomisijaAPI.ServiceCalls;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,33 +53,31 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
                 ContentTypes = { "application/problem+json" }
             };
         };
-    });
-
+    });// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddAutoMapper(typeof(Mapper));
-
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(
         builder.Configuration
-            .GetConnectionString("DokumentDB")));
-builder.Services.AddTransient<DataSeeder>();
-builder.Services.AddScoped<IDokumentRepository, DokumentRepository>();
-builder.Services.AddScoped<IEksterniDokumentRepository, EksterniDokumentRepository>();
-builder.Services.AddScoped<IStatusDokumentaRepository, StatusDokumentaRepository>();
-builder.Services.AddScoped<ITipGarancijeRepository, TipGarancijeRepository>();
-builder.Services.AddScoped<IUgovorOZakupuRepository, UgovorOZakupuRepository>();
-builder.Services.AddScoped<IKupacService, KupacService>();
-builder.Services.AddScoped<ILicnostService, LicnostService>();
-builder.Services.AddScoped<IUplataService, UplataSerice>();
+            .GetConnectionString("KomisijaDB")));
+builder.Services.AddScoped<IKomisijaRepository, KomisijaRepository>();
+builder.Services.AddScoped<ITipKomisijeRepository, TipKomisijeRepository>();
+builder.Services.AddScoped<ILicnostRepository, LicnostRepository>();
+builder.Services.AddScoped<ILicnostKomisijaRepository, LicnostKomisijaRepository>();
+builder.Services.AddScoped<IKreiranjeProgramaService, KreiranjeProgramaService>();
+builder.Services.AddScoped<IPredradnjaNadmetanjaService, PredradnjaNadmetanjaService>();
+
+
 
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(setupAction =>
 {
-    setupAction.SwaggerDoc("DokumentMicroserviceOpenApiSpecification",
+    setupAction.SwaggerDoc("KomisijaMicroserviceOpenApiSpecification",
     new Microsoft.OpenApi.Models.OpenApiInfo()
     {
-        Title = "Licitacija.Services.DokumentAPI",
+        Title = "Licitacija.Services.KomisijaAPI",
         Version = "1",
-        Description = "Pomoću ovog API-ja može se vršiti dodavanje dokumenata, modifikacija dokumenata, kao i pregled kreiranih dokumenata.",
+        Description = "Pomoću ovog API-ja može se vršiti dodavanje komisija, modifikacija komisija, kao i pregled kreiranih komisija.",
         Contact = new Microsoft.OpenApi.Models.OpenApiContact
         {
             Name = "Nebojša Zoraja",
@@ -98,22 +98,8 @@ builder.Services.AddSwaggerGen(setupAction =>
     setupAction.IncludeXmlComments(xmlCommentsPath);
 });
 
+
 var app = builder.Build();
-
-
-if (args.Length == 1 && args[0].ToLower() == "seeddata")
-    SeedData(app);
-
-static void SeedData(IHost app)
-{
-    IServiceScopeFactory? scopedFactory = app.Services.GetService<IServiceScopeFactory>();
-
-    using (var scope = scopedFactory?.CreateScope())
-    {
-        var service = scope?.ServiceProvider.GetService<DataSeeder>();
-        service?.Seed();
-    }
-}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -121,7 +107,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/DokumentMicroserviceOpenApiSpecification/swagger.json", "Licitacija.Services.DokumentAPI");
+        c.SwaggerEndpoint("/swagger/KomisijaMicroserviceOpenApiSpecification/swagger.json", "Licitacija.Services.KomisijaAPI");
         c.RoutePrefix = String.Empty;
     });
 }

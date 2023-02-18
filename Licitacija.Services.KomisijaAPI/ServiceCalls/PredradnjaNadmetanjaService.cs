@@ -1,22 +1,22 @@
-﻿using Licitacija.Services.DokumentAPI.Models.ExchangeDtos;
+﻿using Licitacija.Services.KomisijaAPI.Models.ExchangeDtos;
 using Newtonsoft.Json;
 
-namespace Licitacija.Services.DokumentAPI.ServiceCalls
+namespace Licitacija.Services.KomisijaAPI.ServiceCalls
 {
-    public class UplataSerice : IUplataService
+    public class PredradnjaNadmetanjaService : IPredradnjaNadmetanjaService
     {
 
         private readonly IConfiguration _configuration;
 
-        public UplataSerice(IConfiguration configuration)
+        public PredradnjaNadmetanjaService(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public async Task<UplataDto?> GetUplataZaUgovor(Guid? uplataId)
+        public async Task<PredradnjaNadmetanjaDto?> GetPredradnjaNadmetanja(Guid? predradnjaNadmetanjaId)
         {
             using HttpClient client = new();
-            Uri url = new($"{_configuration["Services:UplataService"]}api/uplata/uplataZaUgovor/{uplataId}");
+            Uri url = new($"{_configuration["Services:PredradnjaNadmetanjaService"]}api/predradnjaNadmetanja/predradnjaOsnovneInfo/{predradnjaNadmetanjaId}");
 
             try
             {
@@ -30,8 +30,8 @@ namespace Licitacija.Services.DokumentAPI.ServiceCalls
                         return default;
                     }
 
-                    UplataDto? uplata = JsonConvert.DeserializeObject<UplataDto>(responseString);
-                    return uplata;
+                    PredradnjaNadmetanjaDto? predradnjaNadmetanja = JsonConvert.DeserializeObject<PredradnjaNadmetanjaDto>(responseString);
+                    return predradnjaNadmetanja;
                 }
                 return default;
             }

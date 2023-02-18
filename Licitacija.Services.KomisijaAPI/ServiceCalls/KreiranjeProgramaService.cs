@@ -1,24 +1,22 @@
-﻿using Licitacija.Services.DokumentAPI.Models.ExchangeDtos;
-using Microsoft.AspNetCore.Mvc;
+﻿using Licitacija.Services.KomisijaAPI.Models.ExchangeDtos;
 using Newtonsoft.Json;
 
-namespace Licitacija.Services.DokumentAPI.ServiceCalls
+namespace Licitacija.Services.KomisijaAPI.ServiceCalls
 {
-    public class KupacService : IKupacService
+    public class KreiranjeProgramaService : IKreiranjeProgramaService
     {
 
         private readonly IConfiguration _configuration;
 
-        public KupacService(IConfiguration configuration)
+        public KreiranjeProgramaService(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public async Task<KupacDto?> GetKupacWithTip(Guid? kupacId)
+        public async Task<ProgramDto?> GetProgram(Guid? programId)
         {
             using HttpClient client = new();
-
-            Uri url = new($"{_configuration["Services:KupacService"]}api/kupac/kupacSaTipom/{kupacId}");
+            Uri url = new($"{_configuration["Services:KreiranjeProgramaService"]}api/kreiranjeProgramaLicitacije/programZaKomisiju/{programId}");
 
             try
             {
@@ -32,16 +30,15 @@ namespace Licitacija.Services.DokumentAPI.ServiceCalls
                         return default;
                     }
 
-                    KupacDto? kupac = JsonConvert.DeserializeObject<KupacDto>(responseString);
-                    return kupac;
+                    ProgramDto? program = JsonConvert.DeserializeObject<ProgramDto>(responseString);
+                    return program;
                 }
                 return default;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return null;
             }
-            
         }
     }
 }

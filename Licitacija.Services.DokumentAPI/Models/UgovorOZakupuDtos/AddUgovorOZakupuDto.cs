@@ -33,9 +33,5 @@
         /// Strani kljuc prema entitetu Uplata iz Uplata mikroservisa.
         /// </summary>
         public Guid UplataId { get; set; }
-
-        /// <summary>
-        /// Dokument koji predstavljau govor o zakupu.
-        /// </summary>
     }
 }
