@@ -14,7 +14,6 @@ namespace Licitacija.Services.DokumentAPI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json", "application/xml")]
-    [Route("api/[controller]")]
     public class EksterniDokumentController : ControllerBase
     {
         private readonly IEksterniDokumentRepository _repository;
@@ -40,7 +39,7 @@ namespace Licitacija.Services.DokumentAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<EksterniDokument>>> GetEksterneDokumente()
+        public async Task<ActionResult<List<EksterniDokument>>> GetAllEksterneDokumente()
         {
             try
             {
@@ -91,7 +90,7 @@ namespace Licitacija.Services.DokumentAPI.Controllers
         /// <summary>
         /// Kreira novi eksterni dokument.
         /// </summary>
-        /// <param name="AddDokumentDto">Model eksternog dokumenta</param>
+        /// <param name="AddEksterniDokumentDto">Model eksternog dokumenta</param>
         /// <returns>Potvrda o kreiranom eksternom dokumentu.</returns>
         /// <response code="201">Vraća eksterni kreirani dokument</response>
         /// <response code="500">Serverska greška</response>
@@ -127,7 +126,7 @@ namespace Licitacija.Services.DokumentAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<UpdateDokumentDto>> DeleteEksterniDokument([FromBody] UpdateEksterniDokumentDto updateEksterniDokument)
+        public async Task<ActionResult<UpdateDokumentDto>> UpdateEksterniDokument([FromBody] UpdateEksterniDokumentDto updateEksterniDokument)
         {
             try
             {

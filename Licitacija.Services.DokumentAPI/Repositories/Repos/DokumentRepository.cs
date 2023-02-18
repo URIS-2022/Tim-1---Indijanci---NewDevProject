@@ -57,7 +57,7 @@ namespace Licitacija.Services.DokumentAPI.Repositories.Repos
         {
             return await _context.Dokument.Include(d => d.UgovorOZakupu)
                 .Include(d => d.StatusDokumenta)
-                .Include(d => d.EksterniDokument).Where(s => s.StatusDokumentaId == id).FirstOrDefaultAsync();
+                .Include(d => d.EksterniDokument).Where(s => s.DokumentId == id).FirstOrDefaultAsync();
         }
 
         public async Task<int> Save()
