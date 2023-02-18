@@ -1,6 +1,6 @@
 ﻿namespace Licitacija.Services.ZalbaAPI.DTOs.RadnjaNaOsnovuZalbeDTOs
 {
-    public class RadnjaNaOsnovuZalbeUpdateDTO
+    public class RadnjaNaOsnovuZalbeUpdateDto
     {
         /// <summary>
         /// ID radnje za zalbu

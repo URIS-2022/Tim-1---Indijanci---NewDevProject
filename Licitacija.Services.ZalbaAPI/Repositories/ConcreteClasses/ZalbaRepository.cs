@@ -39,12 +39,23 @@ namespace Licitacija.Services.ZalbaAPI.Repositories.ConcreteClasses
 
         public void UpdateZalba(Zalba zalba)
         {
-
+            //EF prati izmene i automatski pri primeni Save() metode vrsi update, zbog toga nije neophodno implementirati Update
         }
 
         public bool Save()
         {
             return _databaseContext.SaveChanges() > 0;
+        }
+
+        /// <summary>
+        /// Provera da li dati podatak postoji u bazi, ako postoji vrati false, ako ne onda true
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> IsValidZalba(Zalba zalba)
+        {
+            var zalbe = await _databaseContext.Zalbe.Where(z => z.BrojResenja == zalba.BrojResenja || z.BrojNadmetanja == zalba.BrojNadmetanja).ToListAsync();
+
+            return zalbe.Count == 0;
         }
     }
 }
