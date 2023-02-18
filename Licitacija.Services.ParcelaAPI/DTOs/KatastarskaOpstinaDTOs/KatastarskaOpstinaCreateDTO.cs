@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.KatastarskaOpstinaDTOs
     /// <summary>
     /// Model za kreiranje katastarske opstine
     /// </summary>
-    public class KatastarskaOpstinaCreateDTO
+    public class KatastarskaOpstinaCreateDto
     {
         /// <summary>
         /// Naziv katastarske opstine

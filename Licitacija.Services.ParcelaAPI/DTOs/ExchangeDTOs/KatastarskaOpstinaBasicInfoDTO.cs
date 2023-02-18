@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO katastarska opstina sa osnovnim informacijama.
     /// </summary>
-    public class KatastarskaOpstinaBasicInfoDTO
+    public class KatastarskaOpstinaBasicInfoDto
     {
         /// <summary>
         /// ID katastarske opstine

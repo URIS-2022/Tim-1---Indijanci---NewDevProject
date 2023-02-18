@@ -6,7 +6,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.DeoParceleDTOs
     /// <summary>
     /// Model za azuriranje dela parcele
     /// </summary>
-    public class DeoParceleUpdateDTO : IValidatableObject
+    public class DeoParceleUpdateDto : IValidatableObject
     {
         /// <summary>
         /// ID dela parcele
@@ -35,22 +35,15 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.DeoParceleDTOs
         /// </summary>
         public Guid OtvaranjePonudaId { get; set; }
 
-        public Parcela? parcela { get; set; }
-
-        public IList<DeoParcele> deloviParcele { get; set; }
-
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            int zbirPovrsinaDelovaParcele = deloviParcele.Sum(x => x.PovrsinaDelaParcele);
-
-            if (parcela.Povrsina != zbirPovrsinaDelovaParcele)
+            if (PovrsinaDelaParcele <= 0)
             {
                 yield return new ValidationResult(
-                    "Zbir povrsina delova parcele mora biti jednak povrsini cele parcele.",
-                    new[] { "DeoParceleUpdateDTO" });
+                    "Nije moguce uneti 0 za povrsinu dela parcele.",
+                    new[] { "DeoParceleCreateDTO" });
             }
         }
-
 
     }
 }

@@ -37,7 +37,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<PovrsinaDTO>> GetAllPovrsine()
+        public ActionResult<List<PovrsinaDto>> GetAllPovrsine()
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
                     return NoContent();
                 }
 
-                var result = _mapper.Map<List<PovrsinaDTO>>(povrsine);
+                var result = _mapper.Map<List<PovrsinaDto>>(povrsine);
 
                 return Ok(result);
             }
@@ -71,7 +71,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<PovrsinaDTO> GetPovrsina(Guid id)
+        public ActionResult<PovrsinaDto> GetPovrsina(Guid id)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
                     return NotFound();
                 }
 
-                var result = _mapper.Map<PovrsinaDTO>(povrsina);
+                var result = _mapper.Map<PovrsinaDto>(povrsina);
 
                 return Ok(result);
             }
@@ -104,14 +104,14 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<PovrsinaDTO> CreatePovrsina([FromBody] PovrsinaCreateDTO povrsinaDTO)
+        public ActionResult<PovrsinaDto> CreatePovrsina([FromBody] PovrsinaCreateDto povrsinaDTO)
         {
             try
             {
                 Povrsina povrsina = _mapper.Map<Povrsina>(povrsinaDTO);
                 _povrsinaRepository.InsertPovrsina(povrsina);
                 _povrsinaRepository.Save();
-                return Created("GetPovrsina", _mapper.Map<PovrsinaDTO>(povrsina));
+                return Created("GetPovrsina", _mapper.Map<PovrsinaDto>(povrsina));
             }
             catch (Exception e)
             {
@@ -132,7 +132,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<PovrsinaDTO> UpdatePovrsina([FromBody] PovrsinaUpdateDTO povrsinaDTO)
+        public ActionResult<PovrsinaDto> UpdatePovrsina([FromBody] PovrsinaUpdateDto povrsinaDTO)
         {
             try
             {
@@ -146,7 +146,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
 
                 _mapper.Map(povrsinaDTO, povrsinaToUpdate);
                 _povrsinaRepository.Save();
-                return Ok(_mapper.Map<PovrsinaDTO>(povrsinaToUpdate));
+                return Ok(_mapper.Map<PovrsinaDto>(povrsinaToUpdate));
 
             }
             catch (Exception e)
