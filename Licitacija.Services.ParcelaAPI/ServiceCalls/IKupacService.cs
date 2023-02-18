@@ -4,6 +4,6 @@ namespace Licitacija.Services.ParcelaAPI.ServiceCalls
 {
     public interface IKupacService
     {
-        public Task<KupacBasicInfoDTO> GetKupacById(Guid kupacId);
+        public Task<KupacBasicInfoDto> GetKupacById(Guid kupacId);
     }
 }

@@ -5,11 +5,12 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ObradivostDTOs
     /// <summary>
     /// Model za azuriranje obradivosti
     /// </summary>
-    public class ObradivostUpdateDTO
+    public class ObradivostUpdateDto
     {
         /// <summary>
         /// ID obradivosti
         /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID obradivosti.")]
         public Guid ObradivostId { get; set; }
 
         /// <summary>

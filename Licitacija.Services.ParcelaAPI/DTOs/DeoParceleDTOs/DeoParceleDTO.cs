@@ -7,7 +7,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.DeoParceleDTOs
     /// <summary>
     /// Model za prikaz dela parcele
     /// </summary>
-    public class DeoParceleDTO
+    public class DeoParceleDto
     {
         /// <summary>
         /// ID dela parcele
@@ -22,7 +22,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.DeoParceleDTOs
         /// <summary>
         /// Podaci o parceli
         /// </summary>
-        public ParcelaDTO? Parcela { get; set; }
+        public ParcelaDto? Parcela { get; set; }
 
         /// <summary>
         /// Etapa ID
@@ -33,7 +33,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.DeoParceleDTOs
         /// <summary>
         /// Podaci o etapi iz ms Etapa
         /// </summary>
-        public EtapaBasicInfoDTO? Etapa { get; set; }
+        public EtapaBasicInfoDto? Etapa { get; set; }
 
         /// <summary>
         /// Otvaranje ponuda ID
@@ -44,7 +44,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.DeoParceleDTOs
         /// <summary>
         /// Podaci o otvaranju ponuda iz ms Nadmetanje
         /// </summary>
-        public OtvaranjePonudaBasicInfoDTO? OtvaranjePonuda { get; set; }
+        public OtvaranjePonudaBasicInfoDto? OtvaranjePonuda { get; set; }
 
     }
 }

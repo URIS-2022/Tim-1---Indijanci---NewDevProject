@@ -3,7 +3,7 @@
     /// <summary>
     /// Model za prikaz zasticene zone
     /// </summary>
-    public class ZasticenaZonaDTO
+    public class ZasticenaZonaDto
     {
         /// <summary>
         /// ID zasticene zone

@@ -11,10 +11,10 @@ namespace Licitacija.Services.LicitacijaAPI.Profiles
         public FazaLicitacijeProfile()
         {
             CreateMap<FazaLicitacije, FazaLicitacije>();
-            CreateMap<FazaLicitacije, FazaLicitacijeDTO>().ReverseMap();
-            CreateMap<FazaLicitacije, FazaLicitacijeCreateDTO>().ReverseMap();
-            CreateMap<FazaLicitacije, FazaLicitacijeUpdateDTO>().ReverseMap();
-            CreateMap<FazaLicitacije, FazaLicitacijeBasicInfoDTO>();
+            CreateMap<FazaLicitacije, FazaLicitacijeDto>().ReverseMap();
+            CreateMap<FazaLicitacije, FazaLicitacijeCreateDto>().ReverseMap();
+            CreateMap<FazaLicitacije, FazaLicitacijeUpdateDto>().ReverseMap();
+            CreateMap<FazaLicitacije, FazaLicitacijeBasicInfoDto>();
         }
        
 

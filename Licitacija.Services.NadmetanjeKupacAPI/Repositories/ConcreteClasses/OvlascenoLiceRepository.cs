@@ -35,7 +35,7 @@ namespace Licitacija.Services.NadmetanjeKupacAPI.Repositories.ConcreteClasses
 
         public void UpdateOvlascenoLice(OvlascenoLice ovlascenoLice)
         {
-
+            //EF prati izmene i automatski pri primeni Save() metode vrsi update, zbog toga nije neophodno implementirati Update
         }
 
         public bool Save()

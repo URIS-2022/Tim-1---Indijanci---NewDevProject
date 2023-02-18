@@ -37,7 +37,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<KatastarskaOpstinaDTO>> GetAllKatastarskeOpstine()
+        public ActionResult<List<KatastarskaOpstinaDto>> GetAllKatastarskeOpstine()
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<KatastarskaOpstinaDTO>>(katastarskeOpstine));
+                return Ok(_mapper.Map<List<KatastarskaOpstinaDto>>(katastarskeOpstine));
             }
             catch (Exception e)
             {
@@ -69,7 +69,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KatastarskaOpstinaDTO> GetKatastarskaOpstina(Guid id)
+        public ActionResult<KatastarskaOpstinaDto> GetKatastarskaOpstina(Guid id)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<KatastarskaOpstinaDTO>(katastarskaOpstina));
+                return Ok(_mapper.Map<KatastarskaOpstinaDto>(katastarskaOpstina));
             }
             catch (Exception e)
             {
@@ -89,12 +89,19 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
 
         }
 
-
+        /// <summary>
+        /// Vraća jednu katastarsku opstinu na osnovu ID-ja katastarske opstine
+        /// </summary>
+        /// <param name="id">ID katastarske opstine</param>
+        /// <returns>Jedna katastarska opstina</returns>
+        /// <response code="200">Vraća traženu katastarsku opstinu</response>
+        /// <response code="404">Nije pronađena nijedna katastarska opstina sa datim ID zkatastarske opstine</response>
+        /// <response code="500">Serverska greška</response>
         [HttpGet("KatastarskaOpstinaBasicInfo/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KatastarskaOpstinaBasicInfoDTO> GetKatastarskaOpstinaBasicInfo(Guid id)
+        public ActionResult<KatastarskaOpstinaBasicInfoDto> GetKatastarskaOpstinaBasicInfo(Guid id)
         {
             try
             {
@@ -105,7 +112,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NotFound();
                 }
 
-                var result = _mapper.Map<KatastarskaOpstinaBasicInfoDTO>(katastarskaOpstinaBasicInfo);
+                var result = _mapper.Map<KatastarskaOpstinaBasicInfoDto>(katastarskaOpstinaBasicInfo);
 
                 return Ok(result);
             }
@@ -127,14 +134,14 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KatastarskaOpstinaDTO> CreateKatastarskaOpstina([FromBody] KatastarskaOpstinaCreateDTO katastarskaOpstinaDTO)
+        public ActionResult<KatastarskaOpstinaDto> CreateKatastarskaOpstina([FromBody] KatastarskaOpstinaCreateDto katastarskaOpstinaDTO)
         {
             try
             {
                 KatastarskaOpstina katastarskaOpstina = _mapper.Map<KatastarskaOpstina>(katastarskaOpstinaDTO);
                 _katastarskaOpstinaRepository.InsertKatastarskaOpstina(katastarskaOpstina);
                 _katastarskaOpstinaRepository.Save();
-                return Created("GetKatastarskaOpstina", _mapper.Map<KatastarskaOpstinaDTO>(katastarskaOpstina));
+                return Created("GetKatastarskaOpstina", _mapper.Map<KatastarskaOpstinaDto>(katastarskaOpstina));
             }
             catch (Exception e)
             {
@@ -155,7 +162,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KatastarskaOpstinaDTO> UpdateKatastarskaOpstina([FromBody] KatastarskaOpstinaUpdateDTO katastarskaOpstinaDTO)
+        public ActionResult<KatastarskaOpstinaDto> UpdateKatastarskaOpstina([FromBody] KatastarskaOpstinaUpdateDto katastarskaOpstinaDTO)
         {
             try
             {
@@ -168,7 +175,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
 
                 _mapper.Map(katastarskaOpstinaDTO, katastarskaOpstinaToUpdate);
                 _katastarskaOpstinaRepository.Save();
-                return Ok(_mapper.Map<KatastarskaOpstinaDTO>(katastarskaOpstinaToUpdate));
+                return Ok(_mapper.Map<KatastarskaOpstinaDto>(katastarskaOpstinaToUpdate));
 
             }
             catch (Exception e)

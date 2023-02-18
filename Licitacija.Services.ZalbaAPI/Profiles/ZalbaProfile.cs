@@ -10,9 +10,9 @@ namespace Licitacija.Services.ZalbaAPI.Profiles
         public ZalbaProfile()
         {
             CreateMap<Zalba, Zalba>();
-            CreateMap<Zalba, ZalbaDTO>().ReverseMap();
-            CreateMap<Zalba, ZalbaUpdateDTO>().ReverseMap();
-            CreateMap<Zalba, ZalbaCreateDTO>().ReverseMap();
+            CreateMap<Zalba, ZalbaDto>().ReverseMap();
+            CreateMap<Zalba, ZalbaUpdateDto>().ReverseMap();
+            CreateMap<Zalba, ZalbaCreateDto>().ReverseMap();
         }
     }
 }

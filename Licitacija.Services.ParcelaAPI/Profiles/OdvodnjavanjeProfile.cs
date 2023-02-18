@@ -10,9 +10,9 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
         public OdvodnjavanjeProfile()
         {
             CreateMap<Odvodnjavanje, Odvodnjavanje>();
-            CreateMap<Odvodnjavanje, OdvodnjavanjeDTO>().ReverseMap();
-            CreateMap<Odvodnjavanje, OdvodnjavanjeCreateDTO>().ReverseMap();
-            CreateMap<Odvodnjavanje, OdvodnjavanjeUpdateDTO>().ReverseMap();
+            CreateMap<Odvodnjavanje, OdvodnjavanjeDto>().ReverseMap();
+            CreateMap<Odvodnjavanje, OdvodnjavanjeCreateDto>().ReverseMap();
+            CreateMap<Odvodnjavanje, OdvodnjavanjeUpdateDto>().ReverseMap();
         }
     }
 }

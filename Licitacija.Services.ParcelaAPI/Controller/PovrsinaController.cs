@@ -1,63 +1,54 @@
 ﻿using AutoMapper;
-using Licitacija.Services.ParcelaAPI.DTOs.ExchangeDTOs;
-using Licitacija.Services.ParcelaAPI.DTOs.ParcelaDTOs;
+using Licitacija.Services.ParcelaAPI.DTOs.DeoParceleDTOs;
+using Licitacija.Services.ParcelaAPI.DTOs.PovrsinaDTOs;
 using Licitacija.Services.ParcelaAPI.Entities;
+using Licitacija.Services.ParcelaAPI.Repositories.ConcreteClasses;
 using Licitacija.Services.ParcelaAPI.Repositories.Interfaces;
-using Licitacija.Services.ParcelaAPI.ServiceCalls;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Licitacija.Services.ParcelaAPI.Controller
 {
     /// <summary>
-    /// Parcela kontroler
+    /// Povrsina kontroler
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json", "application/xml")]
-    public class ParcelaController : ControllerBase
+    public class PovrsinaController : ControllerBase
     {
-        private readonly IParcelaRepository _parcelaRepository;
-        private readonly IKupacService _kupacService;
+        private readonly IPovrsinaRepository _povrsinaRepository;
         private readonly IMapper _mapper;
 
-        public ParcelaController(IParcelaRepository parcelaRepository, IKupacService kupacService, IMapper mapper)
+        public PovrsinaController(IPovrsinaRepository povrsinaRepository, IMapper mapper)
         {
-            _parcelaRepository = parcelaRepository;
-            _kupacService = kupacService;
+            _povrsinaRepository = povrsinaRepository;
             _mapper = mapper;
         }
 
         /// <summary>
-        /// Vraća sve parcele
+        /// Vraća sve povrsine.
         /// </summary>
-        /// <returns>Lista parcela</returns>
-        /// <response code="200">Vraća listu parcela</response>
+        /// <returns>Lista povrsina.</returns>
+        /// <response code="200">Vraća listu povrsina.</response>
         /// <response code="204">Nema podataka u bazi</response>
         /// <response code="500">Serverska greška</response>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<ParcelaDto>> GetAllParcele()
+        public ActionResult<List<PovrsinaDto>> GetAllPovrsine()
         {
             try
             {
-                var parcele = _parcelaRepository.GetAll();
+                var povrsine = _povrsinaRepository.GetAll();
 
-                if (parcele == null || parcele.Count == 0)
+                if (povrsine == null || povrsine.Count == 0)
                 {
                     return NoContent();
                 }
 
-                var result = _mapper.Map<List<ParcelaDto>>(parcele);
-
-                foreach (var parcela in result)
-                {
-                    KupacBasicInfoDto kupac = _kupacService.GetKupacById(parcela.KupacId).Result;
-                    parcela.Kupac = kupac;
-                }
+                var result = _mapper.Map<List<PovrsinaDto>>(povrsine);
 
                 return Ok(result);
             }
@@ -69,31 +60,29 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         }
 
         /// <summary>
-        /// Vraća jednu parcelu na osnovu ID-ja parcele
+        /// Vrši pretragu jedne povrsine na osnovu ID-ja povrsine.
         /// </summary>
-        /// <param name="id">ID parcele</param>
-        /// <returns>Jedna parcela</returns>
-        /// <response code="200">Vraća traženu parcelu</response>
-        /// <response code="404">Nije pronađena nijedna parcela sa datim ID parcele</response>
+        /// <param name="id">ID povrsine</param>
+        /// <returns>Jedna povrsina</returns>
+        /// <response code="200">Vraća traženu povrsinu</response>
+        /// <response code="404">Nije pronađena nijedna povrsina sa datim ID povrsine</response>
         /// <response code="500">Serverska greška</response>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ParcelaDto> GetParcela(Guid id)
+        public ActionResult<PovrsinaDto> GetPovrsina(Guid id)
         {
             try
             {
-                var parcela = _parcelaRepository.GetParcela(id);
+                var povrsina = _povrsinaRepository.GetPovrsina(id);
 
-                if (parcela == null)
+                if (povrsina == null)
                 {
                     return NotFound();
                 }
 
-                var result = _mapper.Map<ParcelaDto>(parcela);
-                KupacBasicInfoDto kupac = _kupacService.GetKupacById(result.KupacId).Result;
-                result.Kupac = kupac;
+                var result = _mapper.Map<PovrsinaDto>(povrsina);
 
                 return Ok(result);
             }
@@ -105,24 +94,24 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         }
 
         /// <summary>
-        /// Kreira novu parcelu
+        /// Kreira novu povrsinu.
         /// </summary>
-        /// <param name="parcelaDTO">Model parcele</param>
-        /// <returns>Potvrda o kreiranoj parceli</returns>
-        /// <response code="201">Vraća kreiranu parcelu</response>
+        /// <param name="povrsinaDTO">Model povrsine</param>
+        /// <returns>Potvrda o kreiranoj povrsini.</returns>
+        /// <response code="201">Vraća kreiranu povrsinu</response>
         /// <response code="500">Serverska greška</response>
         [HttpPost]
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ParcelaDto> CreateParcela([FromBody] ParcelaCreateDto parcelaDTO)
+        public ActionResult<PovrsinaDto> CreatePovrsina([FromBody] PovrsinaCreateDto povrsinaDTO)
         {
             try
             {
-                Parcela parcela = _mapper.Map<Parcela>(parcelaDTO);
-                _parcelaRepository.InsertParcela(parcela);
-                _parcelaRepository.Save();
-                return Created("GetParcela", _mapper.Map<ParcelaDto>(parcela));
+                Povrsina povrsina = _mapper.Map<Povrsina>(povrsinaDTO);
+                _povrsinaRepository.InsertPovrsina(povrsina);
+                _povrsinaRepository.Save();
+                return Created("GetPovrsina", _mapper.Map<PovrsinaDto>(povrsina));
             }
             catch (Exception e)
             {
@@ -131,33 +120,33 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         }
 
         /// <summary>
-        /// Ažurira jednu parcelu
+        /// Ažurira jednu povrsinu.
         /// </summary>
-        /// <param name="parcelaDTO">Model parcele koji se ažurira</param>
-        /// <returns>Potvrdu o modifikovanoj parceli</returns>
-        /// <response code="200">Vraća ažuriranu parcelu</response>
-        /// <response code="404">Parcela koja se ažurira nije pronađena</response>
+        /// <param name="povrsinaDTO">Model povrsine koja se ažurira</param>
+        /// <returns>Potvrdu o modifikovanoj povrsini</returns>
+        /// <response code="200">Vraća ažuriranu povrsinu</response>
+        /// <response code="404">Povrsina koja se ažurira nije pronađena</response>
         /// <response code="500">Serverska greška</response>
         [HttpPut]
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ParcelaDto> UpdateParcela([FromBody] ParcelaUpdateDto parcelaDTO)
+        public ActionResult<PovrsinaDto> UpdatePovrsina([FromBody] PovrsinaUpdateDto povrsinaDTO)
         {
             try
             {
-                var parcelaToUpdate = _parcelaRepository.GetParcela(parcelaDTO.ParcelaId);
+                var povrsinaToUpdate = _povrsinaRepository.GetPovrsina(povrsinaDTO.PovrsinaId);
 
-                if (parcelaToUpdate == null)
+                if (povrsinaToUpdate == null)
                 {
                     return NotFound();
                 }
 
 
-                _mapper.Map(parcelaDTO, parcelaToUpdate);
-                _parcelaRepository.Save();
-                return Ok(_mapper.Map<ParcelaDto>(parcelaToUpdate));
+                _mapper.Map(povrsinaDTO, povrsinaToUpdate);
+                _povrsinaRepository.Save();
+                return Ok(_mapper.Map<PovrsinaDto>(povrsinaToUpdate));
 
             }
             catch (Exception e)
@@ -167,30 +156,30 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         }
 
         /// <summary>
-        /// Vrši brisanje jedne parcele na osnovu ID-ja parcele
+        /// Vrši brisanje jedne povrsine na osnovu ID-ja povrsine.
         /// </summary>
-        /// <param name="id">ID parcele</param>
+        /// <param name = "id" > ID povrsine</param>
         /// <returns>Status 204 (NoContent)</returns>
-        /// <response code="204">Parcela uspešno obrisana</response>
-        /// <response code="404">Nije pronađena parcela za brisanje</response>
+        /// <response code="204">Povrsina uspešno obrisana</response>
+        /// <response code="404">Nije pronađena povrsina za brisanje</response>
         /// <response code="500">Serverska greška</response>
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpDelete("{id}")]
-        public ActionResult DeleteParcela(Guid id)
+        public ActionResult DeletePovrsina(Guid id)
         {
             try
             {
-                var parcela = _parcelaRepository.GetParcela(id);
+                var povrsina = _povrsinaRepository.GetPovrsina(id);
 
-                if (parcela == null)
+                if (povrsina == null)
                 {
                     return NotFound();
                 }
 
-                _parcelaRepository.DeleteParcela(id);
-                _parcelaRepository.Save();
+                _povrsinaRepository.DeletePovrsina(id);
+                _povrsinaRepository.Save();
                 return NoContent();
             }
             catch (Exception e)

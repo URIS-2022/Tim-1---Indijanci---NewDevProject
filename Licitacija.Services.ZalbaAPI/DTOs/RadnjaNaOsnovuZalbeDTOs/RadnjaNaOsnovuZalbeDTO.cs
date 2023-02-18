@@ -2,7 +2,7 @@
 
 namespace Licitacija.Services.ZalbaAPI.DTOs.RadnjaNaOsnovuZalbeDTOs
 {
-    public class RadnjaNaOsnovuZalbeDTO
+    public class RadnjaNaOsnovuZalbeDto
     {
         /// <summary>
         /// ID radnje.

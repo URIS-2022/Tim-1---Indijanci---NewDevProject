@@ -23,8 +23,8 @@ namespace Licitacija.Services.ParcelaAPI.Entities
         /// <summary>
         /// Povrsine
         /// </summary>
-        ///[JsonIgnore]
-        ///public IList<Povrsina>? Povrsine { get; set; }
+        [JsonIgnore]
+        public IList<Povrsina> Povrsine { get; set; }
 
     }
 }

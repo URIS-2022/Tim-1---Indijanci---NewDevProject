@@ -3,12 +3,10 @@ using Licitacija.Services.PredradnjeNadmetanjaAPI.DTOs;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Entities;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.Repositories.Interfaces;
 using Licitacija.Services.PredradnjeNadmetanjaAPI.ServiceCalls;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Licitacija.Services.PredradnjeNadmetanjaAPI.Controllers
 {
-    
     [Route("api/predradnjeNadmetanja")]
     [ApiController]
     [Produces("application/json", "application/xml")]

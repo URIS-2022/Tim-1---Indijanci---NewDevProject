@@ -3,7 +3,7 @@
     /// <summary>
     /// Model za prikaz klase
     /// </summary>
-    public class KlasaDTO
+    public class KlasaDto
     {
         /// <summary>
         /// ID klase

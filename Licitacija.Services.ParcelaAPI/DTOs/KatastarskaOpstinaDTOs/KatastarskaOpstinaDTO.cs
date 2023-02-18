@@ -3,7 +3,7 @@
     /// <summary>
     /// Model za prikaz katastarske opstine
     /// </summary>
-    public class KatastarskaOpstinaDTO
+    public class KatastarskaOpstinaDto
     {
         /// <summary>
         /// ID katastarske opstine

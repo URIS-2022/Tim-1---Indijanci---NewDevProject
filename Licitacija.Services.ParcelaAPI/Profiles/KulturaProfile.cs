@@ -10,9 +10,9 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
         public KulturaProfile()
         {
             CreateMap<Kultura, Kultura>();
-            CreateMap<Kultura, KulturaDTO>().ReverseMap();
-            CreateMap<Kultura, KulturaCreateDTO>().ReverseMap();
-            CreateMap<Kultura, KulturaUpdateDTO>().ReverseMap();
+            CreateMap<Kultura, KulturaDto>().ReverseMap();
+            CreateMap<Kultura, KulturaCreateDto>().ReverseMap();
+            CreateMap<Kultura, KulturaUpdateDto>().ReverseMap();
         }
     }
 }

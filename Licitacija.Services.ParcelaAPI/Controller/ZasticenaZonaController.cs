@@ -35,7 +35,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<ZasticenaZonaDTO>> GetAllZasticeneZone()
+        public ActionResult<List<ZasticenaZonaDto>> GetAllZasticeneZone()
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<ZasticenaZonaDTO>>(zasticeneZone));
+                return Ok(_mapper.Map<List<ZasticenaZonaDto>>(zasticeneZone));
             }
             catch (Exception e)
             {
@@ -67,7 +67,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ZasticenaZonaDTO> GetZasticenaZona(Guid id)
+        public ActionResult<ZasticenaZonaDto> GetZasticenaZona(Guid id)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<ZasticenaZonaDTO>(zasticenaZona));
+                return Ok(_mapper.Map<ZasticenaZonaDto>(zasticenaZona));
             }
             catch (Exception e)
             {
@@ -98,14 +98,14 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ZasticenaZonaDTO> CreateZasticenaZona([FromBody] ZasticenaZonaCreateDTO zasticenaZonaDTO)
+        public ActionResult<ZasticenaZonaDto> CreateZasticenaZona([FromBody] ZasticenaZonaCreateDto zasticenaZonaDTO)
         {
             try
             {
                 ZasticenaZona zasticenaZona = _mapper.Map<ZasticenaZona>(zasticenaZonaDTO);
                 _zasticenaZonaRepository.InsertZasticenaZona(zasticenaZona);
                 _zasticenaZonaRepository.Save();
-                return Created("GetZasticenaZona", _mapper.Map<ZasticenaZonaDTO>(zasticenaZona));
+                return Created("GetZasticenaZona", _mapper.Map<ZasticenaZonaDto>(zasticenaZona));
             }
             catch (Exception e)
             {
@@ -126,7 +126,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ZasticenaZonaDTO> UpdateZasticenaZona([FromBody] ZasticenaZonaUpdateDTO zasticenaZonaDTO)
+        public ActionResult<ZasticenaZonaDto> UpdateZasticenaZona([FromBody] ZasticenaZonaUpdateDto zasticenaZonaDTO)
         {
             try
             {
@@ -139,7 +139,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
 
                 _mapper.Map(zasticenaZonaDTO, zasticenaZonaToUpdate);
                 _zasticenaZonaRepository.Save();
-                return Ok(_mapper.Map<ZasticenaZonaDTO>(zasticenaZonaToUpdate));
+                return Ok(_mapper.Map<ZasticenaZonaDto>(zasticenaZonaToUpdate));
 
             }
             catch (Exception e)

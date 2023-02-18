@@ -35,7 +35,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<ObradivostDTO>> GetAllObradivosti()
+        public ActionResult<List<ObradivostDto>> GetAllObradivosti()
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<ObradivostDTO>>(obradivosti));
+                return Ok(_mapper.Map<List<ObradivostDto>>(obradivosti));
             }
             catch (Exception e)
             {
@@ -67,7 +67,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ObradivostDTO> GetObradivost(Guid id)
+        public ActionResult<ObradivostDto> GetObradivost(Guid id)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<ObradivostDTO>(obradivost));
+                return Ok(_mapper.Map<ObradivostDto>(obradivost));
             }
             catch (Exception e)
             {
@@ -98,14 +98,14 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ObradivostDTO> CreateObradivost([FromBody] ObradivostCreateDTO obradivostDTO)
+        public ActionResult<ObradivostDto> CreateObradivost([FromBody] ObradivostCreateDto obradivostDTO)
         {
             try
             {
                 Obradivost obradivost = _mapper.Map<Obradivost>(obradivostDTO);
                 _obradivostRepository.InsertObradivost(obradivost);
                 _obradivostRepository.Save();
-                return Created("GetObradivost", _mapper.Map<ObradivostDTO>(obradivost));
+                return Created("GetObradivost", _mapper.Map<ObradivostDto>(obradivost));
             }
             catch (Exception e)
             {
@@ -126,7 +126,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ObradivostDTO> UpdateObradivost([FromBody] ObradivostUpdateDTO obradivostDTO)
+        public ActionResult<ObradivostDto> UpdateObradivost([FromBody] ObradivostUpdateDto obradivostDTO)
         {
             try
             {
@@ -139,7 +139,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
 
                 _mapper.Map(obradivostDTO, obradivostToUpdate);
                 _obradivostRepository.Save();
-                return Ok(_mapper.Map<ObradivostDTO>(obradivostToUpdate));
+                return Ok(_mapper.Map<ObradivostDto>(obradivostToUpdate));
 
             }
             catch (Exception e)

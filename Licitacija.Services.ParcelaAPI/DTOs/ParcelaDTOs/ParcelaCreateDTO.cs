@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ParcelaDTOs
     /// <summary>
     /// Model za kreiranje parcele
     /// </summary>
-    public class ParcelaCreateDTO
+    public class ParcelaCreateDto : IValidatableObject
     {
         /// <summary>
         /// Povrsina parcele
@@ -89,6 +89,16 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ParcelaDTOs
         /// ID kupca (iz ms Kupac).
         /// </summary>
         public Guid? KupacId { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (Povrsina <= 0)
+            {
+                yield return new ValidationResult(
+                    "Nije moguce uneti 0 za povrsinu parcele.",
+                    new[] { "ParcelaCreateDTO" });
+            }
+        }
 
     }
 }

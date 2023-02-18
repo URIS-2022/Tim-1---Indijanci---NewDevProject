@@ -7,11 +7,16 @@ namespace Licitacija.Services.ParcelaAPI.Entities
     /// <summary>
     /// Predstavlja model povrsine
     /// </summary>
-    [Keyless]
     public class Povrsina
     {
         /// <summary>
-        /// povrsina zasticene zone
+        /// ID povrsine
+        /// </summary>
+        [Key]
+        public Guid PovrsinaId { get; set; } = Guid.NewGuid();
+
+        /// <summary>
+        /// Povrsina zasticene zone
         /// </summary>
         [Required]
         public int PovrsinaZZone { get; set; }
@@ -19,6 +24,7 @@ namespace Licitacija.Services.ParcelaAPI.Entities
         /// <summary>
         /// ID parcele
         /// </summary>
+        [ForeignKey(nameof(Parcela))]
         public Guid ParcelaId { get; set; }
 
         public Parcela? Parcela { get; set; }
@@ -26,6 +32,7 @@ namespace Licitacija.Services.ParcelaAPI.Entities
         /// <summary>
         /// ID zasticene zone
         /// </summary>
+        [ForeignKey(nameof(ZasticenaZona))]
         public Guid ZZonaId { get; set; }
 
         public ZasticenaZona? ZasticenaZona { get; set; }

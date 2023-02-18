@@ -5,7 +5,6 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using Licitacija.Services.LicitacijaAPI.DTOs.LicitacijaDTOs;
 using Licitacija.Services.LicitacijaAPI.DTOs.ExchangeDTOs;
 
-
 namespace Licitacija.Services.LicitacijaAPI.Profiles
 {
     public class LicitacijaProfile : Profile
@@ -13,11 +12,10 @@ namespace Licitacija.Services.LicitacijaAPI.Profiles
         public LicitacijaProfile()
         {
             CreateMap<LicitacijaEntity, LicitacijaEntity>();
-            CreateMap<LicitacijaEntity, LicitacijaDTO>().ReverseMap();
-            CreateMap<LicitacijaEntity, LicitacijaCreateDTO>().ReverseMap();
-            CreateMap<LicitacijaEntity, LicitacijaUpdateDTO>().ReverseMap();
+            CreateMap<LicitacijaEntity, LicitacijaDto>().ReverseMap();
+            CreateMap<LicitacijaEntity, LicitacijaCreateDto>().ReverseMap();
+            CreateMap<LicitacijaEntity, LicitacijaUpdateDto>().ReverseMap();
             CreateMap<LicitacijaEntity, LicitacijaBasicInfoDto>();
-
         }
     }
 }

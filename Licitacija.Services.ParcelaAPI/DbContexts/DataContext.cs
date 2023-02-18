@@ -13,17 +13,12 @@ namespace Licitacija.Services.ParcelaAPI.DbContexts
         public DbSet<Klasa> Klase { get; set; }
         public DbSet<Kultura> Kulture { get; set; }
         public DbSet<OblikSvojine> ObliciSvojina { get; set; }
-        public DbSet<Obradivost> Obradivosti { get; set; }
-        public DbSet<Odvodnjavanje> Odvodnjavanja { get; set; }
+        public DbSet<Obradivost> Obradivosti { get; set; } 
+        public DbSet<Odvodnjavanje> Odvodnjavanja { get; set; } 
         public DbSet<Parcela> Parcele { get; set; }
         public DbSet<Povrsina> Povrsine { get; set; }
         public DbSet<ZasticenaZona> ZasticeneZone { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Povrsina>().HasOne(p => p.Parcela).WithMany().HasForeignKey(p => p.ParcelaId);
-            modelBuilder.Entity<Povrsina>().HasOne(p => p.ZasticenaZona).WithMany().HasForeignKey(p => p.ZZonaId);
-        }
     }
     
 }

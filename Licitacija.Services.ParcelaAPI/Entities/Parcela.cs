@@ -64,32 +64,32 @@ namespace Licitacija.Services.ParcelaAPI.Entities
         public string OdvodnjavanjeStvStanje { get; set; } = String.Empty;
 
         [ForeignKey(nameof(Odvodnjavanje))]
-        public Guid? OdvodnjavanjeId { get; set; }
+        public Guid OdvodnjavanjeId { get; set; }
 
         public Odvodnjavanje? Odvodnjavanje { get; set; }
 
         [ForeignKey(nameof(Kultura))]
-        public Guid? KulturaId { get; set; }
+        public Guid KulturaId { get; set; }
 
         public Kultura? Kultura { get; set; }
 
         [ForeignKey(nameof(Klasa))]
-        public Guid? KlasaId { get; set; }
+        public Guid KlasaId { get; set; }
 
         public Klasa? Klasa { get; set; }
 
         [ForeignKey(nameof(Obradivost))]
-        public Guid? ObradivostId { get; set; }
+        public Guid ObradivostId { get; set; }
 
         public Obradivost? Obradivost { get; set; }
 
         [ForeignKey(nameof(OblikSvojine))]
-        public Guid? OblikSvojineId { get; set; }
+        public Guid OblikSvojineId { get; set; }
 
         public OblikSvojine? OblikSvojine { get; set; }
 
         [ForeignKey(nameof(KatastarskaOpstina))]
-        public Guid? KatOpstinaId { get; set; }
+        public Guid KatOpstinaId { get; set; }
 
         public KatastarskaOpstina? KatastarskaOpstina { get; set; }
 
@@ -98,6 +98,12 @@ namespace Licitacija.Services.ParcelaAPI.Entities
         /// </summary>
         [JsonIgnore]
         public IList<DeoParcele> DeloviParcele { get; set; }
+
+        /// <summary>
+        /// Povrsine
+        /// </summary>
+        [JsonIgnore]
+        public IList<Povrsina> Povrsine { get; set; }
 
         /// <summary>
         /// ID kupca iz ms Kupac

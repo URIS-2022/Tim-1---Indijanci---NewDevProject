@@ -10,9 +10,9 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
         public ObradivostProfile()
         {
             CreateMap<Obradivost, Obradivost>();
-            CreateMap<Obradivost, ObradivostDTO>().ReverseMap();
-            CreateMap<Obradivost, ObradivostCreateDTO>().ReverseMap();
-            CreateMap<Obradivost, ObradivostUpdateDTO>().ReverseMap();
+            CreateMap<Obradivost, ObradivostDto>().ReverseMap();
+            CreateMap<Obradivost, ObradivostCreateDto>().ReverseMap();
+            CreateMap<Obradivost, ObradivostUpdateDto>().ReverseMap();
         }
     }
 }

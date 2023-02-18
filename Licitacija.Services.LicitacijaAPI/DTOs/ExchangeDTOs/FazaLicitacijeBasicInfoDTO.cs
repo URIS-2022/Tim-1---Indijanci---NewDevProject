@@ -5,7 +5,7 @@ namespace Licitacija.Services.LicitacijaAPI.DTOs.ExchangeDTOs
     /// <summary>
     /// DTO faze licitacije sa osnnovnim informacijama.
     /// </summary>
-    public class FazaLicitacijeBasicInfoDTO
+    public class FazaLicitacijeBasicInfoDto
     {
         /// <summary>
         /// ID faze licitacije.

@@ -3,7 +3,7 @@
     /// <summary>
     /// DTO etapa sa osnovnim informacijama.
     /// </summary>
-    public class EtapaBasicInfoDTO
+    public class EtapaBasicInfoDto
     {
         /// <summary>
         /// ID etape

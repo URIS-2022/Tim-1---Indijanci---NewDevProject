@@ -5,11 +5,12 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ParcelaDTOs
     /// <summary>
     /// Model za izmenu parcele
     /// </summary>
-    public class ParcelaUpdateDTO
+    public class ParcelaUpdateDto : IValidatableObject
     {
-        // <summary>
+        /// <summary>
         /// ID parcele
         /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID parcele.")]
         public Guid ParcelaId { get; set; }
 
         /// <summary>
@@ -101,5 +102,15 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.ParcelaDTOs
         /// ID kupca (iz ms Kupac).
         /// </summary>
         public Guid? KupacId { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (Povrsina <= 0)
+            {
+                yield return new ValidationResult(
+                    "Nije moguce uneti 0 za povrsinu parcele.",
+                    new[] { "ParcelaCreateDTO" });
+            }
+        }
     }
 }
