@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Licitacija.Services.UplataAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230209164252_Uplata_Migration")]
-    partial class UplataMigration
+    [Migration("20230218140703_UplataMigrate")]
+    partial class UplataMigrate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

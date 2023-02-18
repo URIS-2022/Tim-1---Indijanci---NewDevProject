@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Licitacija.Services.UplataAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class UplataMigration : Migration
+    public partial class UplataMigrate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,7 +35,7 @@ namespace Licitacija.Services.UplataAPI.Migrations
                     Iznos = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
                     SvrhaUplate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DatumUplate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    KursId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValue: Guid.Empty),
+                    KursId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     KupacId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -46,7 +46,7 @@ namespace Licitacija.Services.UplataAPI.Migrations
                         column: x => x.KursId,
                         principalTable: "Kurs",
                         principalColumn: "KursId",
-                        onDelete: ReferentialAction.SetDefault);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateIndex(

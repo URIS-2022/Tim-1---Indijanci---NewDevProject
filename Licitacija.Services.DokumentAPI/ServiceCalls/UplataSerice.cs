@@ -16,7 +16,7 @@ namespace Licitacija.Services.DokumentAPI.ServiceCalls
         public async Task<UplataDto?> GetUplataZaUgovor(Guid? uplataId)
         {
             using HttpClient client = new();
-            Uri url = new($"{_configuration["Services:UplataService"]}api/uplata/uplataZaUgovor/{uplataId}");
+            Uri url = new($"{_configuration["Services:UplataService"]}api/Uplata/uplataZaUgovor/{uplataId}");
 
             try
             {
