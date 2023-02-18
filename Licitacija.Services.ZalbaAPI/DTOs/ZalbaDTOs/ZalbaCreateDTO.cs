@@ -2,7 +2,7 @@
 
 namespace Licitacija.Services.ZalbaAPI.DTOs.ZalbaDTOs
 {
-    public class ZalbaCreateDTO
+    public class ZalbaCreateDto
     {
         /// <summary>
         /// Datum podnosenja

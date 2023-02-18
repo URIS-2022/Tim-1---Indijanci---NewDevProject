@@ -31,7 +31,7 @@ namespace Licitacija.Services.NadmetanjeKupacAPI.Repositories.ConcreteClasses
 
         public void UpdateNadmetanjeKupac(NadmetanjeKupacEntity nadmetanjeKupac)
         {
-            
+            //EF prati izmene i automatski pri primeni Save() metode vrsi update, zbog toga nije neophodno implementirati Update
         }
 
         public void DeleteNadmetanjeKupac(Guid id)

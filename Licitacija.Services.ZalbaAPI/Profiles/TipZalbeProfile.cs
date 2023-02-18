@@ -10,9 +10,9 @@ namespace Licitacija.Services.ZalbaAPI.Profiles
         public TipZalbeProfile()
         {
             CreateMap<TipZalbe, TipZalbe>();
-            CreateMap<TipZalbe, TipZalbeDTO>().ReverseMap();
-            CreateMap<TipZalbe, TipZalbeUpdateDTO>().ReverseMap();
-            CreateMap<TipZalbe, TipZalbeCreateDTO>().ReverseMap();
+            CreateMap<TipZalbe, TipZalbeDto>().ReverseMap();
+            CreateMap<TipZalbe, TipZalbeUpdateDto>().ReverseMap();
+            CreateMap<TipZalbe, TipZalbeCreateDto>().ReverseMap();
         }
     }
 }

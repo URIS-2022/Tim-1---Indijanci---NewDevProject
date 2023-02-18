@@ -44,7 +44,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<ZalbaDTO>> GetAllZalbe()
+        public ActionResult<List<ZalbaDto>> GetAllZalbe()
         {
             try
             {
@@ -55,15 +55,15 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                     return NoContent();
                 }
 
-                var result = _mapper.Map<List<ZalbaDTO>>(zalbe);
+                var result = _mapper.Map<List<ZalbaDto>>(zalbe);
 
                 foreach (var zalba in result)
                 {   
 
-                    KupacDTO kupac = _kupacService.GetKupacById(zalba.KupacId).Result;
+                    KupacDto kupac = _kupacService.GetKupacById(zalba.KupacId).Result;
                     zalba.Kupac = kupac;
 
-                    FazaLicitacijeDTO fazaLicitacije = _fazaLicitacijeService.GetFazaLicitacijeById(zalba.FazaId).Result;
+                    FazaLicitacijeDto fazaLicitacije = _fazaLicitacijeService.GetFazaLicitacijeById(zalba.FazaId).Result;
                     zalba.FazaLicitacije = fazaLicitacije;
 
                 }
@@ -89,7 +89,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ZalbaDTO> GetZalba(Guid id)
+        public ActionResult<ZalbaDto> GetZalba(Guid id)
         {
             try
             {
@@ -100,12 +100,12 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                     return NotFound();
                 }
 
-                var result = _mapper.Map<ZalbaDTO>(zalba);
+                var result = _mapper.Map<ZalbaDto>(zalba);
 
-                KupacDTO kupac = _kupacService.GetKupacById(result.KupacId).Result;
+                KupacDto kupac = _kupacService.GetKupacById(result.KupacId).Result;
                 result.Kupac = kupac;
 
-                FazaLicitacijeDTO fazaLicitacije = _fazaLicitacijeService.GetFazaLicitacijeById(result.FazaId).Result;
+                FazaLicitacijeDto fazaLicitacije = _fazaLicitacijeService.GetFazaLicitacijeById(result.FazaId).Result;
                 result.FazaLicitacije = fazaLicitacije;
 
                 return Ok(result);
@@ -120,7 +120,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         /// <summary>
         /// Kreira novu zalbu.
         /// </summary>
-        /// <param name="zalbaDTO">Model zalbe</param>
+        /// <param name="zalbaDto">Model zalbe</param>
         /// <returns>Potvrda o kreiranoj zalbi.</returns>
         /// <response code="201">Vraća kreiranu zalbu</response>
         /// <response code="500">Serverska greška</response>
@@ -128,14 +128,14 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ZalbaDTO> CreateZalba([FromBody] ZalbaCreateDTO zalbaDTO)
+        public ActionResult<ZalbaDto> CreateZalba([FromBody] ZalbaCreateDto zalbaDto)
         {
             try
             {
-                Zalba zalba = _mapper.Map<Zalba>(zalbaDTO);
+                Zalba zalba = _mapper.Map<Zalba>(zalbaDto);
                 _zalbaRepository.InsertZalba(zalba);
                 _zalbaRepository.Save();
-                return Created("GetZalba", _mapper.Map<ZalbaDTO>(zalba));
+                return Created("GetZalba", _mapper.Map<ZalbaDto>(zalba));
             }
             catch (Exception e)
             {
@@ -146,7 +146,7 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         /// <summary>
         /// Ažurira jednu zalbu.
         /// </summary>
-        /// <param name="zalbaDTO">Model zalbe koji se ažurira</param>
+        /// <param name="zalbaDto">Model zalbe koji se ažurira</param>
         /// <returns>Potvrdu o modifikovanoj zalbi.</returns>
         /// <response code="200">Vraća ažuriranu zalbu</response>
         /// <response code="404">Uplata koja se ažurira nije pronađena</response>
@@ -156,11 +156,11 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ZalbaDTO> UpdateZalba([FromBody] ZalbaUpdateDTO zalbaDTO)
+        public ActionResult<ZalbaDto> UpdateZalba([FromBody] ZalbaUpdateDto zalbaDto)
         {
             try
             {
-                var zalbaToUpdate = _zalbaRepository.GetZalba(zalbaDTO.ZalbaId);
+                var zalbaToUpdate = _zalbaRepository.GetZalba(zalbaDto.ZalbaId);
 
                 if (zalbaToUpdate == null)
                 {
@@ -168,9 +168,9 @@ namespace Licitacija.Services.ZalbaAPI.Controllers
                 }
 
 
-                _mapper.Map(zalbaDTO, zalbaToUpdate);
+                _mapper.Map(zalbaDto, zalbaToUpdate);
                 _zalbaRepository.Save();
-                return Ok(_mapper.Map<ZalbaDTO>(zalbaToUpdate));
+                return Ok(_mapper.Map<ZalbaDto>(zalbaToUpdate));
 
             }
             catch (Exception e)
