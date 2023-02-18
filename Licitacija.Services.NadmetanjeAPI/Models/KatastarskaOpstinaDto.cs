@@ -1,5 +1,8 @@
 ﻿namespace Licitacija.Services.NadmetanjeAPI.Models
 {
+    /// <summary>
+    /// Model katastarske opstine.
+    /// </summary>
     public class KatastarskaOpstinaDto
     {
         /// <summary>
@@ -10,6 +13,6 @@
         /// <summary>
         /// Naziv katastarske opstine
         /// </summary>
-        public string KatOpstinaNaziv { get; set; }
+        public string? KatOpstinaNaziv { get; set; }
     }
 }

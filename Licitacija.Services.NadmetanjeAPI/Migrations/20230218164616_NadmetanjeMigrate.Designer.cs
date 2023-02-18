@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Licitacija.Services.NadmetanjeAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230215150226_NadmetanjeMigration")]
-    partial class NadmetanjeMigration
+    [Migration("20230218164616_NadmetanjeMigrate")]
+    partial class NadmetanjeMigrate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,7 +69,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Migrations
                     b.Property<bool>("Izuzeto")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("KadOpstinaId")
+                    b.Property<Guid>("KatOpstinaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Krug")
@@ -81,7 +81,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Migrations
                     b.Property<int>("PeriodZakupa")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("StatusNadmetanjaId")
+                    b.Property<Guid?>("StatusNadmetanjaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("VisinaDopuneDepozita")
@@ -146,20 +146,20 @@ namespace Licitacija.Services.NadmetanjeAPI.Migrations
                 {
                     b.HasOne("Licitacija.Services.NadmetanjeAPI.Entities.StatusNadmetanja", "StatusNadmetanja")
                         .WithMany("Nadmetanja")
-                        .HasForeignKey("StatusNadmetanjaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StatusNadmetanjaId");
 
                     b.Navigation("StatusNadmetanja");
                 });
 
             modelBuilder.Entity("Licitacija.Services.NadmetanjeAPI.Entities.OtvaranjePonuda", b =>
                 {
-                    b.HasOne("Licitacija.Services.NadmetanjeAPI.Entities.Nadmetanje", null)
+                    b.HasOne("Licitacija.Services.NadmetanjeAPI.Entities.Nadmetanje", "Nadmetanje")
                         .WithOne("OtvaranjePonuda")
                         .HasForeignKey("Licitacija.Services.NadmetanjeAPI.Entities.OtvaranjePonuda", "NadmetanjeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Nadmetanje");
                 });
 
             modelBuilder.Entity("Licitacija.Services.NadmetanjeAPI.Entities.Nadmetanje", b =>

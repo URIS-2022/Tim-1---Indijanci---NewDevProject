@@ -2,6 +2,9 @@
 
 namespace Licitacija.Services.NadmetanjeAPI.Models
 {
+    /// <summary>
+    /// Model nadmetanja.
+    /// </summary>
     public class NadmetanjeDto
     {
         /// <summary>

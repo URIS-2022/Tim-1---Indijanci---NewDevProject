@@ -2,6 +2,9 @@
 
 namespace Licitacija.Services.NadmetanjeAPI.Models
 {
+    /// <summary>
+    /// Model javnog nadmetanja.
+    /// </summary>
     public class JavnoDto
     {
         /// <summary>

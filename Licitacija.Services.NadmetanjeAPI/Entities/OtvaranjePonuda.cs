@@ -22,6 +22,6 @@ namespace Licitacija.Services.NadmetanjeAPI.Entities
         /// Objekat nadmetanja.
         /// </summary>
         [JsonIgnore]
-        public Nadmetanje Nadmetanje { get; set; }
+        public Nadmetanje? Nadmetanje { get; set; }
     }
 }

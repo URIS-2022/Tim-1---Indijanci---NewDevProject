@@ -1,6 +1,4 @@
-﻿using Licitacija.Services.NadmetanjeAPI.Models;
-using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Licitacija.Services.NadmetanjeAPI.Entities
 {
@@ -25,7 +23,7 @@ namespace Licitacija.Services.NadmetanjeAPI.Entities
         /// <summary>
         /// ID statusa nadmetanja.
         /// </summary>
-        public Guid StatusNadmetanjaId { get; set; }
+        public Guid? StatusNadmetanjaId { get; set; }
 
         /// <summary>
         /// ID adrese.

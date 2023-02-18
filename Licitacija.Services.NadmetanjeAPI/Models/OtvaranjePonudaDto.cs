@@ -1,5 +1,8 @@
 ﻿namespace Licitacija.Services.NadmetanjeAPI.Models
 {
+    /// <summary>
+    /// Model otvaranja ponuda.
+    /// </summary>
     public class OtvaranjePonudaDto
     {
         /// <summary>

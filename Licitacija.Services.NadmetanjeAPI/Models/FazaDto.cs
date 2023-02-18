@@ -1,5 +1,8 @@
 ﻿namespace Licitacija.Services.NadmetanjeAPI.Models
 {
+    /// <summary>
+    /// Model faze licitacije.
+    /// </summary>
     public class FazaDto
     {
         /// <summary>
