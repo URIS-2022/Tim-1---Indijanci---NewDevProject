@@ -34,6 +34,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.Zavrsne
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.KomisijaAPI", "Licitacija.Services.KomisijaAPI\Licitacija.Services.KomisijaAPI.csproj", "{F06B48D0-1AF8-4E08-81D9-CBA3F01BA0BC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Licitacija.Services.ProgramLicitacijeAPI", "Licitacija.Services.ProgramLicitacijeAPI\Licitacija.Services.ProgramLicitacijeAPI.csproj", "{2073D384-896E-4AE0-90B6-B0C094BA21F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +102,10 @@ Global
 		{F06B48D0-1AF8-4E08-81D9-CBA3F01BA0BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F06B48D0-1AF8-4E08-81D9-CBA3F01BA0BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F06B48D0-1AF8-4E08-81D9-CBA3F01BA0BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2073D384-896E-4AE0-90B6-B0C094BA21F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2073D384-896E-4AE0-90B6-B0C094BA21F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2073D384-896E-4AE0-90B6-B0C094BA21F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2073D384-896E-4AE0-90B6-B0C094BA21F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +126,7 @@ Global
 		{D84B555C-31F7-4C9B-A92B-0A08916200A7} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
 		{6DF964D5-00C9-4244-BCBD-FE8E8A182CEE} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
 		{F06B48D0-1AF8-4E08-81D9-CBA3F01BA0BC} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
+		{2073D384-896E-4AE0-90B6-B0C094BA21F0} = {BE788866-3F3E-465A-8C10-5C7C37446C3D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30849ce5-3a9f-47fa-8dcc-78d98971f0fc}
