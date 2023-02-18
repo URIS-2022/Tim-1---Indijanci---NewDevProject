@@ -12,6 +12,7 @@ namespace Licitacija.Services.UplataAPI.Profiles
             CreateMap<Uplata, UplataDto>().ReverseMap();
             CreateMap<Uplata, UplataCreateDto>().ReverseMap();
             CreateMap<Uplata, UplataUpdateDto>().ReverseMap();
+            CreateMap<Uplata, UplataBasicDto>().ReverseMap();
         }
     }
 }

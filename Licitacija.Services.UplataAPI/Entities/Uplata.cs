@@ -41,7 +41,7 @@ namespace Licitacija.Services.UplataAPI.Entities
         /// <summary>
         /// ID kursa.
         /// </summary>
-        public Guid KursId { get; set; }
+        public Guid? KursId { get; set; }
 
         /// <summary>
         /// Objekat kursa.

@@ -17,23 +17,31 @@ namespace Licitacija.Services.DokumentAPI.ServiceCalls
         public async Task<KupacDto?> GetKupacWithTip(Guid? kupacId)
         {
             using HttpClient client = new();
+
             Uri url = new($"{_configuration["Services:KupacService"]}api/kupac/kupacSaTipom/{kupacId}");
 
-            var response = await client.GetAsync(url);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responseString = await response.Content.ReadAsStringAsync();
-
-                if (string.IsNullOrEmpty(responseString))
+                var response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
                 {
-                    return default;
-                }
+                    var responseString = await response.Content.ReadAsStringAsync();
 
-                KupacDto? kupac = JsonConvert.DeserializeObject<KupacDto>(responseString);
-                return kupac;
+                    if (string.IsNullOrEmpty(responseString))
+                    {
+                        return default;
+                    }
+
+                    KupacDto? kupac = JsonConvert.DeserializeObject<KupacDto>(responseString);
+                    return kupac;
+                }
+                return default;
             }
-            return default;
+            catch(Exception)
+            {
+                return null;
+            }
+            
         }
     }
 }
