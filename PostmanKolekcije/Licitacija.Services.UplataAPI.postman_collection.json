@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "bdc92519-a6d8-49fc-837d-7ddd1a27ee2b",
+		"name": "Licitacija.Services.UplataAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetKurseve",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7182/api/Kurs",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Kurs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostKurs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"datumKursa\": \"2023-02-18T20:07:07.157Z\",\r\n  \"valuta\": \"RSD\",\r\n  \"vrednost\": 1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7182/api/Kurs",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Kurs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutKurs",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"kursId\": \"4a2faee7-902b-4565-4388-08db11ebbc40\",\r\n    \"datumKursa\": \"2023-02-18T20:07:07.157Z\",\r\n    \"valuta\": \"RSD\",\r\n    \"vrednost\": 100\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7182/api/Kurs",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Kurs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetKursByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7182/api/Kurs/4a2faee7-902b-4565-4388-08db11ebbc40",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Kurs",
+						"4a2faee7-902b-4565-4388-08db11ebbc40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteKurs",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7182/api/Kurs/4a2faee7-902b-4565-4388-08db11ebbc40",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Kurs",
+						"4a2faee7-902b-4565-4388-08db11ebbc40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUplate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7182/api/Uplata",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Uplata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostUplata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"brojRacuna\": \"123\",\r\n  \"pozivNaBroj\": \"123\",\r\n  \"iznos\": 10,\r\n  \"svrhaUplate\": \"testSvrha\",\r\n  \"datumUplate\": \"2023-02-18T20:14:01.915Z\",\r\n  \"kupacId\": \"ffb4fd7a-a490-4ba0-8141-c30d16b071de\",\r\n  \"kursId\": \"4a2faee7-902b-4565-4388-08db11ebbc40\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7182/api/Uplata",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Uplata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutUplata",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"uplataId\": \"99401305-612a-4d35-b89c-08db11ed5933\",\r\n  \"brojRacuna\": \"1234\",\r\n  \"pozivNaBroj\": \"1234\",\r\n  \"iznos\": 100,\r\n  \"svrhaUplate\": \"testSvrha\",\r\n  \"datumUplate\": \"2023-02-18T20:14:01.915Z\",\r\n  \"kupacId\": \"ffb4fd7a-a490-4ba0-8141-c30d16b071de\",\r\n  \"kursId\": \"4a2faee7-902b-4565-4388-08db11ebbc40\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7182/api/Uplata",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Uplata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUplataByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7182/api/Uplata/99401305-612a-4d35-b89c-08db11ed5933",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Uplata",
+						"99401305-612a-4d35-b89c-08db11ed5933"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUplata",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7182/api/Uplata/99401305-612a-4d35-b89c-08db11ed5933",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Uplata",
+						"99401305-612a-4d35-b89c-08db11ed5933"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUplataZaUgovor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7182/api/Uplata/uplataZaUgovor/99401305-612a-4d35-b89c-08db11ed5933",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7182",
+					"path": [
+						"api",
+						"Uplata",
+						"uplataZaUgovor",
+						"99401305-612a-4d35-b89c-08db11ed5933"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
