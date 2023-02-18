@@ -65,7 +65,7 @@ namespace Licitacija.Services.KomisijaAPI.Repositories.Repos
 
         public async Task<int> Save()
         {
-            return await _context.SaveChangesAsync(); ;
+            return await _context.SaveChangesAsync();
         }
 
         public async Task<LicnostKomisija?> UpdateLicnostKomisija(LicnostKomisija updateLicnostKomisija, Guid komisijaId)
