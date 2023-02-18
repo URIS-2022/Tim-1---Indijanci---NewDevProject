@@ -35,7 +35,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<KulturaDTO>> GetAllKulture()
+        public ActionResult<List<KulturaDto>> GetAllKulture()
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<KulturaDTO>>(kulture));
+                return Ok(_mapper.Map<List<KulturaDto>>(kulture));
             }
             catch (Exception e)
             {
@@ -67,7 +67,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KulturaDTO> GetKultura(Guid id)
+        public ActionResult<KulturaDto> GetKultura(Guid id)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<KulturaDTO>(kultura));
+                return Ok(_mapper.Map<KulturaDto>(kultura));
             }
             catch (Exception e)
             {
@@ -98,14 +98,14 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KulturaDTO> CreateKultura([FromBody] KulturaCreateDTO kulturaDTO)
+        public ActionResult<KulturaDto> CreateKultura([FromBody] KulturaCreateDto kulturaDTO)
         {
             try
             {
                 Kultura kultura = _mapper.Map<Kultura>(kulturaDTO);
                 _kulturaRepository.InsertKultura(kultura);
                 _kulturaRepository.Save();
-                return Created("GetKultura", _mapper.Map<KulturaDTO>(kultura));
+                return Created("GetKultura", _mapper.Map<KulturaDto>(kultura));
             }
             catch (Exception e)
             {
@@ -126,7 +126,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<KulturaDTO> UpdateKultura([FromBody] KulturaUpdateDTO kulturaDTO)
+        public ActionResult<KulturaDto> UpdateKultura([FromBody] KulturaUpdateDto kulturaDTO)
         {
             try
             {
@@ -139,7 +139,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
 
                 _mapper.Map(kulturaDTO, kulturaToUpdate);
                 _kulturaRepository.Save();
-                return Ok(_mapper.Map<KulturaDTO>(kulturaToUpdate));
+                return Ok(_mapper.Map<KulturaDto>(kulturaToUpdate));
 
             }
             catch (Exception e)

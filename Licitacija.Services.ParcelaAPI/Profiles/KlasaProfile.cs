@@ -10,9 +10,9 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
         public KlasaProfile()
         {
             CreateMap<Klasa, Klasa>();
-            CreateMap<Klasa, KlasaDTO>().ReverseMap();
-            CreateMap<Klasa, KlasaCreateDTO>().ReverseMap();
-            CreateMap<Klasa, KlasaUpdateDTO>().ReverseMap();
+            CreateMap<Klasa, KlasaDto>().ReverseMap();
+            CreateMap<Klasa, KlasaCreateDto>().ReverseMap();
+            CreateMap<Klasa, KlasaUpdateDto>().ReverseMap();
         }
     }
 }

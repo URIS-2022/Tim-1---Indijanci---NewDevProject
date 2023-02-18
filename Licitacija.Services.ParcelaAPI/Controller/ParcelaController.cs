@@ -40,7 +40,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<ParcelaDTO>> GetAllParcele()
+        public ActionResult<List<ParcelaDto>> GetAllParcele()
         {
             try
             {
@@ -51,11 +51,11 @@ namespace Licitacija.Services.ParcelaAPI.Controller
                     return NoContent();
                 }
 
-                var result = _mapper.Map<List<ParcelaDTO>>(parcele);
+                var result = _mapper.Map<List<ParcelaDto>>(parcele);
 
                 foreach (var parcela in result)
                 {
-                    KupacBasicInfoDTO kupac = _kupacService.GetKupacById(parcela.KupacId).Result;
+                    KupacBasicInfoDto kupac = _kupacService.GetKupacById(parcela.KupacId).Result;
                     parcela.Kupac = kupac;
                 }
 
@@ -80,7 +80,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ParcelaDTO> GetParcela(Guid id)
+        public ActionResult<ParcelaDto> GetParcela(Guid id)
         {
             try
             {
@@ -91,8 +91,8 @@ namespace Licitacija.Services.ParcelaAPI.Controller
                     return NotFound();
                 }
 
-                var result = _mapper.Map<ParcelaDTO>(parcela);
-                KupacBasicInfoDTO kupac = _kupacService.GetKupacById(result.KupacId).Result;
+                var result = _mapper.Map<ParcelaDto>(parcela);
+                KupacBasicInfoDto kupac = _kupacService.GetKupacById(result.KupacId).Result;
                 result.Kupac = kupac;
 
                 return Ok(result);
@@ -115,14 +115,14 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ParcelaDTO> CreateParcela([FromBody] ParcelaCreateDTO parcelaDTO)
+        public ActionResult<ParcelaDto> CreateParcela([FromBody] ParcelaCreateDto parcelaDTO)
         {
             try
             {
                 Parcela parcela = _mapper.Map<Parcela>(parcelaDTO);
                 _parcelaRepository.InsertParcela(parcela);
                 _parcelaRepository.Save();
-                return Created("GetParcela", _mapper.Map<ParcelaDTO>(parcela));
+                return Created("GetParcela", _mapper.Map<ParcelaDto>(parcela));
             }
             catch (Exception e)
             {
@@ -143,7 +143,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<ParcelaDTO> UpdateParcela([FromBody] ParcelaUpdateDTO parcelaDTO)
+        public ActionResult<ParcelaDto> UpdateParcela([FromBody] ParcelaUpdateDto parcelaDTO)
         {
             try
             {
@@ -157,7 +157,7 @@ namespace Licitacija.Services.ParcelaAPI.Controller
 
                 _mapper.Map(parcelaDTO, parcelaToUpdate);
                 _parcelaRepository.Save();
-                return Ok(_mapper.Map<ParcelaDTO>(parcelaToUpdate));
+                return Ok(_mapper.Map<ParcelaDto>(parcelaToUpdate));
 
             }
             catch (Exception e)

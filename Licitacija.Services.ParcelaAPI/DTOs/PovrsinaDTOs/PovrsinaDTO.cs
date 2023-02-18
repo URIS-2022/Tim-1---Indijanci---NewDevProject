@@ -6,7 +6,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.PovrsinaDTOs
     /// <summary>
     /// Model za prikaz povrsine
     /// </summary>
-    public class PovrsinaDTO
+    public class PovrsinaDto
     {
         /// <summary>
         /// ID povrsine
@@ -21,11 +21,11 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.PovrsinaDTOs
         /// <summary>
         /// Podaci o parceli
         /// </summary>
-        public ParcelaDTO? Parcela { get; set; }
+        public ParcelaDto? Parcela { get; set; }
 
         /// <summary>
         /// Podaci o zasticenoj zoni
         /// </summary>
-        public ZasticenaZonaDTO? ZasticenaZona { get; set; }
+        public ZasticenaZonaDto? ZasticenaZona { get; set; }
     }
 }

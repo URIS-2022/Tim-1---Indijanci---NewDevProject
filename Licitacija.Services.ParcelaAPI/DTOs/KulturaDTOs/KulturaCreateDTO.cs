@@ -5,7 +5,7 @@ namespace Licitacija.Services.ParcelaAPI.DTOs.KulturaDTOs
     /// <summary>
     /// Model za kreiranje kulture
     /// </summary>
-    public class KulturaCreateDTO
+    public class KulturaCreateDto
     {
         /// <summary>
         /// Naziv kulture

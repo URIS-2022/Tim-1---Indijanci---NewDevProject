@@ -3,10 +3,16 @@
 namespace Licitacija.Services.ParcelaAPI.DTOs.ZasticenaZonaDTOs
 {
     /// <summary>
-    /// Model za kreiranje zasticene zone
+    /// Model za azuriranje zasticene zone
     /// </summary>
-    public class ZasticenaZonaCreateDto
+    public class ZasticenaZonaUpdateDto
     {
+        /// <summary>
+        /// ID zasticene zone
+        /// </summary>
+        [Required(ErrorMessage = "Obavezno je uneti ID zasticene zone.")]
+        public Guid ZZonaId { get; set; }
+
         /// <summary>
         /// Naziv zasticene zone
         /// </summary>

@@ -12,11 +12,11 @@ namespace Licitacija.Services.ParcelaAPI.ServiceCalls
             _configuration = configuration;
         }
 
-        public async Task<EtapaBasicInfoDTO> GetEtapaById(Guid etapaId)
+        public async Task<EtapaBasicInfoDto> GetEtapaById(Guid etapaId)
         {
             using (HttpClient client = new())
             {
-                Uri url = new Uri($"{_configuration["Services:EtapaService"]}api/etapa/etapaBasicInfo/" + etapaId);
+                Uri url = new Uri($"{_configuration["Services:EtapaService"]}api/Etapa/EtapaBasicInfo/" + etapaId);
 
                 var response = await client.GetAsync(url);
 
@@ -26,7 +26,7 @@ namespace Licitacija.Services.ParcelaAPI.ServiceCalls
 
                     if (!string.IsNullOrEmpty(responseString))
                     {
-                        var etapa = JsonConvert.DeserializeObject<EtapaBasicInfoDTO>(responseString);
+                        var etapa = JsonConvert.DeserializeObject<EtapaBasicInfoDto>(responseString);
                         return etapa;
                     }
                 }

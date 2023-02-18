@@ -3,7 +3,7 @@
     /// <summary>
     /// Model za prikaz kulture
     /// </summary>
-    public class KulturaDTO
+    public class KulturaDto
     {
         /// <summary>
         /// ID kulture

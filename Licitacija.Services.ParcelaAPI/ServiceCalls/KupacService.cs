@@ -13,7 +13,7 @@ namespace Licitacija.Services.ParcelaAPI.ServiceCalls
             _configuration = configuration;
         }
 
-        public async Task<KupacBasicInfoDTO> GetKupacById(Guid kupacId)
+        public async Task<KupacBasicInfoDto> GetKupacById(Guid kupacId)
         {
             using (HttpClient client = new())
             {
@@ -27,7 +27,7 @@ namespace Licitacija.Services.ParcelaAPI.ServiceCalls
 
                     if (!string.IsNullOrEmpty(responseString))
                     {
-                        var kupac = JsonConvert.DeserializeObject<KupacBasicInfoDTO>(responseString);
+                        var kupac = JsonConvert.DeserializeObject<KupacBasicInfoDto>(responseString);
                         return kupac;
                     }
                 }

@@ -35,7 +35,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<OdvodnjavanjeDTO>> GetAllOdvodnjavanja()
+        public ActionResult<List<OdvodnjavanjeDto>> GetAllOdvodnjavanja()
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NoContent();
                 }
 
-                return Ok(_mapper.Map<List<OdvodnjavanjeDTO>>(odvodnjavanja));
+                return Ok(_mapper.Map<List<OdvodnjavanjeDto>>(odvodnjavanja));
             }
             catch (Exception e)
             {
@@ -67,7 +67,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<OdvodnjavanjeDTO> GetOdvodnjavanje(Guid id)
+        public ActionResult<OdvodnjavanjeDto> GetOdvodnjavanje(Guid id)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
                     return NotFound();
                 }
 
-                return Ok(_mapper.Map<OdvodnjavanjeDTO>(odvodnjavanje));
+                return Ok(_mapper.Map<OdvodnjavanjeDto>(odvodnjavanje));
             }
             catch (Exception e)
             {
@@ -98,14 +98,14 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<OdvodnjavanjeDTO> CreateOdvodnjavanje([FromBody] OdvodnjavanjeCreateDTO odvodnjavanjeDTO)
+        public ActionResult<OdvodnjavanjeDto> CreateOdvodnjavanje([FromBody] OdvodnjavanjeCreateDto odvodnjavanjeDTO)
         {
             try
             {
                 Odvodnjavanje odvodnjavanje = _mapper.Map<Odvodnjavanje>(odvodnjavanjeDTO);
                 _odvodnjavanjeRepository.InsertOdvodnjavanje(odvodnjavanje);
                 _odvodnjavanjeRepository.Save();
-                return Created("GetOdvodnjavanje", _mapper.Map<OdvodnjavanjeDTO>(odvodnjavanje));
+                return Created("GetOdvodnjavanje", _mapper.Map<OdvodnjavanjeDto>(odvodnjavanje));
             }
             catch (Exception e)
             {
@@ -126,7 +126,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<OdvodnjavanjeDTO> UpdateOdvodnjavanje([FromBody] OdvodnjavanjeUpdateDTO odvodnjavanjeDTO)
+        public ActionResult<OdvodnjavanjeDto> UpdateOdvodnjavanje([FromBody] OdvodnjavanjeUpdateDto odvodnjavanjeDTO)
         {
             try
             {
@@ -139,7 +139,7 @@ namespace Licitacija.Services.ParcelaAPI.Controllers
 
                 _mapper.Map(odvodnjavanjeDTO, odvodnjavanjeToUpdate);
                 _odvodnjavanjeRepository.Save();
-                return Ok(_mapper.Map<OdvodnjavanjeDTO>(odvodnjavanjeToUpdate));
+                return Ok(_mapper.Map<OdvodnjavanjeDto>(odvodnjavanjeToUpdate));
 
             }
             catch (Exception e)

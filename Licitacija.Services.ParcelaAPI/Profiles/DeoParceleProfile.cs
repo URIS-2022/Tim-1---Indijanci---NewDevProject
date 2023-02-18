@@ -10,9 +10,9 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
         public DeoParceleProfile()
         {
             CreateMap<DeoParcele, DeoParcele>();
-            CreateMap<DeoParcele, DeoParceleDTO>().ReverseMap();
-            CreateMap<DeoParcele, DeoParceleCreateDTO>().ReverseMap();
-            CreateMap<DeoParcele, DeoParceleUpdateDTO>().ReverseMap();
+            CreateMap<DeoParcele, DeoParceleDto>().ReverseMap();
+            CreateMap<DeoParcele, DeoParceleCreateDto>().ReverseMap();
+            CreateMap<DeoParcele, DeoParceleUpdateDto>().ReverseMap();
         }
     }
 }

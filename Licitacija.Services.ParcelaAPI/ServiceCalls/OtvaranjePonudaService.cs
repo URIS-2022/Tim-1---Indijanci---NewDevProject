@@ -12,11 +12,11 @@ namespace Licitacija.Services.ParcelaAPI.ServiceCalls
             _configuration = configuration;
         }
 
-        public async Task<OtvaranjePonudaBasicInfoDTO> GetOtvaranjePonudaById(Guid nadmetanjeId)
+        public async Task<OtvaranjePonudaBasicInfoDto> GetOtvaranjePonudaById(Guid otvaranjePonudaId)
         {
             using (HttpClient client = new())
             {
-                Uri url = new Uri($"{_configuration["Services:NadmetanjeService"]}api/nadmetanje/nadmetanjeBasicInfo/" + nadmetanjeId);
+                Uri url = new Uri($"{_configuration["Services:OtvaranjePonudaService"]}api/OtvaranjePonuda/OtvaranjePonudaBasic/" + otvaranjePonudaId);
 
                 var response = await client.GetAsync(url);
 
@@ -26,8 +26,8 @@ namespace Licitacija.Services.ParcelaAPI.ServiceCalls
 
                     if (!string.IsNullOrEmpty(responseString))
                     {
-                        var nadmetanje = JsonConvert.DeserializeObject<OtvaranjePonudaBasicInfoDTO>(responseString);
-                        return nadmetanje;
+                        var otvaranjePonuda = JsonConvert.DeserializeObject<OtvaranjePonudaBasicInfoDto>(responseString);
+                        return otvaranjePonuda;
                     }
                 }
                 return default;

@@ -10,9 +10,9 @@ namespace Licitacija.Services.ParcelaAPI.Profiles
         public ParcelaProfile()
         {
             CreateMap<Parcela, Parcela>();
-            CreateMap<Parcela, ParcelaDTO>().ReverseMap();
-            CreateMap<Parcela, ParcelaCreateDTO>().ReverseMap();
-            CreateMap<Parcela, ParcelaUpdateDTO>().ReverseMap();
+            CreateMap<Parcela, ParcelaDto>().ReverseMap();
+            CreateMap<Parcela, ParcelaCreateDto>().ReverseMap();
+            CreateMap<Parcela, ParcelaUpdateDto>().ReverseMap();
         }
     }
 }
