@@ -2,7 +2,7 @@
 
 namespace Licitacija.Services.ZalbaAPI.DTOs.RadnjaNaOsnovuZalbeDTOs
 {
-    public class RadnjaNaOsnovuZalbeCreateDto
+    public class RadnjaNaOsnovuZalbeCreateDTO
     {
         /// <summary>
         /// Naziv radnje za žalbu

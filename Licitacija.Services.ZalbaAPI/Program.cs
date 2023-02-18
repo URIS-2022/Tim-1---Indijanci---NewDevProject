@@ -83,7 +83,7 @@ builder.Services.AddSwaggerGen(setupAction =>
         License = new Microsoft.OpenApi.Models.OpenApiLicense
         {
             Name = "FTN licence",
-            Url = new Uri("https://www.ftn.uns.ac.rs/")
+            Url = new Uri("http://www.ftn.uns.ac.rs/")
         },
     });
     setupAction.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
@@ -95,13 +95,6 @@ builder.Services.AddSwaggerGen(setupAction =>
 });
 
 var app = builder.Build();
-
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<DataContext>();
-    context.Database.Migrate();
-}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

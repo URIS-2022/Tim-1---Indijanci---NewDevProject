@@ -12,7 +12,7 @@ namespace Licitacija.Services.ZalbaAPI.ServiceCalls
             _configuration = configuration;
         }
 
-        public async Task<FazaLicitacijeDto> GetFazaLicitacijeById(Guid fazaId)
+        public async Task<FazaLicitacijeDTO> GetFazaLicitacijeById(Guid fazaId)
         {
             using (HttpClient client = new())
             {
@@ -26,7 +26,7 @@ namespace Licitacija.Services.ZalbaAPI.ServiceCalls
 
                     if (!string.IsNullOrEmpty(responseString))
                     {
-                        var fazaLicitacije = JsonConvert.DeserializeObject<FazaLicitacijeDto>(responseString);
+                        var fazaLicitacije = JsonConvert.DeserializeObject<FazaLicitacijeDTO>(responseString);
                         return fazaLicitacije != null ? fazaLicitacije : default;
                     }
                 }

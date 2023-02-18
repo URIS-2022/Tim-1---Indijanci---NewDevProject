@@ -1,6 +1,6 @@
 ﻿namespace Licitacija.Services.ZalbaAPI.DTOs.ExchangeDTOs
 {
-    public class KupacDto
+    public class KupacDTO
     {
 
         /// <summary>

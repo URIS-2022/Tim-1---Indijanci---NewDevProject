@@ -2,7 +2,7 @@
 
 namespace Licitacija.Services.ZalbaAPI.DTOs.TipZalbeDTOs
 {
-    public class TipZalbeCreateDto
+    public class TipZalbeCreateDTO
     {
         /// <summary>
         /// Naziv tipa žalbe

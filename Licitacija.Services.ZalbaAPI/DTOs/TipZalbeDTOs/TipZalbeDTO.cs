@@ -1,6 +1,6 @@
 ﻿namespace Licitacija.Services.ZalbaAPI.DTOs.TipZalbeDTOs
 {
-    public class TipZalbeDto
+    public class TipZalbeDTO
     {
         /// <summary>
         /// ID tipa žalbe
