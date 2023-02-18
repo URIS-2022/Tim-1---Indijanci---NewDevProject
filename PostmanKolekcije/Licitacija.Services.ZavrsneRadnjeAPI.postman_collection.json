@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "2b324bc1-fdbc-4dd7-bfc7-7907f1b64d3d",
+		"name": "Licitacija.Services.ZavrsneRadnjeAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16576872"
+	},
+	"item": [
+		{
+			"name": "GetZavrsneradnje",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7133/api/ZavrsneRadnje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"ZavrsneRadnje"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostZavrsneRadnje",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zavrsnaRadnjaNaziv\": \"zavrsna radnja 5\",\r\n  \"fazaId\": \"CAC0E0A2-852A-4265-AC71-49C25FB5559B\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7133/api/ZavrsneRadnje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"ZavrsneRadnje"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutZavrsneRadnje",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zavrsnaRadnjaId\": \"EBE176F3-B51F-43E5-B5F7-08DB0F636DAB\",\r\n  \"zavrsnaRadnjaNaziv\": \"zavrsna radnja 10\",\r\n  \"fazaId\": \"FB96A27D-F87F-49B5-98F3-EF6B57E84C3C\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7133/api/ZavrsneRadnje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"ZavrsneRadnje"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteZavrsneRadnje",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7133/api/ZavrsneRadnje/625FB080-AF5E-4C1F-EE63-08DB11C2E71E",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"ZavrsneRadnje",
+						"625FB080-AF5E-4C1F-EE63-08DB11C2E71E"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetZavrsneRadnjeById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7133/api/ZavrsneRadnje/EBE176F3-B51F-43E5-B5F7-08DB0F636DAB",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7133",
+					"path": [
+						"api",
+						"ZavrsneRadnje",
+						"EBE176F3-B51F-43E5-B5F7-08DB0F636DAB"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

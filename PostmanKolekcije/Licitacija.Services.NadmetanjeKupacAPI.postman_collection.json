@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "02344102-e49d-4da9-a937-6adc8e1d6cc8",
+		"name": "Licitacija.Services.NadmetanjeKupacAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17105301"
+	},
+	"item": [
+		{
+			"name": "NadmetanjeKupac",
+			"item": [
+				{
+					"name": "GetNedmetanjaKupac",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7015/api/NadmetanjeKupac",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"NadmetanjeKupac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNadmetanjeKupac",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ovlascenoLiceId\": \"B4947A43-42E4-4D20-A10B-169C5089AAC6\",\r\n  \"nadmetanjeId\": \"2C1051D2-0DDF-41A9-BA08-24070A50F4B3\",\r\n  \"kupacId\": \"4CCB6D66-18B2-4791-8AFE-B628A4F7C0AF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7015/api/NadmetanjeKupac",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"NadmetanjeKupac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateNadmetanjeKupac",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nadmetanjeKupacId\": \"018AC715-4588-4934-BB2D-8BB2F4D1049A\",\r\n  \"ovlascenoLiceId\": \"B4947A43-42E4-4D20-A10B-169C5089AAC6\",\r\n  \"nadmetanjeId\": \"4CCB6D66-18B2-4791-8AFE-B628A4F7C0AF\",\r\n  \"kupacId\": \"2C1051D2-0DDF-41A9-BA08-24070A50F4B3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7015/api/NadmetanjeKupac",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"NadmetanjeKupac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetNadmetanjeKupacById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7015/api/NadmetanjeKupac/018AC715-4588-4934-BB2D-8BB2F4D1049A",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"NadmetanjeKupac",
+								"018AC715-4588-4934-BB2D-8BB2F4D1049A"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteNadmetanjeKupac",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7015/api/NadmetanjeKupac/018AC715-4588-4934-BB2D-8BB2F4D1049A",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"NadmetanjeKupac",
+								"018AC715-4588-4934-BB2D-8BB2F4D1049A"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OvlascenoLice",
+			"item": [
+				{
+					"name": "GetOvlascenaLica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7015/api/OvlascenoLice",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"OvlascenoLice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOvlascenoLice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ime\": \"testic\",\r\n  \"prezime\": \"testic\",\r\n  \"brojPasosa\": \"testic\",\r\n  \"jmbg\": \"testic\",\r\n  \"adresaId\": \"10EA64F1-07AB-478D-B8F3-073BCE4610F8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7015/api/OvlascenoLice",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"OvlascenoLice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateOvlascenoLice",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ovlascenoLiceId\": \"B4947A43-42E4-4D20-A10B-169C5089AAC6\",\r\n  \"ime\": \"Izmena\",\r\n  \"prezime\": \"Izmena\",\r\n  \"brojPasosa\": \"Izmena\",\r\n  \"jmbg\": \"Izmena\",\r\n  \"adresaId\": \"10EA64F1-07AB-478D-B8F3-073BCE4610F8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7015/api/OvlascenoLice",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"OvlascenoLice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOvlascenoLiceById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7015/api/OvlascenoLice/B4947A43-42E4-4D20-A10B-169C5089AAC6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"OvlascenoLice",
+								"B4947A43-42E4-4D20-A10B-169C5089AAC6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteOvlascenoLice",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7015/api/OvlascenoLice/B4947A43-42E4-4D20-A10B-169C5089AAC6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7015",
+							"path": [
+								"api",
+								"OvlascenoLice",
+								"B4947A43-42E4-4D20-A10B-169C5089AAC6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

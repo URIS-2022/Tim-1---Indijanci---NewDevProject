@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "be37cd53-58e1-463b-9228-9920e2191400",
+		"name": "Services.Licitacija.IdentityAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16600239"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin@gmail.com\",\r\n  \"password\": \"Admin123*\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7004/api/User/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"api",
+						"User",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"menadzer\",\r\n  \"email\": \"menadzer@gmail.com\",\r\n  \"firstName\": \"MenadzerIme\",\r\n  \"lastName\": \"MenadzerPrezime\",\r\n  \"password\": \"Menadzer123*\",\r\n  \"roleName\": 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7004/api/User/Register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"api",
+						"User",
+						"Register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7004/api/User/Logout",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"api",
+						"User",
+						"Logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AccessDenied",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7004/api/User/AccessDenied",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7004",
+					"path": [
+						"api",
+						"User",
+						"AccessDenied"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

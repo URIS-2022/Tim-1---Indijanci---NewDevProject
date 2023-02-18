@@ -1,0 +1,1265 @@
+{
+	"info": {
+		"_postman_id": "3446741e-327a-4f8c-b63e-23e045ce5a68",
+		"name": "Licitacija.Services.ParcelaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23987131"
+	},
+	"item": [
+		{
+			"name": "DeoParceleAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/DeoParcele",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"DeoParcele"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeoParceleById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/DeoParcele/2ff32eb3-a7a1-4e8b-a9e1-8ec51f3eca4c",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"DeoParcele",
+						"2ff32eb3-a7a1-4e8b-a9e1-8ec51f3eca4c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeoParcele",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"povrsinaDelaParcele\": 40,\r\n  \"parcelaId\": \"CAC0E0A2-852A-4265-AC71-49C25FB5559B\",\r\n  \"etapaId\": \"0BB57A3E-5AB2-4AB0-B33B-0E3C53D713D1\",\r\n  \"otvaranjePonudaId\": \"ACA0C0A2-112A-2465-AC71-49C25FB1119A\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/DeoParcele",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"DeoParcele"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeoParcele",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/DeoParcele/3192D5EB-4198-41C3-BF4E-42D3C0ACF01F",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"DeoParcele",
+						"3192D5EB-4198-41C3-BF4E-42D3C0ACF01F"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeoParcele",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"deoParceleId\": \"CAC0E0A2-852A-4265-AC71-49C25FB5559B\",\r\n  \"povrsinaDelaParcele\": 40,\r\n  \"parcelaId\": \"CAC0E0A2-852A-4265-AC71-49C25FB5559B\",\r\n  \"etapaId\": \"0BB57A3E-5AB2-4AB0-B33B-0E3C53D713D1\",\r\n  \"otvaranjePonudaId\": \"ACA0C0A2-112A-2465-AC71-49C25FB1119A\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/DeoParcele",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"DeoParcele"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KatastarskaOpstinaAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/KatastarskaOpstina",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"KatastarskaOpstina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KatastarskaOpstinaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/KatastarskaOpstina/E5FF87F4-6A6F-48AC-B3E4-2F324D2EB3CB",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"KatastarskaOpstina",
+						"E5FF87F4-6A6F-48AC-B3E4-2F324D2EB3CB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KatastarskaOpstinaBasicInfoById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/KatastarskaOpstina/KatastarskaOpstinaBasicInfo/E5FF87F4-6A6F-48AC-B3E4-2F324D2EB3CB",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"KatastarskaOpstina",
+						"KatastarskaOpstinaBasicInfo",
+						"E5FF87F4-6A6F-48AC-B3E4-2F324D2EB3CB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KatastarskaOpstina",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"katOpstinaNaziv\": \"Test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/KatastarskaOpstina",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"KatastarskaOpstina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KatastarskaOpstina",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"katOpstinaId\": \"5229167E-68D8-43E9-80FC-F8A31BEE50DE\",\r\n  \"katOpstinaNaziv\": \"TestTestTest\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/KatastarskaOpstina",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"KatastarskaOpstina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KatastarskaOpstina",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/KatastarskaOpstina/5229167E-68D8-43E9-80FC-F8A31BEE50DE",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"KatastarskaOpstina",
+						"5229167E-68D8-43E9-80FC-F8A31BEE50DE"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KlasaAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Klasa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Klasa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KlasaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Klasa/F39C9623-C6B6-48CB-B4DD-0340C7431870",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Klasa",
+						"F39C9623-C6B6-48CB-B4DD-0340C7431870"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Klasa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"klasaNaziv\": \"IV\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Klasa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Klasa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Klasa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"klasaId\": \"27C6A9E6-C82B-4480-95A2-FEAED51D8131\",\r\n  \"klasaNaziv\": \"Test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Klasa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Klasa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Klasa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Klasa/27C6A9E6-C82B-4480-95A2-FEAED51D8131",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Klasa",
+						"27C6A9E6-C82B-4480-95A2-FEAED51D8131"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kultura",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Kultura",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Kultura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KulturaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Kultura/D89D9175-BDF0-4066-850A-4232318F80BB",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Kultura",
+						"D89D9175-BDF0-4066-850A-4232318F80BB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kultura",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"kulturaNaziv\": \"Vinogradi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Kultura",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Kultura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kultura",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"kulturaId\": \"551149AF-718C-49D2-B189-43B44294A3AB\",\r\n  \"kulturaNaziv\": \"Test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Kultura",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Kultura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kultura",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Kultura/551149AF-718C-49D2-B189-43B44294A3AB",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Kultura",
+						"551149AF-718C-49D2-B189-43B44294A3AB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OblikSvojineAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/OblikSvojine",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"OblikSvojine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OblikSvojineGetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/OblikSvojine/03E3208E-EB61-40F1-B9D4-36FB3F63E4C6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"OblikSvojine",
+						"03E3208E-EB61-40F1-B9D4-36FB3F63E4C6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OblikSvojine",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"oblikSvojineNaziv\": \"Test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/OblikSvojine",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"OblikSvojine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OblikSvojine",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"oblikSvojineId\": \"ACB1AFE2-BB2E-40F0-83BF-9D3FF1982527\",\r\n  \"oblikSvojineNaziv\": \"TestTestTest\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/OblikSvojine",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"OblikSvojine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OblikSvojine",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/OblikSvojine/ACB1AFE2-BB2E-40F0-83BF-9D3FF1982527",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"OblikSvojine",
+						"ACB1AFE2-BB2E-40F0-83BF-9D3FF1982527"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObradivostAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Obradivost",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Obradivost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObradivostById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Obradivost/EC9E3D3E-193D-4DE8-BDC4-ACC3E4BF834D",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Obradivost",
+						"EC9E3D3E-193D-4DE8-BDC4-ACC3E4BF834D"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obradivost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"oblikSvojineNaziv\": \"Ostalooo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Obradivost",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Obradivost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obradivost",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"obradivostId\": \"D16209CF-1F55-4AB4-8723-4522CDF1C44F\",\r\n  \"obradivostNaziv\": \"Ostaloo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Obradivost",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Obradivost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obradivost",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Obradivost/D16209CF-1F55-4AB4-8723-4522CDF1C44F",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Obradivost",
+						"D16209CF-1F55-4AB4-8723-4522CDF1C44F"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OdvodnjavanjeAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Odvodnjavanje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Odvodnjavanje"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OdvodnjavanjeById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Odvodnjavanje/B2F93BA3-EC00-41AF-824E-FCD1F0C60C5C",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Odvodnjavanje",
+						"B2F93BA3-EC00-41AF-824E-FCD1F0C60C5C"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Odvodnjavanje",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"odvNaziv\": \"Test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Odvodnjavanje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Odvodnjavanje"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Odvodnjavanje",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"odvodnjavanjeId\": \"521DFAB9-DA7F-44BD-AEC1-6136A6817F38\",\r\n  \"odvNaziv\": \"TestTestTest\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Odvodnjavanje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Odvodnjavanje"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Odvodnjavanje",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Odvodnjavanje/521DFAB9-DA7F-44BD-AEC1-6136A6817F38",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Odvodnjavanje",
+						"521DFAB9-DA7F-44BD-AEC1-6136A6817F38"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ParcelaAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Parcela",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Parcela"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ParcelaById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Parcela/CAC0E0A2-852A-4265-AC71-49C25FB5559B",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Parcela",
+						"CAC0E0A2-852A-4265-AC71-49C25FB5559B"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parcela",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"povrsina\": 100,\r\n  \"brojParcele\": \"12367\",\r\n  \"brojListaNepokretnosti\": \"09248\",\r\n  \"kulturaStvStanje\": \"KulTest\",\r\n  \"klasaStvStanje\": \"KlaTest\",\r\n  \"obradivostStvStanje\": \"ObrTest\",\r\n  \"zZonaStvStanje\": \"ZZonaTest\",\r\n  \"odvodnjavanjeStvStanje\": \"OdvTest\",\r\n  \"klasaId\": \"F39C9623-C6B6-48CB-B4DD-0340C7431870\",\r\n  \"kulturaId\": \"D89D9175-BDF0-4066-850A-4232318F80BB\",\r\n  \"oblikSvojineId\": \"03E3208E-EB61-40F1-B9D4-36FB3F63E4C6\",\r\n  \"obradivostId\": \"1C48C1D4-122B-4BD2-A8FE-188E54C5A88A\",\r\n  \"odvodnjavanjeId\": \"D3C4EBAA-178C-4D62-AFBC-05819E041021\",\r\n  \"katOpstinaId\": \"2E101EA1-F68D-411C-934D-07970563474D\",\r\n  \"kupacId\": \"875FC830-5370-4D21-82BC-CEB8CE77E5D2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Parcela",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Parcela"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parcela",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"parcelaId\": \"C72893EF-3C2A-44AA-9CDB-44A96AE16642\",\r\n  \"povrsina\": 180,\r\n  \"brojParcele\": \"12367\",\r\n  \"brojListaNepokretnosti\": \"09248\",\r\n  \"kulturaStvStanje\": \"Test\",\r\n  \"klasaStvStanje\": \"Test\",\r\n  \"obradivostStvStanje\": \"Test\",\r\n  \"zZonaStvStanje\": \"Test\",\r\n  \"odvodnjavanjeStvStanje\": \"Test\",\r\n  \"klasaId\": \"F39C9623-C6B6-48CB-B4DD-0340C7431870\",\r\n  \"kulturaId\": \"D89D9175-BDF0-4066-850A-4232318F80BB\",\r\n  \"oblikSvojineId\": \"03E3208E-EB61-40F1-B9D4-36FB3F63E4C6\",\r\n  \"obradivostId\": \"1C48C1D4-122B-4BD2-A8FE-188E54C5A88A\",\r\n  \"odvodnjavanjeId\": \"D3C4EBAA-178C-4D62-AFBC-05819E041021\",\r\n  \"katOpstinaId\": \"2E101EA1-F68D-411C-934D-07970563474D\",\r\n  \"kupacId\": \"875FC830-5370-4D21-82BC-CEB8CE77E5D2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Parcela",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Parcela"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parcela",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Parcela/C72893EF-3C2A-44AA-9CDB-44A96AE16642",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Parcela",
+						"C72893EF-3C2A-44AA-9CDB-44A96AE16642"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PovrsinaAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Povrsina",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Povrsina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PovrsinaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Povrsina/2FF32EB3-A7A1-4E8B-A9E1-8EC51F3ECA4C",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Povrsina",
+						"2FF32EB3-A7A1-4E8B-A9E1-8EC51F3ECA4C"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Povrsina",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"povrsinaZZone\": 90,\r\n  \"parcelaId\": \"2FF32EB3-A7A1-4E8B-A9E1-8EC51F3ECA4C\",\r\n  \"zZonaId\": \"875FC830-5370-4D21-82BC-CEB8CE77E5D2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Povrsina",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Povrsina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Povrsina",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"povrsinaId\": \"4CB42971-D29D-4A17-8C63-A81E30145B19\",\r\n  \"povrsinaZZone\": 60,\r\n  \"parcelaId\": \"2FF32EB3-A7A1-4E8B-A9E1-8EC51F3ECA4C\",\r\n  \"zZonaId\": \"875FC830-5370-4D21-82BC-CEB8CE77E5D2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/Povrsina",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Povrsina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Povrsina",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/Povrsina/4CB42971-D29D-4A17-8C63-A81E30145B19",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"Povrsina",
+						"4CB42971-D29D-4A17-8C63-A81E30145B19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZasticenaZonaAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/ZasticenaZona",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"ZasticenaZona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZasticenaZonaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/ZasticenaZona/7663EBD7-8AD6-4E1A-9ED0-F0B3C07CAA30",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"ZasticenaZona",
+						"7663EBD7-8AD6-4E1A-9ED0-F0B3C07CAA30"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZasticenaZona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zZonaNaziv\": \"4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/ZasticenaZona",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"ZasticenaZona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZasticenaZona",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zZonaId\": \"EDD4355E-C428-4F03-A49E-CCD9C917F630\",\r\n  \"zZonaNaziv\": \"Test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7260/api/ZasticenaZona",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"ZasticenaZona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZasticenaZona",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7260/api/ZasticenaZona/EDD4355E-C428-4F03-A49E-CCD9C917F630",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7260",
+					"path": [
+						"api",
+						"ZasticenaZona",
+						"EDD4355E-C428-4F03-A49E-CCD9C917F630"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

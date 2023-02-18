@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "181dc5e2-ff38-49a3-bcdd-dcc3cacbdd48",
+		"name": "Licitacija.Services.ZalbaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17105301"
+	},
+	"item": [
+		{
+			"name": "RadnjaNaOsnovuZalbe",
+			"item": [
+				{
+					"name": "GetRadnjeNaOsnovuZalbe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/RadnjaNaOsnovuZalbe",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"RadnjaNaOsnovuZalbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateRadnjaNaOsnovuZalbe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"radnjaNaziv\": \"AJDETEST\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7181/api/RadnjaNaOsnovuZalbe",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"RadnjaNaOsnovuZalbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRadnjaNaOsnovuZalbe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"radnjaId\": \"65f93f21-3027-41cc-b41d-9ee0a1f14ae0\",\r\n  \"radnjaNaziv\": \"izmenaaaAJJJ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7181/api/RadnjaNaOsnovuZalbe",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"RadnjaNaOsnovuZalbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRadnjaNaOsnovuZalbeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/RadnjaNaOsnovuZalbe/DF645DD7-3E65-41CD-A1F4-81F936A7DB49",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"RadnjaNaOsnovuZalbe",
+								"DF645DD7-3E65-41CD-A1F4-81F936A7DB49"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRadnjaNaOsnovuZalbe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/RadnjaNaOsnovuZalbe/4CCB6D66-18B2-4791-8AFE-B628A4F7C0AF",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"RadnjaNaOsnovuZalbe",
+								"4CCB6D66-18B2-4791-8AFE-B628A4F7C0AF"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StatusZalbe",
+			"item": [
+				{
+					"name": "GetStatusZalbe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/StatusZalbe",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"StatusZalbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateStatusZalbe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"statusZalbeNaziv\": \"ajmo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7181/api/StatusZalbe",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"StatusZalbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateStatusZalbe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"statusZalbeId\": \"D7FCBCEA-2361-401F-9EF9-F7305F85CBEB\",\r\n  \"statusZalbeNaziv\": \"IZMENAA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7181/api/StatusZalbe",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"StatusZalbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetStatusZalbeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/StatusZalbe/2a17c219-61d9-404b-bb3a-19dee718ecd3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"StatusZalbe",
+								"2a17c219-61d9-404b-bb3a-19dee718ecd3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteStatusZalbe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/StatusZalbe/6E5E8A67-006B-4AC0-89D0-9711006C0D28",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"StatusZalbe",
+								"6E5E8A67-006B-4AC0-89D0-9711006C0D28"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipZalbe",
+			"item": [
+				{
+					"name": "GetTipZalbe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/TipZalbe",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"TipZalbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateTipZalbe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipZalbeNaziv\": \"Dodatno\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7181/api/TipZalbe",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"TipZalbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTipZalbe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipZalbeId\": \"648e49c8-4e83-475b-b9f6-88262f75a6c6\",\r\n  \"tipZalbeNaziv\": \"ajmoGAS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7181/api/TipZalbe",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"TipZalbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTipZalbeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/TipZalbe/018AC715-4588-4934-BB2D-8BB2F4D1049A",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"TipZalbe",
+								"018AC715-4588-4934-BB2D-8BB2F4D1049A"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTipZalbe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/TipZalbe/B4947A43-42E4-4D20-A10B-169C5089AAC6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"TipZalbe",
+								"B4947A43-42E4-4D20-A10B-169C5089AAC6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Zalba",
+			"item": [
+				{
+					"name": "GetZalbe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/Zalba",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"Zalba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateZalba",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"datumPodnosenja\": \"2023-02-18\",\r\n  \"datumResenja\": \"2023-02-18\",\r\n  \"razlogZalbe\": \"TestIDEGAs\",\r\n  \"obrazlozenje\": \"Test\",\r\n  \"brojNadmetanja\": \"Test\",\r\n  \"brojOdluke\": \"Test\",\r\n  \"brojResenja\": \"Test\",\r\n  \"statusZalbeId\": \"6E5E8A67-006B-4AC0-89D0-9711006C0D28\",\r\n  \"tipZalbeId\": \"10EA64F1-07AB-478D-B8F3-073BCE4610F8\",\r\n  \"radnjaId\": \"4CCB6D66-18B2-4791-8AFE-B628A4F7C0AF\",\r\n  \"kupacId\": \"2C1051D2-0DDF-41A9-BA08-24070A50F4B3\",\r\n  \"fazaId\": \"2C1051D2-0DDF-41A9-BA08-24070A50F4B3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7181/api/Zalba",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"Zalba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateZalba",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"zalbaId\": \"6E5E8A67-006B-4AC0-89D0-9711006C0D28\",\r\n  \"datumPodnosenja\": \"2023-02-18\",\r\n  \"datumResenja\": \"2023-02-18\",\r\n  \"razlogZalbe\": \"IZMENA\",\r\n  \"obrazlozenje\": \"string\",\r\n  \"brojNadmetanja\": \"string\",\r\n  \"brojResenja\": \"string\",\r\n  \"brojOdluke\": \"string\",\r\n  \"statusZalbeId\": \"6E5E8A67-006B-4AC0-89D0-9711006C0D28\",\r\n  \"tipZalbeId\": \"10EA64F1-07AB-478D-B8F3-073BCE4610F8\",\r\n  \"radnjaId\": \"4CCB6D66-18B2-4791-8AFE-B628A4F7C0AF\",\r\n  \"kupacId\": \"2C1051D2-0DDF-41A9-BA08-24070A50F4B3\",\r\n  \"fazaId\": \"2C1051D2-0DDF-41A9-BA08-24070A50F4B3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7181/api/Zalba",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"Zalba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteZalba",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/Zalba/2c1051d2-0ddf-41a9-ba08-24070a50f4b3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"Zalba",
+								"2c1051d2-0ddf-41a9-ba08-24070a50f4b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetZalbaById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7181/api/Zalba/d67f346f-3aa6-4b0a-b549-20772472cf4d",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7181",
+							"path": [
+								"api",
+								"Zalba",
+								"d67f346f-3aa6-4b0a-b549-20772472cf4d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "e7fc67f4-482b-46d1-a26c-d898e231b060",
+		"name": "Services.Licitacija.PredradnjeNadmetanjaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16600239"
+	},
+	"item": [
+		{
+			"name": "CreatePredradnjaNadmetanja",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"predradnjeNadmetanjaNaziv\": \"string\",\r\n  \"fazaId\": \"F47B25C1-24C4-43C3-BD57-48322CA94CC6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7149/api/predradnjeNadmetanja",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7149",
+					"path": [
+						"api",
+						"predradnjeNadmetanja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePredradnjaNadmetanja",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"predradnjeNadmetanjaId\": \"18da5454-f241-4b98-9414-023e2139af66\",\r\n    \"predradnjeNadmetanjaNaziv\": \"PrdradnjaIzmenjeno\",\r\n    \"fazaId\": \"f47b25c1-24c4-43c3-bd57-48322ca94cc6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7149/api/predradnjeNadmetanja",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7149",
+					"path": [
+						"api",
+						"predradnjeNadmetanja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPredradnjeNadmetanja",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7149/api/predradnjeNadmetanja",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7149",
+					"path": [
+						"api",
+						"predradnjeNadmetanja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPredradnjaNadmetanjaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7149/api/predradnjeNadmetanja/18da5454-f241-4b98-9414-023e2139af66",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7149",
+					"path": [
+						"api",
+						"predradnjeNadmetanja",
+						"18da5454-f241-4b98-9414-023e2139af66"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPredradnjaNadmetanjaOsnovneInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7149/api/predradnjeNadmetanja/predradnjaOsnovneInfo/18da5454-f241-4b98-9414-023e2139af66",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7149",
+					"path": [
+						"api",
+						"predradnjeNadmetanja",
+						"predradnjaOsnovneInfo",
+						"18da5454-f241-4b98-9414-023e2139af66"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePredradnjaNadmetanja",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7149/api/predradnjeNadmetanja/18da5454-f241-4b98-9414-023e2139af66",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7149",
+					"path": [
+						"api",
+						"predradnjeNadmetanja",
+						"18da5454-f241-4b98-9414-023e2139af66"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
