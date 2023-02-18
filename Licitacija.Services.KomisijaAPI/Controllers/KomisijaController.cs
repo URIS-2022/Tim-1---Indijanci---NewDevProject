@@ -116,7 +116,7 @@ namespace Licitacija.Services.KomisijaAPI.Controllers
         /// </summary>
         /// <param name="AddKomisijaDto">Model komisije</param>
         /// <returns>Potvrda o kreiranoj komisiji.</returns>
-        /// <response code="201">Vraća kreirani komisiju</response>
+        /// <response code="201">Vraća kreiranu komisiju</response>
         /// <response code="500">Serverska greška</response>
         [HttpPost]
         [Consumes("application/json")]

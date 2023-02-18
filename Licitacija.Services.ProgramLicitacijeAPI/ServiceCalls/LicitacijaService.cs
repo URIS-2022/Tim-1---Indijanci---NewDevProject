@@ -1,26 +1,26 @@
-﻿using Licitacija.Services.KomisijaAPI.Models.ExchangeDtos;
+﻿using Licitacija.Services.ProgramLicitacijeAPI.Models.ExchangeDtos;
 using Newtonsoft.Json;
 
-namespace Licitacija.Services.KomisijaAPI.ServiceCalls
+namespace Licitacija.Services.PredradnjeNadmetanjaAPI.ServiceCalls
 {
-    public class PredradnjaNadmetanjaService : IPredradnjaNadmetanjaService
+    public class LicitacijaService : ILicitacijaService
     {
-
         private readonly IConfiguration _configuration;
 
-        public PredradnjaNadmetanjaService(IConfiguration configuration)
+        public LicitacijaService(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public async Task<PredradnjaNadmetanjaDto?> GetPredradnjaNadmetanja(Guid? predradnjaNadmetanjaId)
+        public async Task<FazaDto?> GetFazaById(Guid? fazaid)
         {
             using HttpClient client = new();
-            Uri url = new($"{_configuration["Services:PredradnjaNadmetanjaService"]}api/predradnjeNadmetanja/predradnjaOsnovneInfo/{predradnjaNadmetanjaId}");
+            Uri url = new($"{_configuration["Services:LicitacijaService"]}api/FazaLicitacije/FazaLicitacijeBasic/" + fazaid);
 
             try
             {
                 var response = await client.GetAsync(url);
+
                 if (response.IsSuccessStatusCode)
                 {
                     var responseString = await response.Content.ReadAsStringAsync();
@@ -30,8 +30,8 @@ namespace Licitacija.Services.KomisijaAPI.ServiceCalls
                         return default;
                     }
 
-                    PredradnjaNadmetanjaDto? predradnjaNadmetanja = JsonConvert.DeserializeObject<PredradnjaNadmetanjaDto>(responseString);
-                    return predradnjaNadmetanja;
+                    var faza = JsonConvert.DeserializeObject<FazaDto>(responseString);
+                    return faza;
                 }
                 return default;
             }
@@ -39,6 +39,7 @@ namespace Licitacija.Services.KomisijaAPI.ServiceCalls
             {
                 return null;
             }
+            
         }
     }
 }
