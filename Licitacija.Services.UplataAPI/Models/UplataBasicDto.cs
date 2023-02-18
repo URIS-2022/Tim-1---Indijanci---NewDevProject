@@ -1,15 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using Licitacija.Services.UplataAPI.Models;
-
-namespace Licitacija.Services.UplataAPI.Entities
+﻿namespace Licitacija.Services.UplataAPI.Models
 {
-    public class Uplata
+    public class UplataBasicDto
     {
         /// <summary>
         /// ID uplate.
         /// </summary>
-        [Key]
         public Guid UplataId { get; set; }
 
         /// <summary>
@@ -25,7 +20,6 @@ namespace Licitacija.Services.UplataAPI.Entities
         /// <summary>
         /// Iznos uplate.
         /// </summary>
-        [Column(TypeName = "decimal(18,4)")]
         public decimal Iznos { get; set; }
 
         /// <summary>
@@ -37,20 +31,5 @@ namespace Licitacija.Services.UplataAPI.Entities
         /// Datum uplate.
         /// </summary>
         public DateTime DatumUplate { get; set; }
-
-        /// <summary>
-        /// ID kursa.
-        /// </summary>
-        public Guid? KursId { get; set; }
-
-        /// <summary>
-        /// Objekat kursa.
-        /// </summary>
-        public Kurs? Kurs { get; set; }
-
-        /// <summary>
-        /// Strani ključ kupca.
-        /// </summary>
-        public Guid KupacId { get; set; }
     }
 }

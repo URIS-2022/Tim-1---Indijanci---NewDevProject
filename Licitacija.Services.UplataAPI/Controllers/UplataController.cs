@@ -198,5 +198,39 @@ namespace Licitacija.Services.UplataAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
+
+        /// <summary>
+        /// Vraća jednu uplatu na osnovu ID-ja uplate.
+        /// </summary>
+        /// <param name="id">ID uplate</param>
+        /// <returns>Jedna uplata.</returns>
+        /// <response code="200">Vraća traženu uplatu</response>
+        /// <response code="404">Nije pronađena nijedna uplata sa datim ID uplate</response>
+        /// <response code="500">Serverska greška</response>
+        [HttpGet("uplataZaUgovor/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<UplataBasicDto> GetUplataZaUgovor(Guid id)
+        {
+            try
+            {
+                var uplata = _uplataRepository.GetUplata(id);
+
+                if (uplata == null)
+                {
+                    return NotFound();
+                }
+
+                var result = _mapper.Map<UplataBasicDto>(uplata);
+
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+
+        }
     }
 }
