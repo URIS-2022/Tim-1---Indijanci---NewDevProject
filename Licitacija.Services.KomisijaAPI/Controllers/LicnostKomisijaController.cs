@@ -16,7 +16,6 @@ namespace Licitacija.Services.KomisijaAPI.Controllers
     public class LicnostKomisijaController : ControllerBase
     {
         private readonly ILicnostKomisijaRepository _repository;
-        private readonly IMapper _mapper;
 
         /// <summary>
         /// Licnost kontroler.
@@ -24,7 +23,6 @@ namespace Licitacija.Services.KomisijaAPI.Controllers
         public LicnostKomisijaController(ILicnostKomisijaRepository repository, IMapper mapper)
         {
             _repository = repository;
-            _mapper = mapper;
         }
 
         /// <summary>

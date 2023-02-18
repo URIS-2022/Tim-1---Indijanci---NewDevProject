@@ -60,9 +60,8 @@ namespace Licitacija.Services.UplataAPI.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
-
-            if (!regexItem.IsMatch(BrojRacuna) || !regexItem.IsMatch(PozivNaBroj))
+            if (!Regex.IsMatch(BrojRacuna, "^[a-zA-Z0-9 ]*$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)) ||
+                !Regex.IsMatch(PozivNaBroj, "^[a-zA-Z0-9 ]*$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
             {
                 yield return new ValidationResult(
                   "Nije moguće izmeniti uplatu zato sto neki unosi sadrže specijalne karaktere.",
