@@ -29,13 +29,12 @@ namespace Licitacija.Services.UplataAPI.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
 
-            if (!regexItem.IsMatch(Valuta))
+            if (!Regex.IsMatch(Valuta, "^[a-zA-Z0-9 ]*$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
             {
                 yield return new ValidationResult(
-                  "Nije moguće izmeniti kurs zbog neispravne valute.",
-                  new[] { "KursUpdateDTO" });
+                  "Nije moguće kreirati kurs zbog neispravne valute.",
+                  new[] { "KursCreateDTO" });
 
             }
         }
